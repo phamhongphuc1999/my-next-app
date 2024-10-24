@@ -14,7 +14,7 @@ export default function LayoutWrapper({ children }: Props) {
       <div className="bg-black-200">
         <div className="flex h-full flex-col justify-between pt-[55px]">
           <div className="min-h-screen">{children}</div>
-          <div className="flex h-[50px] w-full flex-col items-center py-[8px]">
+          <div className="flex h-[50px] w-full flex-col items-center border-t-black-350 bg-grey-50 py-[8px]">
             <Typography sx={{ textAlign: 'center' }}>
               COPYRIGHT © {new Date().getFullYear()}&nbsp;
             </Typography>

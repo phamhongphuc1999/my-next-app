@@ -7,14 +7,6 @@ interface Props extends BoxProps {
 }
 
 export default function CssBreadcrumbs({ configs, ...props }: Props) {
-  function DefaultFormatter(label: string) {
-    const textArray = label.split(' ');
-    let result = '';
-    for (const subText of textArray)
-      result += subText[0].toUpperCase() + subText.substring(1).toLowerCase() + ' ';
-    const _len = result.length;
-    return result.slice(0, _len - 1);
-  }
   return (
     <Box {...props}>
       <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
@@ -23,12 +15,12 @@ export default function CssBreadcrumbs({ configs, ...props }: Props) {
           return item.link ? (
             <Link key={index} href={item.link} className="no-underline">
               <Typography color="textSecondary">
-                {formatter ? formatter(item.label) : DefaultFormatter(item.label)}
+                {formatter ? formatter(item.label) : item.label}
               </Typography>
             </Link>
           ) : (
             <Typography color="textSecondary" key={index}>
-              {formatter ? formatter(item.label) : DefaultFormatter(item.label)}
+              {formatter ? formatter(item.label) : item.label}
             </Typography>
           );
         })}
