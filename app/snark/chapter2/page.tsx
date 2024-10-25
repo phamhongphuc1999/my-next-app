@@ -25,7 +25,7 @@ export default function Chapter2() {
       </Link>
       <BlindEvaluation />
       <Link href="/snark/chapter3" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p>Part 3</p>
           <KeyboardDoubleArrowRightIcon />
         </div>

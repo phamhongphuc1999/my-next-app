@@ -25,7 +25,7 @@ export default function Chapter3() {
       </Link>
       <KnowledgeCoefficient />
       <Link href="/snark/chapter4" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p>Part 4</p>
           <KeyboardDoubleArrowRightIcon />
         </div>
@@ -33,11 +33,11 @@ export default function Chapter3() {
       <div className="mt-4">
         <Typography variant="h4">References</Typography>
         <Link
-          href="https://electriccoin.co/blog/snark-explain3/"
+          href="https://electriccoin.co/blog/snark-explain4/"
           target="_blank"
           className="mt-[1rem]"
         >
-          https://electriccoin.co/blog/snark-explain3/
+          https://electriccoin.co/blog/snark-explain4/
         </Link>
       </div>
     </CommonContainer>

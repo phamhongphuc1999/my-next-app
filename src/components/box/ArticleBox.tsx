@@ -15,7 +15,10 @@ export function ArticleTitle({
   ...props
 }: AppHTMLProps<HTMLParagraphElement> & CommonProps) {
   return (
-    <p {...props} className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
+    <p
+      {...props}
+      className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
+    >
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
     </p>
   );

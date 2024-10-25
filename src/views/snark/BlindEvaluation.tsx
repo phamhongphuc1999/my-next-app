@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
 import { Typography } from '@mui/material';
@@ -7,94 +9,100 @@ export default function BlindEvaluation() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle>
-        In this post, we introduce the concept of "blind evaluation" of a polynomial, which is
-        crucial for SNARK (Succinct Non-Interactive Argument of Knowledge) constructions. Before
-        diving into blind evaluation, let's recall some basics of polynomials and homomorphic hiding
-        (HH), which was discussed in Part 1.
+        {
+          'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See Part 1 for an explanation of HH.) In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'We denote by $\\mathbb{F}_p$ the field of size $p$; that is, the element of $\\mathbb{F}_p$ are {0,..., $p$ - 1}, and addition and multiplication are done mod $p$, as explained in Part 1.'
+        }
       </ArticleTitle>
       <Typography variant="h4">Polynomials and Linear Combinations</Typography>
-      <ArticleTitle isMath isFirst>
-        {
-          'A polynomial $P(X)$ of degree $d$ over a finite field $\\mathbb{F}_p$ (where $\\mathbb{F}_p$ consist of the elements {0,...,p - 1}) and arithmetic is done module $p$ is expressed as:'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath className="text-center">
-        {'$P(X) = a_0 + a_1X + a_2X^2 + ... + a_dX^d$'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          'Where $a_0,...,a_d \\in \\mathbb{F}_p$ are coefficients. To evaluate the polynomial at a special point $s \\in \\mathbb{F}_p$, we substitute $s$ for $X$, obtaining:'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath className="text-center">
-        {'$P(s) = a_0 + a_1s + a_2s^2 + ... + a_ds^d$'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          'Thus, $P(s)$ is a linear combination of the terms $1, s, s^2,...,s^d$, where the weights are the coefficients $a_0,...,a_d$.'
-        }
-      </ArticleTitle>
-      <Typography variant="h4">Homomorphic Hiding (HH)</Typography>
       <ArticleTitle isFirst isMath>
         {
-          'Homomorphic Hiding $E(x)$ (introduced in Part I) is defined as $E(x) = g^x$, where $g$ is a generator of a cyclic group with a hard discrete logarithm problem. This HH schema "supports addition," meaning we can compute $E(x + y)$ from $E(x)$ and $E(y)$. Additionally, HH supports linear combinations, so given $a, b, E(x), E(y)$, we can compute $E(ax + by)$ as:'
+          'Recall that a polynomial $P$ of degree $d$ over $\\mathbb{F}_p$ is an expression of the form'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath className="text-center">
+        {'$P(X) = a_0 + a_1X + a_2X^2 +...+a_dX^d$ for some $a_0,...,a_d \\in \\mathbb{F}_p$.'}
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'We can evaluate $P$ at a point $s \\in \\mathbb{F}_p$ by substituting $s$ for $X$ and computing the resultant sum'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath className="text-center">
+        {'$P(s) = a_0 + a_1s + a_2s^2 +...+a_ds^d$'}
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'For someone who knows $P$, the value $P(s)$ is a linear combination of the values 1, $s$,...,$s^d$, where linear combination just means "weighted sum"; in the case of $P(s)$, the "weights" are $a_0,...,a_d$.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'In the last post, we saw the HH $E$ defined by $E(x) = g^x$, where $g$ was a generator of a group with a hard discrete log problem. We mentioned that this HH “supports addition” in the sense that $E(x + y)$ can be computed from $E(x)$ and $E(y)$. We note here that it also "supports linear combinations", meaning that, given $a, b, E(x), E(y)$, we can compute $E(ax + by)$. This is simply because'
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
         {'$E(ax + by) = g^{ax + by} = g^{ax}g^{by} = (g^x)^a(g^y)^b = E(x)^aE(y)^b$'}
       </ArticleTitle>
-      <ArticleTitle>
-        {
-          'This property enables us to perform operations on encrypted values without revealing the underlying data.'
-        }
-      </ArticleTitle>
       <Typography variant="h4">Blind Evaluation of a Polynomial</Typography>
       <ArticleTitle isMath isFirst>
         {
-          'Suppose Alice has a polynomial $P$ of degree $d$, and Bob has a secret point $s \\in \\mathbb{F}_p$, that he chose randomly. Bob want to compute the HH of $P(s)$, denote $E(P(s))$, but without revealing $s$ to Alice and without learning the full polynomial $P$. this setup leads to the bind evaluation problem.'
+          'Suppose Alice has a polynomial $P$ of degree $d$, and Bob has a point $s \\in \\mathbb{F}_p$ that he chose randomly. Bob wishes to learn $E(P(s))$,i.e., the HH of the evaluation of $P$ at $s$. Two simple ways to do this are:'
         }
       </ArticleTitle>
-      <ArticleTitle>Two simple but unsuitable options are:</ArticleTitle>
-      <ArticleTitle isMath>
-        {'1. Alice sends $P$ to Bob, who computes $E(P(s))$ himself.'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {'2. Bob sends $s$ to Alice, who computes $E(P(s))$ and returns it.'}
-      </ArticleTitle>
-      <ArticleTitle>However, in blind evaluation:</ArticleTitle>
-      <ArticleUL className="list-disc">
-        <ArticleLI isMath>{'Bob must not reveal $s$ to Alice.'}</ArticleLI>
-        <ArticleLI isMath>{'Alice must not reveal $P$ to Bob.'}</ArticleLI>
+      <ArticleUL className="list-decimal">
+        <ArticleLI isMath className="ml-[2rem]">
+          {'Alice sends $P$ to Bob, and he computes $E(P(s))$ by himself.'}
+        </ArticleLI>
+        <ArticleLI isMath className="ml-[2rem]">
+          {'Bob sends $s$ to Alice; she computes $E(P(s))$ and sends it to Bob.'}
+        </ArticleLI>
       </ArticleUL>
-      <ArticleTitle>Using HH, we can solve this problem efficiently:</ArticleTitle>
-      <ArticleTitle isMath>
-        1. <span className="font-[500]">Step 1:</span>{' '}
-        {'Bob sends Alice the hiding $E(1), E(s),...,E(s^d)$.'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        2. <span className="font-[500]">Step 2:</span>{' '}
-        {'Alice computes $E(P(s))$ using these values and sends $E(P(s))$ back to Bob.'}
-      </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Since HH supports linear combinations, Alice can compute $E(P(s))$ as a linear combination of the values Bob sent her without learning $s$. Similarly, Bob only receives $E(P(s))$, not the actual polynomial $P$, thus presenting Alice's privacy."
+          "However, in the blind evaluation problem, we want Bob to learn $E(P(s))$ without learning $P$, which precludes the first option; and, most importantly, we don't want Alice to learn $s$, which rules out the second"
+        }
+        <a href="#snark2_1" className="cursor-pointer">
+          [1].
+        </a>
+      </ArticleTitle>
+      <ArticleTitle>Using HH, we can perform blind evaluation as follows:</ArticleTitle>
+      <ArticleUL className="list-decimal">
+        <ArticleLI isMath className="ml-[2rem]">
+          {'Bob sends to Alice the hidings $E(1)$, $E(s)$,...,$E(s^d)$.'}
+        </ArticleLI>
+        <ArticleLI isMath className="ml-[2rem]">
+          {
+            'Alice computes $E(P(s))$ from the elements sent in the first step, and sends $E(P(s))$ to Bob. Alice can do this since $E$ supports linear combinations, and $P(s)$  is a linear combination of 1, $s$,...,$s^d$.'
+          }
+        </ArticleLI>
+      </ArticleUL>
+      <ArticleTitle isMath>
+        {'Note that, as only hidings were sent, neither Alice learned $s$ '}
+        <a href="#snark2_2" className="cursor-pointer">
+          [2]
+        </a>
+        {', nor did Bob learn $P$.'}
+      </ArticleTitle>
+      <Typography variant="h4">Why Is This Useful?</Typography>
+      <ArticleTitle isFirst>
+        {
+          'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a “correct” polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that “different polynomials are different at most points.”'
         }
       </ArticleTitle>
-      <Typography variant="h4">Why Blind Evaluation is Useful</Typography>
-      <ArticleTitle isFirst>
-        Blind evaluation plays a key role in SNARKs, where a verifier wants to check that a prover
-        knows a certain polynomial. By having the prover evaluate their polynomial at a random,
-        secret point chosen by the verifier, the protocol ensures the prover will output incorrect
-        results with high probability if their polynomial is wrong. This relies on the{' '}
-        <span className="font-[500]">Schwartz-Zippel Lemma</span>, which states that two different
-        polynomials agree at only a few points.
+      <ArticleTitle isMath id="snark2_1">
+        {
+          "[1]The main reason we don't want to send $P$ to Bob is simply that it is large, $d$ + 1 elements, where, for example, $d \\approx 2000000$ in the current Zcash protocol; this ultimately has to do with the 'Succinct' part of SNARKs. It is true that the sequence of hidings Bob is sending to Alice above is just as long, but it will turn out this sequence can be 'hard-coded' in the parameters of the system, whereas Alice's message will be different for each SNARK proof."
+        }
       </ArticleTitle>
-      <Typography variant="h4">Conclusion</Typography>
-      <ArticleTitle isFirst>
-        Blind evaluation allows for secure polynomial evaluation without revealing sensitive
-        information. It's a fundamental technique in zk-SNARKs, ensuring privacy while maintaining
-        the integrity of the verification process. Future posts will delve deeper into its role
-        within SNARK protocols.
+      <ArticleTitle isMath id="snark2_2">
+        {
+          '[2]Actually, the hiding property only guarantees $s$ not being recoverable from $E(s)$, but here we want to claim it is also not recoverable from the sequence $E(s),...,E(s^d)$ that potentially contains more information about $s$. This follows from the $d$-power Diffie-Hellman assumption, which is needed in several SNARK security proofs.'
+        }
       </ArticleTitle>
     </div>
   );

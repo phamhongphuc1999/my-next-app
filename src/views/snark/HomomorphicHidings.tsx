@@ -1,114 +1,122 @@
+'use client';
+
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
-import { Typography } from '@mui/material';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 
 export default function HomomorphicHidings() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle>
-        Constructions of zk-SNARKs involve a careful combination of several ingredients; fully
-        understanding how these ingredients all work together can take a while.
+        {
+          'Constructions of zk-SNARKs involve a careful combination of several ingredients; fully understanding how these ingredients all work together can take a while.'
+        }
       </ArticleTitle>
       <ArticleTitle>
-        Among these components, <span className="font-[500]">Homomorphic Hiding (HH)</span> plays a
-        particularly prominent role. In this article, we will explain what an HH is, why it's
-        useful, and how it's constructed.
-      </ArticleTitle>
-      <Typography variant="h4">Homomorphic Hiding (HH)</Typography>
-      <ArticleTitle isMath isFirst>
-        An HH, denoted as {'$E(x)$'}, is a function applied to a number x x that satisfies the
-        following properties:
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        1. For most values of x, given {'$E(x)$'}, it is difficult to recover x.
-      </ArticleTitle>
-      <ArticleTitle isMath={true}>
-        2. Different inputs lead to different outputs—so if {'$x \\neq y$'}, then{' '}
-        {'$ E(x) \\neq E(y) $'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        3. Given {'$E(x)$ and $E(y)$'}, one can generate the HH of arithmetic expressions involving{' '}
-        {'$x$ and $y$'}. For instance, it is possible to compute{' '}
-        {'$E(x + y)$ from $E(x)$ and $E(y)$'}
-      </ArticleTitle>
-      <Typography variant="h4">Example of HH in Zero-Knowledge Proofs</Typography>
-      <ArticleTitle isMath isFirst>
         {
-          'To illustrate why HH is useful for zero-knowledge proofs, consider a simple example. Alice wants to prove to Bob that she knows numbers $x$ and $y$ such as $x + y = 7$. While this is a basic example, it helps explain the concept.'
+          'If I had to choose one ingredient whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>1. Alice send {'$E(x)$ and $E(y)$'} to Bob.</ArticleTitle>
-      <ArticleTitle isMath>
-        2. Using the properties of HH, Bob computes {'$E(x + y)$'} from these values.
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        3. Bob also computes {'$E(7)$'} and checks whether {'$E(x + y) = E(7)$'}. He accepts Alice's
-        proof only if this condition holds.
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        Because different inputs lead to distinct outputs under HH, Bob can trust the proof only if
-        Alice sent the correct hidings of {'$x$ and $y$ such as $x + y = 7$'}. Importantly, Bob
-        doesn’t learn the values of {'$x$ and $y$'}; he only sees their encrypted forms.
-      </ArticleTitle>
-      <Typography variant="h4">Constructing Homomorphic Hiding</Typography>
-      <ArticleTitle isFirst>
-        To construct an HH, we look at finite groups instead of regular integers. We define
-        arithmetic using modular operations.
-      </ArticleTitle>
-      <ArticleTitle isMath>
+        <a href="#snark1_1">[1]</a>
         {
-          'Let $n$ be an integer, and consider the operation $A$ mod $n$, which gives the remainder when $A$ is divided by $n$. For example, 9 mod 7 = 2 and 13 mod 12 = 1. We use this modular operation to define addition on numbers in the set {0,..., n - 1}. This is called the group $\\mathbb{Z}_n$, where addition is done modulo $n$.'
+          '. In this post, we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
+        {'An HH $E(x)$ of a number $x$ is a function satisfying the following properties:'}
+      </ArticleTitle>
+      <ArticleUL className="list-disc">
+        <ArticleLI isMath>{"For most $x$'s, given $E(x)$ it is hard to find x."}</ArticleLI>
+        <ArticleLI isMath>
+          {'Different inputs lead to different outputs - so if $x \\neq y$,then $E(x) \\neq E(y)$.'}
+        </ArticleLI>
+        <ArticleLI isMath>
+          {
+            'If someone knows $E(x)$ and $E(y)$, they can generate the HH of arithmetic expressions in $x$ and $y$. For example, they can compute $E(x+y)$ from $E(x)$ and $E(y)$.'
+          }
+        </ArticleLI>
+      </ArticleUL>
+      <ArticleTitle isMath>
         {
-          'For the prime $p$, we also define multiplication modulo $p$ over set {0,..., p - 1}, forming the group $\\mathbb{Z}^{*}_p$. In this group, the multiplication of two numbers is followed by a modulo $p$ operation. For example 2 x 4 = 1 mod 7.'
+          "Here's a toy example of why HH is useful for Zero-Knowledge proofs: Suppose Alice wants to prove to Bob she knows numbers"
+        }
+        {
+          " $x,y$ such as $x + y = 7$ (of course, it's not too exciting knowing such $x, y$, but this is a good example to explain the concept with)."
         }
       </ArticleTitle>
-      <ArticleTitle isMath className="text-[20px] font-[700]">
-        {'Key Properties of $\\mathbb{Z}^{*}_p$'}
-      </ArticleTitle>
-      <ArticleTitle isFirst isMath>
-        1. <span className="font-[500]">cyclic Group: </span>{' '}
+      <ArticleUL className="list-disc">
+        <ArticleLI isMath>{'Alice sends $E(x)$ and $E(y)$ to Bob.'}</ArticleLI>
+        <ArticleLI isMath>
+          {'Bob computes $E(x+y)$ from these values(which he is able to do since $E$ is an HH).'}
+        </ArticleLI>
+        <ArticleLI isMath>
+          {
+            "Bob also computes $E(7)$, and now checks whether $E(x+y) = E(7)$. He accepts Alice's proof only if equality holds."
+          }
+        </ArticleLI>
+      </ArticleUL>
+      <ArticleTitle isMath>
         {
-          'There exists a generator $g$ such that every element of $\\mathbb{Z}^{*}_p$ can be written as $g^a$ for some $a$ in {0,...,p - 2}, with $g^0 = 1$.'
+          'As different inputs are mapped by $E$ to different hidings, Bob indeed accepts the proof only if Alice sent hidings of $x, y$ such as $x + y = 7$. On the other hand, Bob does not learn $x$ and $y$, as he just has access to their hidings.'
+        }
+        <a href="#snark1_2">[2]</a>
+      </ArticleTitle>
+      <ArticleTitle>
+        Now let's see an example of how such hidings are constructed. We actually cannot construct
+        them for regular integers with regular addition but need to look at finite groups:
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'Let $n$ be some integer. When we write $A$ mod $n$ for an integer $A$, we mean taking the remainder of $A$ after dividing by $n$. For example, 9 mod 7 = 2 and 13 mod 12 = 1. We can use the mod $n$ operation to define an addition operation on the numbers {0,...,$n$ - 1}. We do regular addition but then apply (mod $n$) on the result to get back a number in the range {0,...,$n$ - 1}. We sometimes write (mod $n$) on the right to clarify we are using this type of addition. For example, 2 + 3 = 1 (mod 4). We call the set of elements {0,...,$n$ - 1} together with this addition operation the group $\\mathbb{Z}_n$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
-        2. <span className="font-[500]">Discrete Logarithm Problem: </span>{' '}
-        {'It is computationally difficult to find $a$ given $g^a = h$ mod $p$ for a large $p$.'}
+        {
+          'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set {1,...,$p$ - 1}- by performing regular multiplication of integers, and then taking the result mod $p$'
+        }
+        <a href="#snark1_3">[3]</a>
+        {'. For example, 2 * 4 = 1(mod 7).'}
       </ArticleTitle>
       <ArticleTitle isMath>
-        3. <span className="font-[500]">Homomorphic Property</span>{' '}
-        {'For $a, b \\in {0,..., p - 2}$, we have $g^ag^b = g^{a + b\\: mod\\: p - 1}$.'}
-      </ArticleTitle>
-      <Typography variant="h4">Constructing an HH That Supports Addition</Typography>
-      <ArticleTitle isFirst isMath>
         {
-          'Now, we define an HH that allows us to compute $E(x + y)$ from $E(x)$ and E(y). Assume the input $x$ comes from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,p - 2}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH:'
+          'This set of elements together with this operation is referred to as the group $\\mathbb{Z}_p^* \\mathbb{Z}_p^*$ has the following useful properties:'
         }
       </ArticleTitle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>
-          <span className="font-[500]">Uniqueness:</span>{' '}
-          {"Different $x^{'}$ in $\\mathbb{Z}_{p - 1}$ are mapped to distinct outputs."}
+          {
+            'It is a cyclic group; which means that there is some element $g$ in $\\mathbb{Z}_p^*$ called a generator such that all elements of $\\mathbb{Z}_p^*$ can be written as $g^a$ for some $a$ in {0,...,$p$ - 2}, where we define $g^0 = 1$.'
+          }
         </ArticleLI>
-        <ArticleLI>
-          <span className="font-[500]">Hiding:</span>{' '}
-          {'Given $E(x) = g^x$, it is hard to recover $x$'}
+        <ArticleLI isMath>
+          {
+            'The discrete logarithm problem is believed to be hard in $\\mathbb{Z}_p^*$. This means that, when $p$ is large, given an element $h$ in $\\mathbb{Z}_p^*$ it is difficult to find the integer $a$ in {0,...,$p$-2} such that $g^a = h$ (mod $p$).'
+          }
         </ArticleLI>
-        <ArticleLI>
-          <span className="font-[500]">Addition:</span>{' '}
-          {'Given $E(x)$ and $E(y)$, we can compute $E(x + y)$ as:'}
+        <ArticleLI isMath>
+          {
+            'As "exponents add up when elements are multiplied", we have for $a, b$ in {0,...,$p$ - 2},$g^ag^b = g^{a + b \\: mod \\: p - 1}$'
+          }
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle isMath className="text-center">
-        {'$E(x + y) = g^{x + y \\: mod \\: p - 1} = g^xg^y = E(x)E(y)$'}
+      <ArticleTitle isMath>
+        {
+          "Using these properties, we now construct an HH that 'supports addition' - meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) = g^{x + y \\:mod\\: p - 1} = g^xg^y = E(x)E(y)$."
+        }
       </ArticleTitle>
-      <ArticleTitle>
-        This construction provides a homomorphic hiding that supports addition, a crucial component
-        in zk-SNARKs and other cryptographic protocols.
+      <ArticleTitle isMath id="snark1_1">
+        {
+          "[1] Homomorphic hiding is not a term formally used in cryptography and is introduced here for didactic purposes. It is similar to but weaker than the well-known notion of a computationally hiding commitment. The difference is that an HH is a deterministic function of the input, whereas a commitment uses additional randomness. As a consequence, HHs essentially 'hide most $x$'s' whereas commitments 'hide every $x$'."
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath id="snark1_2">
+        {
+          "[2] Bob does learn some information about $x$ and $y$. For example, he can choose a random $x^{'}$ and check whether $x = x^{'}$ by computing $E(x^{'})$. For this reason, the above protocol is not really a Zero-Knowledge protocol and is only used here for explanatory purposes. In fact, as we shall see in later posts, HH is ultimately used in SNARKs to conceal verifier challenges rather than prover secrets."
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath id="snark1_3">
+        {
+          '[3] When $p$ is not a prime, it is problematic to define multiplication this way. One issue is that the multiplication result can be zero even when both arguments are not zero. For example, when $p = 4$, we can get 2 * 2 = 0 (mod 4).'
+        }
       </ArticleTitle>
     </div>
   );

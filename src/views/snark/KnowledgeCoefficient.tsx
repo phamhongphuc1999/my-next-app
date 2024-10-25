@@ -1,100 +1,133 @@
+'use client';
+
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
-import { ArticleTitle } from 'src/components/box/ArticleBox';
+import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 
 export default function KnowledgeCoefficient() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle isMath>
         {
-          'In Part 2, we discussed how Alice could evaluate the hidden result $E(P(s))$ of her polynomial $P$ at a point $s$ chosen by Bob. This process was "blind" because Alice did not learn the value of $s$.'
+          'In Part 2, we saw how Alice can blindly evaluate the hiding $E(P(s))$ of her polynomial $P$ of degree $d$, at a point $s$ belong to Bob. We called this “blind” evaluation because Alice did not learn $s$ in the process.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'However, a crucial aspect was missing in that protocol. Although Alice could compute $E(P(s))$, there was no guarantee she would send Bob the correct value rather than some unrelated one. To ensure Alice follows the protocol and provides $E(P(s))$ truthfully, we need a mechanism to enforce this behavior. This post introduces a fundamental tool for that purpose, the'
-        }{' '}
-        <span className="font-[500]">Knowledge of Coefficient (KC) Test</span>{' '}
-        {'which we’ll expand upon in Part 4.'}
-      </ArticleTitle>
-      <Typography variant="h4">Setting Up the KC Test</Typography>
-      <ArticleTitle isFirst isMath>
-        {
-          'As before, we define $g$ as a generator of a group $G$ with order $|G| = p$, where the discrete logarithm is hard. Moving forward, we’ll represent group elements additively instead of multiplicatively. Thus, for $\\alpha \\in \\mathbb{F}_p, \\alpha g$ represents the result of summing $\\alpha$ copies of $g$.'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          "For $\\alpha \\in \\mathbb{F}_p^*$ (the non-zero elements of $\\mathbb{F}_p$), let's define a pair $(a, b)$ in $G$ as an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha a$."
-        }
-      </ArticleTitle>
-      <Typography variant="h4">The KC Test Procedure</Typography>
-      <ArticleTitle isMath isFirst>
-        1. <span className="font-[500]">Bob's Challenge:</span>{' '}
-        {
-          'Bob selects a random $\\alpha \\in \\mathbb{F}_p^*$ and a random element $\\alpha$ in $G$. He computes $b = \\alpha a$, creating the $\\alpha$-pair $(a, b)$.'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        2. <span className="font-[500]">Sending the Challenge:</span>{' '}
-        {'Bob sends this pair $(a, b)$ to Alice as a challenge.'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        3. <span className="font-[500]">Alice's Response:</span>{' '}
-        {
-          "Alice must respond with a different pair $(a^{'}, b^{'})$ that is also an $\\alpha$-pair."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        4. <span className="font-[500]">Verification:</span>{' '}
-        {
-          "Bob accepts Alice's response only if $(a^{'}, b^{'})$ is indeed an $\\alpha$-pair, which he can verify by checking if $b^{'} = \\alpha a^{'}$"
-        }
-      </ArticleTitle>
-      <Typography variant="h4">How Alice Can Succeed in the KC Test</Typography>
-      <ArticleTitle isFirst isMath>
-        {
-          "If Alice knew $\\alpha$, she could easily construct $(a^{'}, b^{'})$ by selecting any $a^{'}$ in $G$ and computing $b^{'} = \\alpha a^{'}$. However, since Alice only knows $a$ and $b = \\alpha a$ (and the discrete logarithm problem in $G$ is hard), she cannot directly find $\\alpha$."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          'To respond successfully without knowing $\\alpha$, Alice can select random $\\gamma \\in \\mathbb{F}_p^*$ and set:'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath className="text-center">
-        {"$(a^{'}, b^{'}) = (\\gamma a, \\gamma b)$"}
-      </ArticleTitle>
-      <ArticleTitle>in this case:</ArticleTitle>
-      <ArticleTitle isMath className="text-center">
-        {"$b^{'} = \\gamma b = \\gamma(\\alpha a) = \\alpha (\\gamma a) = \\alpha a^{'}$"}
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          "Thus, $(a^{'}, b^{'})$ is indeed an $\\alpha$-pair as required. In doing this, Alice knows the coefficient $\\gamma$ such that $a^{'} = \\gamma a$."
-        }
-      </ArticleTitle>
-      <Typography variant="h4">The Knowledge of Coefficient Assumption (KCA)</Typography>
-      <ArticleTitle isFirst isMath>
-        The <span className="font-[500]">Knowledge of Coefficient Assumption (KCA)</span>{' '}
-        {
-          "states that if Alice responds successfully to Bob's challenge $(a, b)$ with non-negligible probability, she must know the coefficient $\\gamma$ such that $a^{'} = \\gamma a$."
-        }
-      </ArticleTitle>
-      <Typography>Formalizing "Knowledge" in KCA</Typography>
-      <ArticleTitle isFirst isMath>
-        To formally define "knowledge," we introduce a theoretical entity called{' '}
-        <span className="font-[500]">Alice's Extractor</span> This Extractor has access to Alice's
-        internal state and can be used to demonstrate that, whenever Alice responds with an{' '}
-        {
-          "$\\alpha$-pair $(a^{'}, b^{'})$, the Extractor can output the corresponding $\\gamma$ such that $a^{'} = \\gamma a$"
+          'However, there was something missing in that protocol — the fact that Alice is able to compute $E(P(s))$ does not guarantee she will indeed send $E(P(s))$ to Bob, rather than some completely unrelated value.'
         }
       </ArticleTitle>
       <ArticleTitle>
-        The KC Test and KCA are fundamental tools that will be expanded upon in Part IV, where we
-        ensure Alice's adherence to the protocol. This foundation enables secure and reliable
-        verification in cryptographic protocols.
+        {
+          'Thus, we need a way to "force" Alice to follow the protocol correctly. We will explain in Part 4 precisely how we achieve this. In this post, we focus on explaining the basic tool needed for that — which we call the Knowledge of Coefficient (KC) Test.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'As before, we denote by $g$ a generator of a group $G$ of order $|G| = p$, where the discrete log is hard. It will be convenient from this point onward to write our group additively rather than multiplicatively. That is, for $\\alpha \\in \\mathbb{F}_p, \\alpha g$ denotes the result of summing $\\alpha$ copies of $g$.'
+        }
+      </ArticleTitle>
+      <Typography variant="h4">The KC Test</Typography>
+      <ArticleTitle isMath isFirst>
+        {'For $\\alpha \\in \\mathbb{F}_p^*$'}
+        <a href="#snark3_1">[1]</a>
+        {
+          ', let us call a pair of elements $(a, b)$ in $G$ an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha a$.'
+        }
+      </ArticleTitle>
+      <ArticleTitle>The KC Test proceeds as follows:</ArticleTitle>
+      <ArticleUL className="list-decimal">
+        <ArticleLI isMath className="ml-[2rem]">
+          {
+            'Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $a \\in G$. He computes $b = \\alpha a$.'
+          }
+        </ArticleLI>
+        <ArticleLI isMath className="ml-[2rem]">
+          {
+            'He sends to Alice the "challenge" pair $(a, b)$. Note that $(a, b)$ is an $\\alpha$-pair.'
+          }
+        </ArticleLI>
+        <ArticleLI isMath className="ml-[2rem]">
+          {
+            "Alice must now respond with a different pair $(a^{'}, b^{'})$ that is also an $\\alpha$-pair."
+          }
+        </ArticleLI>
+        <ArticleLI isMath className="ml-[2rem]">
+          {
+            "Bob accepts Alice’s response only if $(a^{'}, b^{'})$ is indeed an $\\alpha$-pair.(As he knows $\\alpha$, he can check if $b^{'} = \\alpha a^{'}$)."
+          }
+        </ArticleLI>
+      </ArticleUL>
+      <ArticleTitle isMath>
+        {
+          "Now, let's think about how Alice could successfully respond to the challenge. Let’s assume for a second that she knew $\\alpha$. In that case, she could simply choose any $a^{'}$ in $G$, and compute $b^{'} = \\alpha a^{'}$; and return $(a^{'}, b^{'})$ as her new $\\alpha$-pair."
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'However, as the only information about $\\alpha$ she has is $\\alpha a$ and $G$ has a hard discrete log problem, we expect that Alice cannot find $\\alpha$. So, how can she successfully respond to the challenge without knowing $\\alpha$?'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          "Here's the natural way to do it: Alice simply chooses some $\\gamma \\in \\mathbb{F}_p^*$, and responds with $(a^{'}, b^{'}) = (\\gamma a, \\gamma b)$. In this case, we have:"
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath className="text-center">
+        {"$b^{'} = \\gamma b = \\gamma \\alpha a = \\alpha(\\gamma a) = \\alpha a^{'}$,"}
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {"so indeed $(a^{'}, b^{'})$ is an $\\alpha$-pair as required."}
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          "Note that if Alice responds using this strategy, she knows the ratio between $a$ and $a^{'}$. That is, she knows the coefficient $\\gamma$ such that $a^{'} = \\gamma a$."
+        }
+      </ArticleTitle>
+      <ArticleTitle>
+        {'The Knowledge of Coefficient Assumption'}
+        <a href="#snark3_2">[2]</a>
+        {' (KCA) states that this is always the case, namely:'}
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        <span className="font-[500]">KCA:</span>
+        {
+          " If Alice returns a valid response $(a^{'}, b^{'})$ to Bob's challenge $(a, b)$ with non-negligible probability over Bob's choices of $a, \\alpha$, then she knows $\\gamma$ such that $a^{'} = \\gamma a$."
+        }
+      </ArticleTitle>
+      <ArticleTitle>The KC Test and Assumption will be important tools in Part 4.</ArticleTitle>
+      <Typography variant="h4">What Does "Alice Knows" Mean Exactly?</Typography>
+      <ArticleTitle isFirst isMath>
+        {
+          'You may wonder how we can phrase the KCA in precise mathematical terms; specifically, how do we formalize the notion that "Alice knows $\\gamma$" in a mathematical definition?'
+        }
+      </ArticleTitle>
+      <ArticleTitle>
+        {
+          "This is done roughly as follows: We say that, in addition to Alice, we have another party which we call Alice's Extractor. Alice's Extractor has access to Alice's inner state."
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          "We then formulate the KCA by saying that whenever Alice successfully responds with an $\\alpha$-pair $(a^{'}, b^{'})$, Alice's Extractor output $\\gamma$ such that $a^{'} = \\gamma a.$"
+        }
+        <a href="#snark3_3">[3]</a>
+      </ArticleTitle>
+      <ArticleTitle id="snark3_1" isMath>
+        {
+          '[1]$\\mathbb{F}_p^*$ denotes the non-zero elements of $\\mathbb{F}_p$. It is the same as $\\mathbb{Z}_p^*$ described in Part 1.'
+        }
+      </ArticleTitle>
+      <ArticleTitle id="snark3_2">
+        {
+          '[2]This is typically called the Knowledge of Exponent Assumption in the literature, as traditionally it was used for groups written multiplicatively.'
+        }
+      </ArticleTitle>
+      <ArticleTitle id="snark3_3" isMath>
+        {
+          '[3]The fully formal definition needs to give the Extractor "a little slack" and states instead that the probability that Alice responds successfully but the Extractor does not output such $\\gamma$ is negligible.'
+        }
       </ArticleTitle>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Chapter1() {
       />
       <HomomorphicHidings />
       <Link href="/snark/chapter2" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p>Part 2</p>
           <KeyboardDoubleArrowRightIcon />
         </div>
