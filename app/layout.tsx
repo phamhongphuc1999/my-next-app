@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <NextSeo />
-      <body data-theme="dark" className={`${fira.className} antialiased`}>
+      <body data-theme="light" className={`${fira.className} antialiased`}>
         <AppContextProvider>
           <MathJaxContext
             version={2}

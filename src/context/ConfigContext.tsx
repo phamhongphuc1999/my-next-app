@@ -13,7 +13,7 @@ export type ConfigContextType = {
 
 const ConfigContext = createContext<ConfigContextType>({
   themeMode: 'light',
-  themeLabel: 'dark',
+  themeLabel: 'light',
   fn: {
     switchTheme: () => {},
   },
@@ -24,7 +24,7 @@ interface Props {
 }
 
 export default function ConfigProvider({ children }: Props) {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('dark');
+  const [themeMode, setThemeMode] = useState<ThemeMode>('light');
 
   function switchTheme() {
     setThemeMode((preValue) => {
