@@ -113,7 +113,7 @@ export default function ThemeWrapper({ children }: Props) {
         background: {
           paper: switchTheme(themeMode, '#021C39', '#FFFFFF'),
           default: switchTheme(themeMode, '#031527', '#F5F7FA'),
-          primary: switchTheme(themeMode, '#00244D', '#E6EBF4'),
+          primary: switchTheme(themeMode, '#212121', '#E6EBF4'),
           secondary: switchTheme(themeMode, '#07111C', '#FFFFFF'),
         },
         gradient: {

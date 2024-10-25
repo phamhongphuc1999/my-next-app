@@ -1,28 +1,48 @@
 'use client';
 
 import { MathJax } from 'better-react-mathjax';
-import { DivProps } from 'src/global';
+import { AppHTMLProps } from 'src/global';
 import { twMerge } from 'tailwind-merge';
 
-interface Props extends DivProps {
-  mode?: 'div' | 'p';
+type CommonProps = {
   isMath?: boolean;
   isFirst?: boolean;
-}
+};
 
-export default function ArticleBox({
-  mode = 'p',
+export function ArticleTitle({
   isMath = false,
   isFirst = false,
   ...props
-}: Props) {
-  return mode == 'p' ? (
+}: AppHTMLProps<HTMLParagraphElement> & CommonProps) {
+  return (
     <p {...props} className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
     </p>
-  ) : (
-    <div {...props} className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
+  );
+}
+
+export function ArticleUL({
+  isFirst = false,
+  ...props
+}: Omit<AppHTMLProps<HTMLUListElement> & CommonProps, 'isMath'>) {
+  return (
+    <ul {...props} className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
+      {props.children}
+    </ul>
+  );
+}
+
+export function ArticleLI({
+  isMath = false,
+  isFirst = false,
+  ...props
+}: AppHTMLProps<HTMLLIElement> & CommonProps) {
+  return (
+    <li
+      {...props}
+      className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} ml-[1rem]`, props.className)}
+    >
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
-    </div>
+    </li>
   );
 }
