@@ -1,7 +1,7 @@
-'use client';
-
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 
 export default function HomomorphicHidings() {
@@ -18,16 +18,16 @@ export default function HomomorphicHidings() {
         }
         <a href="#snark1_1">[1]</a>
         {
-          '. In this post, we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
+          '. In this post we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {'An HH $E(x)$ of a number $x$ is a function satisfying the following properties:'}
       </ArticleTitle>
       <ArticleUL className="list-disc">
-        <ArticleLI isMath>{"For most $x$'s, given $E(x)$ it is hard to find x."}</ArticleLI>
+        <ArticleLI isMath>{"For most $x$'s, given $E(x)$ it is hard to find $x$."}</ArticleLI>
         <ArticleLI isMath>
-          {'Different inputs lead to different outputs - so if $x \\neq y$,then $E(x) \\neq E(y)$.'}
+          {'Different inputs lead to different outputs - so if $x \\neq y$, then $E(x)\\neq E(y)$.'}
         </ArticleLI>
         <ArticleLI isMath>
           {
@@ -37,10 +37,7 @@ export default function HomomorphicHidings() {
       </ArticleUL>
       <ArticleTitle isMath>
         {
-          "Here's a toy example of why HH is useful for Zero-Knowledge proofs: Suppose Alice wants to prove to Bob she knows numbers"
-        }
-        {
-          " $x,y$ such as $x + y = 7$ (of course, it's not too exciting knowing such $x, y$, but this is a good example to explain the concept with)."
+          "Here's a toy example of why HH is useful for Zero-Knowledge proofs: Suppose Alice wants to prove to Bob she knows numbers $x,y$ such that $x+y=7$ (Of course, it's not too exciting knowing such $x,y$, but this is a good example to explain the concept with)."
         }
       </ArticleTitle>
       <ArticleUL className="list-disc">
@@ -61,8 +58,9 @@ export default function HomomorphicHidings() {
         <a href="#snark1_2">[2]</a>
       </ArticleTitle>
       <ArticleTitle>
-        Now let's see an example of how such hidings are constructed. We actually cannot construct
-        them for regular integers with regular addition but need to look at finite groups:
+        {
+          "Now let's see an example of how such hidings are constructed. We actually cannot construct them for regular integers with regular addition, but need to look at finite groups:"
+        }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -74,7 +72,7 @@ export default function HomomorphicHidings() {
           'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set {1,...,$p$ - 1}- by performing regular multiplication of integers, and then taking the result mod $p$'
         }
         <a href="#snark1_3">[3]</a>
-        {'. For example, 2 * 4 = 1(mod 7).'}
+        {'. For example, $2 \\cdot 4 = 1(mod 7)$.'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {

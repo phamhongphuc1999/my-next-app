@@ -46,7 +46,7 @@ export default function MakeBlindEvaluation() {
       <Typography variant="h4">An Extended KCA</Typography>
       <ArticleTitle isMath isFirst>
         {
-          "The KCA as we defined it in Part 3 essentially said something like this: If Bob gives Alice some $\\alpha$-pair $(a, b = \\alpha a)$ and then Alice generates another $\\alpha$-pair $(a^{'}, b^{'})$, then she knows $c$ such that $a^{'} = ca$. In other words, Alice knows the relation between $a^{'}$ and $a$."
+          "The KCA as we defined it in Part 3 essentially said something like this: If Bob gives Alice some $\\alpha$-pair $(a,b = \\alpha \\cdot a)$ and then Alice generates another $\\alpha$-pair $(a',b')$, then she knows $c$ such that $a'=c \\cdot a$. In other words, Alice knows the relation between $a'$ and $a$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -56,27 +56,27 @@ export default function MakeBlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "As we saw in Part 3, a natural way for Alice to generate such an $\\alpha$-pair would be to take one of the pairs $(a_i, b_i)$ she received from Bob, and multiply both elements by some $c \\in \\mathbb{F}_p^*$; if $(a_i, b_i)$ was an $\\alpha$-pair, then $(ca_i, cb_i)$ will be one too. But can Alice generate $\\alpha$-pair in more ways now that she's received multiple $\\alpha$-pairs? Perhaps using several of the received $\\alpha$-pairs simultaneously to get a new one?"
+          "As we saw in Part 3, a natural way for Alice to generate such an $\\alpha$-pair, would be to take one of the pairs $(a_i,b_i)$ she received from Bob, and multiply both elements by some $c \\in \\mathbb{F}^*_p$; if $(a_i,b_i)$ was an $\\alpha$-pair, then $(c \\cdot a_i,c \\cdot b_i)$ will be one too. But can Alice generate $\\alpha$-pairs in more ways now that she's received multiple $\\alpha$-pairs? Perhaps using several of the received $\\alpha$-pairs simultaneously to get a new one?"
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "The answer is yes: For example, Alice can choose two values $c_1, c_2 \\in \\mathbb{F}_p$ and compute the pair $(a^{'}, b^{'}) = (c_1a_1 + c_2a_2, c_1b_1 + c_2b_2)$. An easy computation shows that, as long as $a^{'}$ is non-zero, this is also an $\\alpha$-pair:"
+          "The answer is yes: For example, Alice can choose two values $c_1,c_2 \\in \\mathbb{F}_p$ and compute the pair $(a',b')=(c_1 \\cdot a_1 + c_2 \\cdot a_2, c_1 \\cdot b_1 + c_2 \\cdot b_2)$. An easy computation shows that, as long as $a'$ is non-zero, this is also an $\\alpha$-pair:"
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
         {
-          "$b^{'} = c_1b_1 + c_2b_2 = c_1\\alpha a_1 + c_2 \\alpha a_2 = \\alpha(c_1a_1 + c_2a_2) = \\alpha a^{'}$."
+          "$b' = c_1 \\cdot b_1 + c_2 \\cdot b_2 = c_1 \\alpha \\cdot a_1 + c_2 \\alpha \\cdot a_2 = \\alpha (c_1 \\cdot a_1 + c_2 \\cdot a_2) = \\alpha \\cdot a'$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "More generally, Alice can take any linear combination of the given $d$ pairs - that is, choose any $c_1,...,c_d \\in \\mathbb{F}_p$ and define $(a^{'}, b^{'}) = $"
+          "More generally, Alice can take any linear combination of the given $d$ pairs - that is choose any $c_1,\\ldots,c_d \\in \\mathbb{F}_p$ and define $(a',b')=(\\sum_{i=1}^d c_i a_i, \\sum_{i=1}^d c_ib_i)$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Note that if Alice uses this strategy to generate her $\\alpha$-pair, she will know some linear relation between $a^{'}$ and $a_1,...,a_d$; that is, she knows $c_1,...,c_d$ such that $a^{'} = \\sum_{i=1}^d c_ia_i$."
+          "Note that if Alice uses this strategy to generate her $\\alpha$-pair, she will know some linear relation between $a^{'}$ and $a_1,...,a_d$; that is, she knows $c_1,...,c_d$ such that $a^{'} = \\sum_{i=1}^d c_i \\cdot a_i$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -89,7 +89,7 @@ export default function MakeBlindEvaluation() {
       <ArticleTitle isMath>
         <span className="font-[500]">d-KCA:</span>
         {
-          " Suppose Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $s \\in \\mathbb{F}_p$, and sends to Alice the $\\alpha$-pairs $(g, \\alpha g), (sg, \\alpha s g),...,(s^d g, \\alpha s^d g)$. Suppose that Alice then outputs another $\\alpha$-pair $(a^{'}, b^{'})$. Then, except with negligible probability, Alice knows $c_0,...,c_d \\in \\mathbb{F}_p$ such that $\\sum_{i=0}^d c_i s^i g = a^{'}$."
+          " Suppose Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $s \\in \\mathbb{F}_p$, and sends to Alice the $\\alpha$-pairs $(g,\\alpha \\cdot g)$, $(s \\cdot g,\\alpha s \\cdot g)$,$\\ldots$, $(s^d \\cdot g,\\alpha s^d \\cdot g)$. Suppose that Alice then outputs another $\\alpha$-pair $(a',b')$. Then, except with negligible probability, Alice knows $c_0,\\ldots,c_d \\in \\mathbb{F}_p$ such that $\\sum_{i=0}^d c_i s^i \\cdot g = a'$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -100,7 +100,7 @@ export default function MakeBlindEvaluation() {
       <Typography variant="h4">The Verifiable Blind Evaluation Protocol</Typography>
       <ArticleTitle isMath isFirst>
         {
-          'Assume that our hiding homomorphism (HH) is the mapping $E(x) = xg$ for a generator $g$ of $G$ as above.'
+          'Assume that our hiding homomorphism (HH) is the mapping $E(x) = x \\cdot g$ for a generator $g$ of $G$ as above.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -109,7 +109,7 @@ export default function MakeBlindEvaluation() {
       <ArticleUL className="list-decimal">
         <ArticleLI isMath className="ml-[2rem]">
           {
-            'Bob chooses a random $\\alpha \\in \\mathbb{F}_p^*$, and sends to Alice the hidings $g, sg,...,s^dg$ (of $1,s,...,s^d$) and also the hidings $\\alpha g, \\alpha s g,..., \\alpha s^d g$ (of $\\alpha, \\alpha s,...,\\alpha s^d$).'
+            'Bob chooses a random $\\alpha \\in \\mathbb{F}_p^*$, and sends to Alice the hidings $g,s \\cdot g,\\ldots,s^d \\cdot g$ (of $1,s,\\ldots,s^d$) and also the hidings $\\alpha \\cdot g$, $\\alpha s \\cdot g$,$\\ldots,\\alpha s^d \\cdot g$ (of $\\alpha, \\alpha s,\\ldots, \\alpha s^d$).'
           }
         </ArticleLI>
         <ArticleLI isMath className="ml-[2rem]">

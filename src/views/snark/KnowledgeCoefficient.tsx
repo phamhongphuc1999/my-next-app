@@ -25,7 +25,7 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'As before, we denote by $g$ a generator of a group $G$ of order $|G| = p$, where the discrete log is hard. It will be convenient from this point onward to write our group additively rather than multiplicatively. That is, for $\\alpha \\in \\mathbb{F}_p, \\alpha g$ denotes the result of summing $\\alpha$ copies of $g$.'
+          'As before, we denote by $g$ a generator of a group $G$ of order $|G|=p$ where the discrete log is hard. It will be convenient from this post onwards to write our group additively rather than multiplicatively. That is, for $\\alpha \\in \\mathbb{F}_p$, $\\alpha \\cdot g$ denotes the result of summing $\\alpha$ copies of $g$.'
         }
       </ArticleTitle>
       <Typography variant="h4">The KC Test</Typography>
@@ -33,14 +33,14 @@ export default function KnowledgeCoefficient() {
         {'For $\\alpha \\in \\mathbb{F}_p^*$'}
         <a href="#snark3_1">[1]</a>
         {
-          ', let us call a pair of elements $(a, b)$ in $G$ an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha a$.'
+          ', let us call a pair of elements $(a, b)$ in $G$ an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha \\cdot a$.'
         }
       </ArticleTitle>
       <ArticleTitle>The KC Test proceeds as follows:</ArticleTitle>
       <ArticleUL className="list-decimal">
         <ArticleLI isMath className="ml-[2rem]">
           {
-            'Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $a \\in G$. He computes $b = \\alpha a$.'
+            'Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $a \\in G$. He computes $b = \\alpha \\cdot a$.'
           }
         </ArticleLI>
         <ArticleLI isMath className="ml-[2rem]">
@@ -55,34 +55,36 @@ export default function KnowledgeCoefficient() {
         </ArticleLI>
         <ArticleLI isMath className="ml-[2rem]">
           {
-            "Bob accepts Alice’s response only if $(a^{'}, b^{'})$ is indeed an $\\alpha$-pair.(As he knows $\\alpha$, he can check if $b^{'} = \\alpha a^{'}$)."
+            "Bob accepts Alice's response only if $(a',b')$ is indeed an $\\alpha$-pair. (As he knows $alpha$ he can check if $b' = \\alpha \\cdot a')$."
           }
         </ArticleLI>
       </ArticleUL>
       <ArticleTitle isMath>
         {
-          "Now, let's think about how Alice could successfully respond to the challenge. Let’s assume for a second that she knew $\\alpha$. In that case, she could simply choose any $a^{'}$ in $G$, and compute $b^{'} = \\alpha a^{'}$; and return $(a^{'}, b^{'})$ as her new $\\alpha$-pair."
+          "Now, let's think about how Alice could successfully respond to the challenge. Let's assume for a second that she knew $\\alpha$. In that case, she could simply choose any $a^{'}$ in $G$, and compute $b^{'} = \\alpha \\cdot a^{'}$; and return $(a^{'}, b^{'})$ as her new $\\alpha$-pair."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'However, as the only information about $\\alpha$ she has is $\\alpha a$ and $G$ has a hard discrete log problem, we expect that Alice cannot find $\\alpha$. So, how can she successfully respond to the challenge without knowing $\\alpha$?'
+          'However, as the only information about $\\alpha$ she has is $\\alpha \\cdot a$ and $G$ has a hard discrete log problem, we expect that Alice cannot find $\\alpha$. So, how can she successfully respond to the challenge without knowing $\\alpha$?'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Here's the natural way to do it: Alice simply chooses some $\\gamma \\in \\mathbb{F}_p^*$, and responds with $(a^{'}, b^{'}) = (\\gamma a, \\gamma b)$. In this case, we have:"
+          "Here's the natural way to do it: Alice simply chooses some $\\gamma \\in \\mathbb{F}_p^*$, and responds with $(a',b')=(\\gamma \\cdot a, \\gamma \\cdot b)$. In this case, we have:"
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {"$b^{'} = \\gamma b = \\gamma \\alpha a = \\alpha(\\gamma a) = \\alpha a^{'}$,"}
+        {
+          "$b'= \\gamma \\cdot b = \\gamma \\alpha \\cdot a = \\alpha (\\gamma \\cdot a) =\\alpha \\cdot a'$,"
+        }
       </ArticleTitle>
       <ArticleTitle isMath>
         {"so indeed $(a^{'}, b^{'})$ is an $\\alpha$-pair as required."}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Note that if Alice responds using this strategy, she knows the ratio between $a$ and $a^{'}$. That is, she knows the coefficient $\\gamma$ such that $a^{'} = \\gamma a$."
+          "Note that if Alice responds using this strategy, she knows the ratio between $a$ and $a^{'}$. That is, she knows the coefficient $\\gamma$ such that $a^{'} = \\gamma \\cdot a$."
         }
       </ArticleTitle>
       <ArticleTitle>
@@ -93,7 +95,7 @@ export default function KnowledgeCoefficient() {
       <ArticleTitle isMath>
         <span className="font-[500]">KCA:</span>
         {
-          " If Alice returns a valid response $(a^{'}, b^{'})$ to Bob's challenge $(a, b)$ with non-negligible probability over Bob's choices of $a, \\alpha$, then she knows $\\gamma$ such that $a^{'} = \\gamma a$."
+          " If Alice returns a valid response $(a^{'}, b^{'})$ to Bob's challenge $(a, b)$ with non-negligible probability over Bob's choices of $a, \\alpha$, then she knows $\\gamma$ such that $a^{'} = \\gamma \\cdot a$."
         }
       </ArticleTitle>
       <ArticleTitle>The KC Test and Assumption will be important tools in Part 4.</ArticleTitle>
@@ -110,7 +112,7 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "We then formulate the KCA by saying that whenever Alice successfully responds with an $\\alpha$-pair $(a^{'}, b^{'})$, Alice's Extractor output $\\gamma$ such that $a^{'} = \\gamma a.$"
+          "We then formulate the KCA by saying that whenever Alice successfully responds with an $\\alpha$-pair $(a^{'}, b^{'})$, Alice's Extractor output $\\gamma$ such that $a^{'} = \\gamma \\cdot a.$"
         }
         <a href="#snark3_3">[3]</a>
       </ArticleTitle>

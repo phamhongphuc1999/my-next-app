@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
 import Link from 'next/link';
@@ -78,12 +79,12 @@ export default function Pinocchio() {
         <ArticleLI className="ml-[2rem]" isMath>
           {'Bob chooses a random point $s \\in \\mathbb{F}_p$ and computes $E(T(s))$.'}
         </ArticleLI>
-        <ArticleLI className="mt-[2rem]" isMath>
+        <ArticleLI className="ml-[2rem]" isMath>
           {
             'Alice sends Bob the hidings of all these polynomials evaluated at $E(L(s)), E(R(s)), E(O(s)), E(H(s))$.'
           }
         </ArticleLI>
-        <ArticleLI className="mt-[2rem]" isMath>
+        <ArticleLI className="ml-[2rem]" isMath>
           {
             'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s)R(s) - O(s)) = E(T(s)H(s))$.'
           }
@@ -143,7 +144,7 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "More generally, suppose that we had $F = \\sum_{i=1}^m c_i F_i$ for some $(c_1,...,c_m)$. Then we'll also have $L := \\sum_{i=1}^m c_i L_i, R := \\sum_{i=1}^m c_i R_i, O := \\sum_{i=1}^m c_i O_i$ for the same coefficients $(c_1,...,c_m)$. In other words, if $F$ is a linear combination of the $F_i$'s, it means that $L,R,O$ were indeed produced from an assignment."
+          "More generally, suppose that we had $F = \\sum_{i=1}^m c_i F_i$ for some $(c_1,...,c_m)$. Then we'll also have $L := \\sum_{i=1}^m c_i L_i$, $R := \\sum_{i=1}^m c_i R_i$, $O := \\sum_{i=1}^m c_i O_i$ for the same coefficients $(c_1,...,c_m)$. In other words, if $F$ is a linear combination of the $F_i$'s, it means that $L,R,O$ were indeed produced from an assignment."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -163,6 +164,59 @@ export default function Pinocchio() {
       <Typography variant="h4">
         Adding the zero-knowledge part - concealing the assignment
       </Typography>
+      <ArticleTitle isFirst isMath>
+        {
+          'In a zk-SNARK, Alice wants to conceal all information about her assignment. However, the hidings $E(L(s))$, $E(R(s))$, $E(O(s))$, $E(H(s))$ do provide some information about the assignment.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          "For example, given some other satisfying assignment $(c_1^{'},...,c_m^{'})$, Bob could compute the corresponding $L^{'}, R^{'}, H^{'}$ and hidings $E(L^{'}(s))$, $E(R^{'}(s))$, $E(O^{'}(s))$, $E(H^{'}(s))$. If these come out different from Alice's hidings, he could deduce that $(c_1^{'},...,c_m^{'})$ is not Alice's assignment."
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'To avoid such information leakage about her assignment, Alice will conceal her assignment by adding a "random $T$-shift" to each polynomial. That is, she chooses random $\\delta_1, \\delta_2, \\delta_3 \\in \\mathbb{F}_p^*$, and defines $L_z := L + \\delta_1 \\cdot T$, $R_z := R + \\delta_2 \\cdot T$, $O_z := O + \\delta_3 \\cdot T$.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          "Assume $L, R, O$ were produced from a satisfying assignment; hence, $L \\cdot R - O = T \\cdot H$  for some polynomial $H$. As we've just added a multiple of $T$ everywhere, $T$ also divides $L_z \\cdot R_z - O_z$. Let's do the calculation to see this:"
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath className="text-center">
+        {
+          '$L_z \\cdot R_z - O_z$ $= (L + \\delta_1 \\cdot T)(R + \\delta_2 \\cdot T) - O - \\delta_3 \\cdot T$ $= (L \\cdot R - O) + L \\cdot \\delta_2 \\cdot T + \\delta_1 \\cdot T \\cdot R + \\delta_1\\delta_2 \\cdot T^2 - \\delta_3 \\cdot T$ $= T \\cdot (H + L \\cdot \\delta_2 + \\delta_1 \\cdot R + \\delta_1\\delta2 \\cdot T - \\delta_3)$'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'thus, defining $H_z = $$H + L \\cdot \\delta_2 + \\delta_1 \\cdot R + \\delta_1\\delta_2 \\cdot - \\delta_3$, we have that $L_z \\cdot R_z - O_z = T \\cdot H_z$. Therefore, if Alice uses the polynomials $L_z$, $R_z$, $O_z$, $H_z$ instead of $L$, $R$, $O$, $H$, Bob will always accept.'
+        }
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'On the other hand, these polynomials evaluated at $s \\in \\mathbb{F}_p$ with $T(s) \\neq 0$ (which is all but $d$ values of $s$), reveal no information about the assignment. For example, as $T(s)$ is non-zero and $\\delta_1$ is random, $\\delta_1 \\cdot T(s)$ is a random value, and therefore $L_z(s) = L(s) + \\delta_1 \\cdot T(s)$ reveals no information about $L(s)$ as it is masked by this random value.'
+        }
+      </ArticleTitle>
+      <Typography variant="h4">What's left for next time?</Typography>
+      <ArticleTitle isFirst>
+        {
+          'We presented a sketch of the Pinocchio Protocol in which Alice can convince Bob she possesses a satisfying assignment for a QAP, without revealing information about that assignment. There are two main issues that still need to be resolved in order to obtain a zk-SNARK:'
+        }
+      </ArticleTitle>
+      <ArticleUL className="list-disc">
+        <ArticleLI isMath>
+          {
+            'In the sketch, Bob needs a homomorphic hiding (HH) that "supports multiplication". For example, he needs to compute $E(H(s) \\cdot T(s))$ from $E(H(s))$ and $E(T(s))$. However, we have not seen so far an example of an HH that enables this. We have only seen an HH that supports addition and linear combinations.'
+          }
+        </ArticleLI>
+        <ArticleLI>
+          {
+            'Throughout this series, we have discussed interactive protocols between Alice and Bob. Our final goal, though, is to enable Alice to send single-message non-interactive proofs, that are publicly verifiable - meaning that anybody seeing this single message proof will be convinced of its validity, not just Bob (who had prior communication with Alice).'
+          }
+        </ArticleLI>
+      </ArticleUL>
     </div>
   );
 }
