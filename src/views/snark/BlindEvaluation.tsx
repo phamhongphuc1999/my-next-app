@@ -3,6 +3,7 @@
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
 import { Typography } from '@mui/material';
+import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 
 export default function BlindEvaluation() {
@@ -15,8 +16,9 @@ export default function BlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'We denote by $\\mathbb{F}_p$ the field of size $p$; that is, the element of $\\mathbb{F}_p$ are {0,..., $p$ - 1}, and addition and multiplication are done mod $p$, as explained in Part 1.'
+          'We denote by $\\mathbb{F}_p$ the field of size $p$; that is, the element of $\\mathbb{F}_p$ are {0,..., $p$ - 1}, and addition and multiplication are done mod $p$, as explained in '
         }
+        <Link href="/snark/chapter1">Part 1.</Link>
       </ArticleTitle>
       <Typography variant="h4">Polynomials and Linear Combinations</Typography>
       <ArticleTitle isFirst isMath>
@@ -25,7 +27,7 @@ export default function BlindEvaluation() {
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$P(X) = a_0 + a_1 \\cdot X + a_2 \\cdot X^2 + \\ldots + a_d \\cdot X^d$.'}
+        {'$P(X) =$ $a_0 + a_1 \\cdot X +$ $a_2 \\cdot X^2 +$ $\\ldots +$ $a_d \\cdot X^d$.'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -33,7 +35,7 @@ export default function BlindEvaluation() {
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$P(s) = a_0 + a_1 \\cdot s + a_2 \\cdot s^2 + \\ldots + a_d \\cdot s^d$'}
+        {'$P(s) =$ $a_0 + a_1 \\cdot s +$ $a_2 \\cdot s^2 +$ $\\ldots + a_d \\cdot s^d$'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -47,7 +49,7 @@ export default function BlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
         {
-          '$E(ax+by)=g^{ax+by}=g^{ax} \\cdot g^{by} = (g^x)^a \\cdot (g^y)^b = E(x)^a \\cdot E(y)^b$'
+          '$E(ax+by) =$ $g^{ax+by} =$ $g^{ax} \\cdot g^{by} =$ $(g^x)^a \\cdot (g^y)^b =$ $E(x)^a \\cdot E(y)^b$'
         }
       </ArticleTitle>
       <Typography variant="h4">Blind Evaluation of a Polynomial</Typography>

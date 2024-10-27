@@ -30,12 +30,12 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'A Quadratic Arithmetic Program $Q$ of degree $d$ and size $m$ consists of polynomials $L_1,...,L_m,R_1,...,R_m,O_1,...,O_m$, and a target polynomial $T$ of degree $d$.'
+          'A Quadratic Arithmetic Program $Q$ of degree $d$ and size $m$ consists of polynomials $L_1,\\ldots,L_m$, $R_1,\\ldots,R_m$, $O_1,\\ldots,O_m$ and a target polynomial $T$ of degree $d$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'An assignment $(c_1,...,c_m)$ satisfies $Q$ if, defining $L := \\sum_{i=1}^m c_i L_i, R := \\sum_{i=1}^m c_i R_i, O := \\sum_{i=1}^m c_i O_i$, and $P := LR - O$, we have that $T$ divides $P$.'
+          'An assignment $(c_1,\\ldots,c_m)$ satisfies $Q$ if, defining $L:=\\sum_{i=1}^m c_i \\cdot L_i$, $R:=\\sum_{i=1}^m c_i \\cdot R_i$, $O:=\\sum_{i=1}^m c_i \\cdot O_i$ and $P:=L \\cdot R -O$, we have that $T$ divides $P$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -45,12 +45,12 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'If Alice has a satisfying assignment, it means that, defining $L,R,O,P$ as above, there exists a polynomial $H$ such that $P = HT$. In particular, for any $s \\in \\mathbb{F}_p$ we have $P(s) = H(s)T(s)$.'
+          'If Alice has a satisfying assignment it means that, defining $L,R,O,P$ as above, there exists a polynomial $H$ such that $P=H \\cdot T$. In particular, for any $s \\in \\mathbb{F}_p$ we have $P(s)= H(s) \\cdot T(s)$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Suppose now that Alice doesn’t have a satisfying assignment, but she still constructs $L,R,O,P$ as above from some unsatisfying assignment $(c_1,...,c_m)$. Then we are guaranteed that $T$ does not divide $P$. This means that for any polynomial $H$ of degree at most $d - 2$, $P$ and $L,R,O,H$ will be different polynomials. Note that $P$ here is of degree at most $2(d - 1)$, $L,R,O$ here are of degree at most $d - 1$, and $H$ here is of degree at most $d - 2$.'
+          "Suppose now that Alice doesn't have a satisfying assignment, but she still constructs $L,R,O,P$ as above from some unsatisfying assignment $(c_1,\\ldots,c_m)$. Then we are guaranteed that $T$ does not divide $P$. This means that for any polynomial $H$ of degree at most $d - 2$, $P$ and $L,R,O,H$ will be different polynomials. Note that $P$ here is of degree at most $2(d - 1)$, $L,R,O$ here are of degree at most $d - 1$, and $H$ here is of degree at most $d - 2$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -81,12 +81,12 @@ export default function Pinocchio() {
         </ArticleLI>
         <ArticleLI className="ml-[2rem]" isMath>
           {
-            'Alice sends Bob the hidings of all these polynomials evaluated at $E(L(s)), E(R(s)), E(O(s)), E(H(s))$.'
+            'Alice sends Bob the hidings of all these polynomials evaluated at $E(L(s)),$ $E(R(s)),$ $E(O(s)),$ $E(H(s))$.'
           }
         </ArticleLI>
         <ArticleLI className="ml-[2rem]" isMath>
           {
-            'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s)R(s) - O(s)) = E(T(s)H(s))$.'
+            'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s)R(s)$ $- O(s))$ $= E(T(s)H(s))$.'
           }
         </ArticleLI>
       </ArticleUL>
@@ -110,12 +110,12 @@ export default function Pinocchio() {
       </Typography>
       <ArticleTitle isMath isFirst>
         {
-          "Here is an important point: If Alice doesn't have a satisfying assignment, it doesn't mean she can't find any polynomials $L,R,O,H$ of degree at most $d$ with $LR - O = TH$; it just means she can’t find such polynomials where $L, R,$ and $O$ were 'produced from an assignment', namely, that $L := \\sum_{i=1}^m c_i L_i, R := \\sum_{i=1}^m c_i R_i, O := \\sum_{i=1}^m c_i O_i$ for the same $(c_1,...,c_m)$."
+          "Here is an important point: If Alice doesn't have a satisfying assignment, it doesn't mean she can't find any polynomials $L,R,O,H$ of degree at most $d$ with $LR - O = TH$; it just means she can’t find such polynomials where $L, R,$ and $O$ were 'produced from an assignment', namely, that $L := \\sum_{i=1}^m c_i L_i$, $R := \\sum_{i=1}^m c_i R_i$, $O := \\sum_{i=1}^m c_i O_i$ for the same $(c_1,...,c_m)$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'The protocol of Part IV only guarantees she is using some polynomials $L,R,O$ of the right degree, but not that they were produced from an assignment. This is a point where the formal proof gets a little subtle; here we sketch the solution imprecisely.'
+          'The protocol of Part 4 only guarantees she is using some polynomials $L,R,O$ of the right degree, but not that they were produced from an assignment. This is a point where the formal proof gets a little subtle; here we sketch the solution imprecisely.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -139,12 +139,12 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Note that when we sum two of the $F_i$'s, the $L_i, R_i$ and $O_i$ 'sum separately'. For example, $F_1 + F_2 = (L_1 + L_2) + X^{d+1}(R_1 + R_2) + X^{2(d + 1)}(O_1 + O_2)$."
+          "Note that when we sum two of the $F_i$'s the $L_i$, $R_i$, and $O_i$ 'sum separately'. For example, $F_1 + F_2 =$ $(L_1 + L_2)$ $+ X^{d+1} \\cdot (R_1 + R_2)$ $+ X^{2(d+1)} \\cdot (O_1+O_2)$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "More generally, suppose that we had $F = \\sum_{i=1}^m c_i F_i$ for some $(c_1,...,c_m)$. Then we'll also have $L := \\sum_{i=1}^m c_i L_i$, $R := \\sum_{i=1}^m c_i R_i$, $O := \\sum_{i=1}^m c_i O_i$ for the same coefficients $(c_1,...,c_m)$. In other words, if $F$ is a linear combination of the $F_i$'s, it means that $L,R,O$ were indeed produced from an assignment."
+          "More generally, suppose that we had $F=\\sum_{i=1}^mc_i \\cdot F_i$ for some $(c_1,\\ldots,c_m)$. Then we'll also have $L=\\sum_{i=1}^m c_i \\cdot L_i$, $R=\\sum_{i=1}^m c_i \\cdot R_i$, $O=\\sum_{i=1}^m c_i \\cdot O_i$ for the same coefficients $(c_1,\\ldots,c_m)$. In other words, if $F$ is a linear combination of the $F_i$'s it means that $L,R,O$ were indeed produced from an assignment."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -154,7 +154,7 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Bob chooses a random $\\beta \\in \\mathbb{F}_p^*$ and sends to Alice the hidings $E(\\beta F_1(s)),...,E(\\beta F_m(s))$. He then asks Alice to send him the element $E(\\beta F(s))$. If she succeeds, an extended version of the '
+          'Bob chooses a random $\\beta \\in \\mathbb{F}^*_p$, and sends to Alice the hidings $E(\\beta \\cdot F_1(s))$, $\\ldots$, $E(\\beta \\cdot F_m(s))$. He then asks Alice to send him the element $E(\\beta \\cdot F(s))$. If she succeeds, an extended version of the '
         }
         <Link href="/snark/chapter3" target="_blank" className="font-[500] underline">
           Knowledge of Coefficient Assumption
@@ -171,12 +171,12 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "For example, given some other satisfying assignment $(c_1^{'},...,c_m^{'})$, Bob could compute the corresponding $L^{'}, R^{'}, H^{'}$ and hidings $E(L^{'}(s))$, $E(R^{'}(s))$, $E(O^{'}(s))$, $E(H^{'}(s))$. If these come out different from Alice's hidings, he could deduce that $(c_1^{'},...,c_m^{'})$ is not Alice's assignment."
+          "For example, given some other satisfying assignment $(c'_1,\\ldots,c'_m)$ Bob could compute the corresponding $L',R',O',H'$ and hidings $E(L'(s))$, $E(R'(s))$, $E(O'(s))$, $E(H'(s))$. If these come out different from Alice's hidings, he could deduce that $(c'_1,\\ldots,c'_m)$ is not Alice's assignment."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'To avoid such information leakage about her assignment, Alice will conceal her assignment by adding a "random $T$-shift" to each polynomial. That is, she chooses random $\\delta_1, \\delta_2, \\delta_3 \\in \\mathbb{F}_p^*$, and defines $L_z := L + \\delta_1 \\cdot T$, $R_z := R + \\delta_2 \\cdot T$, $O_z := O + \\delta_3 \\cdot T$.'
+          'To avoid such information leakage about her assignment, Alice will conceal her assignment by adding a "random $T$-shift" to each polynomial. That is, she chooses random $\\delta_1$, $\\delta_2$,$\\delta_3 \\in \\mathbb{F}^*_p$, and defines $L_z := L+ \\delta_1 \\cdot T$, $R_z := R+ \\delta_2 \\cdot T$, $O_z := O + \\delta_3 \\cdot T$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -186,12 +186,12 @@ export default function Pinocchio() {
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
         {
-          '$L_z \\cdot R_z - O_z$ $= (L + \\delta_1 \\cdot T)(R + \\delta_2 \\cdot T) - O - \\delta_3 \\cdot T$ $= (L \\cdot R - O) + L \\cdot \\delta_2 \\cdot T + \\delta_1 \\cdot T \\cdot R + \\delta_1\\delta_2 \\cdot T^2 - \\delta_3 \\cdot T$ $= T \\cdot (H + L \\cdot \\delta_2 + \\delta_1 \\cdot R + \\delta_1\\delta2 \\cdot T - \\delta_3)$'
+          '$L_z \\cdot R_z - O_z$ $= (L + \\delta_1 \\cdot T)$$(R + \\delta_2 \\cdot T) - O - \\delta_3 \\cdot T$ $= (L \\cdot R - O)$ $+ L \\cdot \\delta_2 \\cdot T$ $+ \\delta_1 \\cdot T \\cdot R$ $+ \\delta_1\\delta_2 \\cdot T^2$ $- \\delta_3 \\cdot T$ $= T \\cdot$ $(H$ $+ L \\cdot \\delta_2$ $+ \\delta_1 \\cdot R$ $+ \\delta_1\\delta2 \\cdot T$ $- \\delta_3)$'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'thus, defining $H_z = $$H + L \\cdot \\delta_2 + \\delta_1 \\cdot R + \\delta_1\\delta_2 \\cdot - \\delta_3$, we have that $L_z \\cdot R_z - O_z = T \\cdot H_z$. Therefore, if Alice uses the polynomials $L_z$, $R_z$, $O_z$, $H_z$ instead of $L$, $R$, $O$, $H$, Bob will always accept.'
+          'thus, defining $H_z =$ $H + L \\cdot \\delta_2 +$ $\\delta_1 \\cdot R$ $+ \\delta_1\\delta_2 \\cdot$ $- \\delta_3$, we have that $L_z \\cdot R_z - O_z = T \\cdot H_z$. Therefore, if Alice uses the polynomials $L_z$, $R_z$, $O_z$, $H_z$ instead of $L$, $R$, $O$, $H$, Bob will always accept.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>

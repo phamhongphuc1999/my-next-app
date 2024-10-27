@@ -33,11 +33,11 @@ export default function Chapter3() {
       <div className="mt-4">
         <Typography variant="h4">References</Typography>
         <Link
-          href="https://electriccoin.co/blog/snark-explain4/"
+          href="https://electriccoin.co/blog/snark-explain3/"
           target="_blank"
-          className="mt-[1rem]"
+          className="mt-[1rem] break-words"
         >
-          https://electriccoin.co/blog/snark-explain4/
+          https://electriccoin.co/blog/snark-explain3/
         </Link>
       </div>
     </CommonContainer>

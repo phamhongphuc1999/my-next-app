@@ -1,5 +1,4 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Typography } from '@mui/material';
 import Link from 'next/link';
 import CommonContainer from 'src/components/box/CommonContainer';
@@ -24,18 +23,12 @@ export default function Chapter7() {
         </div>
       </Link>
       <EllipticCurve />
-      <Link href="/snark/chapter8" className="inline-block">
-        <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <p>Part 8</p>
-          <KeyboardDoubleArrowRightIcon />
-        </div>
-      </Link>
       <div className="mt-4">
         <Typography variant="h4">References</Typography>
         <Link
           href="https://electriccoin.co/blog/snark-explain7/"
           target="_blank"
-          className="mt-[1rem]"
+          className="mt-[1rem] break-words"
         >
           https://electriccoin.co/blog/snark-explain7/
         </Link>

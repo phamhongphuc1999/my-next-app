@@ -44,7 +44,7 @@ export default function Computation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Suppose Alice wants to prove to Bob she knows $c_1, c_2, c_3 \\in \\mathbb{F}_p$ such that $(c_1c_2)(c_1 + c_3) = 7$. The first step is to present the expression computed from $c_1, c_2, c_3$ as an arithmetic circuit.'
+          'Suppose Alice wants to prove to Bob she knows $c_1,c_2,c_3 \\in \\mathbb{F}_p$ such that $(c_1 \\cdot c_2) \\cdot (c_1 + c_3) = 7$. The first step is to present the expression computed from $c_1,c_2,c_3$ as an arithmetic circuit.'
         }
       </ArticleTitle>
       <Typography variant="h4">Arithmetic Circuits</Typography>
@@ -67,7 +67,7 @@ export default function Computation() {
       <ArticleUL className="list-decimal">
         <ArticleLI isMath className="ml-[2rem]">
           {
-            'When the same outgoing wire goes into more than one gate, we still think of it as one wire - like $w_1$ in the example.'
+            'When the same outgoing wire goes into more than one gate, we still think of it as one wire - like $\\mathsf{w_1}$ in the example.'
           }
         </ArticleLI>
         <ArticleLI>
@@ -77,7 +77,7 @@ export default function Computation() {
         </ArticleLI>
         <ArticleLI isMath>
           {
-            "We don't label the wires going from an addition to a multiplication gate, nor the addition gate itself; we think of the inputs of the addition gate as going directly into the multiplication gate. So, in the example, we think of $w_1$ and $w_3$ as both being right inputs of $g_2$."
+            "We don't label the wires going from an addition to multiplication gate, nor the addition gate; we think of the inputs of the addition gate as going directly into the multiplication gate. So in the example we think of $\\mathsf{w_1}$ and $\\mathsf{w_3}$ as both being right inputs of $\\mathsf{g_2}$."
           }
         </ArticleLI>
       </ArticleUL>
@@ -88,18 +88,18 @@ export default function Computation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'So for our circuit, a legal assignment is of the form $(c_1,...,c_5)$ where $c_4 = c_1c_2$ and $c_5 = c_4(c_1 + c_3)$.'
+          'So for our circuit, a legal assignment is of the form: $(c_1,\\ldots,c_5)$ where $c_4=c_1 \\cdot c_2$ and $c_5=c_4 \\cdot (c_1+c_3)$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'In this terminology, what Alice wants to prove is that she knows a legal assignment $(c_1,...,c_5)$ such that $c_5 = 7$. The next step is to translate this statement into one about polynomials using QAPs.'
+          'In this terminology, what Alice wants to prove is that she knows a legal assignment $(c_1,\\ldots,c_5)$ such that $c_5=7$. The next step is to translate this statement into one about polynomials using QAPs.'
         }
       </ArticleTitle>
       <Typography variant="h4">Reduction to a QAP</Typography>
       <ArticleTitle isFirst isMath>
         {
-          'We associate each multiplication gate with a field element: $g_1$ will be associated with $1 \\in \\mathbb{F}_p$ and $g_2$ with $2 \\in \\mathbb{F}_p$. We call the points {$1$, $2$} our target points. Now, we need to define a set of "left wire polynomials" $L_1,...,L_5$, "right wire polynomials" $R_1,...,R_5$ and "output wire polynomials" $O_1,...,O_5$.'
+          'We associate each multiplication gate with a field element: $\\mathsf{g_1}$ will be associated with $1 \\in \\mathbb{F}_p$ and $\\mathsf{g_2}$ with $2 \\in \\mathbb{F}_p$. We call the points $\\{1,2\\}$ our target points. Now we need to define a set of "left wire polynomials" $L_1,\\ldots,L_5$, "right wire polynomials" $R_1,\\ldots,R_5$ and "output wire polynomials" $O_1,\\ldots,O_5$.'
         }
       </ArticleTitle>
       <ArticleTitle>
@@ -109,73 +109,68 @@ export default function Computation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Concretely, as $w_1, w_2, w_4$ are, respectively, the left, right, and output wire of $g_1$; we define $L_1 = R_2 = O_4 = 2 - X$, as the polynomial $2 - X$ is one on the point $1$ corresponding to $g_1$ and zero on the point $2$ corresponding to $g_2$.'
+          'Concretely, as $\\mathsf{w_1}$, $\\mathsf{w_2}$, $\\mathsf{w_4}$ are, respectively, the left, right and output wire of $\\mathsf{g_1}$; we define $L_1 =$ $R_2 =$ $O_4 =$ $2-X$, as the polynomial $2-X$ is one on the point $1$ corresponding to $\\mathsf{g_1}$ and zero on the point $2$ corresponding to $\\mathsf{g_2}$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Note that $w_1$ and $w_3$ are both right inputs of $g_2$. Therefore, we define similarly $L_4 = R_1 = R_3 = O_5 = X - 1$, as $X - 1$ is one on the target point 2 corresponding to $g_2$ and zero on the other target point.'
+          'Note that $\\mathsf{w_1}$ and $\\mathsf{w_3}$ are both right inputs of $\\mathsf{g_2}$. Therefore, we define similarly $L_4 =$ $R_1 =$ $R_3 =$ $O_5 =$ $X-1$ - as $X-1$ is one on the target point $2$ corresponding to $\\mathsf{g_2}$ and zero on the other target point. We set the rest of the polynomials to be the zero polynomial.'
         }
       </ArticleTitle>
-      <ArticleTitle>{'We set the rest of the polynomials to be the zero polynomial.'}</ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Given fixed values $(c_1,...,c_5)$ we use them as coefficients to define a left, right, and output "sum" polynomials. That is, we define'
+          'Given fixed values $(c_1,\\ldots,c_5)$ we use them as coefficients to define a left, right, and output "sum" polynomials. That is, we define'
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$L := \\sum_{i=1}^5 c_i L_i, R := \\sum_{i=1}^5 c_i R_i, O := \\sum_{i=1}^5 c_i O_i,$'}
+        {
+          '$L:=\\sum_{i=1}^5 c_i \\cdot L_i,$ $R:= \\sum_{i=1}^5 c_i \\cdot R_i,$ $O:=\\sum_{i=1}^5 c_i \\cdot O_i`,$'
+        }
       </ArticleTitle>
-      <ArticleTitle isMath>{'and then we define the polynomial $P := L R - O$.'}</ArticleTitle>
+      <ArticleTitle isMath>{'and then we define the polynomial $P:=L \\cdot R -O$.'}</ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Now, after all these definitions, the central point is this: $(c_1,...,c_5)$ is a legal assignment to the circuit if and only if $P$ vanishes on all the target points.'
+          'Now, after all these definitions, the central point is this: $(c_1,\\ldots,c_5)$ is a legal assignment to the circuit if and only if $P$ vanishes on all the target points.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Let's examine this using our example. Suppose we defined $L,R,O,P$ as above given some $c_1,...,c_5$. Let's evaluate all these polynomials at the target point 1:"
+          "Let's examine this using our example. Suppose we defined $L,R,O,P$ as above given some $c_1,\\ldots,c_5$. Let's evaluate all these polynomials at the target point 1:"
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Out of all the $L_i$'s only $L_i$ is non-zero on 1. So we have $L(1) = c_1 L_1(1) = c_1$. Similarly, we get $R(1) = c_2$ and $O(1) = c_4$."
+          "Out of all the $L_i$'s only $L_1$ is non-zero on $1$. So we have $L(1)=c_1 \\cdot L_1(1) = c_1$. Similarly, we get $R(1)=c_2$ and $O(1)=c_4$."
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Therefore, $P(1) = c_1 c_2 - c_4$. A similar calculation shows $P(2) = c_4(c_1 + c_3) - c_5$. In other words, $P$ vanishes on the target points if and only if $(c_1,...,c_5)$ is a legal assignment.'
+          'Therefore, $P(1)=c_1 \\cdot c_2-c_4$. A similar calculation shows $P(2) =$ $c_4 \\cdot (c_1+c_3) -$ $c_5$. In other words, $P$ vanishes on the target points if and only if $(c_1,\\ldots,c_5)$ is a legal assignment.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Now, we use the following algebraic fact: For a polynomial $P$ and a point $a \\in \\mathbb{F}_p$, we have $P(a) = 0$ if and only if the polynomial $X - a$ divides $P$. $P = (X - a) H$ for some polynomial $H$.'
+          'Now, we use the following algebraic fact: For a polynomial $P$ and a point $a \\in \\mathbb{F}_p$, we have $P(a)=0$ if and only if the polynomial $X-a$ divides $P$, i.e. $P=(X-a) \\cdot H$ for some polynomial $H$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Defining the target polynomial $T(X) := (X - 1)(X - 2)$, we thus have that $T$ divides $P$ if and only if $(c_1,...,c_5)$ is a legal assignment.'
-        }
-      </ArticleTitle>
-      <ArticleTitle>{'Following the above discussion, we define a QAP as follows:'}</ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          'A Quadratic Arithmetic Program $Q$ of degree $d$ and size $m$ consist of polynomials $L_1,...,L_m,R_1,...,R_m,O_1,...,O_m$ and a target polynomial $T$ of degree $d$.'
+          'Defining the target polynomial $T(X) :=$ $(X-1) \\cdot (X-2)$, we thus have that $T$ divides $P$ if and only if $(c_1,\\ldots,c_5)$ is a legal assignment. Following the above discussion, we define a QAP as follows:'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'An assignment $(c_1,...,c_m)$ satisfies $Q$ if, defining $L := \\sum_{i=1}^m c_i L_i, R := \\sum_{i=1}^m c_i R_i, O := \\sum_{i=1}^m c_i O_i$ and $P := LR - O$, we have that $T$ divides $P$.'
+          'A Quadratic Arithmetic Program $Q$ of degree $d$ and size $m$ consists of polynomials $L_1,\\ldots,L_m$, $R_1,\\ldots,R_m$, $O_1,\\ldots,O_m$ and a target polynomial $T$ of degree $d$. An assignment $(c_1,\\ldots,c_m)$ satisfies $Q$ if, defining $L:=\\sum_{i=1}^m c_i \\cdot L_i$, $R:=\\sum_{i=1}^m c_i \\cdot R_i$, $O:=\\sum_{i=1}^m c_i \\cdot O_i$ and $P:=L \\cdot R -O$, we have that $T$ divides $P$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'In this terminology, Alice wants to prove she knows an assignment $(c_1,...,c_5)$ satisfying the QAP described above with $c_5 = 7$.'
+          'In this terminology, Alice wants to prove she knows an assignment $(c_1,\\ldots,c_5)$ satisfying the QAP described above with $c_5=7$.'
         }
       </ArticleTitle>
-      <ArticleTitle>
+      <ArticleTitle isMath>
         {
-          'To summarize, we have seen how a statement such as "i know $c_1, c_2, c_3$ such that $(c_1c_2)(c_1 + c_3) = 7$" can be translated into an equivalent statement about polynomials using QAPs. In the next part, we will see an efficient protocol for proving knowledge of a satisfying assignment to a QAP.'
+          'To summarize, we have seen how a statement such as "I know $c_1,c_2,c_3$ such that $(c_1 \\cdot c_2) \\cdot (c_1 + c_3) = 7$" can be translated into an equivalent statement about polynomials using QAPs. In the next part, we will see an efficient protocol for proving knowledge of a satisfying assignment to a QAP.'
         }
       </ArticleTitle>
       <ArticleTitle>

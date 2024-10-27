@@ -98,7 +98,7 @@ export default function HomomorphicHidings() {
       </ArticleUL>
       <ArticleTitle isMath>
         {
-          "Using these properties, we now construct an HH that 'supports addition' - meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) = g^{x + y \\:mod\\: p - 1} = g^xg^y = E(x)E(y)$."
+          "Using these properties, we now construct an HH that 'supports addition' - meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) =$ $g^{x + y \\:mod\\: p - 1} = g^xg^y =$ $E(x)E(y)$."
         }
       </ArticleTitle>
       <ArticleTitle isMath id="snark1_1">

@@ -35,7 +35,7 @@ export default function Chapter2() {
         <Link
           href="https://electriccoin.co/blog/snark-explain2/"
           target="_blank"
-          className="mt-[1rem]"
+          className="mt-[1rem] break-words"
         >
           https://electriccoin.co/blog/snark-explain2/
         </Link>

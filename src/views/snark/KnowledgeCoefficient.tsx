@@ -71,12 +71,12 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          "Here's the natural way to do it: Alice simply chooses some $\\gamma \\in \\mathbb{F}_p^*$, and responds with $(a',b')=(\\gamma \\cdot a, \\gamma \\cdot b)$. In this case, we have:"
+          "Here's the natural way to do it: Alice simply chooses some $\\gamma \\in \\mathbb{F}_p^*$, and responds with $(a',b') =$ $(\\gamma \\cdot a, \\gamma \\cdot b)$. In this case, we have:"
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
         {
-          "$b'= \\gamma \\cdot b = \\gamma \\alpha \\cdot a = \\alpha (\\gamma \\cdot a) =\\alpha \\cdot a'$,"
+          "$b'=$ $\\gamma \\cdot b =$ $\\gamma \\alpha \\cdot a =$ $\\alpha (\\gamma \\cdot a) =$ $\\alpha \\cdot a'$,"
         }
       </ArticleTitle>
       <ArticleTitle isMath>
