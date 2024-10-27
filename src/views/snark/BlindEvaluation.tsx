@@ -5,13 +5,20 @@
 import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { ContrastLink } from 'src/components/utils';
 
 export default function BlindEvaluation() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle>
         {
-          'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See Part 1 for an explanation of HH.) In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
+          'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See '
+        }
+        <Link href="snark/chapter1" className="font-[500] text-black-350 underline">
+          Part 1
+        </Link>
+        {
+          ' for an explanation of HH.) In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -23,11 +30,11 @@ export default function BlindEvaluation() {
       <Typography variant="h4">Polynomials and Linear Combinations</Typography>
       <ArticleTitle isFirst isMath>
         {
-          'Recall that a polynomial $P$ of degree $d$ over $\\mathbb{F}_p$ is an expression of the form'
+          'Recall that a polynomial $P$ of degree $d$ over $\\mathbb{F}_p$ is an expression of the form for some $a_0,\\ldots, a_d \\in \\mathbb{F}_p$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$P(X) =$ $a_0 + a_1 \\cdot X +$ $a_2 \\cdot X^2 +$ $\\ldots +$ $a_d \\cdot X^d$.'}
+        {'$P(X) =$ $a_0 + a_1 \\cdot X +$ $a_2 \\cdot X^2 +$ $\\ldots +$ $a_d \\cdot X^d$'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -39,7 +46,7 @@ export default function BlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'For someone who knows $P$, the value $P(s)$ is a linear combination of the values 1, $s$,...,$s^d$, where linear combination just means "weighted sum"; in the case of $P(s)$, the "weights" are $a_0,...,a_d$.'
+          'For someone who knows $P$, the value $P(s)$ is a linear combination of the values $1, s,\\ldots,s^d$, where linear combination just means "weighted sum"; in the case of $P(s)$, the "weights" are $a_0,\\ldots,a_d$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -70,9 +77,7 @@ export default function BlindEvaluation() {
         {
           "However, in the blind evaluation problem, we want Bob to learn $E(P(s))$ without learning $P$, which precludes the first option; and, most importantly, we don't want Alice to learn $s$, which rules out the second"
         }
-        <a href="#snark2_1" className="cursor-pointer">
-          [1].
-        </a>
+        <ContrastLink href="#snark2_1">[1]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle>Using HH, we can perform blind evaluation as follows:</ArticleTitle>
       <ArticleUL className="list-decimal">
@@ -87,15 +92,13 @@ export default function BlindEvaluation() {
       </ArticleUL>
       <ArticleTitle isMath>
         {'Note that, as only hidings were sent, neither Alice learned $s$ '}
-        <a href="#snark2_2" className="cursor-pointer">
-          [2]
-        </a>
+        <ContrastLink href="#snark2_2">[2]</ContrastLink>
         {', nor did Bob learn $P$.'}
       </ArticleTitle>
       <Typography variant="h4">Why Is This Useful?</Typography>
       <ArticleTitle isFirst>
         {
-          'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a “correct” polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that “different polynomials are different at most points.”'
+          'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a "correct" polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that "different polynomials are different at most points".'
         }
       </ArticleTitle>
       <ArticleTitle isMath id="snark2_1">

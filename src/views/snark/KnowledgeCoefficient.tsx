@@ -3,14 +3,20 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
+import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { ContrastLink } from 'src/components/utils';
 
 export default function KnowledgeCoefficient() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle isMath>
+        {'In '}
+        <Link href="/snark/chapter2" className="font-[500] text-black-350 underline">
+          part 2
+        </Link>
         {
-          'In Part 2, we saw how Alice can blindly evaluate the hiding $E(P(s))$ of her polynomial $P$ of degree $d$, at a point $s$ belong to Bob. We called this “blind” evaluation because Alice did not learn $s$ in the process.'
+          ' , we saw how Alice can blindly evaluate the hiding $E(P(s))$ of her polynomial $P$ of degree $d$, at a point $s$ belong to Bob. We called this "blind" evaluation because Alice did not learn $s$ in the process.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -20,7 +26,13 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle>
         {
-          'Thus, we need a way to "force" Alice to follow the protocol correctly. We will explain in Part 4 precisely how we achieve this. In this post, we focus on explaining the basic tool needed for that — which we call the Knowledge of Coefficient (KC) Test.'
+          'Thus, we need a way to "force" Alice to follow the protocol correctly. We will explain in '
+        }
+        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+          Part 4
+        </Link>
+        {
+          ' precisely how we achieve this. In this post, we focus on explaining the basic tool needed for that — which we call the Knowledge of Coefficient (KC) Test.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -31,7 +43,7 @@ export default function KnowledgeCoefficient() {
       <Typography variant="h4">The KC Test</Typography>
       <ArticleTitle isMath isFirst>
         {'For $\\alpha \\in \\mathbb{F}_p^*$'}
-        <a href="#snark3_1">[1]</a>
+        <ContrastLink href="#snark3_1">[1]</ContrastLink>
         {
           ', let us call a pair of elements $(a, b)$ in $G$ an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha \\cdot a$.'
         }
@@ -55,7 +67,7 @@ export default function KnowledgeCoefficient() {
         </ArticleLI>
         <ArticleLI isMath className="ml-[2rem]">
           {
-            "Bob accepts Alice's response only if $(a',b')$ is indeed an $\\alpha$-pair. (As he knows $alpha$ he can check if $b' = \\alpha \\cdot a')$."
+            "Bob accepts Alice's response only if $(a',b')$ is indeed an $\\alpha$-pair. (As he knows $\\alpha$ he can check if $b' = \\alpha \\cdot a')$."
           }
         </ArticleLI>
       </ArticleUL>
@@ -89,7 +101,7 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle>
         {'The Knowledge of Coefficient Assumption'}
-        <a href="#snark3_2">[2]</a>
+        <ContrastLink href="#snark3_2">[2]</ContrastLink>
         {' (KCA) states that this is always the case, namely:'}
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -114,7 +126,7 @@ export default function KnowledgeCoefficient() {
         {
           "We then formulate the KCA by saying that whenever Alice successfully responds with an $\\alpha$-pair $(a^{'}, b^{'})$, Alice's Extractor output $\\gamma$ such that $a^{'} = \\gamma \\cdot a.$"
         }
-        <a href="#snark3_3">[3]</a>
+        <ContrastLink href="#snark3_3">[3]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle id="snark3_1" isMath>
         {

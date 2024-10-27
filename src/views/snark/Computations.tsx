@@ -17,7 +17,7 @@ export default function Computation() {
           href="https://www.semanticscholar.org/paper/Algebraic-methods-for-interactive-proof-systems-Lund-Fortnow/99c8148bb179eed21d4177edefa43d34ec536d78?p2df"
           target="_blank"
           rel="noreferrer"
-          className="font-[500] underline"
+          className="font-[500] text-black-350 underline"
         >
           groundbreaking work
         </a>{' '}
@@ -29,7 +29,7 @@ export default function Computation() {
           href="https://eprint.iacr.org/2012/215.pdf"
           target="_blank"
           rel="noreferrer"
-          className="font-[500] underline"
+          className="font-[500] text-black-350 underline"
         >
           another breakthrough work
         </a>
@@ -39,7 +39,7 @@ export default function Computation() {
       </ArticleTitle>
       <ArticleTitle>
         {
-          'In this post we explain the translation into QAPs by example. Even when focusing on a small example rather than the general definition, it is unavoidable that it is a lot to digest at first, so be prepared for a certain mental effort :).'
+          'In this post we explain the translation into QAPs by example. Even when focusing on a small example rather than the general definition, it is unavoidable that it is a lot to digest at first, so be prepared for a certain mental effort.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -64,8 +64,8 @@ export default function Computation() {
           'As can be seen in the picture, we label the wires and gates of the circuit in a very particular way, needed for the next step of translating the circuit into a QAP:'
         }
       </ArticleTitle>
-      <ArticleUL className="list-decimal">
-        <ArticleLI isMath className="ml-[2rem]">
+      <ArticleUL className="list-disc">
+        <ArticleLI isMath>
           {
             'When the same outgoing wire goes into more than one gate, we still think of it as one wire - like $\\mathsf{w_1}$ in the example.'
           }

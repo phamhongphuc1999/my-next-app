@@ -3,6 +3,7 @@
 'use client';
 
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { ContrastLink } from 'src/components/utils';
 
 export default function HomomorphicHidings() {
   return (
@@ -13,10 +14,10 @@ export default function HomomorphicHidings() {
         }
       </ArticleTitle>
       <ArticleTitle>
-        {
-          'If I had to choose one ingredient whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'
-        }
-        <a href="#snark1_1">[1]</a>
+        {'If I had to choose '}
+        <span className="font-[500] text-black-350">one ingredient</span>
+        {' whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'}
+        <ContrastLink href="#snark1_1">[1]</ContrastLink>
         {
           '. In this post we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
         }
@@ -30,9 +31,9 @@ export default function HomomorphicHidings() {
           {'Different inputs lead to different outputs - so if $x \\neq y$, then $E(x)\\neq E(y)$.'}
         </ArticleLI>
         <ArticleLI isMath>
-          {
-            'If someone knows $E(x)$ and $E(y)$, they can generate the HH of arithmetic expressions in $x$ and $y$. For example, they can compute $E(x+y)$ from $E(x)$ and $E(y)$.'
-          }
+          {'If someone knows $E(x)$ and $E(y)$, they can generate the HH of '}
+          <span className="italic">arithmetic expressions</span>
+          {' in $x$ and $y$. For example, they can compute $E(x+y)$ from $E(x)$ and $E(y)$.'}
         </ArticleLI>
       </ArticleUL>
       <ArticleTitle isMath>
@@ -47,7 +48,7 @@ export default function HomomorphicHidings() {
         </ArticleLI>
         <ArticleLI isMath>
           {
-            "Bob also computes $E(7)$, and now checks whether $E(x+y) = E(7)$. He accepts Alice's proof only if equality holds."
+            "Bob also computes $E(7)$, and now checks whether $E(x+y) =$ $E(7)$. He accepts Alice's proof only if equality holds."
           }
         </ArticleLI>
       </ArticleUL>
@@ -55,24 +56,25 @@ export default function HomomorphicHidings() {
         {
           'As different inputs are mapped by $E$ to different hidings, Bob indeed accepts the proof only if Alice sent hidings of $x, y$ such as $x + y = 7$. On the other hand, Bob does not learn $x$ and $y$, as he just has access to their hidings.'
         }
-        <a href="#snark1_2">[2]</a>
+        <ContrastLink href="#snark1_2">[2]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle>
         {
-          "Now let's see an example of how such hidings are constructed. We actually cannot construct them for regular integers with regular addition, but need to look at finite groups:"
+          "Now let's see an example of how such hidings are constructed. We actually cannot construct them for regular integers with regular addition, but need to look at "
+        }
+        <span className="italic">finite groups:</span>
+      </ArticleTitle>
+      <ArticleTitle isMath>
+        {
+          'Let $n$ be some integer. When we write $A \\: \\mathrm{mod} \\: n$ for an integer $A$, we mean taking the remainder of $A$ after dividing by $n$. For example, $9 \\: \\mathrm{mod} \\: 7 = 2$ and $13 \\: \\mathrm{mod} \\: 12 = 1$. We can use the $\\mathrm{mod} \\: n$ operation to define an addition operation on the numbers $\\{0,\\ldots, n-1\\}$ We do regular addition but then apply $(\\mathrm{mod} \\: n)$ on the result to get back a number in the range $\\{0,\\ldots, n-1\\}$. We sometimes write $(\\mathrm{mod} \\: n)$ on the right to clarify we are using this type of addition. For example, $2+3 = 1 (\\mathrm{mod} \\: 4)$. We call the set of elements $\\{0,\\ldots, n-1\\}$ together with this addition operation the group $\\mathbb{Z}_n$.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Let $n$ be some integer. When we write $A$ mod $n$ for an integer $A$, we mean taking the remainder of $A$ after dividing by $n$. For example, 9 mod 7 = 2 and 13 mod 12 = 1. We can use the mod $n$ operation to define an addition operation on the numbers {0,...,$n$ - 1}. We do regular addition but then apply (mod $n$) on the result to get back a number in the range {0,...,$n$ - 1}. We sometimes write (mod $n$) on the right to clarify we are using this type of addition. For example, 2 + 3 = 1 (mod 4). We call the set of elements {0,...,$n$ - 1} together with this addition operation the group $\\mathbb{Z}_n$.'
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {
-          'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set {1,...,$p$ - 1}- by performing regular multiplication of integers, and then taking the result mod $p$'
+          'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set $\\{1,\\ldots,p-1\\}$, by performing regular multiplication of integers, and then taking the result mod $p$'
         }
         <a href="#snark1_3">[3]</a>
-        {'. For example, $2 \\cdot 4 = 1(mod 7)$.'}
+        {'. For example, $2 \\cdot 4 = 1(mod \\: 7)$.'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -98,7 +100,7 @@ export default function HomomorphicHidings() {
       </ArticleUL>
       <ArticleTitle isMath>
         {
-          "Using these properties, we now construct an HH that 'supports addition' - meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) =$ $g^{x + y \\:mod\\: p - 1} = g^xg^y =$ $E(x)E(y)$."
+          "Using these properties, we now construct an HH that 'supports addition', meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) =$ $g^{x + y \\:mod\\: p - 1} = g^xg^y =$ $E(x)E(y)$."
         }
       </ArticleTitle>
       <ArticleTitle isMath id="snark1_1">

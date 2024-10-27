@@ -1,16 +1,22 @@
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import Curve1Img from 'public/images/curve1.png';
 import Curve2Img from 'public/images/curve2.png';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { ContrastLink } from 'src/components/utils';
 
 export default function EllipticCurve() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle>
+        {'In '}
+        <Link href="snark/chapter6" className="font-[500] text-black-350 underline">
+          part 6
+        </Link>
         {
-          "In Part 6, we saw an outline of the Pinocchio zk-SNARK. We were missing two things - an HH that supports both addition and multiplication that is needed for the verifier's checks, and a transition from an interactive protocol to a non-interactive proof system."
+          ", we saw an outline of the Pinocchio zk-SNARK. We were missing two things - an HH that supports both addition and multiplication that is needed for the verifier's checks, and a transition from an interactive protocol to a non-interactive proof system."
         }
       </ArticleTitle>
       <ArticleTitle>
@@ -26,15 +32,14 @@ export default function EllipticCurve() {
       <Typography variant="h4">Elliptic curves and their pairings</Typography>
       <ArticleTitle isMath isFirst>
         {
-          'Assume $p$ is a prime larger that 3, and take some $u, v \\in \\mathbb{F}_b$ such that $4u^3 + 27v^2 \\neq 0$. We look at the equation'
+          'Assume $p$ is a prime larger than 3, and take some $u, v \\in \\mathbb{F}_b$ such that $4u^3 + 27v^2 \\neq 0$. We look at the equation: $Y^2 = X^3 + u \\cdot X + v$'
         }
       </ArticleTitle>
-      <ArticleTitle isMath>{'$Y^2 = X^3 + u \\cdot X + v$'}</ArticleTitle>
       <ArticleTitle isMath>
         {'An elliptic curve $\\mathcal{C}$ is the set of points $(x, y)$ '}
-        <a href="#snark7_1">[1]</a>
+        <ContrastLink href="#snark7_1">[1]</ContrastLink>
         {
-          ' that satisfy such an equation. These curves give us an interesting way to construct groups. The group elements will be the points $(x, y) \\in \\mathbb{F}_p^2$ that are on the curve, i.e., that satisfy the equation, together with a special point $\\mathcal{O}$, which for technical reasons is sometimes referred to as the “point at infinity” and serves as the identity element, i.e., the zero of the group.'
+          ' that satisfy such an equation. These curves give us an interesting way to construct groups. The group elements will be the points $(x, y) \\in \\mathbb{F}_p^2$ that are on the curve, i.e., that satisfy the equation, together with a special point $\\mathcal{O}$, which for technical reasons is sometimes referred to as the "point at infinity" and serves as the identity element, i.e., the zero of the group.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -73,7 +78,7 @@ export default function EllipticCurve() {
         {
           'Thus, we have derived the addition rule for our group: Given points $P$ and $Q$, pass a line through them, and then take the "mirror" point of the third intersection point of the line as the addition result.'
         }
-        <a href="#snark7_2">[2]</a>
+        <ContrastLink href="#snark7_2">[2]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -84,7 +89,7 @@ export default function EllipticCurve() {
         {
           'The smallest integer $k$ such that $r$ divides $p^k - 1$ is called the embedding degree of the curve. It is conjectured that when $k$ is not too small, say, at least 6, then the discrete logarithm problem in $G_1$, finding $\\alpha$ from $g$ and $\\alpha \\cdot g$ is very hard. (In BN curves'
         }
-        <a href="#snark7_3">[3]</a> {' currently used by Zcash, $k = 12$).'}
+        <ContrastLink href="#snark7_3">[3]</ContrastLink> {' currently used by Zcash, $k = 12$).'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -110,7 +115,7 @@ export default function EllipticCurve() {
         {
           "Defining $\\mathrm{Tate}$ is a bit beyond the scope of this series and relies on concepts from algebraic geometry, most prominently that of divisors. Here's a sketch of $\\mathrm{Tate}$'s definition:"
         }
-        <a href="#snark7_4">[4]</a>
+        <ContrastLink href="#snark7_4">[4]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -139,7 +144,7 @@ export default function EllipticCurve() {
         {
           "The strongest and most intuitive notion of a non-interactive proof is probably the following. In order to prove a certain claim, a prover broadcasts a single message to all parties, with no prior communication of any kind; and anyone reading this message would be convinced of the prover's claim. This can be shown to be impossible in most cases."
         }
-        <a href="snark7_5">[5]</a>
+        <ContrastLink href="snark7_5">[5]</ContrastLink>
       </ArticleTitle>
       <ArticleTitle>
         {

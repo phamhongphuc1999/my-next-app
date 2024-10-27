@@ -8,8 +8,12 @@ export default function Pinocchio() {
   return (
     <div className="mt-[1rem]">
       <ArticleTitle>
+        {'In '}
+        <Link href="/snark/chapter5" className="font-[500] text-black-350 underline">
+          part 5
+        </Link>
         {
-          'In part V, we saw how a statement Alice would like to prove to Bob can be converted into an equivalent form in the "language of polynomials" called a Quadratic Arithmetic Program (QAP).'
+          ' , we saw how a statement Alice would like to prove to Bob can be converted into an equivalent form in the "language of polynomials" called a Quadratic Arithmetic Program (QAP).'
         }
       </ArticleTitle>
       <ArticleTitle>
@@ -19,7 +23,7 @@ export default function Pinocchio() {
         <a
           href="https://eprint.iacr.org/2013/279.pdf"
           target="_blank"
-          className="font-[500] underline"
+          className="font-[500] text-black-350 underline"
           rel="noreferrer"
         >
           Pinocchio Protocol
@@ -58,7 +62,7 @@ export default function Pinocchio() {
         <a
           href="https://en.wikipedia.org/wiki/Schwartz%E2%80%93Zippel_lemma"
           target="_blank"
-          className="font-[500] underline"
+          className="font-[500] text-black-350 underline"
           rel="noreferrer"
         >
           Schwartz-Zippel Lemma
@@ -86,7 +90,7 @@ export default function Pinocchio() {
         </ArticleLI>
         <ArticleLI className="ml-[2rem]" isMath>
           {
-            'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s)R(s)$ $- O(s))$ $= E(T(s)H(s))$.'
+            'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s) \\cdot R(s) -$ $O(s)) = E(T(s) \\cdot H(s))$.'
           }
         </ArticleLI>
       </ArticleUL>
@@ -122,7 +126,7 @@ export default function Pinocchio() {
         {"Let's combine the polynomials $L,R,O$ into one polynomial $F$ as follows:"}
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$F = L + X^{d + 1}R + X^{2(d + 1)}O$'}
+        {'$F = L + X^{d+1} \\cdot R + X^{2(d+1)} \\cdot O$'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -135,7 +139,7 @@ export default function Pinocchio() {
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">
-        {'$F_i = L_i + X^{d + 1}R_i + X^{2(d + 1)}O_i$'}
+        {'$F_i = L_i + X^{d+1} \\cdot R_i + X^{2(d+1)} \\cdot O_i$'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -217,6 +221,11 @@ export default function Pinocchio() {
           }
         </ArticleLI>
       </ArticleUL>
+      <ArticleTitle>
+        {
+          'Both these issues can be resolved by the use of pairings of elliptic curves, which we will discuss in the next and final part.'
+        }
+      </ArticleTitle>
     </div>
   );
 }
