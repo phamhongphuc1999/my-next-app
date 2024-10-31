@@ -55,10 +55,10 @@ export default function MakeBlindEvaluation() {
           Part 2
         </Link>
         {
-          ' gave us the first item but not the second. To get verifiability, we need an extended version of the Knowledge of Coefficient Assumption (KCA) that was presented in .'
+          ' gave us the first item but not the second. To get verifiability, we need an extended version of the Knowledge of Coefficient Assumption (KCA) that was presented in '
         }
         <Link href="snark/chapter3" className="font-[500] text-black-350 underline">
-          Part 3
+          Part 3.
         </Link>
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -139,11 +139,8 @@ export default function MakeBlindEvaluation() {
       <Typography variant="h4">The Verifiable Blind Evaluation Protocol</Typography>
       <ArticleTitle isMath isFirst>
         {
-          'Assume that our hiding homomorphism (HH) is the mapping $E(x) = x \\cdot g$ for a generator $g$ of $G$ as above.'
+          'Assume that our hiding homomorphism (HH) is the mapping $E(x) = x \\cdot g$ for a generator $g$ of $G$ as above. For simplicity, we present the protocol for this particular $E$'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
-        {'For simplicity, we present the protocol for this particular $E$'}
       </ArticleTitle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>

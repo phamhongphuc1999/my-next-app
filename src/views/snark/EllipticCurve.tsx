@@ -12,7 +12,7 @@ export default function EllipticCurve() {
     <div className="mt-[1rem]">
       <ArticleTitle>
         {'In '}
-        <Link href="snark/chapter6" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter6" className="font-[500] text-black-350 underline">
           part 6
         </Link>
         {
@@ -103,7 +103,7 @@ export default function EllipticCurve() {
       </ArticleTitle>
       <ArticleUL className="list-decimal">
         <ArticleLI isMath className="ml-[2rem]">
-          {'$\\mathrm{Tate}(g, h) = g$ for a generator $\\mathbf{g}$ of $G_T$ and'}
+          {'$\\mathrm{Tate}(g, h) = \\mathbf{g}$ for a generator $\\mathbf{g}$ of $G_T$ and'}
         </ArticleLI>
         <ArticleLI isMath className="ml-[2rem]">
           {
@@ -188,30 +188,30 @@ export default function EllipticCurve() {
           'As explained in Part 4, Alice can only construct $a,b$ that will pass the verification check if $a$ is the hiding of $P(s)$ for a polynomial $P$ of degree $d$ known to her. The main difference here is that Bob does not need to know $\\alpha$ for the verification check, as he can use the pairing function to compute $E(\\alpha x)$ only from $E_1(x)$ and $E_2(\\alpha)$. Thus, he does not need to construct and send the first message himself, and this message can simply be fixed in the CRS.'
         }
       </ArticleTitle>
-      <ArticleTitle isMath id="#snark7_1">
+      <ArticleTitle isMath id="snark7_1">
         {
           "[1]You may ask 'The set of points from where?'. We mean the set of points with coordinates in the algebraic closure of $\\mathbb{F}_p$. Also, the curve has an affine and projective version. When we are referring to the projective version we also include the 'point at infinity' $\\mathcal{O}$ as an element of the curve."
         }
       </ArticleTitle>
-      <ArticleTitle isMath id="#snark7_2">
+      <ArticleTitle isMath id="snark7_2">
         {
           '[2]We did not address the case of adding $P$ to itself. This is done by using the line that is tangent to the curve at $P$, and taking $R$ to be the second intersection point of this line with the curve.'
         }
       </ArticleTitle>
-      <ArticleTitle id="#snark7_3" className="break-words">
+      <ArticleTitle id="snark7_3" className="break-words">
         [3]<a href="https://eprint.iacr.org/2005/133.pdf">https://eprint.iacr.org/2005/133.pdf</a>
       </ArticleTitle>
-      <ArticleTitle isMath id="#snark7_4">
+      <ArticleTitle isMath id="snark7_4">
         {
           '[4]The pairing Zcash actually uses is the optimal Ate pairing, which is based on the Tate reduced pairing, and can be computed more efficiently than $\\mathrm{Tate}$.'
         }
       </ArticleTitle>
-      <ArticleTitle id="#snark7_5">
+      <ArticleTitle id="snark7_5">
         {
           "[5]In computational complexity theory terms, one can show that only languages in BPP have non-interactive zero-knowledge proofs in this strong sense. The type of claims we need to prove in Zcash transactions, e.g. 'I know a hash preimage of this string', correspond to the complexity class NP which is believed to be much larger than BPP."
         }
       </ArticleTitle>
-      <ArticleTitle id="#snark7_6">
+      <ArticleTitle id="snark7_6">
         {
           '[6]The images used were taken from the following article and are used under the creative commons license.'
         }

@@ -18,7 +18,7 @@ export default function BlindEvaluation() {
           Part 1
         </Link>
         {
-          ' for an explanation of HH.) In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
+          ' for an explanation of HH). In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -51,7 +51,7 @@ export default function BlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'In the last post, we saw the HH $E$ defined by $E(x) = g^x$, where $g$ was a generator of a group with a hard discrete log problem. We mentioned that this HH “supports addition” in the sense that $E(x + y)$ can be computed from $E(x)$ and $E(y)$. We note here that it also "supports linear combinations", meaning that, given $a, b, E(x), E(y)$, we can compute $E(ax + by)$. This is simply because'
+          'In the last post, we saw the HH $E$ defined by $E(x) = g^x$, where $g$ was a generator of a group with a hard discrete log problem. We mentioned that this HH "supports addition" in the sense that $E(x + y)$ can be computed from $E(x)$ and $E(y)$. We note here that it also "supports linear combinations", meaning that, given $a, b, E(x), E(y)$, we can compute $E(ax + by)$. This is simply because'
         }
       </ArticleTitle>
       <ArticleTitle isMath className="text-center">

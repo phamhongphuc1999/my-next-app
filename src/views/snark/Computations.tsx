@@ -114,7 +114,7 @@ export default function Computation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {
-          'Note that $\\mathsf{w_1}$ and $\\mathsf{w_3}$ are both right inputs of $\\mathsf{g_2}$. Therefore, we define similarly $L_4 =$ $R_1 =$ $R_3 =$ $O_5 =$ $X-1$ - as $X-1$ is one on the target point $2$ corresponding to $\\mathsf{g_2}$ and zero on the other target point. We set the rest of the polynomials to be the zero polynomial.'
+          'Note that $\\mathsf{w_1}$ and $\\mathsf{w_3}$ are both right inputs of $\\mathsf{g_2}$. Therefore, we define similarly $L_4 =$ $R_1 =$ $R_3 =$ $O_5 =$ $X-1$, as $X-1$ is one on the target point $2$ corresponding to $\\mathsf{g_2}$ and zero on the other target point. We set the rest of the polynomials to be the zero polynomial.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
