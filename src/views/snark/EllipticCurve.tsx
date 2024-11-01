@@ -37,7 +37,9 @@ export default function EllipticCurve() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {'An elliptic curve $\\mathcal{C}$ is the set of points $(x, y)$ '}
-        <ContrastLink href="#snark7_1">[1]</ContrastLink>
+        <ContrastLink id="snark7_1_item" href="#snark7_1">
+          [1]
+        </ContrastLink>
         {
           ' that satisfy such an equation. These curves give us an interesting way to construct groups. The group elements will be the points $(x, y) \\in \\mathbb{F}_p^2$ that are on the curve, i.e., that satisfy the equation, together with a special point $\\mathcal{O}$, which for technical reasons is sometimes referred to as the "point at infinity" and serves as the identity element, i.e., the zero of the group.'
         }
@@ -78,7 +80,9 @@ export default function EllipticCurve() {
         {
           'Thus, we have derived the addition rule for our group: Given points $P$ and $Q$, pass a line through them, and then take the "mirror" point of the third intersection point of the line as the addition result.'
         }
-        <ContrastLink href="#snark7_2">[2]</ContrastLink>
+        <ContrastLink id="snark7_2_item" href="#snark7_2">
+          [2]
+        </ContrastLink>
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -89,7 +93,10 @@ export default function EllipticCurve() {
         {
           'The smallest integer $k$ such that $r$ divides $p^k - 1$ is called the embedding degree of the curve. It is conjectured that when $k$ is not too small, say, at least 6, then the discrete logarithm problem in $G_1$, finding $\\alpha$ from $g$ and $\\alpha \\cdot g$ is very hard. (In BN curves'
         }
-        <ContrastLink href="#snark7_3">[3]</ContrastLink> {' currently used by Zcash, $k = 12$).'}
+        <ContrastLink id="snark7_3_item" href="#snark7_3">
+          [3]
+        </ContrastLink>{' '}
+        {' currently used by Zcash, $k = 12$).'}
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -115,7 +122,9 @@ export default function EllipticCurve() {
         {
           "Defining $\\mathrm{Tate}$ is a bit beyond the scope of this series and relies on concepts from algebraic geometry, most prominently that of divisors. Here's a sketch of $\\mathrm{Tate}$'s definition:"
         }
-        <ContrastLink href="#snark7_4">[4]</ContrastLink>
+        <ContrastLink id="snark7_4_item" href="#snark7_4">
+          [4]
+        </ContrastLink>
       </ArticleTitle>
       <ArticleTitle isMath>
         {
@@ -144,7 +153,9 @@ export default function EllipticCurve() {
         {
           "The strongest and most intuitive notion of a non-interactive proof is probably the following. In order to prove a certain claim, a prover broadcasts a single message to all parties, with no prior communication of any kind; and anyone reading this message would be convinced of the prover's claim. This can be shown to be impossible in most cases."
         }
-        <ContrastLink href="snark7_5">[5]</ContrastLink>
+        <ContrastLink id="snark7_5_item" href="snark7_5">
+          [5]
+        </ContrastLink>
       </ArticleTitle>
       <ArticleTitle>
         {
@@ -153,7 +164,17 @@ export default function EllipticCurve() {
       </ArticleTitle>
       <ArticleTitle>
         {
-          'We will explain how in the CRS model we can convert the verifiable blind evaluation protocol of Part 4 into a non-interactive proof system. As the protocol of Part 6 consisted of a few such subprotocols it can be turned into a non-interactive proof system in a similar way.'
+          'We will explain how in the CRS model we can convert the verifiable blind evaluation protocol of '
+        }
+        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+          part 4
+        </Link>
+        {' into a non-interactive proof system. As the protocol of '}
+        <Link href="/snark/chapter6" className="font-[500] text-black-350 underline">
+          part 6
+        </Link>
+        {
+          ' consisted of a few such subprotocols it can be turned into a non-interactive proof system in a similar way.'
         }
       </ArticleTitle>
       <Typography variant="h4">A non-interactive evaluation protocol</Typography>
@@ -174,7 +195,7 @@ export default function EllipticCurve() {
       <ArticleTitle isMath>
         <span className="font-[500]">Proof:</span>
         {
-          ' Alice computes $E_1(P(s))$ and $b = E_2(\\alpha P(s))$ using the elements of the CRS, and the fact that $E_1$ and $E_2$ support linear combinations.'
+          ' Alice computes $a = E_1(P(s))$ and $b = E_2(\\alpha P(s))$ using the elements of the CRS, and the fact that $E_1$ and $E_2$ support linear combinations.'
         }
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -184,38 +205,57 @@ export default function EllipticCurve() {
         }
       </ArticleTitle>
       <ArticleTitle isMath>
+        {'As explained in '}
+        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+          part 4
+        </Link>
         {
-          'As explained in Part 4, Alice can only construct $a,b$ that will pass the verification check if $a$ is the hiding of $P(s)$ for a polynomial $P$ of degree $d$ known to her. The main difference here is that Bob does not need to know $\\alpha$ for the verification check, as he can use the pairing function to compute $E(\\alpha x)$ only from $E_1(x)$ and $E_2(\\alpha)$. Thus, he does not need to construct and send the first message himself, and this message can simply be fixed in the CRS.'
+          ', Alice can only construct $a,b$ that will pass the verification check if $a$ is the hiding of $P(s)$ for a polynomial $P$ of degree $d$ known to her. The main difference here is that Bob does not need to know $\\alpha$ for the verification check, as he can use the pairing function to compute $E(\\alpha x)$ only from $E_1(x)$ and $E_2(\\alpha)$. Thus, he does not need to construct and send the first message himself, and this message can simply be fixed in the CRS.'
         }
       </ArticleTitle>
-      <ArticleTitle isMath id="snark7_1">
-        {
-          "[1]You may ask 'The set of points from where?'. We mean the set of points with coordinates in the algebraic closure of $\\mathbb{F}_p$. Also, the curve has an affine and projective version. When we are referring to the projective version we also include the 'point at infinity' $\\mathcal{O}$ as an element of the curve."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark7_2">
-        {
-          '[2]We did not address the case of adding $P$ to itself. This is done by using the line that is tangent to the curve at $P$, and taking $R$ to be the second intersection point of this line with the curve.'
-        }
-      </ArticleTitle>
-      <ArticleTitle id="snark7_3" className="break-words">
-        [3]<a href="https://eprint.iacr.org/2005/133.pdf">https://eprint.iacr.org/2005/133.pdf</a>
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark7_4">
-        {
-          '[4]The pairing Zcash actually uses is the optimal Ate pairing, which is based on the Tate reduced pairing, and can be computed more efficiently than $\\mathrm{Tate}$.'
-        }
-      </ArticleTitle>
-      <ArticleTitle id="snark7_5">
-        {
-          "[5]In computational complexity theory terms, one can show that only languages in BPP have non-interactive zero-knowledge proofs in this strong sense. The type of claims we need to prove in Zcash transactions, e.g. 'I know a hash preimage of this string', correspond to the complexity class NP which is believed to be much larger than BPP."
-        }
-      </ArticleTitle>
-      <ArticleTitle id="snark7_6">
-        {
-          '[6]The images used were taken from the following article and are used under the creative commons license.'
-        }
-      </ArticleTitle>
+      <a href="#snark7_1_item">
+        <ArticleTitle isMath id="snark7_1">
+          {
+            "[1]You may ask 'The set of points from where?'. We mean the set of points with coordinates in the algebraic closure of $\\mathbb{F}_p$. Also, the curve has an affine and projective version. When we are referring to the projective version we also include the 'point at infinity' $\\mathcal{O}$ as an element of the curve."
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark7_2_item">
+        <ArticleTitle isMath id="snark7_2">
+          {
+            '[2]We did not address the case of adding $P$ to itself. This is done by using the line that is tangent to the curve at $P$, and taking $R$ to be the second intersection point of this line with the curve.'
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark7_3_item">
+        <ArticleTitle id="snark7_3" className="break-words">
+          [3]
+          <a target="_blank" rel="noreferrer" href="https://eprint.iacr.org/2005/133.pdf">
+            https://eprint.iacr.org/2005/133.pdf
+          </a>
+        </ArticleTitle>
+      </a>
+      <a href="#snark7_4_item">
+        <ArticleTitle isMath id="snark7_4">
+          {
+            '[4]The pairing Zcash actually uses is the optimal Ate pairing, which is based on the Tate reduced pairing, and can be computed more efficiently than $\\mathrm{Tate}$.'
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark7_5_item">
+        <ArticleTitle id="snark7_5">
+          {
+            "[5]In computational complexity theory terms, one can show that only languages in BPP have non-interactive zero-knowledge proofs in this strong sense. The type of claims we need to prove in Zcash transactions, e.g. 'I know a hash preimage of this string', correspond to the complexity class NP which is believed to be much larger than BPP."
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark7_6_item">
+        <ArticleTitle id="snark7_6">
+          {
+            '[6]The images used were taken from the following article and are used under the creative commons license.'
+          }
+        </ArticleTitle>
+      </a>
     </div>
   );
 }

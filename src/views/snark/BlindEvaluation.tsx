@@ -14,8 +14,8 @@ export default function BlindEvaluation() {
         {
           'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See '
         }
-        <Link href="snark/chapter1" className="font-[500] text-black-350 underline">
-          Part 1
+        <Link href="/snark/chapter1" className="font-[500] text-black-350 underline">
+          part 1
         </Link>
         {
           ' for an explanation of HH). In future posts, we will see that blind evaluation is a central tool in SNARK constructions.'
@@ -25,7 +25,7 @@ export default function BlindEvaluation() {
         {
           'We denote by $\\mathbb{F}_p$ the field of size $p$; that is, the element of $\\mathbb{F}_p$ are {0,..., $p$ - 1}, and addition and multiplication are done mod $p$, as explained in '
         }
-        <Link href="/snark/chapter1">Part 1.</Link>
+        <Link href="/snark/chapter1">part 1.</Link>
       </ArticleTitle>
       <Typography variant="h4">Polynomials and Linear Combinations</Typography>
       <ArticleTitle isFirst isMath>
@@ -77,7 +77,9 @@ export default function BlindEvaluation() {
         {
           "However, in the blind evaluation problem, we want Bob to learn $E(P(s))$ without learning $P$, which precludes the first option; and, most importantly, we don't want Alice to learn $s$, which rules out the second"
         }
-        <ContrastLink href="#snark2_1">[1]</ContrastLink>
+        <ContrastLink id="snark1_1_item" href="#snark2_1">
+          [1]
+        </ContrastLink>
       </ArticleTitle>
       <ArticleTitle>Using HH, we can perform blind evaluation as follows:</ArticleTitle>
       <ArticleUL className="list-decimal">
@@ -92,7 +94,9 @@ export default function BlindEvaluation() {
       </ArticleUL>
       <ArticleTitle isMath>
         {'Note that, as only hidings were sent, neither Alice learned $s$ '}
-        <ContrastLink href="#snark2_2">[2]</ContrastLink>
+        <ContrastLink id="snark1_2_item" href="#snark2_2">
+          [2]
+        </ContrastLink>
         {', nor did Bob learn $P$.'}
       </ArticleTitle>
       <Typography variant="h4">Why Is This Useful?</Typography>
@@ -101,16 +105,20 @@ export default function BlindEvaluation() {
           'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a "correct" polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that "different polynomials are different at most points".'
         }
       </ArticleTitle>
-      <ArticleTitle isMath id="snark2_1">
-        {
-          "[1]The main reason we don't want to send $P$ to Bob is simply that it is large, $d$ + 1 elements, where, for example, $d \\approx 2000000$ in the current Zcash protocol; this ultimately has to do with the 'Succinct' part of SNARKs. It is true that the sequence of hidings Bob is sending to Alice above is just as long, but it will turn out this sequence can be 'hard-coded' in the parameters of the system, whereas Alice's message will be different for each SNARK proof."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark2_2">
-        {
-          '[2]Actually, the hiding property only guarantees $s$ not being recoverable from $E(s)$, but here we want to claim it is also not recoverable from the sequence $E(s),...,E(s^d)$ that potentially contains more information about $s$. This follows from the $d$-power Diffie-Hellman assumption, which is needed in several SNARK security proofs.'
-        }
-      </ArticleTitle>
+      <a href="#snark1_1_item">
+        <ArticleTitle isMath id="snark2_1">
+          {
+            "[1]The main reason we don't want to send $P$ to Bob is simply that it is large, $d$ + 1 elements, where, for example, $d \\approx 2000000$ in the current Zcash protocol; this ultimately has to do with the 'Succinct' part of SNARKs. It is true that the sequence of hidings Bob is sending to Alice above is just as long, but it will turn out this sequence can be 'hard-coded' in the parameters of the system, whereas Alice's message will be different for each SNARK proof."
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark1_2_item">
+        <ArticleTitle isMath id="snark2_2">
+          {
+            '[2]Actually, the hiding property only guarantees $s$ not being recoverable from $E(s)$, but here we want to claim it is also not recoverable from the sequence $E(s),...,E(s^d)$ that potentially contains more information about $s$. This follows from the $d$-power Diffie-Hellman assumption, which is needed in several SNARK security proofs.'
+          }
+        </ArticleTitle>
+      </a>
     </div>
   );
 }

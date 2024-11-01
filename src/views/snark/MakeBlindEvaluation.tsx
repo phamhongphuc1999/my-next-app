@@ -11,11 +11,11 @@ export default function MakeBlindEvaluation() {
     <div className="mt-[1rem]">
       <ArticleTitle>
         {'In this part, we build on '}
-        <Link className="font-[500] text-black-350 underline" href="snark/chapter2">
+        <Link className="font-[500] text-black-350 underline" href="/snark/chapter2">
           Part 2
         </Link>
         {' and '}
-        <Link className="font-[500] text-black-350 underline" href="snark/chapter3">
+        <Link className="font-[500] text-black-350 underline" href="/snark/chapter3">
           3
         </Link>
         {
@@ -51,13 +51,13 @@ export default function MakeBlindEvaluation() {
       </ArticleUL>
       <ArticleTitle>
         {'This is what we call verifiable blind evaluation of a polynomial. The protocol in '}
-        <Link href="snark/chapter2" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter2" className="font-[500] text-black-350 underline">
           Part 2
         </Link>
         {
           ' gave us the first item but not the second. To get verifiability, we need an extended version of the Knowledge of Coefficient Assumption (KCA) that was presented in '
         }
-        <Link href="snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3.
         </Link>
       </ArticleTitle>
@@ -73,7 +73,7 @@ export default function MakeBlindEvaluation() {
       <Typography variant="h4">An Extended KCA</Typography>
       <ArticleTitle isMath isFirst>
         {'The KCA as we defined it in '}
-        <Link href="snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3
         </Link>
         {
@@ -87,7 +87,7 @@ export default function MakeBlindEvaluation() {
       </ArticleTitle>
       <ArticleTitle isMath>
         {'As we saw in '}
-        <Link href="snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3
         </Link>
         {
@@ -118,7 +118,7 @@ export default function MakeBlindEvaluation() {
         {
           "The extended KCA states, essentially, that this is the only way Alice can generate an $\\alpha$-pair;  that is, whenever she succeeds, she will know such a linear relation between $a^{'}$ and $a_1,...,a_d$. More formally, suppose that $G$ is a group of size $p$ with generator $g$, written additively as in "
         }
-        <Link href="snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3
         </Link>
         {'. The $d$-power Knowledge of Coefficient Assumption ($d$-KCA) '}
