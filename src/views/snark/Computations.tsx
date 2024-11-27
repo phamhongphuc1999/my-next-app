@@ -1,6 +1,4 @@
 /* eslint-disable quotes */
-'use client';
-
 import { Typography } from '@mui/material';
 import Image from 'next/image';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
@@ -173,20 +171,22 @@ export default function Computation() {
           'To summarize, we have seen how a statement such as "I know $c_1,c_2,c_3$ such that $(c_1 \\cdot c_2) \\cdot (c_1 + c_3) = 7$" can be translated into an equivalent statement about polynomials using QAPs. In the next part, we will see an efficient protocol for proving knowledge of a satisfying assignment to a QAP.'
         }
       </ArticleTitle>
-      <ArticleTitle>
-        {
-          "[1]In this post we tried to give the most concise example of a reduction to QAP; we also recommend Vitalik Buterin's "
-        }
-        <a
-          href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649"
-          target="_blank"
-          className="font-[500] underline"
-          rel="noreferrer"
-        >
-          excellent post
-        </a>
-        {' for more details on the transformation from a program to a QAP.'}
-      </ArticleTitle>
+      <a href="#snark5_1_item">
+        <ArticleTitle>
+          {
+            "[1]In this post we tried to give the most concise example of a reduction to QAP; we also recommend Vitalik Buterin's "
+          }
+          <a
+            href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649"
+            target="_blank"
+            className="font-[500] underline"
+            rel="noreferrer"
+          >
+            excellent post
+          </a>
+          {' for more details on the transformation from a program to a QAP.'}
+        </ArticleTitle>
+      </a>
     </div>
   );
 }

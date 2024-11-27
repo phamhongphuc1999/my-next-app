@@ -1,5 +1,3 @@
-'use client';
-
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
@@ -43,7 +41,9 @@ export default function KnowledgeCoefficient() {
       <Typography variant="h4">The KC Test</Typography>
       <ArticleTitle isMath isFirst>
         {'For $\\alpha \\in \\mathbb{F}_p^*$'}
-        <ContrastLink href="#snark3_1">[1]</ContrastLink>
+        <ContrastLink id="snark3_1_item" href="#snark3_1">
+          [1]
+        </ContrastLink>
         {
           ', let us call a pair of elements $(a, b)$ in $G$ an $\\alpha$-pair if $a, b \\neq 0$ and $b = \\alpha \\cdot a$.'
         }
@@ -101,7 +101,9 @@ export default function KnowledgeCoefficient() {
       </ArticleTitle>
       <ArticleTitle>
         {'The Knowledge of Coefficient Assumption'}
-        <ContrastLink href="#snark3_2">[2]</ContrastLink>
+        <ContrastLink id="snark3_2_item" href="#snark3_2">
+          [2]
+        </ContrastLink>
         {' (KCA) states that this is always the case, namely:'}
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -126,23 +128,31 @@ export default function KnowledgeCoefficient() {
         {
           "We then formulate the KCA by saying that whenever Alice successfully responds with an $\\alpha$-pair $(a^{'}, b^{'})$, Alice's Extractor output $\\gamma$ such that $a^{'} = \\gamma \\cdot a.$"
         }
-        <ContrastLink href="#snark3_3">[3]</ContrastLink>
+        <ContrastLink id="snark3_3_item" href="#snark3_3">
+          [3]
+        </ContrastLink>
       </ArticleTitle>
-      <ArticleTitle id="snark3_1" isMath>
-        {
-          '[1]$\\mathbb{F}_p^*$ denotes the non-zero elements of $\\mathbb{F}_p$. It is the same as $\\mathbb{Z}_p^*$ described in Part 1.'
-        }
-      </ArticleTitle>
-      <ArticleTitle id="snark3_2">
-        {
-          '[2]This is typically called the Knowledge of Exponent Assumption in the literature, as traditionally it was used for groups written multiplicatively.'
-        }
-      </ArticleTitle>
-      <ArticleTitle id="snark3_3" isMath>
-        {
-          '[3]The fully formal definition needs to give the Extractor "a little slack" and states instead that the probability that Alice responds successfully but the Extractor does not output such $\\gamma$ is negligible.'
-        }
-      </ArticleTitle>
+      <a href="snark3_1_item">
+        <ArticleTitle id="snark3_1" isMath>
+          {
+            '[1]$\\mathbb{F}_p^*$ denotes the non-zero elements of $\\mathbb{F}_p$. It is the same as $\\mathbb{Z}_p^*$ described in Part 1.'
+          }
+        </ArticleTitle>
+      </a>
+      <a href="snark3_2_item">
+        <ArticleTitle id="snark3_2">
+          {
+            '[2]This is typically called the Knowledge of Exponent Assumption in the literature, as traditionally it was used for groups written multiplicatively.'
+          }
+        </ArticleTitle>
+      </a>
+      <a href="snark3_3_item">
+        <ArticleTitle id="snark3_3" isMath>
+          {
+            '[3]The fully formal definition needs to give the Extractor "a little slack" and states instead that the probability that Alice responds successfully but the Extractor does not output such $\\gamma$ is negligible.'
+          }
+        </ArticleTitle>
+      </a>
     </div>
   );
 }

@@ -1,5 +1,3 @@
-'use client';
-
 /* eslint-disable quotes */
 import { Typography } from '@mui/material';
 import Link from 'next/link';

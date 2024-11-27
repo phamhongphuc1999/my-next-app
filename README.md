@@ -1,8 +1,19 @@
 ## My next app
 
-#### Usage
+### Get start
+
+- install
 
 ```shell
 bun install
+```
+
+- start
+
+```shell
 bun dev
 ```
+
+## Host
+
+- https://my-next-app-one-topaz.vercel.app/

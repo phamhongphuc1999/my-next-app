@@ -3,7 +3,6 @@ const nextConfig = {
   // Automatically Copying Traced Files
   output: 'standalone',
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     deviceSizes: [520, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     dangerouslyAllowSVG: true,
@@ -28,4 +27,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

@@ -1,7 +1,5 @@
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
-'use client';
-
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
 
@@ -17,7 +15,9 @@ export default function HomomorphicHidings() {
         {'If I had to choose '}
         <span className="font-[500] text-black-350">one ingredient</span>
         {' whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'}
-        <ContrastLink href="#snark1_1">[1]</ContrastLink>
+        <ContrastLink id="snark1_1_item" href="#snark1_1">
+          [1]
+        </ContrastLink>
         {
           '. In this post we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
         }
@@ -56,7 +56,9 @@ export default function HomomorphicHidings() {
         {
           'As different inputs are mapped by $E$ to different hidings, Bob indeed accepts the proof only if Alice sent hidings of $x, y$ such as $x + y = 7$. On the other hand, Bob does not learn $x$ and $y$, as he just has access to their hidings.'
         }
-        <ContrastLink href="#snark1_2">[2]</ContrastLink>
+        <ContrastLink id="snark1_2_item" href="#snark1_2">
+          [2]
+        </ContrastLink>
       </ArticleTitle>
       <ArticleTitle>
         {
@@ -73,7 +75,9 @@ export default function HomomorphicHidings() {
         {
           'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set $\\{1,\\ldots,p-1\\}$, by performing regular multiplication of integers, and then taking the result mod $p$'
         }
-        <a href="#snark1_3">[3]</a>
+        <ContrastLink id="snark1_3_item" href="#snark1_3">
+          [3]
+        </ContrastLink>
         {'. For example, $2 \\cdot 4 = 1(mod \\: 7)$.'}
       </ArticleTitle>
       <ArticleTitle isMath>
@@ -103,21 +107,27 @@ export default function HomomorphicHidings() {
           "Using these properties, we now construct an HH that 'supports addition', meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) =$ $g^{x + y \\:mod\\: p - 1} = g^xg^y =$ $E(x)E(y)$."
         }
       </ArticleTitle>
-      <ArticleTitle isMath id="snark1_1">
-        {
-          "[1] Homomorphic hiding is not a term formally used in cryptography and is introduced here for didactic purposes. It is similar to but weaker than the well-known notion of a computationally hiding commitment. The difference is that an HH is a deterministic function of the input, whereas a commitment uses additional randomness. As a consequence, HHs essentially 'hide most $x$'s' whereas commitments 'hide every $x$'."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark1_2">
-        {
-          "[2] Bob does learn some information about $x$ and $y$. For example, he can choose a random $x^{'}$ and check whether $x = x^{'}$ by computing $E(x^{'})$. For this reason, the above protocol is not really a Zero-Knowledge protocol and is only used here for explanatory purposes. In fact, as we shall see in later posts, HH is ultimately used in SNARKs to conceal verifier challenges rather than prover secrets."
-        }
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark1_3">
-        {
-          '[3] When $p$ is not a prime, it is problematic to define multiplication this way. One issue is that the multiplication result can be zero even when both arguments are not zero. For example, when $p = 4$, we can get 2 * 2 = 0 (mod 4).'
-        }
-      </ArticleTitle>
+      <a href="#snark1_1_item">
+        <ArticleTitle isMath id="snark1_1">
+          {
+            "[1] Homomorphic hiding is not a term formally used in cryptography and is introduced here for didactic purposes. It is similar to but weaker than the well-known notion of a computationally hiding commitment. The difference is that an HH is a deterministic function of the input, whereas a commitment uses additional randomness. As a consequence, HHs essentially 'hide most $x$'s' whereas commitments 'hide every $x$'."
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark1_2_item">
+        <ArticleTitle isMath id="snark1_2">
+          {
+            "[2] Bob does learn some information about $x$ and $y$. For example, he can choose a random $x^{'}$ and check whether $x = x^{'}$ by computing $E(x^{'})$. For this reason, the above protocol is not really a Zero-Knowledge protocol and is only used here for explanatory purposes. In fact, as we shall see in later posts, HH is ultimately used in SNARKs to conceal verifier challenges rather than prover secrets."
+          }
+        </ArticleTitle>
+      </a>
+      <a href="#snark1_3_item">
+        <ArticleTitle isMath id="snark1_3">
+          {
+            '[3] When $p$ is not a prime, it is problematic to define multiplication this way. One issue is that the multiplication result can be zero even when both arguments are not zero. For example, when $p = 4$, we can get 2 * 2 = 0 (mod 4).'
+          }
+        </ArticleTitle>
+      </a>
     </div>
   );
 }
