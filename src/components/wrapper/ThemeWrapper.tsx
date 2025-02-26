@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  createTheme,
-  CssBaseline,
-  darken,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@mui/material';
+import { createTheme, darken, responsiveFontSizes, ThemeProvider } from '@mui/material';
 import { deepmerge } from '@mui/utils';
 import { ReactNode, useMemo } from 'react';
 import { useAppContext } from 'src/context';
@@ -476,7 +470,6 @@ export default function ThemeWrapper({ children }: Props) {
 
   return (
     <ThemeProvider theme={responsiveFontSizes(deepmerge(theme, baseStyle))}>
-      <CssBaseline />
       {children}
     </ThemeProvider>
   );

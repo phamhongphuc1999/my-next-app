@@ -5,6 +5,7 @@ import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import NextSeo from 'src/components/NextSeo';
+import { ReferenceConfig } from 'src/configs/constance';
 
 export default function Home() {
   return (
@@ -12,11 +13,15 @@ export default function Home() {
       <NextSeo title="Home" />
       <CssBreadcrumbs configs={[{ label: 'Home' }]} className="mb-[1rem]" />
       <ArticleUL className="list-decimal">
-        <ArticleLI>
-          <Link href="/snark" className="hover:underline">
-            SNARK
-          </Link>
-        </ArticleLI>
+        {ReferenceConfig.map((item) => {
+          return (
+            <ArticleLI key={item.link}>
+              <Link href={item.link} className="hover:underline">
+                {item.title}
+              </Link>
+            </ArticleLI>
+          );
+        })}
       </ArticleUL>
     </CommonContainer>
   );

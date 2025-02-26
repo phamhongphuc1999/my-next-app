@@ -33,6 +33,14 @@ const config: Config = {
         },
       },
     },
+    screens: {
+      xsm: '600px',
+      sm: '760px',
+      md: '960px',
+      lg: '1280px',
+      xl: '1440px',
+      xxl: '1800px',
+    },
   },
   plugins: [],
 };
