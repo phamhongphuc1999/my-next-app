@@ -7,7 +7,7 @@ export default function StateManagement() {
     <CommonContainer>
       <AppNextSeo title="State management" />
       <CssBreadcrumbs
-        configs={[{ label: 'Home', link: '/' }, { label: 'Event loop' }]}
+        configs={[{ label: 'Home', link: '/' }, { label: 'State management' }]}
         className="mb-[1rem]"
       />
     </CommonContainer>

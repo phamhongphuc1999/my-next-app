@@ -10,13 +10,17 @@ export default function Chapter1() {
     <CommonContainer>
       <AppNextSeo title="SNARK || Homomorphic Hidings" />
       <CssBreadcrumbs
-        configs={[{ label: 'SNARK', link: '/snark' }, { label: 'Part 1: Homomorphic Hidings' }]}
+        configs={[
+          { label: 'Home', link: '/' },
+          { label: 'SNARK', link: '/snark' },
+          { label: 'Part 1: Homomorphic Hidings' },
+        ]}
       />
       <HomomorphicHidings />
       <Link href="/snark/chapter2" className="inline-block">
         <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <p>Part 2</p>
-          <RightArrowIcon />
+          <p className="whitespace-nowrap">Part 2</p>
+          <RightArrowIcon style={{ width: '1rem', height: '1rem' }} />
         </div>
       </Link>
       <div className="mt-4">

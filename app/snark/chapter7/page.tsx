@@ -11,14 +11,15 @@ export default function Chapter7() {
       <AppNextSeo title="SNARK || Pairings of Elliptic Curves" />
       <CssBreadcrumbs
         configs={[
+          { label: 'Home', link: '/' },
           { label: 'SNARK', link: '/snark' },
           { label: 'Part 7: Pairings of Elliptic Curves' },
         ]}
       />
       <Link href="/snark/chapter6" className="inline-block">
         <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <LeftArrowIcon />
-          <p>Part 6</p>
+          <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
+          <p className="whitespace-nowrap">Part 6</p>
         </div>
       </Link>
       <EllipticCurve />

@@ -5,7 +5,7 @@ import { Fira_Code } from 'next/font/google';
 import IconImg from 'public/star.svg';
 import ThumbImg from 'public/thumbnail.webp';
 import { ReactNode } from 'react';
-import LayoutWrapper from 'src/components/wrapper/LayoutWrapper';
+import LayoutWrapper from 'src/components/LayoutWrapper';
 import AppContextProvider from 'src/context';
 import 'src/styles/globals.css';
 
