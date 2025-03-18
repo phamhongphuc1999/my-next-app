@@ -1,30 +1,31 @@
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Box, BoxProps, Breadcrumbs, Typography } from '@mui/material';
 import Link from 'next/link';
+import { DivProps } from 'src/global';
+import { Breadcrumb, BreadcrumbItem } from './shadcn-ui/breadcrumb';
 
-interface Props extends BoxProps {
+interface Props extends DivProps {
   configs: Array<{ link?: string; label: string; formatter?: (label: string) => string }>;
 }
 
 export default function CssBreadcrumbs({ configs, ...props }: Props) {
   return (
-    <Box {...props}>
-      <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
-        {configs.map((item, index) => {
-          const formatter = item?.formatter;
-          return item.link ? (
-            <Link key={index} href={item.link} className="no-underline">
-              <Typography color="textSecondary">
+    <div {...props}>
+      <Breadcrumb>
+        <BreadcrumbItem>
+          {configs.map((item, index) => {
+            const formatter = item?.formatter;
+
+            return item.link ? (
+              <Link key={index} href={item.link} className="no-underline">
+                <p>{formatter ? formatter(item.label) : item.label}</p>
+              </Link>
+            ) : (
+              <p color="textSecondary" key={index}>
                 {formatter ? formatter(item.label) : item.label}
-              </Typography>
-            </Link>
-          ) : (
-            <Typography color="textSecondary" key={index}>
-              {formatter ? formatter(item.label) : item.label}
-            </Typography>
-          );
-        })}
-      </Breadcrumbs>
-    </Box>
+              </p>
+            );
+          })}
+        </BreadcrumbItem>
+      </Breadcrumb>
+    </div>
   );
 }

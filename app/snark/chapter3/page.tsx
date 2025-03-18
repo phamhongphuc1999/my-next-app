@@ -1,16 +1,14 @@
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { Typography } from '@mui/material';
 import Link from 'next/link';
+import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
-import NextSeo from 'src/components/NextSeo';
+import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import KnowledgeCoefficient from 'src/views/snark/KnowledgeCoefficient';
 
 export default function Chapter3() {
   return (
     <CommonContainer>
-      <NextSeo title="SNARK || The Knowledge of Coefficient Test and Assumption" />
+      <AppNextSeo title="SNARK || The Knowledge of Coefficient Test and Assumption" />
       <CssBreadcrumbs
         configs={[
           { label: 'SNARK', link: '/snark' },
@@ -19,7 +17,7 @@ export default function Chapter3() {
       />
       <Link href="/snark/chapter2" className="inline-block">
         <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <KeyboardDoubleArrowLeftIcon />
+          <LeftArrowIcon />
           <p>Part 2</p>
         </div>
       </Link>
@@ -27,11 +25,11 @@ export default function Chapter3() {
       <Link href="/snark/chapter4" className="inline-block">
         <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p>Part 4</p>
-          <KeyboardDoubleArrowRightIcon />
+          <RightArrowIcon />
         </div>
       </Link>
       <div className="mt-4">
-        <Typography variant="h4">References</Typography>
+        <p className="text-[20px]">References</p>
         <Link
           href="https://electriccoin.co/blog/snark-explain3/"
           target="_blank"

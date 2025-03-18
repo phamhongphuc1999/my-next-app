@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
@@ -68,7 +67,7 @@ export default function MakeBlindEvaluation() {
           'This, in a sense, commits Alice to an "answer polynomial" without seeing the "challenge point" $s$. This intuition will become clearer in the next parts of the series.'
         }
       </ArticleTitle>
-      <Typography variant="h4">An Extended KCA</Typography>
+      <p className="text-[20px]">An Extended KCA</p>
       <ArticleTitle isMath isFirst>
         {'The KCA as we defined it in '}
         <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
@@ -134,7 +133,7 @@ export default function MakeBlindEvaluation() {
           'Note that in the $d$-KCA Bob does not send an arbitrary set of $\\alpha$-pairs, but one with a certain "polynomial structure". This will be useful in the protocol below.'
         }
       </ArticleTitle>
-      <Typography variant="h4">The Verifiable Blind Evaluation Protocol</Typography>
+      <p className="text-[20px]">The Verifiable Blind Evaluation Protocol</p>
       <ArticleTitle isMath isFirst>
         {
           'Assume that our hiding homomorphism (HH) is the mapping $E(x) = x \\cdot g$ for a generator $g$ of $G$ as above. For simplicity, we present the protocol for this particular $E$'

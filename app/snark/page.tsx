@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 
 export default function Snark() {
   return (
     <CommonContainer>
+      <AppNextSeo title="SNARK" />
       <CssBreadcrumbs
         configs={[{ label: 'Home', link: '/' }, { label: 'SNARK' }]}
         className="mb-[1rem]"

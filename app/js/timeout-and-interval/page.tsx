@@ -1,12 +1,12 @@
+import AppNextSeo from 'src/components/AppNextSeo';
 import { ArticleTitle } from 'src/components/box/ArticleBox';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
-import NextSeo from 'src/components/NextSeo';
 
 export default function JsTimeoutAndInterval() {
   return (
     <CommonContainer>
-      <NextSeo title="setTimeout and setInterval" />
+      <AppNextSeo title="setTimeout and setInterval" />
       <CssBreadcrumbs
         configs={[{ label: 'Home', link: '/' }, { label: 'setTimeout and setInterval' }]}
         className="mb-[1rem]"

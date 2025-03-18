@@ -1,6 +1,5 @@
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
-import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
@@ -25,7 +24,7 @@ export default function BlindEvaluation() {
         }
         <Link href="/snark/chapter1">part 1.</Link>
       </ArticleTitle>
-      <Typography variant="h4">Polynomials and Linear Combinations</Typography>
+      <p className="text-[20px]">Polynomials and Linear Combinations</p>
       <ArticleTitle isFirst isMath>
         {
           'Recall that a polynomial $P$ of degree $d$ over $\\mathbb{F}_p$ is an expression of the form for some $a_0,\\ldots, a_d \\in \\mathbb{F}_p$.'
@@ -57,7 +56,7 @@ export default function BlindEvaluation() {
           '$E(ax+by) =$ $g^{ax+by} =$ $g^{ax} \\cdot g^{by} =$ $(g^x)^a \\cdot (g^y)^b =$ $E(x)^a \\cdot E(y)^b$'
         }
       </ArticleTitle>
-      <Typography variant="h4">Blind Evaluation of a Polynomial</Typography>
+      <p className="text-[20px]">Blind Evaluation of a Polynomial</p>
       <ArticleTitle isMath isFirst>
         {
           'Suppose Alice has a polynomial $P$ of degree $d$, and Bob has a point $s \\in \\mathbb{F}_p$ that he chose randomly. Bob wishes to learn $E(P(s))$,i.e., the HH of the evaluation of $P$ at $s$. Two simple ways to do this are:'
@@ -97,7 +96,7 @@ export default function BlindEvaluation() {
         </ContrastLink>
         {', nor did Bob learn $P$.'}
       </ArticleTitle>
-      <Typography variant="h4">Why Is This Useful?</Typography>
+      <p className="text-[20px]">Why Is This Useful?</p>
       <ArticleTitle isFirst>
         {
           'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a "correct" polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that "different polynomials are different at most points".'

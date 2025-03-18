@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-import { Typography } from '@mui/material';
 import Image from 'next/image';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 import CircuitImg from 'public/images/CircuitDrawing.png';
@@ -45,7 +44,7 @@ export default function Computation() {
           'Suppose Alice wants to prove to Bob she knows $c_1,c_2,c_3 \\in \\mathbb{F}_p$ such that $(c_1 \\cdot c_2) \\cdot (c_1 + c_3) = 7$. The first step is to present the expression computed from $c_1,c_2,c_3$ as an arithmetic circuit.'
         }
       </ArticleTitle>
-      <Typography variant="h4">Arithmetic Circuits</Typography>
+      <p className="text-[20px]">Arithmetic Circuits</p>
       <ArticleTitle isFirst isMath>
         {
           'An arithmetic circuit consists of gates computing arithmetic operations like addition and multiplication, with wires connecting the gates. In our case, the circuit looks like this:'
@@ -94,7 +93,7 @@ export default function Computation() {
           'In this terminology, what Alice wants to prove is that she knows a legal assignment $(c_1,\\ldots,c_5)$ such that $c_5=7$. The next step is to translate this statement into one about polynomials using QAPs.'
         }
       </ArticleTitle>
-      <Typography variant="h4">Reduction to a QAP</Typography>
+      <p className="text-[20px]">Reduction to a QAP</p>
       <ArticleTitle isFirst isMath>
         {
           'We associate each multiplication gate with a field element: $\\mathsf{g_1}$ will be associated with $1 \\in \\mathbb{F}_p$ and $\\mathsf{g_2}$ with $2 \\in \\mathbb{F}_p$. We call the points $\\{1,2\\}$ our target points. Now we need to define a set of "left wire polynomials" $L_1,\\ldots,L_5$, "right wire polynomials" $R_1,\\ldots,R_5$ and "output wire polynomials" $O_1,\\ldots,O_5$.'

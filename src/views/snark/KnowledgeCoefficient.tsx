@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
-import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
@@ -38,7 +37,7 @@ export default function KnowledgeCoefficient() {
           'As before, we denote by $g$ a generator of a group $G$ of order $|G|=p$ where the discrete log is hard. It will be convenient from this post onwards to write our group additively rather than multiplicatively. That is, for $\\alpha \\in \\mathbb{F}_p$, $\\alpha \\cdot g$ denotes the result of summing $\\alpha$ copies of $g$.'
         }
       </ArticleTitle>
-      <Typography variant="h4">The KC Test</Typography>
+      <p className="text-[20px]">The KC Test</p>
       <ArticleTitle isMath isFirst>
         {'For $\\alpha \\in \\mathbb{F}_p^*$'}
         <ContrastLink id="snark3_1_item" href="#snark3_1">
@@ -113,7 +112,7 @@ export default function KnowledgeCoefficient() {
         }
       </ArticleTitle>
       <ArticleTitle>The KC Test and Assumption will be important tools in Part 4.</ArticleTitle>
-      <Typography variant="h4">What Does "Alice Knows" Mean Exactly?</Typography>
+      <p className="text-[20px]">What Does "Alice Knows" Mean Exactly?</p>
       <ArticleTitle isFirst isMath>
         {
           'You may wonder how we can phrase the KCA in precise mathematical terms; specifically, how do we formalize the notion that "Alice knows $\\gamma$" in a mathematical definition?'
