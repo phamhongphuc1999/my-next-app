@@ -1,23 +1,25 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
+import TopicHeader from 'src/components/TopicHeader';
 import MakeBlindEvaluation from 'src/views/snark/MakeBlindEvaluation';
 
 export default function Chapter4() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK | How to make Blind Evaluation of Polynomials Verifiable" />
-      <CssBreadcrumbs
-        configs={[
-          { label: 'Home', link: '/' },
-          { label: 'SNARK', link: '/snark' },
-          { label: 'Part 4: How to make Blind Evaluation of Polynomials Verifiable' },
-        ]}
+      <TopicHeader
+        seoProps={{ title: 'SNARK | How to make Blind Evaluation of Polynomials Verifiable' }}
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'SNARK', link: '/snark' },
+            { label: 'Part 4: How to make Blind Evaluation of Polynomials Verifiable' },
+          ],
+        }}
+        tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter3" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
           <p className="whitespace-nowrap">Part 3</p>
         </div>

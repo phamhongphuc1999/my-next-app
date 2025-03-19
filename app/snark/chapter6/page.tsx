@@ -1,23 +1,25 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
+import TopicHeader from 'src/components/TopicHeader';
 import Pinocchio from 'src/views/snark/Pinocchio';
 
 export default function Chapter6() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK | The Pinocchio Protocol" />
-      <CssBreadcrumbs
-        configs={[
-          { label: 'Home', link: '/' },
-          { label: 'SNARK', link: '/snark' },
-          { label: 'Part 6: The Pinocchio Protocol' },
-        ]}
+      <TopicHeader
+        seoProps={{ title: 'SNARK | The Pinocchio Protocol' }}
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'SNARK', link: '/snark' },
+            { label: 'Part 6: The Pinocchio Protocol' },
+          ],
+        }}
+        tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter5" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
           <p className="whitespace-nowrap">Part 5</p>
         </div>

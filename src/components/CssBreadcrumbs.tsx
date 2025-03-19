@@ -8,11 +8,11 @@ import {
 } from './shadcn-ui/breadcrumb';
 import { Fragment } from 'react';
 
-interface Props extends DivProps {
+export interface CssBreadcrumbsProps extends DivProps {
   configs: Array<{ link?: string; label: string; formatter?: (label: string) => string }>;
 }
 
-export default function CssBreadcrumbs({ configs, ...props }: Props) {
+export default function CssBreadcrumbs({ configs, ...props }: CssBreadcrumbsProps) {
   const len = configs.length - 1;
 
   return (

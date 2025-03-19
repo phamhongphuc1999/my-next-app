@@ -1,23 +1,25 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
+import TopicHeader from 'src/components/TopicHeader';
 import KnowledgeCoefficient from 'src/views/snark/KnowledgeCoefficient';
 
 export default function Chapter3() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK | The Knowledge of Coefficient Test and Assumption" />
-      <CssBreadcrumbs
-        configs={[
-          { label: 'Home', link: '/' },
-          { label: 'SNARK', link: '/snark' },
-          { label: 'Part 3: The Knowledge of Coefficient Test and Assumption' },
-        ]}
+      <TopicHeader
+        seoProps={{ title: 'SNARK | The Knowledge of Coefficient Test and Assumption' }}
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'SNARK', link: '/snark' },
+            { label: 'Part 3: The Knowledge of Coefficient Test and Assumption' },
+          ],
+        }}
+        tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter2" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
           <p className="whitespace-nowrap">Part 2</p>
         </div>

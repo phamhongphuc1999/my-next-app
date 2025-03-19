@@ -1,23 +1,25 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
+import TopicHeader from 'src/components/TopicHeader';
 import BlindEvaluation from 'src/views/snark/BlindEvaluation';
 
 export default function Chapter2() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK | Blind Evaluation" />
-      <CssBreadcrumbs
-        configs={[
-          { label: 'Home', link: '/' },
-          { label: 'SNARK', link: '/snark' },
-          { label: 'Part 2: Blind Evaluation of Polynomials' },
-        ]}
+      <TopicHeader
+        seoProps={{ title: 'SNARK | Blind Evaluation' }}
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'SNARK', link: '/snark' },
+            { label: 'Part 2: Blind Evaluation of Polynomials' },
+          ],
+        }}
+        tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter1" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
           <p className="whitespace-nowrap">Part 1</p>
         </div>

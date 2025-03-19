@@ -1,15 +1,16 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
+import TopicHeader from 'src/components/TopicHeader';
 
 export default function Snark() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK" />
-      <CssBreadcrumbs
-        configs={[{ label: 'Home', link: '/' }, { label: 'SNARK' }]}
-        className="mb-[1rem]"
+      <TopicHeader
+        seoProps={{ title: 'SNARK' }}
+        breadcrumbProps={{
+          configs: [{ label: 'Home', link: '/' }, { label: 'SNARK' }],
+        }}
+        tabProps={{ index: 0 }}
       />
       <div className="flex flex-col gap-1">
         <Link href="/snark/chapter1" className="hover:underline">

@@ -1,20 +1,22 @@
 import Link from 'next/link';
-import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
-import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { LeftArrowIcon } from 'src/components/icons';
+import TopicHeader from 'src/components/TopicHeader';
 import EllipticCurve from 'src/views/snark/EllipticCurve';
 
 export default function Chapter7() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK | Pairings of Elliptic Curves" />
-      <CssBreadcrumbs
-        configs={[
-          { label: 'Home', link: '/' },
-          { label: 'SNARK', link: '/snark' },
-          { label: 'Part 7: Pairings of Elliptic Curves' },
-        ]}
+      <TopicHeader
+        seoProps={{ title: 'SNARK | Pairings of Elliptic Curves' }}
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'SNARK', link: '/snark' },
+            { label: 'Part 7: Pairings of Elliptic Curves' },
+          ],
+        }}
+        tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter6" className="inline-block">
         <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">

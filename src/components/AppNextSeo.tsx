@@ -1,11 +1,14 @@
 const Description = '';
 
-interface Props {
+export interface AppNextSeoProps {
   title?: string;
   description?: string;
 }
 
-export default function AppNextSeo({ title = 'My Next App', description = Description }: Props) {
+export default function AppNextSeo({
+  title = 'My Next App',
+  description = Description,
+}: AppNextSeoProps) {
   return (
     <>
       <title>{title}</title>
