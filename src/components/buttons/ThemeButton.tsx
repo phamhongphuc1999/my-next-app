@@ -1,15 +1,15 @@
 'use client';
 
-import { IconButton } from '@mui/material';
 import { useAppContext } from 'src/context';
 import { MoonIcon, SunIcon } from '../icons';
+import IconButton from './IconButton';
 
 export default function ThemeButton() {
   const { themeMode, fn } = useAppContext((state) => state.config);
 
   return (
-    <IconButton size="small" onClick={() => fn.switchTheme()}>
-      {themeMode === 'dark' ? <SunIcon sx={{ color: '#ffffff' }} /> : <MoonIcon />}
+    <IconButton className="h-[30px] w-[30px]" onClick={() => fn.switchTheme()}>
+      {themeMode === 'dark' ? <SunIcon style={{ color: '#ffffff' }} /> : <MoonIcon />}
     </IconButton>
   );
 }

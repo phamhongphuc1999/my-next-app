@@ -1,4 +1,5 @@
-import { Typography } from '@mui/material';
+'use client';
+
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import Header from './Header';
@@ -15,9 +16,7 @@ export default function LayoutWrapper({ children }: Props) {
         <div className="flex h-full flex-col justify-between pt-[55px]">
           <div className="min-h-screen">{children}</div>
           <div className="flex h-[50px] w-full flex-col items-center border-t-black-350 bg-grey-50 py-[8px]">
-            <Typography sx={{ textAlign: 'center' }}>
-              COPYRIGHT © {new Date().getFullYear()}&nbsp;
-            </Typography>
+            <p className="text-center">COPYRIGHT © {new Date().getFullYear()}&nbsp;</p>
             <Link href="https://github.com/phamhongphuc1999/web-practice" target="_blank">
               Main page
             </Link>

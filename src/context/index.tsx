@@ -14,7 +14,7 @@ export function useAppContext<T = unknown>(selectorFn: (data: AppContextType) =>
 }
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function AppContextProvider({ children }: Props) {

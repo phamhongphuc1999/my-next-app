@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
-import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
 
@@ -109,9 +108,9 @@ export default function Pinocchio() {
           'Given that, there are four main points that need to be addressed to turn this sketch into a zk-SNARK. We deal with two of them here, and the other two in the next part.'
         }
       </ArticleTitle>
-      <Typography variant="h4">
+      <p className="text-[20px]">
         Making sure Alice chooses her polynomials according to an assignment
-      </Typography>
+      </p>
       <ArticleTitle isMath isFirst>
         {
           "Here is an important point: If Alice doesn't have a satisfying assignment, it doesn't mean she can't find any polynomials $L,R,O,H$ of degree at most $d$ with $LR - O = TH$; it just means she can’t find such polynomials where $L, R,$ and $O$ were 'produced from an assignment', namely, that $L := \\sum_{i=1}^m c_i L_i$, $R := \\sum_{i=1}^m c_i R_i$, $O := \\sum_{i=1}^m c_i O_i$ for the same $(c_1,...,c_m)$."
@@ -165,9 +164,7 @@ export default function Pinocchio() {
         </Link>
         {" implies she knows how to write $F$ as a linear combination of the $F_i$'s"}
       </ArticleTitle>
-      <Typography variant="h4">
-        Adding the zero-knowledge part - concealing the assignment
-      </Typography>
+      <p className="text-[20px]">Adding the zero-knowledge part - concealing the assignment</p>
       <ArticleTitle isFirst isMath>
         {
           'In a zk-SNARK, Alice wants to conceal all information about her assignment. However, the hidings $E(L(s))$, $E(R(s))$, $E(O(s))$, $E(H(s))$ do provide some information about the assignment.'
@@ -203,7 +200,7 @@ export default function Pinocchio() {
           'On the other hand, these polynomials evaluated at $s \\in \\mathbb{F}_p$ with $T(s) \\neq 0$ (which is all but $d$ values of $s$), reveal no information about the assignment. For example, as $T(s)$ is non-zero and $\\delta_1$ is random, $\\delta_1 \\cdot T(s)$ is a random value, and therefore $L_z(s) = L(s) + \\delta_1 \\cdot T(s)$ reveals no information about $L(s)$ as it is masked by this random value.'
         }
       </ArticleTitle>
-      <Typography variant="h4">What's left for next time?</Typography>
+      <p className="text-[20px]">What's left for next time?</p>
       <ArticleTitle isFirst>
         {
           'We presented a sketch of the Pinocchio Protocol in which Alice can convince Bob she possesses a satisfying assignment for a QAP, without revealing information about that assignment. There are two main issues that still need to be resolved in order to obtain a zk-SNARK:'

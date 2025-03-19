@@ -1,30 +1,44 @@
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Box, BoxProps, Breadcrumbs, Typography } from '@mui/material';
 import Link from 'next/link';
+import { DivProps } from 'src/global';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from './shadcn-ui/breadcrumb';
+import { Fragment } from 'react';
 
-interface Props extends BoxProps {
+interface Props extends DivProps {
   configs: Array<{ link?: string; label: string; formatter?: (label: string) => string }>;
 }
 
 export default function CssBreadcrumbs({ configs, ...props }: Props) {
+  const len = configs.length - 1;
+
   return (
-    <Box {...props}>
-      <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
-        {configs.map((item, index) => {
-          const formatter = item?.formatter;
-          return item.link ? (
-            <Link key={index} href={item.link} className="no-underline">
-              <Typography color="textSecondary">
-                {formatter ? formatter(item.label) : item.label}
-              </Typography>
-            </Link>
-          ) : (
-            <Typography color="textSecondary" key={index}>
-              {formatter ? formatter(item.label) : item.label}
-            </Typography>
-          );
-        })}
-      </Breadcrumbs>
-    </Box>
+    <div {...props}>
+      <Breadcrumb>
+        <BreadcrumbList>
+          {configs.map((item, index) => {
+            const formatter = item?.formatter;
+
+            return (
+              <Fragment key={index}>
+                <BreadcrumbItem>
+                  {item.link ? (
+                    <Link href={item.link} className="no-underline">
+                      <p>{formatter ? formatter(item.label) : item.label}</p>
+                    </Link>
+                  ) : (
+                    <p color="textSecondary">{formatter ? formatter(item.label) : item.label}</p>
+                  )}
+                </BreadcrumbItem>
+                {index < len && <BreadcrumbSeparator />}
+              </Fragment>
+            );
+          })}
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
   );
 }

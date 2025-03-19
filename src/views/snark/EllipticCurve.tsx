@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-import { Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import Curve1Img from 'public/images/curve1.png';
@@ -29,7 +28,7 @@ export default function EllipticCurve() {
           'We begin by introducing elliptic curves and explaining how they give us the necessary HH.'
         }
       </ArticleTitle>
-      <Typography variant="h4">Elliptic curves and their pairings</Typography>
+      <p className="text-[20px]">Elliptic curves and their pairings</p>
       <ArticleTitle isMath isFirst>
         {
           'Assume $p$ is a prime larger than 3, and take some $u, v \\in \\mathbb{F}_b$ such that $4u^3 + 27v^2 \\neq 0$. We look at the equation: $Y^2 = X^3 + u \\cdot X + v$'
@@ -146,9 +145,7 @@ export default function EllipticCurve() {
           "We move on to discussing non-interactive proof systems. We begin by explaining exactly what we mean by 'non-interactive'."
         }
       </ArticleTitle>
-      <Typography variant="h4">
-        Non-interactive proofs in the common reference string model
-      </Typography>
+      <p className="text-[20px]">Non-interactive proofs in the common reference string model</p>
       <ArticleTitle isFirst>
         {
           "The strongest and most intuitive notion of a non-interactive proof is probably the following. In order to prove a certain claim, a prover broadcasts a single message to all parties, with no prior communication of any kind; and anyone reading this message would be convinced of the prover's claim. This can be shown to be impossible in most cases."
@@ -177,7 +174,7 @@ export default function EllipticCurve() {
           ' consisted of a few such subprotocols it can be turned into a non-interactive proof system in a similar way.'
         }
       </ArticleTitle>
-      <Typography variant="h4">A non-interactive evaluation protocol</Typography>
+      <p className="text-[20px]">A non-interactive evaluation protocol</p>
       <ArticleTitle isFirst isMath>
         {
           "The non-interactive version of the evaluation protocol essentially consists of publishing Bob's first message as the CRS. Recall that the purpose of the protocol is to obtain the hiding $E(P(s))$ of Alice's polynomial $P$ at a randomly chosen $s \\in \\mathbb{F}_r$."
