@@ -8,7 +8,7 @@ import Pinocchio from 'src/views/snark/Pinocchio';
 export default function Chapter6() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || The Pinocchio Protocol" />
+      <AppNextSeo title="SNARK | The Pinocchio Protocol" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

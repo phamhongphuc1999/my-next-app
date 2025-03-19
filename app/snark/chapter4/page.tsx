@@ -8,7 +8,7 @@ import MakeBlindEvaluation from 'src/views/snark/MakeBlindEvaluation';
 export default function Chapter4() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || How to make Blind Evaluation of Polynomials Verifiable" />
+      <AppNextSeo title="SNARK | How to make Blind Evaluation of Polynomials Verifiable" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

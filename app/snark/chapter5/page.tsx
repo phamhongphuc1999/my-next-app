@@ -8,7 +8,7 @@ import Computation from 'src/views/snark/Computations';
 export default function Chapter5() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || From Computations to Polynomials" />
+      <AppNextSeo title="SNARK | From Computations to Polynomials" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

@@ -8,7 +8,7 @@ import BlindEvaluation from 'src/views/snark/BlindEvaluation';
 export default function Chapter2() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || Blind Evaluation" />
+      <AppNextSeo title="SNARK | Blind Evaluation" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

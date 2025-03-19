@@ -8,7 +8,7 @@ import HomomorphicHidings from 'src/views/snark/HomomorphicHidings';
 export default function Chapter1() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || Homomorphic Hidings" />
+      <AppNextSeo title="SNARK | Homomorphic Hidings" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

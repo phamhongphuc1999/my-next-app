@@ -8,7 +8,7 @@ import KnowledgeCoefficient from 'src/views/snark/KnowledgeCoefficient';
 export default function Chapter3() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || The Knowledge of Coefficient Test and Assumption" />
+      <AppNextSeo title="SNARK | The Knowledge of Coefficient Test and Assumption" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },

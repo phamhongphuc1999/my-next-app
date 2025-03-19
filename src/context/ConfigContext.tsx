@@ -1,7 +1,9 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { LS } from 'src/configs/constance';
 import { ThemeMode } from 'src/global';
+import { LocalStorage } from 'src/services';
 
 export type ConfigContextType = {
   themeMode: ThemeMode;
@@ -26,9 +28,20 @@ interface Props {
 export default function ConfigProvider({ children }: Props) {
   const [themeMode, setThemeMode] = useState<ThemeMode>('light');
 
+  useEffect(() => {
+    const theme = LocalStorage.get(LS.THEME);
+    if (theme)
+      setThemeMode((_) => {
+        const _theme = theme as ThemeMode;
+        document.body.dataset.theme = _theme;
+        return _theme;
+      });
+  }, []);
+
   function switchTheme() {
     setThemeMode((preValue) => {
       const newTheme = preValue == 'dark' ? 'light' : 'dark';
+      LocalStorage.set(LS.THEME, newTheme);
       document.body.dataset.theme = newTheme;
       return newTheme;
     });

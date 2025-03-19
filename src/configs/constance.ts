@@ -1,3 +1,5 @@
+export const LS = { THEME: 'theme' };
+
 export const ReferenceConfig: Array<{ title: string; link: string }> = [
   { title: 'SNARK', link: '/snark' },
   { title: 'State management', link: '/state-management' },

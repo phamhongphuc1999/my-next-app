@@ -15,7 +15,7 @@ export default function Home() {
           return (
             <ArticleLI key={index}>
               <Link href={item.link} className="hover:underline">
-                {item.title}
+                <p>{item.title}</p>
               </Link>
             </ArticleLI>
           );

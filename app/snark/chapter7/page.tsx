@@ -8,7 +8,7 @@ import EllipticCurve from 'src/views/snark/EllipticCurve';
 export default function Chapter7() {
   return (
     <CommonContainer>
-      <AppNextSeo title="SNARK || Pairings of Elliptic Curves" />
+      <AppNextSeo title="SNARK | Pairings of Elliptic Curves" />
       <CssBreadcrumbs
         configs={[
           { label: 'Home', link: '/' },
