@@ -9,7 +9,7 @@ type CommonProps = {
   isFirst?: boolean;
 };
 
-export function ArticleTitle({
+export function AppArticle({
   isMath = false,
   isFirst = false,
   ...props

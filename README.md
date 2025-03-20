@@ -14,6 +14,10 @@ bun install
 bun dev
 ```
 
-## Host
+### Host
 
 - https://my-next-app-one-topaz.vercel.app/
+
+### Tech stack
+
+- UI component: shadcn/ui

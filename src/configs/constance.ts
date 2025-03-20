@@ -17,4 +17,10 @@ export const ReferenceConfig: Array<TopicType> = [
     link: '/js/timeout-and-interval',
   },
   { id: '4', title: 'Event loop in JS', tabs: ['javascript'], link: '/js/event-loop' },
+  {
+    id: '5',
+    title: 'Flux architecture',
+    tabs: ['state-management', 'architecture'],
+    link: '/flux-architecture',
+  },
 ];

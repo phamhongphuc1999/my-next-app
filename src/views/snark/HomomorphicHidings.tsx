@@ -1,17 +1,17 @@
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
-import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
 
 export default function HomomorphicHidings() {
   return (
     <div className="mt-[1rem]">
-      <ArticleTitle>
+      <AppArticle>
         {
           'Constructions of zk-SNARKs involve a careful combination of several ingredients; fully understanding how these ingredients all work together can take a while.'
         }
-      </ArticleTitle>
-      <ArticleTitle>
+      </AppArticle>
+      <AppArticle>
         {'If I had to choose '}
         <span className="font-[500] text-black-350">one ingredient</span>
         {' whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'}
@@ -21,10 +21,10 @@ export default function HomomorphicHidings() {
         {
           '. In this post we explain what an HH is, and then give an example of why it is useful and how it is constructed.'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {'An HH $E(x)$ of a number $x$ is a function satisfying the following properties:'}
-      </ArticleTitle>
+      </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>{"For most $x$'s, given $E(x)$ it is hard to find $x$."}</ArticleLI>
         <ArticleLI isMath>
@@ -36,11 +36,11 @@ export default function HomomorphicHidings() {
           {' in $x$ and $y$. For example, they can compute $E(x+y)$ from $E(x)$ and $E(y)$.'}
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle isMath>
+      <AppArticle isMath>
         {
           "Here's a toy example of why HH is useful for Zero-Knowledge proofs: Suppose Alice wants to prove to Bob she knows numbers $x,y$ such that $x+y=7$ (Of course, it's not too exciting knowing such $x,y$, but this is a good example to explain the concept with)."
         }
-      </ArticleTitle>
+      </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>{'Alice sends $E(x)$ and $E(y)$ to Bob.'}</ArticleLI>
         <ArticleLI isMath>
@@ -52,26 +52,26 @@ export default function HomomorphicHidings() {
           }
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle isMath>
+      <AppArticle isMath>
         {
           'As different inputs are mapped by $E$ to different hidings, Bob indeed accepts the proof only if Alice sent hidings of $x, y$ such as $x + y = 7$. On the other hand, Bob does not learn $x$ and $y$, as he just has access to their hidings.'
         }
         <ContrastLink id="snark1_2_item" href="#snark1_2">
           [2]
         </ContrastLink>
-      </ArticleTitle>
-      <ArticleTitle>
+      </AppArticle>
+      <AppArticle>
         {
           "Now let's see an example of how such hidings are constructed. We actually cannot construct them for regular integers with regular addition, but need to look at "
         }
         <span className="italic">finite groups:</span>
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'Let $n$ be some integer. When we write $A \\: \\mathrm{mod} \\: n$ for an integer $A$, we mean taking the remainder of $A$ after dividing by $n$. For example, $9 \\: \\mathrm{mod} \\: 7 = 2$ and $13 \\: \\mathrm{mod} \\: 12 = 1$. We can use the $\\mathrm{mod} \\: n$ operation to define an addition operation on the numbers $\\{0,\\ldots, n-1\\}$ We do regular addition but then apply $(\\mathrm{mod} \\: n)$ on the result to get back a number in the range $\\{0,\\ldots, n-1\\}$. We sometimes write $(\\mathrm{mod} \\: n)$ on the right to clarify we are using this type of addition. For example, $2+3 = 1 (\\mathrm{mod} \\: 4)$. We call the set of elements $\\{0,\\ldots, n-1\\}$ together with this addition operation the group $\\mathbb{Z}_n$.'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'For a prime $p$, we can use the mod $p$ operation to also define a multiplication operation over the numbers {1,...,$p$ - 1} in a way that the multiplication result is also always in the set $\\{1,\\ldots,p-1\\}$, by performing regular multiplication of integers, and then taking the result mod $p$'
         }
@@ -79,12 +79,12 @@ export default function HomomorphicHidings() {
           [3]
         </ContrastLink>
         {'. For example, $2 \\cdot 4 = 1(mod \\: 7)$.'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'This set of elements together with this operation is referred to as the group $\\mathbb{Z}_p^* \\mathbb{Z}_p^*$ has the following useful properties:'
         }
-      </ArticleTitle>
+      </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>
           {
@@ -102,31 +102,31 @@ export default function HomomorphicHidings() {
           }
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle isMath>
+      <AppArticle isMath>
         {
           "Using these properties, we now construct an HH that 'supports addition', meaning that $E(x + y)$ is computable from $E(x)$ and $E(y)$. We assume the input $x$ of $E$ is from $\\mathbb{Z}_{p - 1}$, so it is in the range {0,...,$p - 2$}. We define $E(x) = g^x$ for each such $x$, and claim that $E$ is an HH: The first property implies that different x's in $\\mathbb{Z}_{p - 1}$ are mapped to different outputs. The second property implies that given $E(x) = g^x$ it is hard to find $x$. Finally, using the third property, given $E(x)$ and $E(y)$ we can compute $E(x + y)$ as $E(x + y) =$ $g^{x + y \\:mod\\: p - 1} = g^xg^y =$ $E(x)E(y)$."
         }
-      </ArticleTitle>
+      </AppArticle>
       <a href="#snark1_1_item">
-        <ArticleTitle isMath id="snark1_1">
+        <AppArticle isMath id="snark1_1">
           {
             "[1] Homomorphic hiding is not a term formally used in cryptography and is introduced here for didactic purposes. It is similar to but weaker than the well-known notion of a computationally hiding commitment. The difference is that an HH is a deterministic function of the input, whereas a commitment uses additional randomness. As a consequence, HHs essentially 'hide most $x$'s' whereas commitments 'hide every $x$'."
           }
-        </ArticleTitle>
+        </AppArticle>
       </a>
       <a href="#snark1_2_item">
-        <ArticleTitle isMath id="snark1_2">
+        <AppArticle isMath id="snark1_2">
           {
             "[2] Bob does learn some information about $x$ and $y$. For example, he can choose a random $x^{'}$ and check whether $x = x^{'}$ by computing $E(x^{'})$. For this reason, the above protocol is not really a Zero-Knowledge protocol and is only used here for explanatory purposes. In fact, as we shall see in later posts, HH is ultimately used in SNARKs to conceal verifier challenges rather than prover secrets."
           }
-        </ArticleTitle>
+        </AppArticle>
       </a>
       <a href="#snark1_3_item">
-        <ArticleTitle isMath id="snark1_3">
+        <AppArticle isMath id="snark1_3">
           {
             '[3] When $p$ is not a prime, it is problematic to define multiplication this way. One issue is that the multiplication result can be zero even when both arguments are not zero. For example, when $p = 4$, we can get 2 * 2 = 0 (mod 4).'
           }
-        </ArticleTitle>
+        </AppArticle>
       </a>
     </div>
   );

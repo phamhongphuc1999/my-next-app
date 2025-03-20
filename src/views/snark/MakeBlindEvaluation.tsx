@@ -1,12 +1,12 @@
 /* eslint-disable quotes */
 import Link from 'next/link';
-import { ArticleLI, ArticleTitle, ArticleUL } from 'src/components/box/ArticleBox';
+import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
 
 export default function MakeBlindEvaluation() {
   return (
     <div className="mt-[1rem]">
-      <ArticleTitle>
+      <AppArticle>
         {'In this part, we build on '}
         <Link className="font-[500] text-black-350 underline" href="/snark/chapter2">
           Part 2
@@ -24,8 +24,8 @@ export default function MakeBlindEvaluation() {
         {
           " we'll start to see how such a protocol can be used for constructing SNARKs, so bear with me a little bit longer for the connection to SNARKs."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {'Suppose, as in '}
         <Link className="font-[500] text-black-350 underline" href="snark/chapter2">
           Part 2
@@ -33,7 +33,7 @@ export default function MakeBlindEvaluation() {
         {
           ', that Alice has a polynomial $P$ of degree $d$ and Bob has a point $s \\in \\mathbb{F}_p$ that he chose randomly. We want to construct a protocol that allows Bob to learn $E(P(s))$,i.e., the hiding of $P$ evaluated at $s$, with two additional properties:'
         }
-      </ArticleTitle>
+      </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>
           <span className="font-[500] text-black-350">Blindness:</span>
@@ -46,7 +46,7 @@ export default function MakeBlindEvaluation() {
           }
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle>
+      <AppArticle>
         {'This is what we call verifiable blind evaluation of a polynomial. The protocol in '}
         <Link href="/snark/chapter2" className="font-[500] text-black-350 underline">
           Part 2
@@ -57,8 +57,8 @@ export default function MakeBlindEvaluation() {
         <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3.
         </Link>
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'The verifiability and blindness properties are useful together because they make Alice decide what polynomial $P$ she will use without seeing $s$.'
         }
@@ -66,9 +66,9 @@ export default function MakeBlindEvaluation() {
         {
           'This, in a sense, commits Alice to an "answer polynomial" without seeing the "challenge point" $s$. This intuition will become clearer in the next parts of the series.'
         }
-      </ArticleTitle>
+      </AppArticle>
       <p className="text-[20px]">An Extended KCA</p>
-      <ArticleTitle isMath isFirst>
+      <AppArticle isMath isFirst>
         {'The KCA as we defined it in '}
         <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3
@@ -76,13 +76,13 @@ export default function MakeBlindEvaluation() {
         {
           " essentially said something like this: If Bob gives Alice some $\\alpha$-pair $(a,b = \\alpha \\cdot a)$ and then Alice generates another $\\alpha$-pair $(a',b')$, then she knows $c$ such that $a'=c \\cdot a$. In other words, Alice knows the relation between $a'$ and $a$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "Now, suppose that instead of one, Bob sends Alice several $\\alpha$-pair $(a_1, b_1),...,(a_d, b_d)$ (for the same $\\alpha$); and that again, after receiving these pairs, Alice is challenged to generate some other $\\alpha$-pair $(a^{'}, b^{'})$. Recall that the main point is that Alice must do so although she does not know $\\alpha$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {'As we saw in '}
         <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
           Part 3
@@ -90,28 +90,28 @@ export default function MakeBlindEvaluation() {
         {
           ", a natural way for Alice to generate such an $\\alpha$-pair, would be to take one of the pairs $(a_i,b_i)$ she received from Bob, and multiply both elements by some $c \\in \\mathbb{F}^*_p$; if $(a_i,b_i)$ was an $\\alpha$-pair, then $(c \\cdot a_i,c \\cdot b_i)$ will be one too. But can Alice generate $\\alpha$-pairs in more ways now that she's received multiple $\\alpha$-pairs? Perhaps using several of the received $\\alpha$-pairs simultaneously to get a new one?"
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "The answer is yes: For example, Alice can choose two values $c_1,c_2 \\in \\mathbb{F}_p$ and compute the pair $(a',b') =$ $(c_1 \\cdot a_1 + c_2 \\cdot a_2,$ $c_1 \\cdot b_1 + c_2 \\cdot b_2)$. An easy computation shows that, as long as $a'$ is non-zero, this is also an $\\alpha$-pair:"
         }
-      </ArticleTitle>
-      <ArticleTitle isMath className="text-center">
+      </AppArticle>
+      <AppArticle isMath className="text-center">
         {
           "$b' = c_1 \\cdot b_1 + c_2 \\cdot b_2 = c_1 \\alpha \\cdot a_1 + c_2 \\alpha \\cdot a_2 = \\alpha (c_1 \\cdot a_1 + c_2 \\cdot a_2) = \\alpha \\cdot a'$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "More generally, Alice can take any linear combination of the given $d$ pairs - that is choose any $c_1,\\ldots,c_d \\in \\mathbb{F}_p$ and define $(a',b')=(\\sum_{i=1}^d c_i a_i, \\sum_{i=1}^d c_ib_i)$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "Note that if Alice uses this strategy to generate her $\\alpha$-pair, she will know some linear relation between $a^{'}$ and $a_1,...,a_d$; that is, she knows $c_1,...,c_d$ such that $a^{'} = \\sum_{i=1}^d c_i \\cdot a_i$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "The extended KCA states, essentially, that this is the only way Alice can generate an $\\alpha$-pair;  that is, whenever she succeeds, she will know such a linear relation between $a^{'}$ and $a_1,...,a_d$. More formally, suppose that $G$ is a group of size $p$ with generator $g$, written additively as in "
         }
@@ -121,24 +121,24 @@ export default function MakeBlindEvaluation() {
         {'. The $d$-power Knowledge of Coefficient Assumption ($d$-KCA) '}
         <ContrastLink href="#snark4_2">[2]</ContrastLink>
         {' in $G$ is as follows:'}
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         <span className="font-[500] text-black-350">d-KCA:</span>
         {
           " Suppose Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $s \\in \\mathbb{F}_p$, and sends to Alice the $\\alpha$-pairs $(g,\\alpha \\cdot g)$, $(s \\cdot g,\\alpha s \\cdot g)$,$\\ldots$, $(s^d \\cdot g,\\alpha s^d \\cdot g)$. Suppose that Alice then outputs another $\\alpha$-pair $(a',b')$. Then, except with negligible probability, Alice knows $c_0,\\ldots,c_d \\in \\mathbb{F}_p$ such that $\\sum_{i=0}^d c_i s^i \\cdot g = a'$."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'Note that in the $d$-KCA Bob does not send an arbitrary set of $\\alpha$-pairs, but one with a certain "polynomial structure". This will be useful in the protocol below.'
         }
-      </ArticleTitle>
+      </AppArticle>
       <p className="text-[20px]">The Verifiable Blind Evaluation Protocol</p>
-      <ArticleTitle isMath isFirst>
+      <AppArticle isMath isFirst>
         {
           'Assume that our hiding homomorphism (HH) is the mapping $E(x) = x \\cdot g$ for a generator $g$ of $G$ as above. For simplicity, we present the protocol for this particular $E$'
         }
-      </ArticleTitle>
+      </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>
           {
@@ -156,7 +156,7 @@ export default function MakeBlindEvaluation() {
           }
         </ArticleLI>
       </ArticleUL>
-      <ArticleTitle isMath>
+      <AppArticle isMath>
         {
           'First, note that given the coefficients of $P$, $P(s) \\cdot g$ is a linear combination of $g$, $s \\cdot g$,$\\ldots$,$s^d \\cdot g$; and $\\alpha P(s)\\cdot g$ is a linear combination of $\\alpha \\cdot g$, $\\alpha s \\cdot g$,$\\ldots$, $\\alpha s^d \\cdot g$. Thus, similarly to the protocol of '
         }
@@ -166,23 +166,23 @@ export default function MakeBlindEvaluation() {
         {
           ", Alice can indeed compute these values from Bob's messages for a polynomial $P$ that she knows."
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           'Second, by the d-KCA if Alice sends $a$, $b$ such that $b= \\alpha \\cdot a$ then almost surely she knows $c_0,\\ldots,c_d \\in \\mathbb{F}_p$ such that $a=\\sum_{i=0}^d c_i s^i \\cdot g$. In that case, $a = P(s) \\cdot g$ for the polynomial $P(X) = \\sum_{i=0}^d c_i \\cdot X^i$ known to Alice. In other words, the probability that Bob accepts in Step 3 while at the same time Alice does not know such a $P$ is negligible.'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath>
+      </AppArticle>
+      <AppArticle isMath>
         {
           "To summarize, using the $d$-KCA we've developed a protocol for verifiable blind evaluation of polynomials. In the next posts, we will see how this building block comes to play in SNARK constructions."
         }
-      </ArticleTitle>
-      <ArticleTitle id="snark4_1" isMath>
+      </AppArticle>
+      <AppArticle id="snark4_1" isMath>
         {
           '[1] In the fully formal proof, things are somewhat more subtle, as Alice does see some information about $s$ before deciding on her $P$-for example, the hiding of $s,...,s^d$.'
         }
-      </ArticleTitle>
-      <ArticleTitle isMath id="snark4_2">
+      </AppArticle>
+      <AppArticle isMath id="snark4_2">
         {'[2]The d-KCA was introduced in a '}
         <a
           href="http://www0.cs.ucl.ac.uk/staff/J.Groth/ShortNIZK.pdf"
@@ -193,7 +193,7 @@ export default function MakeBlindEvaluation() {
           paper
         </a>
         {' of Jens Groth.'}
-      </ArticleTitle>
+      </AppArticle>
     </div>
   );
 }

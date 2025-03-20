@@ -1,4 +1,4 @@
-import { ArticleTitle } from 'src/components/box/ArticleBox';
+import { AppArticle } from 'src/components/box/ArticleBox';
 import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 
@@ -12,11 +12,11 @@ export default function JsTimeoutAndInterval() {
         }}
         tabProps={{ index: 2 }}
       />
-      <ArticleTitle isMath className="mt-[1rem]">
+      <AppArticle isMath className="mt-[1rem]">
         {
           'In Js, $\\textbf{setTimeout}$ and $\\textbf{setInterval}$ are asynchronous functions provided by brower (or Nodejs) that allow executing code non-blocking.'
         }
-      </ArticleTitle>
+      </AppArticle>
     </CommonContainer>
   );
 }
