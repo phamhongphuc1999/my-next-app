@@ -1,6 +1,15 @@
-import { TopicType } from 'src/global';
+import { TabListType, TopicType } from 'src/global';
 
 export const LS = { THEME: 'theme' };
+
+export const TabConfig: TabListType = {
+  frontend: { id: 'frontend', title: 'frontend' },
+  'zero-knowledge': { id: 'zero-knowledge', title: 'zero knowledge' },
+  javascript: { id: 'javascript', title: 'js' },
+  'state-management': { id: 'state-management', title: 'state management' },
+  architecture: { id: 'architecture', title: 'architecture' },
+  seo: { id: 'seo', title: 'SEO' },
+};
 
 export const ReferenceConfig: Array<TopicType> = [
   { id: '1', title: 'SNARK', tabs: ['zero-knowledge'], link: '/snark' },
@@ -23,4 +32,5 @@ export const ReferenceConfig: Array<TopicType> = [
     tabs: ['state-management', 'architecture'],
     link: '/flux-architecture',
   },
+  { id: '6', title: 'Google tab manager and Google analytic', tabs: ['seo'], link: '/gtm-ga' },
 ];

@@ -10,6 +10,10 @@ export type TabType =
   | 'zero-knowledge'
   | 'javascript'
   | 'state-management'
-  | 'architecture';
+  | 'architecture'
+  | 'seo';
+
+export type TabItemType = { id: TabType; title: string };
+export type TabListType = { [id in TabType]: TabItemType };
 
 export type TopicType = { id: string; title: string; tabs: Array<TabType>; link: string };

@@ -1,12 +1,23 @@
 'use client';
 
+import { ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import IconButton from 'src/components/buttons/IconButton';
 import { CloseIcon } from 'src/components/icons';
+import { Button } from 'src/components/shadcn-ui/button';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from 'src/components/shadcn-ui/command';
 import { Input } from 'src/components/shadcn-ui/input';
-import { ReferenceConfig } from 'src/configs/constance';
+import { Popover, PopoverContent, PopoverTrigger } from 'src/components/shadcn-ui/popover';
+import { ReferenceConfig, TabConfig } from 'src/configs/constance';
 import { twMerge } from 'tailwind-merge';
 
 export default function HomePage() {
@@ -37,11 +48,37 @@ export default function HomePage() {
   return (
     <>
       <div className="relative w-full md:w-[50%]">
-        <Input
-          placeholder="Search topic"
-          value={searchText}
-          onChange={(event) => setSearchText(event.target.value)}
-        />
+        <div className="flex items-center gap-2">
+          <Input
+            placeholder="Search topic"
+            value={searchText}
+            onChange={(event) => setSearchText(event.target.value)}
+          />
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline">
+                Choose topics <ChevronsUpDown className="opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[200px] p-0">
+              <Command>
+                <CommandInput placeholder="Search topic..." className="h-9" />
+                <CommandList>
+                  <CommandEmpty>No topic found.</CommandEmpty>
+                  <CommandGroup>
+                    {Object.values(TabConfig).map((topic) => {
+                      return (
+                        <CommandItem key={topic.id} value={topic.title}>
+                          {topic.title}
+                        </CommandItem>
+                      );
+                    })}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+        </div>
         <IconButton
           onClick={() => setSearchText('')}
           className={twMerge(
@@ -57,12 +94,14 @@ export default function HomePage() {
           {filteredTopics.length} {filteredTopics.length > 1 ? 'results' : 'result'}
         </p>
       </div>
-      <ArticleUL className="mt-[1rem] list-decimal">
-        {filteredTopics.map((item, index) => {
+      <ArticleUL className="mt-[1rem]">
+        {filteredTopics.map((item) => {
           return (
-            <ArticleLI key={index}>
-              <Link href={item.link} className="hover:underline">
-                <p>{item.title}</p>
+            <ArticleLI key={item.id}>
+              <Link href={item.link} className="inline-block hover:underline">
+                <p>
+                  {item.id}. {item.title}
+                </p>
               </Link>
             </ArticleLI>
           );

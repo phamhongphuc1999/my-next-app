@@ -1,7 +1,9 @@
+/* eslint-disable react/self-closing-comp */
 'use client';
 
 import { MathJaxContext } from 'better-react-mathjax';
 import { Fira_Code } from 'next/font/google';
+import Script from 'next/script';
 import IconImg from 'public/star.svg';
 import ThumbImg from 'public/thumbnail.webp';
 import { ReactNode } from 'react';
@@ -49,8 +51,29 @@ export default function RootLayout({ children }: Props) {
         <meta name="twitter:title" content="My Next App" key="twittertitle" />
         <meta name="twitter:description" content="" key="twitterdescription" />
         <meta name="keywords" key="keywords" content={''} />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NDT23XFV');
+    `,
+          }}
+        />
       </head>
       <body data-theme="light" className={`${fira.className} antialiased`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NDT23XFV"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <AppContextProvider>
           <MathJaxContext
             version={2}
