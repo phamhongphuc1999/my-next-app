@@ -1,8 +1,12 @@
 'use client';
 
-import { MathJax } from 'better-react-mathjax';
+import dynamic from 'next/dynamic';
 import { AppHTMLProps } from 'src/global';
 import { twMerge } from 'tailwind-merge';
+
+const MathJax = dynamic(() => import('better-react-mathjax').then((mod) => mod.MathJax), {
+  ssr: false,
+});
 
 type CommonProps = {
   isMath?: boolean;
@@ -15,12 +19,12 @@ export function AppArticle({
   ...props
 }: AppHTMLProps<HTMLParagraphElement> & CommonProps) {
   return (
-    <p
+    <div
       {...props}
       className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
     >
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
-    </p>
+    </div>
   );
 }
 

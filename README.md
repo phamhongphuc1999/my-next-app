@@ -20,4 +20,5 @@ bun dev
 
 ### Tech stack
 
-- UI component: shadcn/ui
+- UI library: shadcn/ui
+- Styling: Tailwind CSS
