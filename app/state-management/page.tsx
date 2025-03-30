@@ -14,9 +14,15 @@ export default function StateManagement() {
       Selecting state management library or architecture directly interfere the performance. In this
       topic, i will introduce some state management i know and have chance to use them in real
       projects.
-      <div className="mt-[1rem]">
+      <div className="mt-[1rem] flex flex-col gap-[1rem]">
         <Link href="/state-management/mobx" className="hover:underline">
           1. MobX
+        </Link>
+        <Link href="/state-management/redux" className="hover:underline">
+          2. Redux
+        </Link>
+        <Link href="/state-management/pinia" className="hover:underline">
+          3. Pinia (for Vuejs)
         </Link>
       </div>
     </CommonContainer>

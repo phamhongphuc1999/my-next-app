@@ -12,6 +12,10 @@ const linkConfig: Array<{ link: string; title: string }> = [
     link: 'https://hackernoon.com/an-artificial-example-where-mobx-really-shines-and-redux-is-not-really-suited-for-it-1a58313c0c70?ref=hackernoon.com#.42tpw3uw9',
     title: 'An artificial example where MobX really shines and Redux is not really suited for it',
   },
+  {
+    link: 'https://medium.com/@mweststrate/pure-rendering-in-the-light-of-time-and-state-4b537d8d40b1#.6pt68lack',
+    title: 'Pure rendering in the light of time and state',
+  },
 ];
 
 export default function LinksPage() {
