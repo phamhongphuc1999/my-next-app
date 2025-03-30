@@ -1,12 +1,15 @@
-import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-export default function CodeBlock(
-  props: Omit<SyntaxHighlighterProps, 'children'> & { code: string }
-) {
+interface Props {
+  code: string;
+  language?: 'react' | 'javascript';
+}
+
+export default function CodeBlock({ code, language }: Props) {
   return (
-    <SyntaxHighlighter style={docco} {...props}>
-      {props.code}
+    <SyntaxHighlighter style={atelierCaveDark} language={language}>
+      {code}
     </SyntaxHighlighter>
   );
 }

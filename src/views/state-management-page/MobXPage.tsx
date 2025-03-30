@@ -85,7 +85,7 @@ export default function MobXPage() {
         </Dialog>
       </AppArticle>
       <AppArticle>
-        <CodeBlock code={Code1} />
+        <CodeBlock language="javascript" code={Code1} />
       </AppArticle>
       <div className="flex flex-wrap items-center gap-[1rem]">
         <Image src={MobXFlowExampleImg} alt="mob-flow-example" />
@@ -101,11 +101,11 @@ export default function MobXPage() {
         can track state change.
       </AppArticle>
       <AppArticle>
-        <CodeBlock code={ProxyImplement} />
+        <CodeBlock code={ProxyImplement} language="javascript" />
       </AppArticle>
       <AppArticle>Below is the computed implementation example</AppArticle>
       <AppArticle>
-        <CodeBlock code={ComputedImplement} />
+        <CodeBlock code={ComputedImplement} language="javascript" />
       </AppArticle>
     </div>
   );
