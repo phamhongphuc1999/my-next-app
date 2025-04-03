@@ -2,6 +2,7 @@ import Link from 'next/link';
 import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
+import { Button } from 'src/components/shadcn-ui/button';
 
 const linkConfig: Array<{ link: string; title: string }> = [
   {
@@ -23,12 +24,15 @@ export default function LinksPage() {
     <CommonContainer>
       <AppNextSeo title="Fascinating links" />
       <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }, { label: 'Fascinating links' }]} />
+      <Link href="/links/science">
+        <Button className="mt-[1rem]">Go to Science</Button>
+      </Link>
       {linkConfig.map((item, index) => {
         return (
           <Link
             key={item.link}
             target="_blank"
-            className="mt-[1rem] block break-words"
+            className="mt-[1rem] block break-words hover:underline"
             href={item.link}
           >
             {index + 1} {item.title}

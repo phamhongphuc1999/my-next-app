@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronsUpDown } from 'lucide-react';
+import { Check, ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
@@ -18,12 +18,16 @@ import {
 import { Input } from 'src/components/shadcn-ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from 'src/components/shadcn-ui/popover';
 import { ReferenceConfig, TabConfig } from 'src/configs/constance';
+import { TabType } from 'src/global';
+import { cn } from 'src/lib/utils';
 import { twMerge } from 'tailwind-merge';
 
 export default function HomePage() {
   const ref = useRef('');
   const [searchText, setSearchText] = useState('');
   const [filterText, setFilterText] = useState('');
+  const [open, setOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState<TabType | undefined>(undefined);
 
   useEffect(() => {
     if (ref.current != searchText) {
@@ -45,6 +49,15 @@ export default function HomePage() {
     });
   }, [filterText]);
 
+  const filteredTabTopics = useMemo(() => {
+    return filteredTopics.filter((topic) => {
+      const _tabs = topic.tabs;
+      if (!selectedId) return true;
+      else if (_tabs.includes(selectedId)) return true;
+      return false;
+    });
+  }, [selectedId, filteredTopics]);
+
   return (
     <>
       <div className="relative w-full md:w-[50%]">
@@ -54,10 +67,16 @@ export default function HomePage() {
             value={searchText}
             onChange={(event) => setSearchText(event.target.value)}
           />
-          <Popover>
+          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-              <Button variant="outline">
-                Choose topics <ChevronsUpDown className="opacity-50" />
+              <Button
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className="w-[400px] justify-between"
+              >
+                {selectedId ? TabConfig[selectedId]?.title : 'Choose topics'}{' '}
+                <ChevronsUpDown className="opacity-50" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
@@ -68,8 +87,21 @@ export default function HomePage() {
                   <CommandGroup>
                     {Object.values(TabConfig).map((topic) => {
                       return (
-                        <CommandItem key={topic.id} value={topic.title}>
+                        <CommandItem
+                          key={topic.id}
+                          value={topic.title}
+                          onSelect={() => {
+                            setSelectedId(topic.id);
+                            setOpen(false);
+                          }}
+                        >
                           {topic.title}
+                          <Check
+                            className={cn(
+                              'ml-auto',
+                              selectedId === topic.id ? 'opacity-100' : 'opacity-0'
+                            )}
+                          />
                         </CommandItem>
                       );
                     })}
@@ -78,6 +110,17 @@ export default function HomePage() {
               </Command>
             </PopoverContent>
           </Popover>
+          {(selectedId || filterText.length > 0) && (
+            <Button
+              onClick={() => {
+                setSearchText('');
+                setFilterText('');
+                setSelectedId(undefined);
+              }}
+            >
+              Clear filters
+            </Button>
+          )}
         </div>
         <IconButton
           onClick={() => setSearchText('')}
@@ -91,11 +134,11 @@ export default function HomePage() {
       </div>
       <div className={twMerge('mt-[4px]', searchText.length > 0 ? 'visible' : 'invisible')}>
         <p className="textSecondary text-[12px]">
-          {filteredTopics.length} {filteredTopics.length > 1 ? 'results' : 'result'}
+          {filteredTabTopics.length} {filteredTabTopics.length > 1 ? 'results' : 'result'}
         </p>
       </div>
       <ArticleUL className="mt-[1rem]">
-        {filteredTopics.map((item) => {
+        {filteredTabTopics.map((item) => {
           return (
             <ArticleLI key={item.id}>
               <Link href={item.link} className="inline-block hover:underline">
