@@ -33,4 +33,5 @@ export const ReferenceConfig: Array<TopicType> = [
     link: '/flux-architecture',
   },
   { id: '6', title: 'Google tab manager and Google analytic', tabs: ['seo'], link: '/gtm-ga' },
+  { id: '7', title: 'Proxy in javascript', tabs: ['javascript'], link: '/js/proxy-object' },
 ];

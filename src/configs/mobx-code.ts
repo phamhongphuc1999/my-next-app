@@ -1,30 +1,66 @@
-export const Code1 = `class Person {
-  @observable firstName = "Michel";
-  @observable lastName = "Weststrate";
-  @observable nickName;
-  
-  @computed get fullName() {
-    return this.firstName + " " + this.lastName;
+export const Code1 = `import { action, autorun, computed, makeObservable, observable } from 'mobx';
+
+class Person {
+  firstName: string;
+  lastName: string;
+  nickName: string;
+
+  constructor(firstName: string, lastName: string, nickName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.nickName = nickName;
+
+    makeObservable(this, {
+      firstName: observable,
+      lastName: observable,
+      nickName: observable,
+      fullName: computed,
+      setFirstName: action,
+      setLastName: action,
+      setNickName: action,
+    });
+  }
+
+  get fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+  setFirstName(firstName: string) {
+    this.firstName = firstName;
+  }
+
+  setLastName(lastName: string) {
+    this.lastName = lastName;
+  }
+
+  setNickName(nickName: string) {
+    this.nickName = nickName;
   }
 }
 
-const michel = new Person();
+const person = new Person('John', 'Doe', 'Dog');
 
-// Reaction: log the profile info whenever it changes
-autorun(() => console.log(person.nickName ? person.nickName : person.fullName));
-
-// Example React component that observes state
-const profileView = observer(props => {
-  if (props.person.nickName)
-    return <div>{props.person.nickName}</div>
-  else
-    return <div>{props.person.fullName}</div>
+autorun(() => {
+  console.log('auto run when firstName changed', person.firstName);
 });
 
-// Action:
-setTimeout(() => michel.nickName = "mweststrate", 5000)
+autorun(() => {
+  console.log('auto run when fullName change', person.fullName);
+});
 
-React.render(React.createElement(profileView, { person: michel }), document.body);`;
+autorun(() => {
+  console.log('auto run when nickName change', person.nickName);
+});
+
+autorun(() => {
+  console.log('auto run when firstName or nickName change', person.fullName, ',', person.nickName);
+});
+console.log('-----------------------------------1');
+person.setFirstName('ABC');
+console.log('-----------------------------------2');
+person.setLastName('DDDDD');
+console.log('-----------------------------------3');
+person.setNickName('AAAAAAAA');`;
 
 export const ProxyImplement = `const observables = new Map(); // Stores tracked values
 const dependencies = new Map(); // Maps state properties to dependent functions

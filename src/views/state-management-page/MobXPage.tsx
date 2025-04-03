@@ -28,7 +28,7 @@ export default function MobXPage() {
         <span className="italic underline">Actions</span> and{' '}
         <span className="italic underline">Derivations</span>
       </AppArticle>
-      <p className="text-[20px] font-[500]">1. Observable state and derivations</p>
+      <p className="text-[20px] font-[500]">1. Overview</p>
       <AppArticle isFirst>
         Store state in MobX can be any structure like: plain objects, arrays, classes, cyclic data
         structures or references, it does not matter in MobX. MobX track state change through
@@ -65,6 +65,11 @@ export default function MobXPage() {
         <ArticleLI>
           <span className="font-[500]">Action</span>: All piece of code that modify state.
         </ArticleLI>
+        <ArticleLI>
+          <span className="font-[500]">Derivations</span>: derivations is anything can derivate from
+          the state without any further interaction, in other word, derivations are computed values
+          and reaction.
+        </ArticleLI>
       </ArticleUL>
       <AppArticle>
         In above figure, a action change observable state, computed value observes this change and
@@ -77,8 +82,15 @@ export default function MobXPage() {
             <DialogHeader>
               <DialogTitle>Lazy mode of computed value</DialogTitle>
               <DialogDescription>
-                Mobx always minimizes the number of calculations. Computed value only re-compute if
-                necessary when others need it as dependency.
+                <AppArticle>
+                  Mobx always minimizes the number of calculations. Computed value only re-compute
+                  if necessary when others need it as dependency.
+                </AppArticle>
+                <AppArticle>
+                  In my opinion, it is simply that re-call get (the function that calculate computed
+                  value when necessary). Off course, we are discussing in pure javascript, how MobX
+                  integrate to React will be mentioned later.
+                </AppArticle>
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
