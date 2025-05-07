@@ -30,6 +30,10 @@ const linkConfig: Array<{ link: string; title: string }> = [
     title: 'Beyond the Blockchain Address: Zero-Knowledge Address Abstraction',
   },
   { link: 'https://arxiv.org/pdf/2309.00448', title: 'Account Abstraction, Analysed' },
+  {
+    link: 'https://sci-hub.se/downloads/2020-09-02/45f9/wang2018.pdf',
+    title: 'An Overview of Smart Contract: Architecture, Applications, and Future Trends',
+  },
 ];
 
 export default function SciencePage() {

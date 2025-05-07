@@ -9,10 +9,11 @@ export const TabConfig: TabListType = {
   'state-management': { id: 'state-management', title: 'state management' },
   architecture: { id: 'architecture', title: 'architecture' },
   seo: { id: 'seo', title: 'SEO' },
+  'elliptic-curve': { id: 'elliptic-curve', title: 'Elliptic Curve' },
 };
 
 export const ReferenceConfig: Array<TopicType> = [
-  { id: '1', title: 'SNARK', tabs: ['zero-knowledge'], link: '/snark' },
+  { id: '1', title: 'SNARK', tabs: ['zero-knowledge', 'elliptic-curve'], link: '/snark' },
   {
     id: '2',
     title: 'State management',
@@ -34,4 +35,10 @@ export const ReferenceConfig: Array<TopicType> = [
   },
   { id: '6', title: 'Google tab manager and Google analytic', tabs: ['seo'], link: '/gtm-ga' },
   { id: '7', title: 'Proxy in javascript', tabs: ['javascript'], link: '/js/proxy-object' },
+  {
+    id: '8',
+    title: 'Elliptic Curve Cryptography',
+    tabs: ['elliptic-curve'],
+    link: '/elliptic-curve-cryptography',
+  },
 ];

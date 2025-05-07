@@ -17,6 +17,14 @@ const linkConfig: Array<{ link: string; title: string }> = [
     link: 'https://medium.com/@mweststrate/pure-rendering-in-the-light-of-time-and-state-4b537d8d40b1#.6pt68lack',
     title: 'Pure rendering in the light of time and state',
   },
+  {
+    link: 'https://ethereum.org/en/whitepaper/',
+    title: 'A Next-Generation Smart Contract and Decentralized Application Platform',
+  },
+  {
+    link: 'https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html',
+    title: 'Smart Contracts: Building Blocks for Digital Markets',
+  },
 ];
 
 export default function LinksPage() {

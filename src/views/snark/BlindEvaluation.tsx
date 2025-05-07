@@ -1,5 +1,6 @@
 /* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
+
 import Link from 'next/link';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
@@ -96,7 +97,7 @@ export default function BlindEvaluation() {
         </ContrastLink>
         {', nor did Bob learn $P$.'}
       </AppArticle>
-      <p className="text-[20px]">Why Is This Useful?</p>
+      <p className="text-[20px] font-[500]">Why Is This Useful?</p>
       <AppArticle isFirst>
         {
           'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a "correct" polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that "different polynomials are different at most points".'

@@ -1,4 +1,5 @@
 /* eslint-disable quotes */
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Curve1Img from 'public/images/curve1.png';

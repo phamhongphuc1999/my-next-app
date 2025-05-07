@@ -11,7 +11,8 @@ export type TabType =
   | 'javascript'
   | 'state-management'
   | 'architecture'
-  | 'seo';
+  | 'seo'
+  | 'elliptic-curve';
 
 export type TabItemType = { id: TabType; title: string };
 export type TabListType = { [id in TabType]: TabItemType };
