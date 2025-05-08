@@ -1,4 +1,4 @@
-## My next app
+## My blog
 
 ### Get start
 
@@ -16,7 +16,7 @@ bun dev
 
 ### Host
 
-- https://my-next-app-one-topaz.vercel.app/
+- https://blog.peter-present.xyz/
 
 ### Tech stack
 
