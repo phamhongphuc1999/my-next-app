@@ -1,0 +1,25 @@
+import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
+
+export default function BabyJubjub() {
+  return (
+    <div className="mt-[1rem]">
+      <p className="text-[20px] font-[500]">4. Baby Jubjub</p>
+      <AppArticle isFirst>
+        BabyJubJub is a twisted Edwards curve optimized for efficient cryptographic operations in
+        zk-SNARK circuits. The curve equation for Ed25519 is given by:
+      </AppArticle>
+      <AppArticle isMath className="text-center">
+        {'$-x^2 + y^2 = 1 - \\frac{10240}{10241}x^2y^2$'}
+      </AppArticle>
+      <AppArticle>This curve has several parameters:</AppArticle>
+      <ArticleUL className="list-disc">
+        <ArticleLI isMath>Prime Number $p = 2^{255} - 19$</ArticleLI>
+        <ArticleLI isMath>
+          The generator point G on BabyJubJub is defined by a specific (x, y) point. This point is
+          chosen as the base point for scalar multiplication in cryptographic operations.
+        </ArticleLI>
+        <ArticleLI isMath>Order $l = 2^{252} + 27742317777372353535851937790883648493$</ArticleLI>
+      </ArticleUL>
+    </div>
+  );
+}

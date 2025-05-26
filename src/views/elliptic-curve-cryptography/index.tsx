@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { AppArticle } from 'src/components/box/ArticleBox';
+import BabyJubjub from './babyjubjub';
 import ECDSA from './ecdsa';
+import Ed25519 from './ed25519';
 import Eddsa from './eddsa';
 
 export default function EllipticCurveCryptographyPage() {
@@ -28,6 +30,8 @@ export default function EllipticCurveCryptographyPage() {
       </AppArticle>
       <ECDSA />
       <Eddsa />
+      <Ed25519 />
+      <BabyJubjub />
     </div>
   );
 }
