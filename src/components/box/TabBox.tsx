@@ -1,4 +1,4 @@
-import { ReferenceConfig } from 'src/configs/constance';
+import { ReferenceConfig } from 'src/configs/layout.config';
 import { DivProps, TabType } from 'src/global';
 import { twMerge } from 'tailwind-merge';
 import { Badge } from '../shadcn-ui/badge';

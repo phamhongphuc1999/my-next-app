@@ -1,8 +1,10 @@
 'use client';
 
+import debounce from 'lodash/debounce';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
+import AppPagination from 'src/components/AppPagination';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import IconButton from 'src/components/buttons/IconButton';
 import { CloseIcon } from 'src/components/icons';
@@ -17,28 +19,23 @@ import {
 } from 'src/components/shadcn-ui/command';
 import { Input } from 'src/components/shadcn-ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from 'src/components/shadcn-ui/popover';
-import { ReferenceConfig, TabConfig } from 'src/configs/constance';
+import { ITEMS_PER_PAGE } from 'src/configs/constance';
+import { ReferenceConfig, TabConfig } from 'src/configs/layout.config';
 import { TabType } from 'src/global';
 import { cn } from 'src/lib/utils';
 import { twMerge } from 'tailwind-merge';
 
 export default function HomePage() {
-  const ref = useRef('');
   const [searchText, setSearchText] = useState('');
   const [filterText, setFilterText] = useState('');
   const [open, setOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<TabType | undefined>(undefined);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    if (ref.current != searchText) {
-      ref.current = searchText;
-      const _delay = setTimeout(() => {
-        setFilterText(searchText);
-      }, 500);
-
-      return () => clearTimeout(_delay);
-    }
-  }, [searchText]);
+  function onTextChange(text: string) {
+    setSearchText(text);
+    debounce(() => setFilterText(text));
+  }
 
   const filteredTopics = useMemo(() => {
     if (filterText.length == 0) return ReferenceConfig;
@@ -58,6 +55,17 @@ export default function HomePage() {
     });
   }, [selectedId, filteredTopics]);
 
+  const paginatedTopics = useMemo(() => {
+    return filteredTabTopics.slice(
+      currentPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE,
+      currentPage * ITEMS_PER_PAGE
+    );
+  }, [filteredTabTopics, currentPage]);
+
+  const totalPage = useMemo(() => {
+    return Math.ceil(filteredTabTopics.length / ITEMS_PER_PAGE);
+  }, [filteredTabTopics]);
+
   return (
     <>
       <div className="relative w-full md:w-[50%]">
@@ -65,7 +73,8 @@ export default function HomePage() {
           <Input
             placeholder="Search topic"
             value={searchText}
-            onChange={(event) => setSearchText(event.target.value)}
+            onChange={(event) => onTextChange(event.target.value)}
+            className="w-96"
           />
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
@@ -73,7 +82,7 @@ export default function HomePage() {
                 variant="outline"
                 role="combobox"
                 aria-expanded={open}
-                className="w-[400px] justify-between"
+                className="w-25 justify-between"
               >
                 {selectedId ? TabConfig[selectedId]?.title : 'Choose topics'}{' '}
                 <ChevronsUpDown className="opacity-50" />
@@ -110,18 +119,19 @@ export default function HomePage() {
               </Command>
             </PopoverContent>
           </Popover>
-          {(selectedId || filterText.length > 0) && (
-            <Button
-              onClick={() => {
-                setSearchText('');
-                setFilterText('');
-                setSelectedId(undefined);
-              }}
-            >
-              Clear filters
-            </Button>
-          )}
         </div>
+        {(selectedId || filterText.length > 0) && (
+          <Button
+            onClick={() => {
+              setSearchText('');
+              setFilterText('');
+              setSelectedId(undefined);
+            }}
+            className="mt-2"
+          >
+            Clear filters
+          </Button>
+        )}
         <IconButton
           onClick={() => setSearchText('')}
           className={twMerge(
@@ -138,7 +148,7 @@ export default function HomePage() {
         </p>
       </div>
       <ArticleUL className="mt-[1rem]">
-        {filteredTabTopics.map((item) => {
+        {paginatedTopics.map((item) => {
           return (
             <ArticleLI key={item.id}>
               <Link href={item.link} className="inline-block hover:underline">
@@ -150,6 +160,11 @@ export default function HomePage() {
           );
         })}
       </ArticleUL>
+      <AppPagination
+        currentPage={currentPage}
+        totalPages={totalPage}
+        events={{ onPageChange: (page) => setCurrentPage(page) }}
+      />
     </>
   );
 }
