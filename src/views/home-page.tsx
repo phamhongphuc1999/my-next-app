@@ -6,8 +6,6 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import AppPagination from 'src/components/AppPagination';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import IconButton from 'src/components/buttons/IconButton';
-import { CloseIcon } from 'src/components/icons';
 import { Button } from 'src/components/shadcn-ui/button';
 import {
   Command,
@@ -23,7 +21,6 @@ import { ITEMS_PER_PAGE } from 'src/configs/constance';
 import { ReferenceConfig, TabConfig } from 'src/configs/layout.config';
 import { TabType } from 'src/global';
 import { cn } from 'src/lib/utils';
-import { twMerge } from 'tailwind-merge';
 
 export default function HomePage() {
   const [searchText, setSearchText] = useState('');
@@ -32,9 +29,13 @@ export default function HomePage() {
   const [selectedId, setSelectedId] = useState<TabType | undefined>(undefined);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const _setFilterText = debounce((value: string) => {
+    setFilterText(value);
+  }, 500);
+
   function onTextChange(text: string) {
     setSearchText(text);
-    debounce(() => setFilterText(text));
+    _setFilterText(text);
   }
 
   const filteredTopics = useMemo(() => {
@@ -65,6 +66,12 @@ export default function HomePage() {
   const totalPage = useMemo(() => {
     return Math.ceil(filteredTabTopics.length / ITEMS_PER_PAGE);
   }, [filteredTabTopics]);
+
+  function onSelectTab(id: TabType | 'all') {
+    if (id == 'all') setSelectedId(undefined);
+    else setSelectedId(id);
+    setOpen(false);
+  }
 
   return (
     <>
@@ -99,10 +106,7 @@ export default function HomePage() {
                         <CommandItem
                           key={topic.id}
                           value={topic.title}
-                          onSelect={() => {
-                            setSelectedId(topic.id);
-                            setOpen(false);
-                          }}
+                          onSelect={() => onSelectTab(topic.id)}
                         >
                           {topic.title}
                           <Check
@@ -132,17 +136,8 @@ export default function HomePage() {
             Clear filters
           </Button>
         )}
-        <IconButton
-          onClick={() => setSearchText('')}
-          className={twMerge(
-            'absolute right-0 top-[50%] h-[24px] w-[24px] translate-y-[-50%]',
-            searchText.length > 0 ? 'visible' : 'invisible'
-          )}
-        >
-          <CloseIcon fill="#ffffff" />
-        </IconButton>
       </div>
-      <div className={twMerge('mt-[4px]', searchText.length > 0 ? 'visible' : 'invisible')}>
+      <div className={cn('mt-[4px]', searchText.length > 0 ? 'visible' : 'invisible')}>
         <p className="textSecondary text-[12px]">
           {filteredTabTopics.length} {filteredTabTopics.length > 1 ? 'results' : 'result'}
         </p>

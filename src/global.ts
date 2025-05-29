@@ -6,6 +6,7 @@ export type AppSvgProps = SVGProps<SVGSVGElement>;
 
 export type ThemeMode = 'dark' | 'light';
 export type TabType =
+  | 'all'
   | 'frontend'
   | 'zero-knowledge'
   | 'javascript'

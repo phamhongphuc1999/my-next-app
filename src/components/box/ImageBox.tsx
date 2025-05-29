@@ -2,7 +2,7 @@
 import Image, { ImageProps } from 'next/image';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { DivProps } from 'src/global';
-import { twMerge } from 'tailwind-merge';
+import { cn } from 'src/lib/utils';
 
 interface Props extends ImageProps {
   title: string;
@@ -17,17 +17,14 @@ export default function ImageBox({ title, divProps, pProps, mode, ...props }: Pr
   return (
     <div
       {...divProps}
-      className={twMerge(
+      className={cn(
         'mt-[1rem] flex flex-col',
         realMode == 'center' && 'items-center',
         divProps?.className
       )}
     >
-      <Image
-        {...props}
-        className={twMerge('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)}
-      />
-      <p {...pProps} className={twMerge('text-[14px]', pProps?.className)}>
+      <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
+      <p {...pProps} className={cn('text-[14px]', pProps?.className)}>
         {title}
       </p>
     </div>

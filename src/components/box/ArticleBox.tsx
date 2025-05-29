@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { AppHTMLProps } from 'src/global';
-import { twMerge } from 'tailwind-merge';
+import { cn } from 'src/lib/utils';
 
 const MathJax = dynamic(() => import('better-react-mathjax').then((mod) => mod.MathJax), {
   ssr: false,
@@ -21,7 +21,7 @@ export function AppArticle({
   return (
     <div
       {...props}
-      className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
+      className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
     >
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
     </div>
@@ -33,7 +33,7 @@ export function ArticleUL({
   ...props
 }: Omit<AppHTMLProps<HTMLUListElement> & CommonProps, 'isMath'>) {
   return (
-    <ul {...props} className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
+    <ul {...props} className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
       {props.children}
     </ul>
   );
@@ -47,7 +47,7 @@ export function ArticleLI({
   return (
     <li
       {...props}
-      className={twMerge(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} ml-[1rem]`, props.className)}
+      className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} ml-[1rem]`, props.className)}
     >
       <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
     </li>

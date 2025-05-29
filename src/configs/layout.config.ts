@@ -1,6 +1,7 @@
 import { TabListType, TopicType } from 'src/global';
 
 export const TabConfig: TabListType = {
+  all: { id: 'all', title: 'All' },
   frontend: { id: 'frontend', title: 'frontend' },
   'zero-knowledge': { id: 'zero-knowledge', title: 'zero knowledge' },
   javascript: { id: 'javascript', title: 'js' },

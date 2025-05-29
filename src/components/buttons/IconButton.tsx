@@ -1,11 +1,11 @@
 import { DivProps } from 'src/global';
-import { twMerge } from 'tailwind-merge';
+import { cn } from 'src/lib/utils';
 
 export default function IconButton(props: DivProps) {
   return (
     <div
       {...props}
-      className={twMerge(
+      className={cn(
         'cursor-pointer rounded-[50%] p-[5px] hover:bg-[#0000000f] dark:hover:bg-[#ffffff0f]',
         props.className
       )}
