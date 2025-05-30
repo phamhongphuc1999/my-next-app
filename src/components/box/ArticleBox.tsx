@@ -1,7 +1,8 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { AppHTMLProps } from 'src/global';
+import { ComponentProps } from 'react';
+import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 
 const MathJax = dynamic(() => import('better-react-mathjax').then((mod) => mod.MathJax), {
@@ -13,11 +14,7 @@ type CommonProps = {
   isFirst?: boolean;
 };
 
-export function AppArticle({
-  isMath = false,
-  isFirst = false,
-  ...props
-}: AppHTMLProps<HTMLParagraphElement> & CommonProps) {
+export function AppArticle({ isMath = false, isFirst = false, ...props }: DivProps & CommonProps) {
   return (
     <div
       {...props}
@@ -31,7 +28,7 @@ export function AppArticle({
 export function ArticleUL({
   isFirst = false,
   ...props
-}: Omit<AppHTMLProps<HTMLUListElement> & CommonProps, 'isMath'>) {
+}: Omit<ComponentProps<'ul'> & CommonProps, 'isMath'>) {
   return (
     <ul {...props} className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
       {props.children}
@@ -43,7 +40,7 @@ export function ArticleLI({
   isMath = false,
   isFirst = false,
   ...props
-}: AppHTMLProps<HTMLLIElement> & CommonProps) {
+}: ComponentProps<'li'> & CommonProps) {
   return (
     <li
       {...props}

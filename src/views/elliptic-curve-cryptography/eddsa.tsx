@@ -1,12 +1,12 @@
-import ImageBox from 'src/components/box/ImageBox';
 import edwardImg from 'public/images/elliptic-curve/edwards-curve.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
+import ChapterBox from 'src/components/Thesis/ChapterBox';
+import FigureBox from 'src/components/Thesis/FigureBox';
 
 export default function Eddsa() {
   return (
-    <div className="mt-[1rem]">
-      <p className="text-[20px] font-[500]">2. Edwards-curve Digital Signature Algorithm</p>
-      <ImageBox src={edwardImg} alt="ecc" title="Edwards curve shape" />
+    <ChapterBox title="Edwards-curve Digital Signature Algorithm" id="eddsa">
+      <FigureBox id="eddsa" src={edwardImg} alt="eddsa" title="Edwards curve shape" />
       <AppArticle isFirst>
         The Edwards-curve Digital Signature Algorithm (EdDSA) is a variant of the Schnorr signature
         scheme that utilizes elliptic curves in Edwards form. EdDSA has several advantages,
@@ -105,6 +105,6 @@ export default function Eddsa() {
           </ArticleUL>
         </ArticleLI>
       </ArticleUL>
-    </div>
+    </ChapterBox>
   );
 }

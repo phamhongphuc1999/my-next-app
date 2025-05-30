@@ -1,8 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes, SVGProps } from 'react';
+import { ComponentProps } from 'react';
 
-export type AppHTMLProps<T = unknown> = DetailedHTMLProps<HTMLAttributes<T>, T>;
-export type DivProps = AppHTMLProps<HTMLDivElement>;
-export type AppSvgProps = SVGProps<SVGSVGElement>;
+export type DivProps = ComponentProps<'div'>;
+export type AppSvgProps = ComponentProps<'svg'>;
 
 export type ThemeMode = 'dark' | 'light';
 export type TabType =
@@ -19,3 +18,7 @@ export type TabItemType = { id: TabType; title: string };
 export type TabListType = { [id in TabType]: TabItemType };
 
 export type TopicType = { id: string; title: string; tabs: Array<TabType>; link: string };
+
+export type ThesisObjectType = 'figure' | 'chapter';
+export type ThesisChapterType = { id: string; title: string; index: number };
+export type ThesisFigureType = { id: string; title: string; index: number | string };
