@@ -19,7 +19,7 @@ export default function EllipticCurveCryptographyPage() {
           efficiency. Elliptic curves are defined by equations of the form:
         </AppArticle>
         <AppArticle isMath className="text-center">
-          {'$E: y^2 = (x^3 + ax + b) (\\text{ mod p})$ (1)'}
+          {'$E: y^2 = (x^3 + ax + b) (\\text{ mod p})$'}
         </AppArticle>
         <AppArticle isMath>
           {
@@ -28,7 +28,7 @@ export default function EllipticCurveCryptographyPage() {
         </AppArticle>
         <AppArticle isMath className="text-center">
           {
-            '$\\lambda = \\frac{y_2 - y_1}{x_2 - x_1}, x_3 = \\lambda^2 - x_1 - x_2, y_3 = \\lambda^2(x_1 - x_3) - y_1$ (2)'
+            '$\\lambda = \\frac{y_2 - y_1}{x_2 - x_1}, x_3 = \\lambda^2 - x_1 - x_2, y_3 = \\lambda^2(x_1 - x_3) - y_1$'
           }
         </AppArticle>
         <ECDSA />

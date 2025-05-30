@@ -1,5 +1,6 @@
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
+import EquationBox from 'src/components/Thesis/EquationBox';
 
 export default function Ed25519() {
   return (
@@ -8,9 +9,9 @@ export default function Ed25519() {
         Ed25519 is a specific instance of EdDSA that uses the Curve25519 elliptic curve and the
         SHA-512 hash function. The curve equation for Ed25519 is given by:
       </AppArticle>
-      <AppArticle isMath className="text-center">
+      <EquationBox id="ed25519-shape">
         {'$-x^2 + y^2 = 1 - \\frac{121665}{121666}x^2y^2$'}
-      </AppArticle>
+      </EquationBox>
       <AppArticle>Other parameters include:</AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>{'Prime number $p = 2^{255} - 19$'}</ArticleLI>

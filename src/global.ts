@@ -19,6 +19,8 @@ export type TabListType = { [id in TabType]: TabItemType };
 
 export type TopicType = { id: string; title: string; tabs: Array<TabType>; link: string };
 
-export type ThesisObjectType = 'figure' | 'chapter';
+export type ThesisObjectModeType = 'figure' | 'chapter' | 'equation';
+export type ThesisObjectType = { id: string; title: string; index: number | string };
 export type ThesisChapterType = { id: string; title: string; index: number };
-export type ThesisFigureType = { id: string; title: string; index: number | string };
+export type ThesisFigureType = ThesisObjectType;
+export type ThesisEquationType = Omit<ThesisObjectType, 'title'>;

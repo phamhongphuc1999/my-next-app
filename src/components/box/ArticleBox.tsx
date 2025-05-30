@@ -1,5 +1,6 @@
 'use client';
 
+import { MathJaxProps } from 'better-react-mathjax';
 import dynamic from 'next/dynamic';
 import { ComponentProps } from 'react';
 import { DivProps } from 'src/global';
@@ -12,15 +13,21 @@ const MathJax = dynamic(() => import('better-react-mathjax').then((mod) => mod.M
 type CommonProps = {
   isMath?: boolean;
   isFirst?: boolean;
+  mathProp?: MathJaxProps;
 };
 
-export function AppArticle({ isMath = false, isFirst = false, ...props }: DivProps & CommonProps) {
+export function AppArticle({
+  isMath = false,
+  isFirst = false,
+  mathProp,
+  ...props
+}: DivProps & CommonProps) {
   return (
     <div
       {...props}
       className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
     >
-      <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
+      <>{isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : <>{props.children}</>}</>
     </div>
   );
 }
@@ -28,7 +35,7 @@ export function AppArticle({ isMath = false, isFirst = false, ...props }: DivPro
 export function ArticleUL({
   isFirst = false,
   ...props
-}: Omit<ComponentProps<'ul'> & CommonProps, 'isMath'>) {
+}: Omit<ComponentProps<'ul'> & CommonProps, 'isMath' | 'mathProp'>) {
   return (
     <ul {...props} className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
       {props.children}
@@ -39,6 +46,7 @@ export function ArticleUL({
 export function ArticleLI({
   isMath = false,
   isFirst = false,
+  mathProp,
   ...props
 }: ComponentProps<'li'> & CommonProps) {
   return (
@@ -46,7 +54,7 @@ export function ArticleLI({
       {...props}
       className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} ml-[1rem]`, props.className)}
     >
-      <>{isMath ? <MathJax>{props.children}</MathJax> : <>{props.children}</>}</>
+      <>{isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : <>{props.children}</>}</>
     </li>
   );
 }

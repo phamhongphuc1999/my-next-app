@@ -1,29 +1,32 @@
 import edwardImg from 'public/images/elliptic-curve/edwards-curve.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
+import EquationBox from 'src/components/Thesis/EquationBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
+import RefLink from 'src/components/Thesis/RefLink';
 
 export default function Eddsa() {
   return (
     <ChapterBox title="Edwards-curve Digital Signature Algorithm" id="eddsa">
       <FigureBox id="eddsa" src={edwardImg} alt="eddsa" title="Edwards curve shape" />
       <AppArticle isFirst>
-        The Edwards-curve Digital Signature Algorithm (EdDSA) is a variant of the Schnorr signature
-        scheme that utilizes elliptic curves in Edwards form. EdDSA has several advantages,
-        including faster computations, better resistance to side-channel attacks, and smaller
-        signature sizes. Elliptic curves in Edwards form are defined by the equation:
+        The Edwards-curve Digital Signature Algorithm (EdDSA) (<RefLink toId="figure_eddsa" />) is a
+        variant of the Schnorr signature scheme that utilizes elliptic curves in Edwards form. EdDSA
+        has several advantages, including faster computations, better resistance to side-channel
+        attacks, and smaller signature sizes. Elliptic curves in Edwards form are defined by the
+        equation:
       </AppArticle>
-      <AppArticle isMath className="text-center">
+      <EquationBox id="eddsa-shape">
         {'$E_d: x^2 + y^2 = 1 + dx^2y^2, \\text{where d} \\in \\mathbb{K} \\setminus (0, 1)$'}
-      </AppArticle>
+      </EquationBox>
       <AppArticle isMath>
         {'For two points $(x_1, y_1), (x_2, y_2)$, on the curve, their sum is given by:'}
       </AppArticle>
-      <AppArticle isMath className="text-center">
+      <EquationBox id="eddsa-shape1">
         {
           '$(x_1, y_1) + (x_2, y_2) = (\\frac{x_1y_2 + y_1x_2}{1 + dx_1y_1x_2y_2}, \\frac{y_2y_1 - x_2x_1}{1 - dx_1y_1x_2y_2})$'
         }
-      </AppArticle>
+      </EquationBox>
       <AppArticle>
         According to this equation, the neutral element is (0, 1), and the negative of a point (x,
         y) is (-x, y).
@@ -33,11 +36,11 @@ export default function Eddsa() {
           'Furthermore, if d is not a square in $\\mathbb{K}$, then the sum of any two points is always well-defined. A generalized form, known as the twisted Edwards curve, is given by:'
         }
       </AppArticle>
-      <AppArticle isMath className="text-center">
+      <EquationBox id="eddsa-shape2">
         {
           '$E_{a,d}: ax^2 + y^2 = 1 + dx^2y^2$, $\\text{where a, d} \\in \\mathbb{K} \\text{\\space are not zero and distinct}.$'
         }
-      </AppArticle>
+      </EquationBox>
       <AppArticle isMath>
         {
           'The addition law still follows the above equation and has the same neutral element and negation rule.'
