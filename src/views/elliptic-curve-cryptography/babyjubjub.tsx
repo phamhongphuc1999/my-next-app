@@ -1,10 +1,10 @@
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import ChapterBox from 'src/components/Thesis/ChapterBox';
 import EquationBox from 'src/components/Thesis/EquationBox';
+import SectionBox from 'src/components/Thesis/SectionBox';
 
 export default function BabyJubjub() {
   return (
-    <ChapterBox title="Baby Jubjub" id="babyjubjub">
+    <SectionBox title="Baby Jubjub" id="babyjubjub">
       <AppArticle isFirst>
         BabyJubJub is a twisted Edwards curve optimized for efficient cryptographic operations in
         zk-SNARK circuits. The curve equation for Ed25519 is given by:
@@ -24,6 +24,6 @@ export default function BabyJubjub() {
           {'Order $l = 2^{252} + 27742317777372353535851937790883648493$'}
         </ArticleLI>
       </ArticleUL>
-    </ChapterBox>
+    </SectionBox>
   );
 }

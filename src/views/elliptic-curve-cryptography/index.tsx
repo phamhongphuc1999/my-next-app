@@ -2,6 +2,7 @@
 'use client';
 
 import { AppArticle } from 'src/components/box/ArticleBox';
+import CiteBox from 'src/components/Thesis/CiteBox';
 import ThesisConfigProvider from 'src/context/ThesisConfigContext';
 import BabyJubjub from './babyjubjub';
 import ECDSA from './ecdsa';
@@ -10,7 +11,7 @@ import Eddsa from './eddsa';
 
 export default function EllipticCurveCryptographyPage() {
   return (
-    <ThesisConfigProvider id="EllipticCurveCryptographyPage">
+    <ThesisConfigProvider id="EllipticCurveCryptographyPage" firstLevel="section">
       <div className="mt-[1rem]">
         <AppArticle>
           Elliptic Curve Cryptography (ECC) is a widely used cryptographic framework to create
@@ -35,6 +36,17 @@ export default function EllipticCurveCryptographyPage() {
         <Eddsa />
         <Ed25519 />
         <BabyJubjub />
+        <p className="text-lg font-bold">Reference</p>
+        <CiteBox
+          cite={{
+            id: 'eddsa',
+            author: 'Daniel J.  Bernstein, Niels Duif, Tanja Lange, Peter Schwabe, Bo-Yin Yang',
+            title: 'High-speed High-security Signatures',
+            journal:
+              'Preneel, B., Takagi, T. (eds) Cryptographic Hardware and Embedded Systems – CHES 2011. CHES 2011. Lecture Notes in Computer Science, vol 6917. Springer, Berlin, Heidelberg.',
+            year: 2011,
+          }}
+        />
       </div>
     </ThesisConfigProvider>
   );

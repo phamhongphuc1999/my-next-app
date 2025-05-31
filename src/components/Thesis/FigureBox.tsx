@@ -2,7 +2,7 @@
 import Image, { ImageProps } from 'next/image';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { THESIS_CLASS } from 'src/configs/constance';
-import { useThesisFigure } from 'src/context/ThesisConfigContext';
+import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 
@@ -16,7 +16,7 @@ interface Props extends ImageProps {
 
 export default function FigureBox({ id, title, divProps, pProps, mode, ...props }: Props) {
   const realMode = mode == 'start' ? 'start' : 'center';
-  const figure = useThesisFigure(`figure_${id}`);
+  const figure = useThesisObject(`figure_${id}`, 'figure');
 
   return (
     <div
@@ -31,7 +31,7 @@ export default function FigureBox({ id, title, divProps, pProps, mode, ...props 
     >
       <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
       <p {...pProps} id={`figure_${id}_title`} className={cn('text-[14px]', pProps?.className)}>
-        {figure?.index ? `${figure.index}. ` : ''}.{title}
+        {figure?.index ? `${figure.index}: ` : ''}.{title}
       </p>
     </div>
   );

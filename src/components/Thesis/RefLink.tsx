@@ -15,7 +15,7 @@ export default function RefLink({ toId, mode, className }: Props) {
 
   return (
     <Link href={`#${toId}`} className={cn(THESIS_CLASS.ref, className)}>
-      {mode ?? 'figure'} {commonData?.index}
+      {mode != 'cite' ? `${mode ?? 'figure'} ${commonData?.index}` : `[${commonData?.index}]`}
     </Link>
   );
 }

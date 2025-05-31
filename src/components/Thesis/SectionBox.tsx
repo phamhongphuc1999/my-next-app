@@ -9,21 +9,20 @@ import { cn } from 'src/lib/utils';
 interface Props extends DivProps {
   id: string;
   title: string;
-  prefix?: string;
   children: ReactNode;
 }
 
-export default function ChapterBox({ id, title, prefix = 'Chapter', children, ...props }: Props) {
-  const chapter = useThesisObject(`chapter_${id}`, 'chapter');
+export default function SectionBox({ id, title, children, ...props }: Props) {
+  const section = useThesisObject(`section_${id}`, 'section');
 
   return (
     <div
       {...props}
-      id={`chapter_${id}`}
-      className={cn(THESIS_CLASS.chapter, 'mt-[1rem]', props.className)}
+      id={`section_${id}`}
+      className={cn(THESIS_CLASS.section, 'mt-[1rem]', props.className)}
     >
-      <p id={`chapter_${id}_title`} className="text-center text-[20px] font-[600]">
-        {chapter?.index ? `${prefix} ${chapter.index} ` : ''}
+      <p id={`section_${id}_title`} className="text-[20px] font-[500]">
+        {section?.index ? `${section.index} ` : ''}
         {title}
       </p>
       {children}

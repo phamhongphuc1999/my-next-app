@@ -1,12 +1,12 @@
 import eccImg from 'public/images/elliptic-curve/elliptic-curve.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import ChapterBox from 'src/components/Thesis/ChapterBox';
 import ImageBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
+import SectionBox from 'src/components/Thesis/SectionBox';
 
 export default function ECDSA() {
   return (
-    <ChapterBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
+    <SectionBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
       <ImageBox src={eccImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />
       <AppArticle isFirst>
         ECDSA (<RefLink toId="figure_elliptic-curve-shape" />) is a cryptographic scheme for
@@ -67,6 +67,6 @@ export default function ECDSA() {
           </ArticleUL>
         </ArticleLI>
       </ArticleUL>
-    </ChapterBox>
+    </SectionBox>
   );
 }

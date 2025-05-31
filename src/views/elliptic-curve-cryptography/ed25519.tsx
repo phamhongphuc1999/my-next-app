@@ -1,10 +1,10 @@
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import ChapterBox from 'src/components/Thesis/ChapterBox';
 import EquationBox from 'src/components/Thesis/EquationBox';
+import SectionBox from 'src/components/Thesis/SectionBox';
 
 export default function Ed25519() {
   return (
-    <ChapterBox title="Ed25519" id="ed25519">
+    <SectionBox title="Ed25519" id="ed25519">
       <AppArticle isFirst>
         Ed25519 is a specific instance of EdDSA that uses the Curve25519 elliptic curve and the
         SHA-512 hash function. The curve equation for Ed25519 is given by:
@@ -24,6 +24,6 @@ export default function Ed25519() {
           {'Order $l = 2^{252} + 27742317777372353535851937790883648493$'}
         </ArticleLI>
       </ArticleUL>
-    </ChapterBox>
+    </SectionBox>
   );
 }
