@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import TableOfContent from 'src/components/Thesis/TableOfContent';
 import { ContentType, ThesisObjectModeType, ThesisObjectType } from 'src/global';
 import { buildContent } from 'src/services/index-system';
@@ -29,13 +29,12 @@ export default function ThesisConfigProvider({
   isTableOfContents = true,
   children,
 }: Props) {
-  const state = useMemo(() => {
-    if (typeof document != 'undefined') {
-      const result = buildContent(id, firstLevel);
-      return result || defaultContent;
-    }
-    return defaultContent;
-  }, [id, firstLevel]);
+  const [state, setState] = useState<ContentType>(defaultContent);
+
+  useEffect(() => {
+    const result = buildContent(id, firstLevel);
+    if (result) setState(result);
+  }, [firstLevel, id]);
 
   const contextData = useMemo<ContentType>(() => {
     return state;

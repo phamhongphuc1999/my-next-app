@@ -1,3 +1,5 @@
+'use client';
+
 import { THESIS_CLASS } from 'src/configs/constance';
 import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps, ThesisCiteType } from 'src/global';

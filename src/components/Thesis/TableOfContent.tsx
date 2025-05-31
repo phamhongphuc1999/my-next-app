@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { TableOfContentType } from 'src/global';
 import { buildTableOfContent } from 'src/services/table-of-content';
 
@@ -71,12 +73,12 @@ interface Props {
 }
 
 export default function TableOfContent({ id, firstLevel, children }: Props) {
-  const content = useMemo(() => {
-    if (typeof document != 'undefined') {
-      return buildTableOfContent(id, firstLevel);
-    }
-    return [];
-  }, [firstLevel, id]);
+  const [content, setContent] = useState<TableOfContentType>([]);
+
+  useEffect(() => {
+    const result = buildTableOfContent(id, firstLevel);
+    if (result) setContent(result);
+  }, [id, firstLevel]);
 
   return (
     <>
