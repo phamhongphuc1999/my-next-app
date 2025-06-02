@@ -23,7 +23,7 @@ export default function ChapterBox({ id, title, prefix = 'Chapter', children, ..
       className={cn(THESIS_CLASS.chapter, 'mt-[1rem]', props.className)}
     >
       <p id={`chapter_${id}_title`} className="text-center text-[20px] font-[600]">
-        {chapter?.index ? `${prefix} ${chapter.index} ` : ''}
+        {chapter?.index ? `${prefix} ${chapter.index}. ` : ''}
         {title}
       </p>
       {children}
