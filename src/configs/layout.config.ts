@@ -41,4 +41,10 @@ export const ReferenceConfig: Array<TopicType> = [
     tabs: ['elliptic-curve'],
     link: '/elliptic-curve-cryptography',
   },
+  {
+    id: '9',
+    title: 'Simple SNARK',
+    tabs: ['zero-knowledge', 'elliptic-curve'],
+    link: '/simple-snark',
+  },
 ];
