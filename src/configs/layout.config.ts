@@ -9,6 +9,7 @@ export const TabConfig: TabListType = {
   architecture: { id: 'architecture', title: 'architecture' },
   seo: { id: 'seo', title: 'SEO' },
   'elliptic-curve': { id: 'elliptic-curve', title: 'Elliptic Curve' },
+  'account-abstraction': { id: 'account-abstraction', title: 'Account abstraction' },
 };
 
 export const ReferenceConfig: Array<TopicType> = [
@@ -39,5 +40,11 @@ export const ReferenceConfig: Array<TopicType> = [
     title: 'Elliptic Curve Cryptography',
     tabs: ['elliptic-curve'],
     link: '/elliptic-curve-cryptography',
+  },
+  {
+    id: '9',
+    title: 'Simple SNARK',
+    tabs: ['zero-knowledge', 'elliptic-curve'],
+    link: '/simple-snark',
   },
 ];

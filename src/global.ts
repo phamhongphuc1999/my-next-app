@@ -12,7 +12,8 @@ export type TabType =
   | 'state-management'
   | 'architecture'
   | 'seo'
-  | 'elliptic-curve';
+  | 'elliptic-curve'
+  | 'account-abstraction';
 
 export type TabItemType = { id: TabType; title: string };
 export type TabListType = { [id in TabType]: TabItemType };

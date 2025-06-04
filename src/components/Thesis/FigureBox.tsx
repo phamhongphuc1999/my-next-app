@@ -31,7 +31,8 @@ export default function FigureBox({ id, title, divProps, pProps, mode, ...props 
     >
       <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
       <p {...pProps} id={`figure_${id}_title`} className={cn('text-[14px]', pProps?.className)}>
-        {figure?.index ? `${figure.index}: ` : ''}.{title}
+        {figure?.index ? `${figure.index}: ` : ''}
+        {title}
       </p>
     </div>
   );
