@@ -2,11 +2,11 @@ import { TabListType, TopicType } from 'src/global';
 
 export const TabConfig: TabListType = {
   all: { id: 'all', title: 'All' },
-  frontend: { id: 'frontend', title: 'frontend' },
-  'zero-knowledge': { id: 'zero-knowledge', title: 'zero knowledge' },
+  frontend: { id: 'frontend', title: 'Frontend' },
+  'zero-knowledge': { id: 'zero-knowledge', title: 'Zero-knowledge proofs' },
   javascript: { id: 'javascript', title: 'js' },
-  'state-management': { id: 'state-management', title: 'state management' },
-  architecture: { id: 'architecture', title: 'architecture' },
+  'state-management': { id: 'state-management', title: 'State management' },
+  architecture: { id: 'architecture', title: 'Architecture' },
   seo: { id: 'seo', title: 'SEO' },
   'elliptic-curve': { id: 'elliptic-curve', title: 'Elliptic Curve' },
   'account-abstraction': { id: 'account-abstraction', title: 'Account abstraction' },

@@ -3,6 +3,7 @@
 import debounce from 'lodash/debounce';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import AppPagination from 'src/components/AppPagination';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
@@ -26,8 +27,17 @@ export default function HomePage() {
   const [searchText, setSearchText] = useState('');
   const [filterText, setFilterText] = useState('');
   const [open, setOpen] = useState(false);
-  const [selectedId, setSelectedId] = useState<TabType | undefined>(undefined);
   const [currentPage, setCurrentPage] = useState(1);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const selectedId = searchParams.get('tab') as TabType | undefined;
+
+  function setQuery(key: string, value?: string) {
+    const current = new URLSearchParams(searchParams.toString());
+    if (value && value !== 'all') current.set(key, value);
+    else current.delete(key);
+    router.push(`?${current.toString()}`);
+  }
 
   const _setFilterText = debounce((value: string) => {
     setFilterText(value);
@@ -51,7 +61,7 @@ export default function HomePage() {
     return filteredTopics.filter((topic) => {
       const _tabs = topic.tabs;
       if (!selectedId) return true;
-      else if (_tabs.includes(selectedId)) return true;
+      else if (_tabs.includes(selectedId as TabType)) return true;
       return false;
     });
   }, [selectedId, filteredTopics]);
@@ -68,8 +78,7 @@ export default function HomePage() {
   }, [filteredTabTopics]);
 
   function onSelectTab(id: TabType | 'all') {
-    if (id == 'all') setSelectedId(undefined);
-    else setSelectedId(id);
+    setQuery('tab', id);
     setOpen(false);
   }
 
@@ -95,7 +104,7 @@ export default function HomePage() {
                 <ChevronsUpDown className="opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
+            <PopoverContent className="w-[230px] p-0">
               <Command>
                 <CommandInput placeholder="Search topic..." className="h-9" />
                 <CommandList>
@@ -129,7 +138,7 @@ export default function HomePage() {
             onClick={() => {
               setSearchText('');
               setFilterText('');
-              setSelectedId(undefined);
+              setQuery('tab', undefined);
             }}
             className="mt-2"
           >
