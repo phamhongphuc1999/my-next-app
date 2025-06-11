@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable jsx-a11y/alt-text */
 import Image, { ImageProps } from 'next/image';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
@@ -31,7 +33,7 @@ export default function FigureBox({ id, title, divProps, pProps, mode, ...props 
     >
       <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
       <p {...pProps} id={`figure_${id}_title`} className={cn('text-[14px]', pProps?.className)}>
-        {figure?.index ? `${figure.index}: ` : ''}
+        {figure?.index ? `Figure ${figure.index}: ` : ''}
         {title}
       </p>
     </div>

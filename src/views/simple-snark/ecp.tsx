@@ -61,7 +61,7 @@ export default function ECP() {
       </ArticleUL>
       <AppArticle isMath>
         {'Based on equation '}
-        <RefLink toId="equation_alpha_x_equal_y" mode="equation" />
+        <RefLink toId="alpha_x_equal_y" mode="equation" />
         {
           ', Bob ensures that Alice has the knowledge of coefficients of polynomial $P$ of degree $d$. It is done by the below protocol.'
         }

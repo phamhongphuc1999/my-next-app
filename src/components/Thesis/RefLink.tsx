@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { THESIS_CLASS } from 'src/configs/constance';
 import { useThesisObject } from 'src/context/ThesisConfigContext';
@@ -8,18 +10,18 @@ import { capitalizeFirstLetter } from 'src/services';
 interface Props {
   toId: string;
   mode?: ThesisObjectModeType;
-  isUppercase?: boolean;
   className?: string;
 }
 
-export default function RefLink({ toId, mode, isUppercase, className }: Props) {
-  const commonData = useThesisObject(toId, mode);
-  const _title = mode ?? 'figure';
+export default function RefLink({ toId, mode, className }: Props) {
+  const _mode = mode ?? 'figure';
+  const _id = `${_mode}_${toId}`;
+  const commonData = useThesisObject(_id, _mode);
 
   return (
-    <Link href={`#${toId}`} className={cn(THESIS_CLASS.ref, className)}>
-      {mode != 'cite'
-        ? `${isUppercase ? capitalizeFirstLetter(_title) : _title} ${commonData?.index}`
+    <Link href={`#${_id}`} className={cn(THESIS_CLASS.ref, className)}>
+      {_mode != 'cite'
+        ? `${capitalizeFirstLetter(_mode)} ${commonData?.index}`
         : `[${commonData?.index}]`}
     </Link>
   );

@@ -11,4 +11,5 @@ export const THESIS_CLASS = {
   cite: 'thesis-cite',
   acknowledgement: 'acknowledgement',
   abstract: 'abstract',
+  reference: 'reference',
 };

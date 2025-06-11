@@ -3,6 +3,7 @@ import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
 import Section1_1 from './section1.1';
 import Section1_2 from './section1.2';
+import Section1_3 from './section1.3';
 
 export default function Chapter1() {
   return (
@@ -29,6 +30,7 @@ export default function Chapter1() {
       </AppArticle>
       <Section1_1 />
       <Section1_2 />
+      <Section1_3 />
     </ChapterBox>
   );
 }

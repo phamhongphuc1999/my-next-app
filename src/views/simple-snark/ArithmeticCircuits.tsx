@@ -21,7 +21,7 @@ export default function ArithmeticCircuits() {
         title="The arithmetic circuit of the computation: $f = (c_1c_2)+(c_1 + c_3)$"
       />
       <AppArticle isFirst isMath>
-        <RefLink toId="figure_arithmetic-circuit" isUppercase />
+        <RefLink toId="arithmetic-circuit" />
         {
           ' illustrates the arithmetic circuit for the computation $f = (c_1c_2)+(c_1 + c_3)$, where $c_1, c_2, c_3 \\in \\mathbb{F}_p$. The top wire ($w_5$) is the final output wire, and the bottom wires ($w_1, w_2, w_3$) are the input wires. Some middle wires, going from addition to multiplication or addition gates, are not labeled because their inputs can be assumed to go directly. An arithmetic circuit can construct a correct assignment of values that satisfies all constraints defined by the circuit. In this example, the correct assignment is $(c_1, c_2, c_3, c_4, c_5)$, where $c_4 = c_1c_2$ and $c_5 = c_4(c_1 + c_3)$.'
         }

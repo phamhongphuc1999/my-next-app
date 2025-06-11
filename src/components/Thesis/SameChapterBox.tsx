@@ -6,6 +6,7 @@ import { cn } from 'src/lib/utils';
 const configs: { [key in ThesisSameChapterType]: { class: string; title: string } } = {
   acknowledgement: { class: THESIS_CLASS.acknowledgement, title: 'Acknowledgement' },
   abstract: { class: THESIS_CLASS.abstract, title: 'Abstract' },
+  reference: { class: THESIS_CLASS.reference, title: 'References' },
 };
 
 interface Props extends DivProps {

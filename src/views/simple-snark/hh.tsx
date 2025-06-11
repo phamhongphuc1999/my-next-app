@@ -51,8 +51,8 @@ export default function HH() {
         </ArticleLI>
       </ArticleUL>
       <AppArticle>
-        Combining with QAP in section <RefLink toId="section_qap" mode="section" />, we have a
-        protocol to test whether Alice has a correct assignment
+        Combining with QAP in section <RefLink toId="qap" mode="section" />, we have a protocol to
+        test whether Alice has a correct assignment
       </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>

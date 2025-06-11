@@ -7,6 +7,7 @@ import Chapter3 from './chapter3';
 import Chapter4 from './chapter4';
 import Chapter5 from './chapter5';
 import Chapter6 from './chapter6';
+import References from './References';
 
 export default function MasterThesisPage() {
   return (
@@ -23,6 +24,7 @@ export default function MasterThesisPage() {
         <Chapter4 />
         <Chapter5 />
         <Chapter6 />
+        <References />
       </div>
     </ThesisConfigProvider>
   );

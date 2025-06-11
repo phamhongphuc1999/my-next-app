@@ -9,9 +9,9 @@ export default function ECDSA() {
     <SectionBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
       <ImageBox src={eccImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />
       <AppArticle isFirst>
-        ECDSA (<RefLink toId="figure_elliptic-curve-shape" />) is a cryptographic scheme for
-        creating and verifying digital signatures based on ECC. It consists of three main
-        operations: key generation, signature generation, and signature verification.
+        ECDSA (<RefLink toId="elliptic-curve-shape" />) is a cryptographic scheme for creating and
+        verifying digital signatures based on ECC. It consists of three main operations: key
+        generation, signature generation, and signature verification.
       </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI>

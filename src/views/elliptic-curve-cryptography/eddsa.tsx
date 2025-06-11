@@ -11,11 +11,10 @@ export default function Eddsa() {
       <FigureBox id="eddsa" src={edwardImg} alt="eddsa" title="Edwards curve shape" />
       <AppArticle isFirst>
         The Edwards-curve Digital Signature Algorithm (EdDSA)
-        <RefLink toId="cite_eddsa" mode="cite" /> (<RefLink toId="figure_eddsa" />) is a variant of
-        the Schnorr signature scheme that utilizes elliptic curves in Edwards form. EdDSA has
-        several advantages, including faster computations, better resistance to side-channel
-        attacks, and smaller signature sizes. Elliptic curves in Edwards form are defined by the
-        equation:
+        <RefLink toId="eddsa" mode="cite" /> (<RefLink toId="eddsa" />) is a variant of the Schnorr
+        signature scheme that utilizes elliptic curves in Edwards form. EdDSA has several
+        advantages, including faster computations, better resistance to side-channel attacks, and
+        smaller signature sizes. Elliptic curves in Edwards form are defined by the equation:
       </AppArticle>
       <EquationBox id="eddsa-shape">
         {'$E_d: x^2 + y^2 = 1 + dx^2y^2, \\text{where d} \\in \\mathbb{K} \\setminus (0, 1)$'}
