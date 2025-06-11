@@ -2,6 +2,7 @@
 import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
 import Section1_1 from './section1.1';
+import Section1_2 from './section1.2';
 
 export default function Chapter1() {
   return (
@@ -27,6 +28,7 @@ export default function Chapter1() {
         wallet mechanism and discusses its potential improvements.
       </AppArticle>
       <Section1_1 />
+      <Section1_2 />
     </ChapterBox>
   );
 }

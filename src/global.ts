@@ -20,7 +20,10 @@ export type TabListType = { [id in TabType]: TabItemType };
 
 export type TopicType = { id: string; title: string; tabs: Array<TabType>; link: string };
 
+export type ThesisSameChapterType = 'acknowledgement' | 'abstract';
+
 export type ThesisObjectModeType =
+  | ThesisSameChapterType
   | 'chapter'
   | 'section'
   | 'subsection'

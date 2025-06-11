@@ -9,4 +9,6 @@ export const THESIS_CLASS = {
   figure: 'thesis-figure',
   equation: 'thesis-equation',
   cite: 'thesis-cite',
+  acknowledgement: 'acknowledgement',
+  abstract: 'abstract',
 };

@@ -56,7 +56,7 @@ function ChapterTableOfContent({ content }: ContentProps) {
           <div key={item.id}>
             <Link
               href={`#${item.id}`}
-              className="mb-4 text-lg font-bold hover:underline"
+              className="mb-4 text-lg font-bold uppercase hover:underline"
             >{`Chapter ${item.index}. ${item.title}`}</Link>
             <SectionTableOfContent parentIndex={item.index} content={item.content} />
           </div>
