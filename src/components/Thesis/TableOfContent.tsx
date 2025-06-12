@@ -12,16 +12,18 @@ interface ContentProps {
 
 function SubsectionTableOfContent({ parentIndex, content }: ContentProps) {
   return (
-    <div>
+    <div className="ml-4">
       {content.map((item) => {
         const _title = parentIndex
           ? `${parentIndex}.${item.index} ${item.title}`
           : `${item.index} ${item.title}`;
 
         return (
-          <Link key={item.id} href={`#${item.id}`} className="mb-4 hover:underline">
-            {_title}
-          </Link>
+          <div key={item.id}>
+            <Link href={`#${item.id}`} className="mb-4 hover:underline">
+              {_title}
+            </Link>
+          </div>
         );
       })}
     </div>

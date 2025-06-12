@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable react/no-unescaped-entities */
 import caImg from 'public/images/master-thesis/chapter2/contract-account.png';
 import eoaImg from 'public/images/master-thesis/chapter2/eoa.png';
@@ -10,9 +11,9 @@ export default function AccountSystem() {
   return (
     <SectionBox id="account-system" title="Account system in blockchain">
       <AppArticle isFirst>
-        This section introduces the account system in blockchain, focusing on the two fundamental
-        account types: Externally Owned Accounts (EOAs) and Contract Accounts (CAs). It provides an
-        overview of the structure, components, and roles of the two types of accounts.
+        {
+          'This section introduces the account system in blockchain, focusing on the two fundamental account types: Externally Owned Accounts (EOAs) and Contract Accounts (CAs). It provides an overview of the structure, components, and roles of the two types of accounts.'
+        }
       </AppArticle>
       <AppArticle>
         The account system is fundamental to blockchain's functionality, enabling users and
@@ -83,6 +84,44 @@ export default function AccountSystem() {
         advanced functionalities such as automated market making, lending protocols, multi-signature
         wallets, or programmable access controls. A contract account consists of key components (as
         illustrated in <RefLink toId="contract-account-structure" />)
+      </AppArticle>
+      <ArticleUL className="list-disc">
+        <ArticleLI>
+          <span className="italic">Address</span>:{' '}
+          {
+            "A 20-byte identifier, generated when the contract is deployed, typically derived from the creator's address and their nonce (number of transactions sent from that address)."
+          }
+        </ArticleLI>
+        <ArticleLI>
+          <span className="italic">Balance</span>: {'The cryptocurrency held by the contract.'}
+        </ArticleLI>
+        <ArticleLI>
+          <span className="italic">Code</span>:{' '}
+          {
+            'The compiled bytecode of the smart contract, executed by the Ethereum Virtual Machine (EVM).'
+          }
+        </ArticleLI>
+        <ArticleLI>
+          <span className="italic">Storage</span>:{' '}
+          {
+            'Persistent data stored on the blockchain, such as user balances or contract states, organized as a key-value mapping.'
+          }
+        </ArticleLI>
+        <ArticleLI>
+          <span className="italic">Nonce</span>:{' '}
+          {'Tracks the number of contracts created by the account (if applicable).'}
+        </ArticleLI>
+      </ArticleUL>
+      <AppArticle>
+        {
+          'In conclusion, EOAs primarily support basic functionalities such as initiating transactions and managing token balances. In contrast, CAs enable advanced features, allowing for complex interactions and custom behavior through on-chain logic. The limitations of EOAs begin with their original design. Within the EVM ecosystem, EOAs and CAs are intended to function complementarily. However, these constraints limit the scalability, flexibility, and user experience of decentralized applications.'
+        }
+      </AppArticle>
+      <AppArticle>
+        {
+          'Account abstraction can resolve these limitations by unlocking the full capabilities of CAs. It introduces a more flexible and extensible account model, offering a foundation for the solutions that improve user experience, enhance security, and streamline asset management in the Web3 environment. Account abstraction will be discussed in more detail in'
+        }{' '}
+        <RefLink toId="the-need-for-account-abstraction" mode="section" />.
       </AppArticle>
     </SectionBox>
   );

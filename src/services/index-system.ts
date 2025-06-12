@@ -47,7 +47,6 @@ function _buildSectionContent(
     const title = titleComponent?.textContent;
     const _index = `${counter}.${_counter++}`;
     buildSubsectionContent(item, _index, subsectionResult);
-
     result[id] = { id, title: title || '', index: _index };
   }
 }

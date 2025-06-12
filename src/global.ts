@@ -41,11 +41,11 @@ export type ThesisCiteType = {
   id: string;
   author: string;
   title: string;
-  journal: string;
+  journal?: string;
   volume?: string;
   number?: string;
   pages?: string;
-  year: number;
+  year: number | string;
   DOI?: string;
   keywords?: string;
   url?: string;

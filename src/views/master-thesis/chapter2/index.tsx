@@ -2,6 +2,8 @@ import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
 import AccountSystem from './AccountSystem';
 import Blockchain from './blockchain';
+import SmartContract from './SmartContract';
+import ZeroKnowledgeProof from './zero-knowledge-proof';
 
 export default function Chapter2() {
   return (
@@ -15,6 +17,8 @@ export default function Chapter2() {
       </AppArticle>
       <Blockchain />
       <AccountSystem />
+      <SmartContract />
+      <ZeroKnowledgeProof />
     </ChapterBox>
   );
 }

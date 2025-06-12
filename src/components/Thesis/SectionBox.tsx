@@ -31,16 +31,16 @@ export default function SectionBox({ id, title, children, ...props }: Props) {
 }
 
 export function SubsectionBox({ id, title, children, ...props }: Props) {
-  const section = useThesisObject(`subsection_${id}`, 'subsection');
+  const subsection = useThesisObject(`subsection_${id}`, 'subsection');
 
   return (
     <div
       {...props}
       id={`subsection_${id}`}
-      className={cn(THESIS_CLASS.section, 'mt-[1rem]', props.className)}
+      className={cn(THESIS_CLASS.subsection, 'mt-[1rem]', props.className)}
     >
       <p id={`subsection_${id}_title`} className="text-[20px] font-[500]">
-        {section?.index ? `${section.index} ` : ''}
+        {subsection?.index ? `${subsection.index} ` : ''}
         {title}
       </p>
       {children}

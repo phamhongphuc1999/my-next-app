@@ -1,22 +1,22 @@
+/* eslint-disable jsx-a11y/alt-text */
 'use client';
 
-/* eslint-disable jsx-a11y/alt-text */
 import Image, { ImageProps } from 'next/image';
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { ReactNode } from 'react';
 import { THESIS_CLASS } from 'src/configs/constance';
 import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 
-interface Props extends ImageProps {
+interface Props extends Omit<ImageProps, 'title'> {
   id: string;
-  title: string;
+  title: ReactNode;
   divProps?: DivProps;
-  pProps?: DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
+  containerProps?: DivProps;
   mode?: 'center' | 'start';
 }
 
-export default function FigureBox({ id, title, divProps, pProps, mode, ...props }: Props) {
+export default function FigureBox({ id, title, divProps, containerProps, mode, ...props }: Props) {
   const realMode = mode == 'start' ? 'start' : 'center';
   const figure = useThesisObject(`figure_${id}`, 'figure');
 
@@ -32,10 +32,14 @@ export default function FigureBox({ id, title, divProps, pProps, mode, ...props 
       )}
     >
       <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
-      <p {...pProps} id={`figure_${id}_title`} className={cn('text-[14px]', pProps?.className)}>
+      <div
+        {...containerProps}
+        id={`figure_${id}_title`}
+        className={cn('flex gap-1 text-[14px]', containerProps?.className)}
+      >
         {figure?.index ? `Figure ${figure.index}: ` : ''}
         {title}
-      </p>
+      </div>
     </div>
   );
 }

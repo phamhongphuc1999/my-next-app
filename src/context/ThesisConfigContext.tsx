@@ -65,6 +65,7 @@ export function useThesisObject<T extends ThesisObjectType>(
   return useMemo(() => {
     if (mode == 'chapter') return state.chapters[id] as T;
     else if (mode == 'section') return state.sections[id] as T;
+    else if (mode == 'subsection') return state.subsections[id] as T;
     else if (mode == 'equation') return state.equations[id] as T;
     else if (mode == 'cite') return state.cites[id] as T;
     return state.figures[id] as T;

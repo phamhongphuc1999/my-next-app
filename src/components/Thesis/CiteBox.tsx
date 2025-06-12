@@ -21,8 +21,8 @@ export default function CiteBox({ cite, ...props }: Props) {
     >
       <p>
         {citeData?.index && `[${citeData.index}] `}
-        {cite.author}, {`"${cite.title},"`} <span className="italic">{cite.journal}</span>,{' '}
-        {cite.year}.{' '}
+        {cite.author}, {`"${cite.title},"`}{' '}
+        {cite.journal && <>{<span className="italic">{cite.journal},</span>}</>} {cite.year}.{' '}
         {cite.DOI && (
           <>
             DOI:{' '}

@@ -35,4 +35,33 @@ export const MasterReferences: Array<ThesisCiteType> = [
     year: 2024,
     DOI: 'https://doi.org/10.1016/j.iot.2024.101193',
   },
+  {
+    id: 'smart-contract',
+    author: 'Nick Szabo',
+    title: 'Smart Contracts: Building Blocks for Digital Markets',
+    year: 2018,
+    url: 'https://api.semanticscholar.org/CorpusID:198956172',
+  },
+  {
+    id: 'ethereum-whitepaper',
+    author: 'Vitalik Buterin',
+    title: 'A next-generation smart contract and decentralized application platform',
+    year: 2014,
+    url: 'https://ethereum.org/en/whitepaper/',
+  },
+  {
+    id: 'bitcoin-supply',
+    author: 'ReWallet',
+    title: '3 Crazy Cryptocurrency Statistics in 2024 - How Much Bitcoin Has Been Lost?',
+    year: 2023,
+    url: 'https://rewallet.de/en/blog/bitcoin-statistics-2023/',
+  },
+  {
+    id: 'eip4337',
+    author:
+      'Vitalik Buterin, Yoav Weiss, Dror Tirosh, Shahaf Nacson, Alex Forshtat, Kristof Gazso, Tjaden Hess',
+    title: 'ERC-4337: Account Abstraction Using Alt Mempool',
+    year: '2021-09-29',
+    url: 'https://eips.ethereum.org/EIPS/eip-4337',
+  },
 ];
