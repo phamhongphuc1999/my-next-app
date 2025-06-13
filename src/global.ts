@@ -20,7 +20,7 @@ export type TabListType = { [id in TabType]: TabItemType };
 
 export type TopicType = { id: string; title: string; tabs: Array<TabType>; link: string };
 
-export type ThesisSameChapterType = 'acknowledgement' | 'abstract' | 'reference';
+export type ThesisSameChapterType = 'acknowledgement' | 'abstract' | 'reference' | 'appendix';
 
 export type ThesisObjectModeType =
   | ThesisSameChapterType
@@ -30,7 +30,9 @@ export type ThesisObjectModeType =
   | 'figure'
   | 'equation'
   | 'cite'
-  | 'program';
+  | 'program'
+  | 'table'
+  | 'algorithm';
 export type ThesisObjectType = { id: string; title: string; index: number | string };
 export type ThesisChapterType = ThesisObjectType;
 export type ThesisSectionType = ThesisObjectType;
@@ -38,6 +40,8 @@ export type ThesisSubsectionType = ThesisObjectType;
 export type ThesisFigureType = ThesisObjectType;
 export type ThesisEquationType = Omit<ThesisObjectType, 'title'>;
 export type ThesisProgramType = ThesisObjectType;
+export type ThesisTableType = ThesisObjectType;
+export type ThesisAlgorithmType = ThesisObjectType;
 export type ThesisCiteIndexType = { id: string; index: number | string };
 export type ThesisCiteType = {
   id: string;
@@ -69,4 +73,6 @@ export type ContentType = {
   equations: { [key: string]: ThesisEquationType };
   cites: { [key: string]: ThesisCiteIndexType };
   programs: { [key: string]: ThesisProgramType };
+  tables: { [key: string]: ThesisTableType };
+  algorithms: { [key: string]: ThesisAlgorithmType };
 };

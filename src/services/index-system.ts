@@ -1,6 +1,7 @@
 import { THESIS_CLASS } from 'src/configs/constance';
 import {
   ContentType,
+  ThesisAlgorithmType,
   ThesisChapterType,
   ThesisCiteIndexType,
   ThesisEquationType,
@@ -8,6 +9,7 @@ import {
   ThesisProgramType,
   ThesisSectionType,
   ThesisSubsectionType,
+  ThesisTableType,
 } from 'src/global';
 
 function buildCiteContent(element: HTMLElement, result: { [key: string]: ThesisCiteIndexType }) {
@@ -82,6 +84,36 @@ function buildProgramContent(
   }
 }
 
+function buildTableContent(
+  element: Element,
+  counter: string | number,
+  result: { [key: string]: ThesisTableType }
+) {
+  const items = element.querySelectorAll(`.${THESIS_CLASS.table}`);
+  let _counter = 1;
+  for (const item of items) {
+    const id = item.id;
+    const titleComponent = element.querySelector(`#${id}_title`);
+    const title = titleComponent?.textContent;
+    result[id] = { id, title: title || '', index: `${counter}.${_counter++}` };
+  }
+}
+
+function buildAlgorithmContent(
+  element: Element,
+  counter: string | number,
+  result: { [key: string]: ThesisAlgorithmType }
+) {
+  const items = element.querySelectorAll(`.${THESIS_CLASS.algorithm}`);
+  let _counter = 1;
+  for (const item of items) {
+    const id = item.id;
+    const titleComponent = element.querySelector(`#${id}_title`);
+    const title = titleComponent?.textContent;
+    result[id] = { id, title: title || '', index: `${counter}.${_counter++}` };
+  }
+}
+
 function buildEquationContent(
   element: Element,
   counter: string | number,
@@ -104,6 +136,8 @@ function buildChapterContent(container: HTMLElement): ContentType {
   const equations: { [key: string]: ThesisEquationType } = {};
   const cites: { [key: string]: ThesisCiteIndexType } = {};
   const programs: { [key: string]: ThesisProgramType } = {};
+  const tables: { [key: string]: ThesisTableType } = {};
+  const algorithms: { [key: string]: ThesisAlgorithmType } = {};
   let counter = 1;
   for (const element of elements) {
     const id = element.id;
@@ -114,10 +148,22 @@ function buildChapterContent(container: HTMLElement): ContentType {
     buildFigureContent(element, counter, figures);
     buildEquationContent(element, counter, equations);
     buildProgramContent(element, counter, programs);
+    buildTableContent(element, counter, tables);
+    buildAlgorithmContent(element, counter, algorithms);
     chapters[id] = { id, title: title || '', index: counter++ };
   }
   buildCiteContent(container, cites);
-  return { chapters, sections, subsections, figures, equations, cites, programs };
+  return {
+    chapters,
+    sections,
+    subsections,
+    figures,
+    equations,
+    cites,
+    programs,
+    tables,
+    algorithms,
+  };
 }
 
 function buildSectionContent(container: HTMLElement): ContentType {
@@ -128,6 +174,8 @@ function buildSectionContent(container: HTMLElement): ContentType {
   const equations: { [key: string]: ThesisEquationType } = {};
   const cites: { [key: string]: ThesisCiteIndexType } = {};
   const programs: { [key: string]: ThesisProgramType } = {};
+  const tables: { [key: string]: ThesisTableType } = {};
+  const algorithms: { [key: string]: ThesisAlgorithmType } = {};
   let counter = 1;
   for (const element of elements) {
     const id = element.id;
@@ -138,10 +186,22 @@ function buildSectionContent(container: HTMLElement): ContentType {
     buildFigureContent(element, counter, figures);
     buildEquationContent(element, counter, equations);
     buildProgramContent(element, counter, programs);
+    buildTableContent(element, counter, tables);
+    buildAlgorithmContent(element, counter, algorithms);
     sections[id] = { id, title: title || '', index: counter++ };
   }
   buildCiteContent(container, cites);
-  return { chapters: {}, sections, subsections, figures, equations, cites, programs };
+  return {
+    chapters: {},
+    sections,
+    subsections,
+    figures,
+    equations,
+    cites,
+    programs,
+    tables,
+    algorithms,
+  };
 }
 
 export function buildContent(containerId: string, firstLevel: 'chapter' | 'section') {

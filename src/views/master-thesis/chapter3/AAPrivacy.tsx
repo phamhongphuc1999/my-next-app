@@ -93,6 +93,31 @@ export default function AAPrivacy() {
           'In terms of the thesis, we will introduce two key contributions to enhancing privacy-preserving mechanisms in account abstraction using ZKPs and try to deal with the limitations of account abstraction:'
         }
       </AppArticle>
+      <ArticleUL className="list-decimal">
+        <ArticleLI>
+          {
+            'We process the evaluation and selection of efficient methods to interact with the ZKP environment. An evaluation was conducted to identify and select suitable methods that minimize proof size, gas consumption, and verification latency. This assessment is based on the following criteria: proof size, gas cost, verification time.'
+          }
+        </ArticleLI>
+        <ArticleLI>
+          {
+            'To improve the accessibility and user experience of privacy-preserving features, a complete interface was developed to facilitate the generation and verification of guardian proofs. This interface abstracts the underlying cryptographic complexity and allows users to:'
+          }
+          <ArticleUL className="list-disc">
+            <ArticleLI>
+              {
+                'Generate valid ZK proofs without interacting directly with low-level tools or libraries.'
+              }
+            </ArticleLI>
+            <ArticleLI>{'Verify guardian authorizations securely and privately.'}</ArticleLI>
+            <ArticleLI>
+              {
+                'Simplify the recovery process in smart wallets while preserving the anonymity of the guardian set.'
+              }
+            </ArticleLI>
+          </ArticleUL>
+        </ArticleLI>
+      </ArticleUL>
     </SectionBox>
   );
 }

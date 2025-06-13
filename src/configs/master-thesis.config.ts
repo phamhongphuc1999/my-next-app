@@ -70,4 +70,13 @@ export const MasterReferences: Array<ThesisCiteType> = [
     title: 'semaphore',
     url: 'https://docs.semaphore.pse.dev/',
   },
+  {
+    id: 'sok',
+    author:
+      'Panagiotis Chatzigiannis{,} Konstantinos Chalkias, Aniket Kate{,}  Easwar Vivek Mangipudi{,} Mohsen Minaei{,}  Mainack Mondal',
+    title: 'SoK: Web3 Recovery Mechanisms',
+    journal: 'Cryptology {ePrint} Archive, Paper 2023/1575',
+    year: 2023,
+    url: 'https://eprint.iacr.org/2023/1575',
+  },
 ];

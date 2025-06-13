@@ -13,6 +13,8 @@ const defaultContent: ContentType = {
   equations: {},
   cites: {},
   programs: {},
+  tables: {},
+  algorithms: {},
 };
 
 const ThesisConfigContext = createContext<ContentType>(defaultContent);
@@ -69,6 +71,8 @@ export function useThesisObject<T extends ThesisObjectType>(
     else if (mode == 'subsection') return state.subsections[id] as T;
     else if (mode == 'equation') return state.equations[id] as T;
     else if (mode == 'program') return state.programs[id] as T;
+    else if (mode == 'table') return state.tables[id] as T;
+    else if (mode == 'algorithm') return state.algorithms[id] as T;
     else if (mode == 'cite') return state.cites[id] as T;
     return state.figures[id] as T;
   }, [id, mode, state]);
