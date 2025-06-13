@@ -64,4 +64,10 @@ export const MasterReferences: Array<ThesisCiteType> = [
     year: '2021-09-29',
     url: 'https://eips.ethereum.org/EIPS/eip-4337',
   },
+  {
+    id: 'semaphore',
+    author: 'Semaphore team',
+    title: 'semaphore',
+    url: 'https://docs.semaphore.pse.dev/',
+  },
 ];

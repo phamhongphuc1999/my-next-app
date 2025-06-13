@@ -5,6 +5,7 @@ import {
   ThesisCiteIndexType,
   ThesisEquationType,
   ThesisFigureType,
+  ThesisProgramType,
   ThesisSectionType,
   ThesisSubsectionType,
 } from 'src/global';
@@ -66,6 +67,21 @@ function buildFigureContent(
   }
 }
 
+function buildProgramContent(
+  element: Element,
+  counter: string | number,
+  result: { [key: string]: ThesisProgramType }
+) {
+  const items = element.querySelectorAll(`.${THESIS_CLASS.program}`);
+  let _counter = 1;
+  for (const item of items) {
+    const id = item.id;
+    const titleComponent = element.querySelector(`#${id}_title`);
+    const title = titleComponent?.textContent;
+    result[id] = { id, title: title || '', index: `${counter}.${_counter++}` };
+  }
+}
+
 function buildEquationContent(
   element: Element,
   counter: string | number,
@@ -87,6 +103,7 @@ function buildChapterContent(container: HTMLElement): ContentType {
   const figures: { [key: string]: ThesisFigureType } = {};
   const equations: { [key: string]: ThesisEquationType } = {};
   const cites: { [key: string]: ThesisCiteIndexType } = {};
+  const programs: { [key: string]: ThesisProgramType } = {};
   let counter = 1;
   for (const element of elements) {
     const id = element.id;
@@ -96,10 +113,11 @@ function buildChapterContent(container: HTMLElement): ContentType {
     _buildSectionContent(element, counter, sections, subsections);
     buildFigureContent(element, counter, figures);
     buildEquationContent(element, counter, equations);
+    buildProgramContent(element, counter, programs);
     chapters[id] = { id, title: title || '', index: counter++ };
   }
   buildCiteContent(container, cites);
-  return { chapters, sections, subsections, figures, equations, cites };
+  return { chapters, sections, subsections, figures, equations, cites, programs };
 }
 
 function buildSectionContent(container: HTMLElement): ContentType {
@@ -109,6 +127,7 @@ function buildSectionContent(container: HTMLElement): ContentType {
   const figures: { [key: string]: ThesisFigureType } = {};
   const equations: { [key: string]: ThesisEquationType } = {};
   const cites: { [key: string]: ThesisCiteIndexType } = {};
+  const programs: { [key: string]: ThesisProgramType } = {};
   let counter = 1;
   for (const element of elements) {
     const id = element.id;
@@ -118,10 +137,11 @@ function buildSectionContent(container: HTMLElement): ContentType {
     buildSubsectionContent(element, counter, subsections);
     buildFigureContent(element, counter, figures);
     buildEquationContent(element, counter, equations);
+    buildProgramContent(element, counter, programs);
     sections[id] = { id, title: title || '', index: counter++ };
   }
   buildCiteContent(container, cites);
-  return { chapters: {}, sections, subsections, figures, equations, cites };
+  return { chapters: {}, sections, subsections, figures, equations, cites, programs };
 }
 
 export function buildContent(containerId: string, firstLevel: 'chapter' | 'section') {

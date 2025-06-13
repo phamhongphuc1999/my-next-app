@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable quotes */
 import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
 import Section1_1 from './section1.1';
@@ -19,14 +19,9 @@ export default function Chapter1() {
         }
       </AppArticle>
       <AppArticle>
-        With the potential to revolutionize finance, supply chains, and digital asset transactions,
-        effective digital asset management is important. Blockchain wallets address the need by
-        securely storing users' public and private keys while providing an intuitive interface for
-        managing crypto assets. A wallet allows users to track their assets, create transactions,
-        and interact with decentralized applications (dApps). The role of wallets in the Web3
-        ecosystem is important. Considering the advantages and disadvantages of the most common
-        wallet type, Externally Owned Accounts (EOAs), this thesis proposes a novel blockchain
-        wallet mechanism and discusses its potential improvements.
+        {
+          "With the potential to revolutionize finance, supply chains, and digital asset transactions, effective digital asset management is important. Blockchain wallets address the need by securely storing users' public and private keys while providing an intuitive interface for managing crypto assets. A wallet allows users to track their assets, create transactions, and interact with decentralized applications (dApps). The role of wallets in the Web3 ecosystem is important. Considering the advantages and disadvantages of the most common wallet type, Externally Owned Accounts (EOAs), this thesis proposes a novel blockchain wallet mechanism and discusses its potential improvements."
+        }
       </AppArticle>
       <Section1_1 />
       <Section1_2 />

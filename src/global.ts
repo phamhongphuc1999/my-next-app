@@ -29,13 +29,15 @@ export type ThesisObjectModeType =
   | 'subsection'
   | 'figure'
   | 'equation'
-  | 'cite';
+  | 'cite'
+  | 'program';
 export type ThesisObjectType = { id: string; title: string; index: number | string };
 export type ThesisChapterType = ThesisObjectType;
 export type ThesisSectionType = ThesisObjectType;
 export type ThesisSubsectionType = ThesisObjectType;
 export type ThesisFigureType = ThesisObjectType;
 export type ThesisEquationType = Omit<ThesisObjectType, 'title'>;
+export type ThesisProgramType = ThesisObjectType;
 export type ThesisCiteIndexType = { id: string; index: number | string };
 export type ThesisCiteType = {
   id: string;
@@ -45,7 +47,7 @@ export type ThesisCiteType = {
   volume?: string;
   number?: string;
   pages?: string;
-  year: number | string;
+  year?: number | string;
   DOI?: string;
   keywords?: string;
   url?: string;
@@ -66,4 +68,5 @@ export type ContentType = {
   figures: { [key: string]: ThesisFigureType };
   equations: { [key: string]: ThesisEquationType };
   cites: { [key: string]: ThesisCiteIndexType };
+  programs: { [key: string]: ThesisProgramType };
 };

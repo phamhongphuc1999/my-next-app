@@ -1,5 +1,6 @@
 import { THESIS_CLASS } from 'src/configs/constance';
-import { TableOfContentType } from 'src/global';
+import { TableOfContentType, ThesisFigureType } from 'src/global';
+import { buildListOfFigures } from './list-of-objects';
 
 function buildSubsectionTableOfContent(elements: NodeListOf<Element>): TableOfContentType {
   const result: TableOfContentType = [];
@@ -47,19 +48,20 @@ function buildChapterTableOfContent(elements: NodeListOf<Element>): TableOfConte
   return result;
 }
 
-export function buildTableOfContent(
-  containerId: string,
-  firstLevel: 'chapter' | 'section'
-): TableOfContentType {
+export function buildTableOfContent(containerId: string, firstLevel: 'chapter' | 'section') {
   const container = document.getElementById(containerId);
+  let content: TableOfContentType = [];
+  let figures: Array<Array<ThesisFigureType>> = [];
   if (container) {
     if (firstLevel == 'chapter') {
       const elements = container.querySelectorAll(`.${THESIS_CLASS.chapter}`);
-      return buildChapterTableOfContent(elements);
+      content = buildChapterTableOfContent(elements);
+      figures = buildListOfFigures(elements);
     } else {
       const elements = container.querySelectorAll(`.${THESIS_CLASS.section}`);
-      return buildSectionTableOfContent(elements);
+      content = buildSectionTableOfContent(elements);
+      figures = buildListOfFigures(elements);
     }
   }
-  return [];
+  return { content, figures };
 }

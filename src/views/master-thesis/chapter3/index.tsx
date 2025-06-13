@@ -1,5 +1,6 @@
 import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
+import AAPrivacy from './AAPrivacy';
 import Challenge from './Challenge';
 import Erc4337 from './erc4337';
 import NeedForAA from './NeedForAA';
@@ -15,6 +16,7 @@ export default function Chapter3() {
       <Challenge />
       <NeedForAA />
       <Erc4337 />
+      <AAPrivacy />
     </ChapterBox>
   );
 }

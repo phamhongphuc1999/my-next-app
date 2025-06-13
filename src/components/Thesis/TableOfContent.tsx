@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ReactNode, useEffect, useState } from 'react';
-import { TableOfContentType } from 'src/global';
+import { TableOfContentType, ThesisFigureType } from 'src/global';
 import { buildTableOfContent } from 'src/services/table-of-content';
 
 interface ContentProps {
@@ -76,10 +76,12 @@ interface Props {
 
 export default function TableOfContent({ id, firstLevel, children }: Props) {
   const [content, setContent] = useState<TableOfContentType>([]);
+  const [figures, setFigures] = useState<Array<Array<ThesisFigureType>>>([]);
 
   useEffect(() => {
-    const result = buildTableOfContent(id, firstLevel);
-    if (result) setContent(result);
+    const { content, figures } = buildTableOfContent(id, firstLevel);
+    setContent(content);
+    setFigures(figures);
   }, [id, firstLevel]);
 
   return (
@@ -88,6 +90,26 @@ export default function TableOfContent({ id, firstLevel, children }: Props) {
         <p className="text-xl font-bold">Table of Content</p>
         {firstLevel == 'chapter' && <ChapterTableOfContent content={content} />}
         {firstLevel == 'section' && <SectionTableOfContent content={content} />}
+      </div>
+      <div className="mb-5">
+        <p className="text-xl font-bold">List of Figures</p>
+        {figures.map((chapterFigure, index) => {
+          return (
+            <div key={index} className="mt-3">
+              {chapterFigure.map((figure) => {
+                const title = `Figure ${figure.index} ${figure.title}`;
+
+                return (
+                  <div key={figure.id}>
+                    <Link href={`#${figure.id}`} className="mb-4 hover:underline">
+                      {title}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
       {children}
     </>

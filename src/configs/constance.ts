@@ -12,4 +12,5 @@ export const THESIS_CLASS = {
   acknowledgement: 'acknowledgement',
   abstract: 'abstract',
   reference: 'reference',
+  program: 'program',
 };

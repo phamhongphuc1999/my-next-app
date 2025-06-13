@@ -4,6 +4,8 @@ import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox'
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import Bundler from './Bundler';
+import EntryPoint from './EntryPoint';
 import UserOperation from './UserOperation';
 
 export default function Erc4337() {
@@ -69,6 +71,8 @@ export default function Erc4337() {
         }
       </AppArticle>
       <UserOperation />
+      <EntryPoint />
+      <Bundler />
     </SectionBox>
   );
 }
