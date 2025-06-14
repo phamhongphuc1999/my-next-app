@@ -64,7 +64,7 @@ export default function ChangeOwnershipProcess() {
         title="submitNewOwner function"
         algorithm={submitNewOwnerCode}
       />
-      <AppArticle>
+      <AppArticle isFirst>
         {
           "Submitting a new owner address does not automatically change ownership. Instead, it is a notice to the guardians. Traditionally, each guardian signs a message, including the new owner's address, and submits it to the smart contract. Once the threshold is reached, the smart contract verifies all signatures and processes the transfer of ownership. The traditional approach is easy to implement, but it has several drawbacks"
         }

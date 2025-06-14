@@ -1,6 +1,6 @@
 import { THESIS_CLASS } from 'src/configs/constance';
-import { TableOfContentType, ThesisFigureType } from 'src/global';
-import { buildListOfFigures } from './list-of-objects';
+import { TableOfContentType, ThesisFigureType, ThesisTableType } from 'src/global';
+import { buildListOfFigures, buildListOfTables } from './list-of-objects';
 
 function buildSubsectionTableOfContent(elements: NodeListOf<Element>): TableOfContentType {
   const result: TableOfContentType = [];
@@ -52,16 +52,19 @@ export function buildTableOfContent(containerId: string, firstLevel: 'chapter' |
   const container = document.getElementById(containerId);
   let content: TableOfContentType = [];
   let figures: Array<Array<ThesisFigureType>> = [];
+  let tables: Array<Array<ThesisTableType>> = [];
   if (container) {
     if (firstLevel == 'chapter') {
       const elements = container.querySelectorAll(`.${THESIS_CLASS.chapter}`);
       content = buildChapterTableOfContent(elements);
       figures = buildListOfFigures(elements);
+      tables = buildListOfTables(elements);
     } else {
       const elements = container.querySelectorAll(`.${THESIS_CLASS.section}`);
       content = buildSectionTableOfContent(elements);
       figures = buildListOfFigures(elements);
+      tables = buildListOfTables(elements);
     }
   }
-  return { content, figures };
+  return { content, figures, tables };
 }

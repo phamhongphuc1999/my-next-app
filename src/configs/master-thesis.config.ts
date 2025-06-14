@@ -73,10 +73,45 @@ export const MasterReferences: Array<ThesisCiteType> = [
   {
     id: 'sok',
     author:
-      'Panagiotis Chatzigiannis{,} Konstantinos Chalkias, Aniket Kate{,}  Easwar Vivek Mangipudi{,} Mohsen Minaei{,}  Mainack Mondal',
+      'Panagiotis Chatzigiannis, Konstantinos Chalkias, Aniket Kate,  Easwar Vivek Mangipudi, Mohsen Minaei,  Mainack Mondal',
     title: 'SoK: Web3 Recovery Mechanisms',
     journal: 'Cryptology {ePrint} Archive, Paper 2023/1575',
     year: 2023,
     url: 'https://eprint.iacr.org/2023/1575',
+  },
+  {
+    id: 'snarkjs',
+    author: 'iden3',
+    title: 'iden3/snarkjs: zkSNARK implementation in JavaScript and WASM',
+    url: 'https://github.com/iden3/snarkjs',
+    year: 'Last updated in Nov 2024',
+  },
+  {
+    id: 'poseidon-hash-function',
+    author:
+      'Lorenzo Grassi, Dmitry Khovratovich, Christian Rechberger, Arnab Roy, Markus Schofnegger',
+    title: 'POSEIDON: A New Hash Function for Zero-Knowledge Proof Systems',
+    url: 'https://eprint.iacr.org/2019/458.pdf',
+  },
+  {
+    id: 'circomlib',
+    author: 'iden3',
+    title: 'iden3/circomlib: Library of basic circuits for circom',
+    url: 'https://github.com/iden3/circomlib',
+    year: 'Last updated in Oct 2024',
+  },
+  {
+    id: 'keccak256-circom',
+    author: 'bkomuves',
+    title: 'bkomuves/hash-circuits: Hashing circuits implemented in circom',
+    url: 'https://github.com/bkomuves/hash-circuits',
+    year: 2023,
+  },
+  {
+    id: 'my-aa-contract',
+    author: 'Phạm Hồng Phúc',
+    title: 'phamhongphuc1999/account-abstraction-contract',
+    url: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
+    year: 'June 2025',
   },
 ];
