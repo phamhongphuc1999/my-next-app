@@ -2,7 +2,12 @@
 
 import Link from 'next/link';
 import { ReactNode, useEffect, useState } from 'react';
-import { TableOfContentType, ThesisFigureType, ThesisTableType } from 'src/global';
+import {
+  TableOfContentType,
+  ThesisAppendixType,
+  ThesisFigureType,
+  ThesisTableType,
+} from 'src/global';
 import { buildTableOfContent } from 'src/services/table-of-content';
 
 interface ContentProps {
@@ -78,22 +83,62 @@ export default function TableOfContent({ id, firstLevel, children }: Props) {
   const [content, setContent] = useState<TableOfContentType>([]);
   const [figures, setFigures] = useState<Array<Array<ThesisFigureType>>>([]);
   const [tables, setTables] = useState<Array<Array<ThesisTableType>>>([]);
+  const [appendixes, setAppendixes] = useState<Array<ThesisAppendixType>>([]);
+  const [abstract, setAbstract] = useState(false);
+  const [acknowledge, setAcknowledgement] = useState(false);
+  const [reference, setReference] = useState(false);
 
   useEffect(() => {
-    const { content, figures, tables } = buildTableOfContent(id, firstLevel);
+    const { content, figures, tables, appendixes, abstract, acknowledge, reference } =
+      buildTableOfContent(id, firstLevel);
     setContent(content);
     setFigures(figures);
     setTables(tables);
+    setAppendixes(appendixes);
+    setAbstract(abstract);
+    setAcknowledgement(acknowledge);
+    setReference(reference);
   }, [id, firstLevel]);
 
   return (
     <>
       <div className="mb-5">
+        {acknowledge && (
+          <Link href="#acknowledgement" className="hover:underline">
+            <p className="text-xl font-bold">Acknowledge</p>
+          </Link>
+        )}
+        {abstract && (
+          <Link href="#abstract" className="hover:underline">
+            <p className="text-xl font-bold">Abstract</p>
+          </Link>
+        )}
         <p className="text-xl font-bold">Table of Content</p>
         {firstLevel == 'chapter' && <ChapterTableOfContent content={content} />}
         {firstLevel == 'section' && <SectionTableOfContent content={content} />}
+        {reference && (
+          <Link href="#reference" className="hover:underline">
+            <p className="text-xl font-bold">Reference</p>
+          </Link>
+        )}
       </div>
-      <div className="mb-5">
+      {appendixes.length > 0 && (
+        <div>
+          <p className="text-xl font-bold">Appendix</p>
+          {appendixes.map((appendix) => {
+            const title = `Appendix ${appendix.index}. ${appendix.title}`;
+
+            return (
+              <div key={appendix.id} className="mt-3">
+                <Link href={`#${appendix.id}`} className="mb-4 hover:underline">
+                  {title}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <div className="my-5">
         <p className="text-xl font-bold">List of Figures</p>
         {figures.map((chapterFigure, index) => {
           return (

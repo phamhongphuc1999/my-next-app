@@ -3,7 +3,7 @@ import SameChapterBox from 'src/components/Thesis/SameChapterBox';
 
 export default function Abstract() {
   return (
-    <SameChapterBox mode="abstract">
+    <SameChapterBox id="abstract" mode="abstract">
       <AppArticle isFirst>
         As blockchain technology gains adoption, traditional Externally Owned Accounts face
         significant limitations in usability, security, and recovery. These accounts rely on private

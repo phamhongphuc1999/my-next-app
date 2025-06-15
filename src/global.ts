@@ -42,6 +42,7 @@ export type ThesisEquationType = Omit<ThesisObjectType, 'title'>;
 export type ThesisProgramType = ThesisObjectType;
 export type ThesisTableType = ThesisObjectType;
 export type ThesisAlgorithmType = ThesisObjectType;
+export type ThesisAppendixType = ThesisObjectType;
 export type ThesisCiteIndexType = { id: string; index: number | string };
 export type ThesisCiteType = {
   id: string;
@@ -75,4 +76,5 @@ export type ContentType = {
   programs: { [key: string]: ThesisProgramType };
   tables: { [key: string]: ThesisTableType };
   algorithms: { [key: string]: ThesisAlgorithmType };
+  appendixes: { [key: string]: ThesisAppendixType };
 };

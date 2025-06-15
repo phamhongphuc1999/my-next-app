@@ -1,10 +1,10 @@
 'use client';
 
 import { THESIS_CLASS } from 'src/configs/constance';
+import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 import CodeBlock, { CodeBlockProps } from '../box/CodeBlock';
-import { useThesisObject } from 'src/context/ThesisConfigContext';
 
 interface Props extends DivProps {
   id: string;

@@ -7,20 +7,21 @@ const configs: { [key in ThesisSameChapterType]: { class: string; title: string 
   acknowledgement: { class: THESIS_CLASS.acknowledgement, title: 'Acknowledgement' },
   abstract: { class: THESIS_CLASS.abstract, title: 'Abstract' },
   reference: { class: THESIS_CLASS.reference, title: 'References' },
-  appendix: { class: THESIS_CLASS.appendix, title: 'Appendix' },
+  appendix: { class: THESIS_CLASS.sameChapterAppendix, title: 'Appendix' },
 };
 
 interface Props extends DivProps {
+  id: string;
   mode: ThesisSameChapterType;
   children: ReactNode;
 }
 
-export default function SameChapterBox({ mode, children, ...props }: Props) {
+export default function SameChapterBox({ id, mode, children, ...props }: Props) {
   const config = configs[mode];
 
   return (
-    <div {...props} id={mode} className={cn(config.class, 'mt-[1rem]', props.className)}>
-      <p id={`${mode}_title`} className="text-center text-[20px] font-[600]">
+    <div {...props} id={id} className={cn(config.class, 'mt-[1rem]', props.className)}>
+      <p id={`${id}_title`} className="text-center text-[20px] font-[600]">
         {config.title}
       </p>
       {children}

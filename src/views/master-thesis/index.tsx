@@ -1,6 +1,7 @@
 import ThesisConfigProvider from 'src/context/ThesisConfigContext';
 import Abstract from './Abstract';
 import Acknowledgement from './Acknowledgement';
+import Appendix from './appendix';
 import Chapter1 from './chapter1';
 import Chapter2 from './chapter2';
 import Chapter3 from './chapter3';
@@ -25,6 +26,7 @@ export default function MasterThesisPage() {
         <Chapter5 />
         <Chapter6 />
         <References />
+        <Appendix />
       </div>
     </ThesisConfigProvider>
   );

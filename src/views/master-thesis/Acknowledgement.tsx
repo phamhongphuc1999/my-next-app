@@ -3,7 +3,7 @@ import SameChapterBox from 'src/components/Thesis/SameChapterBox';
 
 export default function Acknowledgement() {
   return (
-    <SameChapterBox mode="acknowledgement">
+    <SameChapterBox id="acknowledgement" mode="acknowledgement">
       <AppArticle isFirst>
         First, I would like to express my deepest gratitude to my supervisor, Dr. Trần Vĩnh Đức, at
         the School of Information and Technology, Hanoi University of Science and Technology, who

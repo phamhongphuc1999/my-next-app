@@ -1,7 +1,8 @@
-import { THESIS_CLASS } from 'src/configs/constance';
+import { appendixIndex, THESIS_CLASS } from 'src/configs/constance';
 import {
   ContentType,
   ThesisAlgorithmType,
+  ThesisAppendixType,
   ThesisChapterType,
   ThesisCiteIndexType,
   ThesisEquationType,
@@ -127,6 +128,35 @@ function buildEquationContent(
   }
 }
 
+function buildAppendixContent(
+  container: HTMLElement,
+  sections: { [key: string]: ThesisSectionType },
+  subsections: { [key: string]: ThesisSubsectionType },
+  figures: { [key: string]: ThesisFigureType },
+  equations: { [key: string]: ThesisEquationType },
+  programs: { [key: string]: ThesisProgramType },
+  tables: { [key: string]: ThesisTableType },
+  algorithms: { [key: string]: ThesisAlgorithmType }
+) {
+  const elements = container.querySelectorAll(`.${THESIS_CLASS.appendix}`);
+  const appendixes: { [key: string]: ThesisAppendixType } = {};
+  let counter = 0;
+  for (const element of elements) {
+    const id = element.id;
+    const titleComponent = element.querySelector(`#${id}_title`);
+    const title = titleComponent?.textContent;
+
+    _buildSectionContent(element, appendixIndex[counter], sections, subsections);
+    buildFigureContent(element, appendixIndex[counter], figures);
+    buildEquationContent(element, appendixIndex[counter], equations);
+    buildProgramContent(element, appendixIndex[counter], programs);
+    buildTableContent(element, appendixIndex[counter], tables);
+    buildAlgorithmContent(element, appendixIndex[counter], algorithms);
+    appendixes[id] = { id, title: title || '', index: appendixIndex[counter++] };
+  }
+  return { appendixes };
+}
+
 function buildChapterContent(container: HTMLElement): ContentType {
   const elements = container.querySelectorAll(`.${THESIS_CLASS.chapter}`);
   const chapters: { [key: string]: ThesisChapterType } = {};
@@ -152,6 +182,16 @@ function buildChapterContent(container: HTMLElement): ContentType {
     buildAlgorithmContent(element, counter, algorithms);
     chapters[id] = { id, title: title || '', index: counter++ };
   }
+  const { appendixes } = buildAppendixContent(
+    container,
+    sections,
+    subsections,
+    figures,
+    equations,
+    programs,
+    tables,
+    algorithms
+  );
   buildCiteContent(container, cites);
   return {
     chapters,
@@ -163,6 +203,7 @@ function buildChapterContent(container: HTMLElement): ContentType {
     programs,
     tables,
     algorithms,
+    appendixes,
   };
 }
 
@@ -190,6 +231,16 @@ function buildSectionContent(container: HTMLElement): ContentType {
     buildAlgorithmContent(element, counter, algorithms);
     sections[id] = { id, title: title || '', index: counter++ };
   }
+  const { appendixes } = buildAppendixContent(
+    container,
+    sections,
+    subsections,
+    figures,
+    equations,
+    programs,
+    tables,
+    algorithms
+  );
   buildCiteContent(container, cites);
   return {
     chapters: {},
@@ -201,6 +252,7 @@ function buildSectionContent(container: HTMLElement): ContentType {
     programs,
     tables,
     algorithms,
+    appendixes,
   };
 }
 

@@ -1,6 +1,8 @@
 export const ITEMS_PER_PAGE = 10;
 export const LS = { THEME: 'theme' };
 
+export const appendixIndex = ['A', 'B', 'C', 'D'];
+
 export const THESIS_CLASS = {
   chapter: 'thesis-chapter',
   section: 'thesis-section',
@@ -15,5 +17,6 @@ export const THESIS_CLASS = {
   program: 'thesis-program',
   table: 'thesis-table',
   appendix: 'thesis-appendix',
+  sameChapterAppendix: 'thesis-same-chapter-appendix',
   algorithm: 'thesis-algorithm',
 };

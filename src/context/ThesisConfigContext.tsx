@@ -15,6 +15,7 @@ const defaultContent: ContentType = {
   programs: {},
   tables: {},
   algorithms: {},
+  appendixes: {},
 };
 
 const ThesisConfigContext = createContext<ContentType>(defaultContent);
@@ -74,6 +75,7 @@ export function useThesisObject<T extends ThesisObjectType>(
     else if (mode == 'table') return state.tables[id] as T;
     else if (mode == 'algorithm') return state.algorithms[id] as T;
     else if (mode == 'cite') return state.cites[id] as T;
+    else if (mode == 'appendix') return state.appendixes[id] as T;
     return state.figures[id] as T;
   }, [id, mode, state]);
 }

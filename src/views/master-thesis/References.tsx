@@ -4,7 +4,7 @@ import { MasterReferences } from 'src/configs/master-thesis.config';
 
 export default function References() {
   return (
-    <SameChapterBox mode="reference">
+    <SameChapterBox id="reference" mode="reference">
       {MasterReferences.map((reference) => {
         return <CiteBox key={reference.id} cite={reference} />;
       })}
