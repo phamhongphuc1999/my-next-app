@@ -114,4 +114,30 @@ export const MasterReferences: Array<ThesisCiteType> = [
     url: 'https://github.com/phamhongphuc1999/account-abstraction-contract',
     year: 'June 2025',
   },
+  {
+    id: 'my-aa-ui',
+    author: 'Phạm Hồng Phúc',
+    title: 'phamhongphuc1999/account-abstraction-app',
+    url: 'https://github.com/phamhongphuc1999/account-abstraction-app',
+    year: 'June 2025',
+  },
+  {
+    id: 'my-aa-bundler',
+    author: 'Phạm Hồng Phúc',
+    title: 'phamhongphuc1999/bundler',
+    url: 'https://github.com/phamhongphuc1999/bundler',
+    year: 'June 2025',
+  },
+  {
+    id: 'eth-infinitism-account-abstraction',
+    author: 'Eth Infinitism',
+    title: 'Eth infinitism account abstraction v0.6.0',
+    url: 'https://github.com/eth-infinitism/account-abstraction/tree/releases/v0.6/',
+  },
+  {
+    id: 'eth-infinitism-bundler',
+    author: 'Eth Infinitism',
+    title: 'Eth infinitism bundler v0.6.0',
+    url: 'https://github.com/eth-infinitism/bundler/tree/releases/0.6.0',
+  },
 ];

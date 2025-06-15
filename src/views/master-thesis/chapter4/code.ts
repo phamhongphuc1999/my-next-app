@@ -37,7 +37,7 @@ export const submitNewOwnerCode = `
 export const generateProofCode = `
 \\begin{array}{ll}
 1. & \\text{Calculate } \\textit{publicKey} \\text{by using } \\textit{privateKey} \\\\
-2. & \\{\\textit{R8}, \\textit{s}\\} $\\gets$ \\textit{sign}(\\textit{privateKey}, \\textit{message}) \\\\
+2. & \\{\\textit{R8}, \\textit{s}\\} \\gets \\textit{sign}(\\textit{privateKey}, \\textit{message}) \\\\
 3. & \\{\\textit{proof}, \\textit{publicSignals}\\} = \\textit{proveProof}(\\textit{message}, \\textit{publicKey}, \\textit{R8}, \\textit{s}) \\\\
 4. & Return \\{proof, publicSignals\\} \\\\
 \\end{array}`;
@@ -47,16 +47,35 @@ export const theFirstStageCode = `
 1. & \\textbf{if } {\\text{the confirmations have been enough already}} \\\\
 2. & Return False \\\\
 3. & \\textbf{end if } \\\\
-4. & \\textit{hashAccount} $\\gets$ \\textit{publicSignals}[0] \\\\
-5. & \\textit{\\_increment} $\\gets$ \\textit{publicSignals}[1] \\\\
-6. & \\textbf{if } {\\textit{hashAccount} $\\notin$ guardian\\_hash\\_list} \\\\
+4. & \\textit{hashAccount} \\gets \\textit{publicSignals}[0] \\\\
+5. & \\textit{_increment} \\gets \\textit{publicSignals}[1] \\\\
+6. & \\textbf{if } {\\textit{hashAccount} \\notin guardian\\_hash\\_list} \\\\
 7. &     Return False \\\\
 8. & \\textbf{end if } \\\\
-9. & \\textbf{if } {\\textit{\\_increment $\\neq$ increment}} \\\\
+9. & \\textbf{if } {\\textit{_increment \\neq increment}} \\\\
 10. &     Return False \\\\
 11. & \\textbf{end if } \\\\
-12. & \\textbf{if } {\\_\\textit{tempNewOwner} $\\neq$ \\textit{publicSignals}[2]} \\\\
+12. & \\textbf{if } {\\_\\textit{tempNewOwner} \\neq \\textit{publicSignals}[2]} \\\\
 13. &     Return False \\\\
 14. & \\textbf{end if } \\\\
 15. & Return True \\\\
+\\end{array}`;
+
+export const theSecondStageCode = `
+\\begin{array}{ll}
+\\textbf{if } \\textit{The proof hasn't been submitted already} \\textbf{ then} \\\\
+\\quad \\textit{isValid} \\gets \\textit{verifyProof}(\\textit{pA}, \\textit{pB}, \\textit{pC}, \\textit{publicSignals}) \\\\
+\\quad \\textbf{if } \\textit{isValid} = \\text{True} \\textbf{ then} \\\\
+\\quad\\quad \\text{Update parameter } \\textit{confirms} \\\\
+\\quad \\textbf{end if} \\\\
+\\textbf{end if}
+\\end{array}`;
+
+export const proposedCircuitCode = `
+\\begin{array}{ll}
+\\textit{hashPublicKey} \\gets \\text{poseidonHashFunction}(\\textit{A}) \\\\
+\\text{eddsaVerify}(\\textit{msg}, \\textit{A}, \\textit{R8}, \\textit{S}) \\\\
+\\textit{increment} \\gets \\text{calculateIncrement}(\\textit{msg}) \\\\
+\\textit{address} \\gets \\text{calculateAddress}(\\textit{msg}) \\\\
+\\textbf{return } \\textit{hashPublicKey}, \\textit{increment}, \\textit{address}
 \\end{array}`;

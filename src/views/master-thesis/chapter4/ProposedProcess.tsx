@@ -5,7 +5,12 @@ import AlgorithmBox from 'src/components/Thesis/AlgorithmBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
-import { generateProofCode, theFirstStageCode } from './code';
+import {
+  generateProofCode,
+  proposedCircuitCode,
+  theFirstStageCode,
+  theSecondStageCode,
+} from './code';
 
 export default function ProposedProcess() {
   return (
@@ -81,6 +86,31 @@ export default function ProposedProcess() {
         }
       </AppArticle>
       <AlgorithmBox algorithm={theFirstStageCode} id="the-first-stage" title="The first stage" />
+      <AppArticle isFirst>
+        Before executing the main verification (illustrated in{' '}
+        <RefLink toId="the-second-stage" mode="algorithm" />
+        ), the system first checks if the proof has already been submitted. If it has, the
+        verification is skipped to reduce the amount of computations. Otherwise, the system verifies
+        the zk-SNARK proof using the constraints defined in the circuit. If the proof is valid, the
+        number of confirmations is updated.
+      </AppArticle>
+      <AlgorithmBox algorithm={theSecondStageCode} id="the-second-stage" title="The second stage" />
+      <AlgorithmBox
+        algorithm={proposedCircuitCode}
+        id="the-common-proposed-circom-logic"
+        title="The common proposed circom logic"
+      />
+      <AppArticle isFirst>
+        <RefLink toId="the-common-proposed-circom-logic" mode="algorithm" />
+        {
+          " illustrates the basic circuit's logic. It receives four inputs: the 256-bit message msg, the plain public key A, and the EdDSA signature components R8 and S}. It returns three outputs: the Poseidon hash of the public key hashPublicKey, the increment, and the address (new owner address) derived from the message."
+        }
+      </AppArticle>
+      <AppArticle>
+        {
+          'To conclude, the proposed confirm change owner process follows a non-interactive zero-knowledge proof protocol, in which guardians serve as provers and the smart contract acts as verifier. Guardians generate their proofs off-chain and submit them to the smart contract. The smart contract then validates these proofs and determines whether the submitting guardian is authorized. This approach ensures a secure and efficient verification process without revealing any sensitive information.'
+        }
+      </AppArticle>
     </SubsectionBox>
   );
 }
