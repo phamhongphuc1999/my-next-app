@@ -85,12 +85,12 @@ export default function HomePage() {
   return (
     <>
       <div className="relative w-full md:w-[50%]">
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 max-sm:flex-col sm:items-center">
           <Input
             placeholder="Search topic"
             value={searchText}
             onChange={(event) => onTextChange(event.target.value)}
-            className="w-96"
+            className="sm:w-96"
           />
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>

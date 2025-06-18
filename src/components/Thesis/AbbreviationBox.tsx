@@ -1,0 +1,33 @@
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../shadcn-ui/table';
+
+export type AbbreviationType = { short: string; full: string };
+
+interface Props {
+  data: Array<AbbreviationType>;
+}
+
+export default function AbbreviationBox({ data }: Props) {
+  return (
+    <div>
+      <p className="text-center text-[20px] font-[600]">LIST OF ABBREVIATIONS</p>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="font-bold">Abbreviation</TableHead>
+            <TableHead className="font-bold">Full Expression</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((item) => {
+            return (
+              <TableRow key={item.short}>
+                <TableCell>{item.short}</TableCell>
+                <TableCell>{item.full}</TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}

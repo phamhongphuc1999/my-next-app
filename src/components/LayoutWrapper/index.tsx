@@ -18,9 +18,12 @@ export default function LayoutWrapper({ children }: Props) {
           <div className="min-h-screen">{children}</div>
           <div className="flex w-full flex-col items-center border-t-black-350 bg-grey-50 py-[16px]">
             <p className="text-center">COPYRIGHT © {new Date().getFullYear()}&nbsp;</p>
-            <Link href="https://github.com/phamhongphuc1999/my-next-app" target="_blank">
-              <GithubIcon className="mt-[4px] h-auto w-[32px]" fill="#ffffff" />
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link href="https://github.com/phamhongphuc1999/my-next-app" target="_blank">
+                <GithubIcon className="mt-[4px] h-auto w-[32px]" fill="#ffffff" />
+              </Link>
+              <Link href="/master-thesis">My Master Thesis</Link>
+            </div>
           </div>
         </div>
       </div>

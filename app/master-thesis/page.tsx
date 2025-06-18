@@ -9,7 +9,7 @@ export default function MasterThesis() {
     <CommonContainer>
       <div className="my-4">
         <AppNextSeo title="Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof" />
-        <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }]} />
+        <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }, { label: 'Master Thesis' }]} />
         <SpecialTabBox
           className="mt-4"
           tabs={['elliptic-curve', 'zero-knowledge', 'account-abstraction']}

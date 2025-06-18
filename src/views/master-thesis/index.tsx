@@ -1,4 +1,5 @@
 import ThesisConfigProvider from 'src/context/ThesisConfigContext';
+import Abbreviation from './Abbreviation';
 import Abstract from './Abstract';
 import Acknowledgement from './Acknowledgement';
 import Appendix from './appendix';
@@ -17,6 +18,7 @@ export default function MasterThesisPage() {
         Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof
       </p>
       <div className="mt-[1rem]">
+        <Abbreviation />
         <Acknowledgement />
         <Abstract />
         <Chapter1 />
