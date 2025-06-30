@@ -22,7 +22,7 @@ export default function Chapter1() {
       <Link href="/snark/chapter2" className="inline-block">
         <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p className="whitespace-nowrap">Part 2</p>
-          <RightArrowIcon style={{ width: '1rem', height: '1rem' }} />
+          <RightArrowIcon />
         </div>
       </Link>
       <div className="mt-4">

@@ -20,7 +20,7 @@ export default function Chapter7() {
       />
       <Link href="/snark/chapter6" className="inline-block">
         <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
+          <LeftArrowIcon />
           <p className="whitespace-nowrap">Part 6</p>
         </div>
       </Link>

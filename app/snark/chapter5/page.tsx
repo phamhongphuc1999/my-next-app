@@ -20,7 +20,7 @@ export default function Chapter5() {
       />
       <Link href="/snark/chapter4" className="inline-block">
         <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
-          <LeftArrowIcon style={{ width: '1rem', height: '1rem' }} />
+          <LeftArrowIcon />
           <p className="whitespace-nowrap">Part 4</p>
         </div>
       </Link>
@@ -28,7 +28,7 @@ export default function Chapter5() {
       <Link href="/snark/chapter6" className="inline-block">
         <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
           <p className="whitespace-nowrap">Part 6</p>
-          <RightArrowIcon style={{ width: '1rem', height: '1rem' }} />
+          <RightArrowIcon />
         </div>
       </Link>
       <div className="mt-4">

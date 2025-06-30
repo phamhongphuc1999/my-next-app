@@ -1,4 +1,5 @@
 import AbbreviationBox, { AbbreviationType } from 'src/components/Thesis/AbbreviationBox';
+import { DivProps } from 'src/global';
 
 const data: Array<AbbreviationType> = [
   { short: 'CAs', full: 'Contract accounts' },
@@ -18,6 +19,6 @@ const data: Array<AbbreviationType> = [
   { short: 'zk-SNARK', full: 'Zero-Knowledge Succinct Non-Interactive Argument of Knowledge' },
 ];
 
-export default function Abbreviation() {
-  return <AbbreviationBox data={data} />;
+export default function Abbreviation(props: DivProps) {
+  return <AbbreviationBox data={data} {...props} />;
 }
