@@ -140,4 +140,47 @@ export const MasterReferences: Array<ThesisCiteType> = [
     title: 'Eth infinitism bundler v0.6.0',
     url: 'https://github.com/eth-infinitism/bundler/tree/releases/0.6.0',
   },
+  {
+    id: 'soul-github',
+    author: 'Soul team',
+    title: 'Elytro-eth/soul-wallet-contract',
+    url: 'https://github.com/Elytro-eth/soul-wallet-contract',
+    year: 'July, 2025',
+  },
+  {
+    id: 'zk-email',
+    author: 'zkemail team',
+    title: 'zkEmail official document',
+    url: 'https://prove.email/',
+    year: 'July, 2025',
+  },
+  {
+    id: 'kelp',
+    author:
+      'Sam Blackshear,  Konstantinos Chalkias, Panagiotis Chatzigiannis, Riyaz Faizullabhoy, Irakliy Khaburzaniya, Eleftherios Kokoris Kogias, Joshua Lind, David Wong, and Tim Zakian',
+    title: 'Reactive Key-Loss Protection in Blockchains',
+    journal:
+      'Lecture Notes in Computer Science Financial Cryptography and Data Security. FC 2021 International Workshops, 2021, p. 431-450',
+  },
+  {
+    id: 'okx',
+    author: 'okx team',
+    title: 'OKX official document',
+    url: 'https://web3.okx.com/',
+    year: 'July, 2025',
+  },
+  {
+    id: 'soul-wallet',
+    author: 'zengjiajun',
+    title: 'Introducing the Soul Wallet Smart Contract Design',
+    url: 'https://hackmd.io/@soulwallet/contract',
+    year: 'Jun 30, 2023',
+  },
+  {
+    id: 'clave-wallet',
+    author: 'clave team',
+    title: 'Clave official document',
+    url: 'https://docs.getclave.com/en/welcome-to-clave',
+    year: 'July, 2025',
+  },
 ];

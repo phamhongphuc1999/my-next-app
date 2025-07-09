@@ -2,7 +2,7 @@ import { AppArticle } from 'src/components/box/ArticleBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
-import { analyticMessageCode, guardianCode } from './code';
+import { analyticMessageCode, guardianCode } from '../code';
 
 export default function ArithmeticCircuit() {
   return (

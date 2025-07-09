@@ -128,6 +128,14 @@ modifier isPublicSignalCorrect(uint _guardian, uint256 _increment, uint256 _hash
     function removeGuardian(uint _guardian) external onlyOwner;
 }`;
 
+export const soulCode = `
+function scheduleRecovery(
+    address wallet,
+    bytes32[] calldata newOwners,
+    bytes calldata rawGuardian,
+    bytes calldata guardianSignature
+) external override returns (bytes32 recoveryId)`;
+
 export const bundlerMethods = [
   {
     method: 'eth_chainId',
@@ -261,4 +269,21 @@ export const transactionTestnetStats = [
     gasUsed: 272074,
     averageCostUSD: 0.532,
   },
+];
+
+export const ComparisonTable = [
+  ['Action', 'Reactive', 'Proactive', 'Reactive', 'Reactive', 'Reactive'],
+  ['Recovery Type ', 'Fund', 'Account', 'Fund', 'Fund', 'Fund'],
+  ['Account Type', 'Contract', 'Standard', 'Contract', 'Contract', 'Contract'],
+  ['Guardian', 'No', 'No', 'Yes', 'Yes', 'Yes'],
+  ['Multiple-key', 'No', 'Yes', 'No', 'No', 'No'],
+  [
+    'Custody',
+    'Self-custodial',
+    'Non-custodial',
+    'Self-custodial',
+    'Self-custodial',
+    'Self-custodial',
+  ],
+  ['ZKP', 'No', 'No', 'No', 'Yes', 'Yes'],
 ];

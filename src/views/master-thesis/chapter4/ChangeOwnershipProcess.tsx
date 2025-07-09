@@ -21,12 +21,18 @@ export default function ChangeOwnershipProcess() {
         illustrated in <RefLink toId="the-change-ownership-process" />. This process is divided into
         three steps:
       </AppArticle>
-      <ArticleUL className="list-disc">
-        <ArticleLI>The owner submits a new owner address.</ArticleLI>
-        <ArticleLI>{'The guardians create valid proofs and provide their confirmation.'}</ArticleLI>
+      <ArticleUL className="ml-4 list-decimal">
+        <ArticleLI>
+          {'The owner submits a new owner address. The step is only executed by the owner.'}
+        </ArticleLI>
         <ArticleLI>
           {
-            'A user activates a special transaction to change ownership once the number of confirmations is enough.'
+            'The guardians generate their zero-knowledge proofs and submit their proofs to the smart contract system.'
+          }
+        </ArticleLI>
+        <ArticleLI>
+          {
+            'Once the required number of valid proofs from guardians is collected, the smart contract system unlocks a special transaction to change ownership. It is important to note that at this stage, anyone can execute the transaction, as all validations and verifications have already been completed in the previous steps. The transaction simply updates the owner to the new address designated by the old owner in Step 1.'
           }
         </ArticleLI>
       </ArticleUL>

@@ -8,13 +8,13 @@ import {
   TableRow,
 } from 'src/components/shadcn-ui/table';
 import RefLink from 'src/components/Thesis/RefLink';
-import SectionBox from 'src/components/Thesis/SectionBox';
+import { SubsectionBox } from 'src/components/Thesis/SectionBox';
 import TableBox from 'src/components/Thesis/TableBox';
-import { bundlerMethods } from './code';
+import { bundlerMethods } from '../code';
 
 export default function Bundler() {
   return (
-    <SectionBox id="bundler-implementation" title="Bundler Implementation">
+    <SubsectionBox id="bundler-implementation" title="Bundler Implementation">
       <AppArticle isFirst>
         The Bundler service is based on the Eth infinitism bundler{' '}
         <RefLink toId="eth-infinitism-bundler" mode="cite" />. In the scope of this thesis, the
@@ -53,6 +53,6 @@ export default function Bundler() {
           </TableBody>
         </Table>
       </TableBox>
-    </SectionBox>
+    </SubsectionBox>
   );
 }

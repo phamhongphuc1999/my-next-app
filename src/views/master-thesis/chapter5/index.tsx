@@ -1,10 +1,9 @@
 import { AppArticle } from 'src/components/box/ArticleBox';
 import ChapterBox from 'src/components/Thesis/ChapterBox';
 import RefLink from 'src/components/Thesis/RefLink';
-import Bundler from './bundler';
-import Circuit from './circuit';
+import Comparison from './comparison';
+import Implementation from './implementation';
 import Performance from './Performance';
-import SmartContract from './SmartContract';
 
 export default function Chapter5() {
   return (
@@ -21,9 +20,8 @@ export default function Chapter5() {
         <RefLink toId="my-aa-contract" mode="cite" />, <RefLink toId="my-aa-ui" mode="cite" />, and{' '}
         <RefLink toId="my-aa-bundler" mode="cite" />, respectively.
       </AppArticle>
-      <Circuit />
-      <SmartContract />
-      <Bundler />
+      <Implementation />
+      <Comparison />
       <Performance />
     </ChapterBox>
   );

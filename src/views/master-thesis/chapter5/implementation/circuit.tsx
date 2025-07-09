@@ -3,12 +3,12 @@ import { AppArticle } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
-import SectionBox from 'src/components/Thesis/SectionBox';
-import { guardianCircuitCode } from './code';
+import { SubsectionBox } from 'src/components/Thesis/SectionBox';
+import { guardianCircuitCode } from '../code';
 
 export default function Circuit() {
   return (
-    <SectionBox id="circuit-implementation" title="Circuit Implementation">
+    <SubsectionBox id="circuit-implementation" title="Circuit Implementation">
       <AppArticle isFirst>
         We use circomlib <RefLink toId="circomlib" mode="cite" />, a library that provides a
         collection of cryptographic circuits and helper functions specifically designed for use with
@@ -46,6 +46,6 @@ export default function Circuit() {
         alt="architecture-circom-and-snarkjs"
         src={compilerImg}
       />
-    </SectionBox>
+    </SubsectionBox>
   );
 }

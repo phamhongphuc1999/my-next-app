@@ -1,16 +1,16 @@
 /* eslint-disable quotes */
 import { AppArticle } from 'src/components/box/ArticleBox';
+import { Table, TableBody, TableCell, TableRow } from 'src/components/shadcn-ui/table';
 import AlgorithmBox from 'src/components/Thesis/AlgorithmBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
-import SectionBox from 'src/components/Thesis/SectionBox';
-import { accountCode, accountFactoryCode, getAddressCode, zkContractCode } from './code';
+import { SubsectionBox } from 'src/components/Thesis/SectionBox';
 import TableBox from 'src/components/Thesis/TableBox';
-import { Table, TableBody, TableCell, TableRow } from 'src/components/shadcn-ui/table';
+import { accountCode, accountFactoryCode, getAddressCode, zkContractCode } from '../code';
 
 export default function SmartContract() {
   return (
-    <SectionBox title="Smart Contract Implementation" id="smart-contract-implementation">
+    <SubsectionBox title="Smart Contract Implementation" id="smart-contract-implementation">
       <AppArticle isFirst>
         Our smart contract system is based on the Eth infinitism account abstraction architecture{' '}
         <RefLink toId="eth-infinitism-account-abstraction" mode="cite" />. While the original
@@ -81,6 +81,6 @@ export default function SmartContract() {
           </TableBody>
         </Table>
       </TableBox>
-    </SectionBox>
+    </SubsectionBox>
   );
 }

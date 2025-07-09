@@ -9,6 +9,7 @@ const data: Array<AbbreviationType> = [
   { short: 'EOAs', full: 'Externally Owned Accounts' },
   { short: 'EVM', full: 'Ethereum Virtual Machine' },
   { short: 'HH', full: 'Homomorphic hiding' },
+  { short: 'MPC', full: 'Multi-Party Computation' },
   { short: 'PoS', full: 'Proof of stake' },
   { short: 'PoW', full: 'Proof of work' },
   { short: 'QAP', full: 'Quadratic arithmetic program' },

@@ -4,7 +4,7 @@ import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
-import { xorCode } from './code';
+import { xorCode } from '../code';
 
 export default function Circom() {
   return (
