@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { AppArticle } from 'src/components/box/ArticleBox';
 import SectionBox from 'src/components/Thesis/SectionBox';
 

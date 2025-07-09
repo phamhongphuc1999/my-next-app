@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-/* eslint-disable react/no-unescaped-entities */
 import caImg from 'public/images/master-thesis/chapter2/contract-account.png';
 import eoaImg from 'public/images/master-thesis/chapter2/eoa.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';

@@ -1,6 +1,4 @@
 /* eslint-disable quotes */
-/* eslint-disable react/no-unescaped-entities */
-
 import Link from 'next/link';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import changeImg from 'public/images/master-thesis/chapter4/change-ownership-process.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';

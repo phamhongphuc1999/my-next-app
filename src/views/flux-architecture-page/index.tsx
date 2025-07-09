@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import AsyncWriteImg from 'public/images/flux-architecture/async-store-write.png';
 import FluxPatternImg from 'public/images/flux-architecture/flux-pattern.png';

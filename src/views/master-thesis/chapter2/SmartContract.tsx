@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-/* eslint-disable react/no-unescaped-entities */
 import smartContractImg from 'public/images/master-thesis/chapter2/smart-contract.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';

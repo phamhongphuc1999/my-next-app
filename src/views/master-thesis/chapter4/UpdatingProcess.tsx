@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import relationImg from 'public/images/master-thesis/chapter4/relation-time-delay.png';
 import updatingImg from 'public/images/master-thesis/chapter4/updating-process.png';
