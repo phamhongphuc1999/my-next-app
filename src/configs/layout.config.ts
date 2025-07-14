@@ -3,7 +3,7 @@ import { TabListType, TopicType } from 'src/global';
 export const TabConfig: TabListType = {
   all: { id: 'all', title: 'All' },
   frontend: { id: 'frontend', title: 'Frontend' },
-  'zero-knowledge': { id: 'zero-knowledge', title: 'Zero-knowledge proofs' },
+  'zero-knowledge-proof': { id: 'zero-knowledge-proof', title: 'Zero-knowledge proofs' },
   javascript: { id: 'javascript', title: 'js' },
   'state-management': { id: 'state-management', title: 'State management' },
   architecture: { id: 'architecture', title: 'Architecture' },
@@ -13,7 +13,7 @@ export const TabConfig: TabListType = {
 };
 
 export const ReferenceConfig: Array<TopicType> = [
-  { id: '1', title: 'SNARK', tabs: ['zero-knowledge', 'elliptic-curve'], link: '/snark' },
+  { id: '1', title: 'SNARK', tabs: ['zero-knowledge-proof', 'elliptic-curve'], link: '/snark' },
   {
     id: '2',
     title: 'State management',
@@ -44,7 +44,7 @@ export const ReferenceConfig: Array<TopicType> = [
   {
     id: '9',
     title: 'Simple SNARK',
-    tabs: ['zero-knowledge', 'elliptic-curve'],
+    tabs: ['zero-knowledge-proof', 'elliptic-curve'],
     link: '/simple-snark',
   },
 ];

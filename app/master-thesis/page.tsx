@@ -12,7 +12,7 @@ export default function MasterThesis() {
         <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }, { label: 'Master Thesis' }]} />
         <SpecialTabBox
           className="mt-4"
-          tabs={['elliptic-curve', 'zero-knowledge', 'account-abstraction']}
+          tabs={['elliptic-curve', 'zero-knowledge-proof', 'account-abstraction']}
         />
       </div>
       <MasterThesisPage />

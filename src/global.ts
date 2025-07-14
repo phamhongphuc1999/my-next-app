@@ -7,7 +7,7 @@ export type ThemeMode = 'dark' | 'light';
 export type TabType =
   | 'all'
   | 'frontend'
-  | 'zero-knowledge'
+  | 'zero-knowledge-proof'
   | 'javascript'
   | 'state-management'
   | 'architecture'

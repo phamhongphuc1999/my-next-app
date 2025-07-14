@@ -43,7 +43,7 @@ export default function HomomorphicHidings() {
       <ArticleUL className="list-disc">
         <ArticleLI isMath>{'Alice sends $E(x)$ and $E(y)$ to Bob.'}</ArticleLI>
         <ArticleLI isMath>
-          {'Bob computes $E(x+y)$ from these values(which he is able to do since $E$ is an HH).'}
+          {'Bob computes $E(x+y)$ from these values (which he is able to do since $E$ is an HH).'}
         </ArticleLI>
         <ArticleLI isMath>
           {
