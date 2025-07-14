@@ -93,7 +93,7 @@ export default function HomePage() {
             className="sm:w-96"
           />
           <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger asChild className="cursor-pointer">
               <Button
                 variant="outline"
                 role="combobox"
