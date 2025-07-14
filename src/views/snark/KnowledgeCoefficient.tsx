@@ -8,7 +8,7 @@ export default function KnowledgeCoefficient() {
     <div className="mt-[1rem]">
       <AppArticle isMath>
         {'In '}
-        <Link href="/snark/chapter2" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter2" className="text-black-350 font-[500] underline">
           part 2
         </Link>
         {
@@ -24,7 +24,7 @@ export default function KnowledgeCoefficient() {
         {
           'Thus, we need a way to "force" Alice to follow the protocol correctly. We will explain in '
         }
-        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
           Part 4
         </Link>
         {

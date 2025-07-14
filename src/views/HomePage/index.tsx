@@ -98,7 +98,7 @@ export default function HomePage() {
                 variant="outline"
                 role="combobox"
                 aria-expanded={open}
-                className="w-25 justify-between"
+                className="justify-between"
               >
                 {selectedId ? TabConfig[selectedId]?.title : 'Choose topics'}{' '}
                 <ChevronsUpDown className="opacity-50" />

@@ -5,7 +5,7 @@ import { Button } from '../shadcn-ui/button';
 
 export default function Header() {
   return (
-    <div className="fixed z-[1205] h-[55px] w-full border-b-black-350 bg-grey-50">
+    <div className="border-b-black-350 bg-grey-50 fixed z-[1205] h-[55px] w-full">
       <CommonContainer className="flex h-full items-center justify-between">
         <ThemeButton />
         <Link href="/links">

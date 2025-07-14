@@ -5,7 +5,7 @@ export function ContrastLink({
   ...props
 }: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
   return (
-    <a {...props} className={cn('cursor-pointer font-[500] text-black-350', props?.className)}>
+    <a {...props} className={cn('text-black-350 cursor-pointer font-[500]', props?.className)}>
       {props?.children}
     </a>
   );

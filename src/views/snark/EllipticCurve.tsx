@@ -12,7 +12,7 @@ export default function EllipticCurve() {
     <div className="mt-[1rem]">
       <AppArticle>
         {'In '}
-        <Link href="/snark/chapter6" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter6" className="text-black-350 font-[500] underline">
           part 6
         </Link>
         {
@@ -164,11 +164,11 @@ export default function EllipticCurve() {
         {
           'We will explain how in the CRS model we can convert the verifiable blind evaluation protocol of '
         }
-        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
           part 4
         </Link>
         {' into a non-interactive proof system. As the protocol of '}
-        <Link href="/snark/chapter6" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter6" className="text-black-350 font-[500] underline">
           part 6
         </Link>
         {
@@ -204,7 +204,7 @@ export default function EllipticCurve() {
       </AppArticle>
       <AppArticle isMath>
         {'As explained in '}
-        <Link href="/snark/chapter4" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
           part 4
         </Link>
         {

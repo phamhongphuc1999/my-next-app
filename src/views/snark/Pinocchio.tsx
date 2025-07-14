@@ -7,7 +7,7 @@ export default function Pinocchio() {
     <div className="mt-[1rem]">
       <AppArticle>
         {'In '}
-        <Link href="/snark/chapter5" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter5" className="text-black-350 font-[500] underline">
           part 5
         </Link>
         {
@@ -21,7 +21,7 @@ export default function Pinocchio() {
         <a
           href="https://eprint.iacr.org/2013/279.pdf"
           target="_blank"
-          className="font-[500] text-black-350 underline"
+          className="text-black-350 font-[500] underline"
           rel="noreferrer"
         >
           Pinocchio Protocol
@@ -60,7 +60,7 @@ export default function Pinocchio() {
         <a
           href="https://en.wikipedia.org/wiki/Schwartz%E2%80%93Zippel_lemma"
           target="_blank"
-          className="font-[500] text-black-350 underline"
+          className="text-black-350 font-[500] underline"
           rel="noreferrer"
         >
           Schwartz-Zippel Lemma

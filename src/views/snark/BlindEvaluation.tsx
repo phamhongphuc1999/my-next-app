@@ -10,7 +10,7 @@ export default function BlindEvaluation() {
         {
           'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See '
         }
-        <Link href="/snark/chapter1" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter1" className="text-black-350 font-[500] underline">
           part 1
         </Link>
         {

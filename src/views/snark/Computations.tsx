@@ -15,7 +15,7 @@ export default function Computation() {
           href="https://www.semanticscholar.org/paper/Algebraic-methods-for-interactive-proof-systems-Lund-Fortnow/99c8148bb179eed21d4177edefa43d34ec536d78?p2df"
           target="_blank"
           rel="noreferrer"
-          className="font-[500] text-black-350 underline"
+          className="text-black-350 font-[500] underline"
         >
           groundbreaking work
         </a>{' '}
@@ -27,7 +27,7 @@ export default function Computation() {
           href="https://eprint.iacr.org/2012/215.pdf"
           target="_blank"
           rel="noreferrer"
-          className="font-[500] text-black-350 underline"
+          className="text-black-350 font-[500] underline"
         >
           another breakthrough work
         </a>

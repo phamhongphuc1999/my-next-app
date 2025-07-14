@@ -30,7 +30,7 @@ export default function CssBreadcrumbs({ configs, ...props }: CssBreadcrumbsProp
                       <p>{formatter ? formatter(item.label) : item.label}</p>
                     </Link>
                   ) : (
-                    <p color="textSecondary">{formatter ? formatter(item.label) : item.label}</p>
+                    <p color="text-background">{formatter ? formatter(item.label) : item.label}</p>
                   )}
                 </BreadcrumbItem>
                 {index < len && <BreadcrumbSeparator />}

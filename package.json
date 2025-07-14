@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --port 3011",
-    "build": "npx prettier --write . && next build",
-    "format": "npx prettier --write .",
+    "build": "bun run format && bun run eslint && next build",
+    "format": "prettier --write .",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
@@ -34,6 +34,7 @@
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.29.0",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/lodash": "^4.17.17",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -47,8 +48,8 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "husky": "^9.1.6",
     "postcss": "^8",
-    "prettier-plugin-tailwindcss": "^0.6.6",
-    "tailwindcss": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.11",
     "typescript": "5.5.3",
     "typescript-eslint": "^8.34.1"
   },
@@ -56,9 +57,5 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "overrides": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
   }
 }

@@ -12,7 +12,7 @@ export default function HomomorphicHidings() {
       </AppArticle>
       <AppArticle>
         {'If I had to choose '}
-        <span className="font-[500] text-black-350">one ingredient</span>
+        <span className="text-black-350 font-[500]">one ingredient</span>
         {' whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'}
         <ContrastLink id="snark1_1_item" href="#snark1_1">
           [1]

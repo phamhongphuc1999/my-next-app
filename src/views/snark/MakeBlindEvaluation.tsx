@@ -9,17 +9,17 @@ export default function MakeBlindEvaluation() {
     <div className="mt-[1rem]">
       <AppArticle>
         {'In this part, we build on '}
-        <Link className="font-[500] text-black-350 underline" href="/snark/chapter2">
+        <Link className="text-black-350 font-[500] underline" href="/snark/chapter2">
           Part 2
         </Link>
         {' and '}
-        <Link className="font-[500] text-black-350 underline" href="/snark/chapter3">
+        <Link className="text-black-350 font-[500] underline" href="/snark/chapter3">
           3
         </Link>
         {
           ' to develop a protocol for verifiable blind evaluation of polynomials, which we will define shortly. In '
         }
-        <Link className="font-[500] text-black-350 underline" href="snark/chapter5">
+        <Link className="text-black-350 font-[500] underline" href="snark/chapter5">
           Part 5
         </Link>
         {
@@ -28,7 +28,7 @@ export default function MakeBlindEvaluation() {
       </AppArticle>
       <AppArticle isMath>
         {'Suppose, as in '}
-        <Link className="font-[500] text-black-350 underline" href="snark/chapter2">
+        <Link className="text-black-350 font-[500] underline" href="snark/chapter2">
           Part 2
         </Link>
         {
@@ -37,11 +37,11 @@ export default function MakeBlindEvaluation() {
       </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI isMath>
-          <span className="font-[500] text-black-350">Blindness:</span>
+          <span className="text-black-350 font-[500]">Blindness:</span>
           {' Alice will not learn $s$, and Bob will not learn $P$.'}
         </ArticleLI>
         <ArticleLI isMath>
-          <span className="font-[500] text-black-350">Verifiability:</span>
+          <span className="text-black-350 font-[500]">Verifiability:</span>
           {
             ' The probability that Alice sends a value not of the form $E(P(s))$ for $P$ of degree $d$ that is known to her, but Bob still accepts, is negligible.'
           }
@@ -49,13 +49,13 @@ export default function MakeBlindEvaluation() {
       </ArticleUL>
       <AppArticle>
         {'This is what we call verifiable blind evaluation of a polynomial. The protocol in '}
-        <Link href="/snark/chapter2" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter2" className="text-black-350 font-[500] underline">
           Part 2
         </Link>
         {
           ' gave us the first item but not the second. To get verifiability, we need an extended version of the Knowledge of Coefficient Assumption (KCA) that was presented in '
         }
-        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="text-black-350 font-[500] underline">
           Part 3.
         </Link>
       </AppArticle>
@@ -71,7 +71,7 @@ export default function MakeBlindEvaluation() {
       <p className="text-[20px]">An Extended KCA</p>
       <AppArticle isMath isFirst>
         {'The KCA as we defined it in '}
-        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="text-black-350 font-[500] underline">
           Part 3
         </Link>
         {
@@ -85,7 +85,7 @@ export default function MakeBlindEvaluation() {
       </AppArticle>
       <AppArticle isMath>
         {'As we saw in '}
-        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="text-black-350 font-[500] underline">
           Part 3
         </Link>
         {
@@ -116,7 +116,7 @@ export default function MakeBlindEvaluation() {
         {
           "The extended KCA states, essentially, that this is the only way Alice can generate an $\\alpha$-pair;  that is, whenever she succeeds, she will know such a linear relation between $a^{'}$ and $a_1,...,a_d$. More formally, suppose that $G$ is a group of size $p$ with generator $g$, written additively as in "
         }
-        <Link href="/snark/chapter3" className="font-[500] text-black-350 underline">
+        <Link href="/snark/chapter3" className="text-black-350 font-[500] underline">
           Part 3
         </Link>
         {'. The $d$-power Knowledge of Coefficient Assumption ($d$-KCA) '}
@@ -124,7 +124,7 @@ export default function MakeBlindEvaluation() {
         {' in $G$ is as follows:'}
       </AppArticle>
       <AppArticle isMath>
-        <span className="font-[500] text-black-350">d-KCA:</span>
+        <span className="text-black-350 font-[500]">d-KCA:</span>
         {
           " Suppose Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $s \\in \\mathbb{F}_p$, and sends to Alice the $\\alpha$-pairs $(g,\\alpha \\cdot g)$, $(s \\cdot g,\\alpha s \\cdot g)$,$\\ldots$, $(s^d \\cdot g,\\alpha s^d \\cdot g)$. Suppose that Alice then outputs another $\\alpha$-pair $(a',b')$. Then, except with negligible probability, Alice knows $c_0,\\ldots,c_d \\in \\mathbb{F}_p$ such that $\\sum_{i=0}^d c_i s^i \\cdot g = a'$."
         }
@@ -161,7 +161,7 @@ export default function MakeBlindEvaluation() {
         {
           'First, note that given the coefficients of $P$, $P(s) \\cdot g$ is a linear combination of $g$, $s \\cdot g$,$\\ldots$,$s^d \\cdot g$; and $\\alpha P(s)\\cdot g$ is a linear combination of $\\alpha \\cdot g$, $\\alpha s \\cdot g$,$\\ldots$, $\\alpha s^d \\cdot g$. Thus, similarly to the protocol of '
         }
-        <Link href="snark/chapter2" className="font-[500] text-black-350 underline">
+        <Link href="snark/chapter2" className="text-black-350 font-[500] underline">
           Part 2
         </Link>
         {
@@ -189,7 +189,7 @@ export default function MakeBlindEvaluation() {
           href="http://www0.cs.ucl.ac.uk/staff/J.Groth/ShortNIZK.pdf"
           target="_blank"
           rel="noreferrer"
-          className="font-[500] text-black-350 underline"
+          className="text-black-350 font-[500] underline"
         >
           paper
         </a>
