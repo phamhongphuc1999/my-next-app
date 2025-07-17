@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react';
-import Header from './Header';
+import { Fragment, ReactNode } from 'react';
 import { GithubIcon } from '../icons';
+import Header from './Header';
 
 interface Props {
   children: ReactNode;
@@ -11,7 +11,7 @@ interface Props {
 
 export default function LayoutWrapper({ children }: Props) {
   return (
-    <div>
+    <Fragment>
       <Header />
       <div className="bg-black-200">
         <div className="flex h-full flex-col justify-between pt-[55px]">
@@ -20,13 +20,13 @@ export default function LayoutWrapper({ children }: Props) {
             <p className="text-center">COPYRIGHT © {new Date().getFullYear()}&nbsp;</p>
             <div className="flex items-center gap-2">
               <Link href="https://github.com/phamhongphuc1999/my-next-app" target="_blank">
-                <GithubIcon className="mt-[4px] h-auto w-[32px]" fill="#ffffff" />
+                <GithubIcon className="mt-[4px] h-auto w-[32px]" />
               </Link>
               <Link href="/master-thesis">My Master Thesis</Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
