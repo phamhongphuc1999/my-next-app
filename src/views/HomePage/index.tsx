@@ -1,6 +1,5 @@
 'use client';
 
-import debounce from 'lodash/debounce';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -22,15 +21,16 @@ import { ITEMS_PER_PAGE } from 'src/configs/constance';
 import { ReferenceConfig, TabConfig } from 'src/configs/layout.config';
 import { TabType } from 'src/global';
 import { cn } from 'src/lib/utils';
+import { useDebounceValue } from 'usehooks-ts';
 
 export default function HomePage() {
   const [searchText, setSearchText] = useState('');
-  const [filterText, setFilterText] = useState('');
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const searchParams = useSearchParams();
   const router = useRouter();
   const selectedId = searchParams.get('tab') as TabType | undefined;
+  const [debouncedText] = useDebounceValue(searchText, 500);
 
   function setQuery(key: string, value?: string) {
     const current = new URLSearchParams(searchParams.toString());
@@ -39,23 +39,18 @@ export default function HomePage() {
     router.push(`?${current.toString()}`);
   }
 
-  const _setFilterText = debounce((value: string) => {
-    setFilterText(value);
-  }, 500);
-
   function onTextChange(text: string) {
     setSearchText(text);
-    _setFilterText(text);
   }
 
   const filteredTopics = useMemo(() => {
-    if (filterText.length == 0) return ReferenceConfig;
-    const lowFilterText = filterText.toLowerCase();
+    if (debouncedText.length == 0) return ReferenceConfig;
+    const lowFilterText = debouncedText.toLowerCase();
     return ReferenceConfig.filter((topic) => {
       if (topic.title.toLowerCase().includes(lowFilterText)) return true;
       else return false;
     });
-  }, [filterText]);
+  }, [debouncedText]);
 
   const filteredTabTopics = useMemo(() => {
     return filteredTopics.filter((topic) => {
@@ -133,11 +128,10 @@ export default function HomePage() {
             </PopoverContent>
           </Popover>
         </div>
-        {(selectedId || filterText.length > 0) && (
+        {(selectedId || debouncedText.length > 0) && (
           <Button
             onClick={() => {
               setSearchText('');
-              setFilterText('');
               setQuery('tab', undefined);
             }}
             className="mt-2"

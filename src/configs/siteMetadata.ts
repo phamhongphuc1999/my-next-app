@@ -2,10 +2,10 @@ import IconImg from 'public/star.svg';
 import ThumbImg from 'public/thumbnail.webp';
 
 export const siteMetadata = {
-  title: 'My Next App',
-  description: '',
-  url: 'https://my-next-app-one-topaz.vercel.app/',
-  siteName: 'My Next App',
+  title: 'My blog',
+  description: 'This webpage that i share something i know',
+  url: 'https://blog.peter-present.xyz/',
+  siteName: 'My blog',
   twitterHandle: 'PhamHon08928762',
   icon: IconImg.src,
   image: ThumbImg.src,
