@@ -1,4 +1,3 @@
-import compilerImg from 'public/images/master-thesis/appendix/circom-compiler.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
@@ -60,7 +59,7 @@ export default function Circom() {
         id="the-process-of-circom-compiling-smart-contract"
         alt="the-process-of-circom-compiling-smart-contract"
         title="The process of compiling a Circom circuit to a smart contract"
-        src={compilerImg}
+        src="images/master-thesis/appendix/circom-compiler.png"
       />
       <AppArticle isFirst>
         {

@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 const Description = '';
 
 export interface AppNextSeoProps {
@@ -10,7 +12,7 @@ export default function AppNextSeo({
   description = Description,
 }: AppNextSeoProps) {
   return (
-    <>
+    <Fragment>
       <title>{title}</title>
       <meta name="description" content={description} key="description" />
       <meta property="og:title" content={title} key="title" />
@@ -18,6 +20,6 @@ export default function AppNextSeo({
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="My Next App" />
       <meta name="application-name" content="My Next App" />
-    </>
+    </Fragment>
   );
 }

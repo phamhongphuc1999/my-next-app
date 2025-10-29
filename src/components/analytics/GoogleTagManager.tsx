@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { Fragment } from 'react';
 
 interface GoogleTagManagerProps {
   id: string;
@@ -6,7 +7,7 @@ interface GoogleTagManagerProps {
 
 export function GoogleTagManager({ id }: GoogleTagManagerProps) {
   return (
-    <>
+    <Fragment>
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -28,6 +29,6 @@ export function GoogleTagManager({ id }: GoogleTagManagerProps) {
           style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>
-    </>
+    </Fragment>
   );
 }

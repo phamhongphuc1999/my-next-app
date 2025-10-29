@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { GoogleTagManager } from './GoogleTagManager';
 
 // This allows for easy swapping of analytics providers
@@ -12,9 +12,9 @@ interface Props {
 
 export function AnalyticsProvider({ strategy, id, children }: Props) {
   return (
-    <>
+    <Fragment>
       {strategy === 'gtm' && <GoogleTagManager id={id} />}
       {children}
-    </>
+    </Fragment>
   );
 }

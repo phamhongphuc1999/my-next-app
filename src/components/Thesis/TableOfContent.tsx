@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode, useEffect, useState } from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import {
   TableOfContentType,
   ThesisAppendixType,
@@ -101,7 +101,7 @@ export default function TableOfContent({ id, firstLevel, children }: Props) {
   }, [id, firstLevel]);
 
   return (
-    <>
+    <Fragment>
       <div className="mb-5">
         {acknowledge && (
           <Link href="#acknowledgement" className="hover:underline">
@@ -179,6 +179,6 @@ export default function TableOfContent({ id, firstLevel, children }: Props) {
         })}
       </div>
       {children}
-    </>
+    </Fragment>
   );
 }

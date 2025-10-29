@@ -1,12 +1,10 @@
 /* eslint-disable quotes */
 
-import Image from 'next/image';
-import CircuitImg from 'public/images/CircuitDrawing.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 
 export default function Computation() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle>
         {
           'In the three previous parts, we developed a certain machinery for dealing with polynomials. In this part, we show how to translate statements we would like to prove and verify to the language of polynomials. The idea of using polynomials in this way goes back to the '
@@ -15,7 +13,7 @@ export default function Computation() {
           href="https://www.semanticscholar.org/paper/Algebraic-methods-for-interactive-proof-systems-Lund-Fortnow/99c8148bb179eed21d4177edefa43d34ec536d78?p2df"
           target="_blank"
           rel="noreferrer"
-          className="text-black-350 font-[500] underline"
+          className="text-black-350 font-medium underline"
         >
           groundbreaking work
         </a>{' '}
@@ -27,7 +25,7 @@ export default function Computation() {
           href="https://eprint.iacr.org/2012/215.pdf"
           target="_blank"
           rel="noreferrer"
-          className="text-black-350 font-[500] underline"
+          className="text-black-350 font-medium underline"
         >
           another breakthrough work
         </a>
@@ -51,7 +49,7 @@ export default function Computation() {
           'An arithmetic circuit consists of gates computing arithmetic operations like addition and multiplication, with wires connecting the gates. In our case, the circuit looks like this:'
         }
       </AppArticle>
-      <Image src={CircuitImg} alt="circuit" className="h-auto w-[80%] md:w-[450px]" />
+      <img src="images/CircuitDrawing.png" alt="circuit" className="h-auto w-[80%] md:w-[450px]" />
       <AppArticle isFirst>
         {
           'The bottom wires are the input wires, and the top wire is the output wire giving the result of the circuit computation on the inputs.'
@@ -179,7 +177,7 @@ export default function Computation() {
           <a
             href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649"
             target="_blank"
-            className="font-[500] underline"
+            className="font-medium underline"
             rel="noreferrer"
           >
             excellent post

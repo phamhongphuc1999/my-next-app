@@ -1,4 +1,4 @@
-import edwardImg from 'public/images/elliptic-curve/edwards-curve.png';
+import CurveImg from 'public/images/elliptic-curve/edwards-curve.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import EquationBox from 'src/components/Thesis/EquationBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
@@ -8,7 +8,7 @@ import SectionBox from 'src/components/Thesis/SectionBox';
 export default function Eddsa() {
   return (
     <SectionBox title="Edwards-curve Digital Signature Algorithm" id="eddsa">
-      <FigureBox id="eddsa" src={edwardImg} alt="eddsa" title="Edwards curve shape" />
+      <FigureBox id="eddsa" src={CurveImg} alt="eddsa" title="Edwards curve shape" />
       <AppArticle isFirst>
         The Edwards-curve Digital Signature Algorithm (EdDSA)
         <RefLink toId="eddsa" mode="cite" /> (<RefLink toId="eddsa" />) is a variant of the Schnorr
@@ -58,22 +58,22 @@ export default function Eddsa() {
       </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI>
-          <p className="font-[500]">Key generation</p>
+          <p className="font-medium">Key generation</p>
           <ArticleUL className="list-decimal">
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               Select a random integer $d \in [1, n-1]$, $n$ is the order of elliptic curve.
             </ArticleLI>
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               Compute $Q = dG$
             </ArticleLI>
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               Public key is $Q$ and private key is $d$.
             </ArticleLI>
           </ArticleUL>
         </ArticleLI>
         <ArticleLI isMath>
           <p>
-            <span className="font-[500]">Signature generation</span> with message $m$
+            <span className="font-medium">Signature generation</span> with message $m$
           </p>
           <ArticleUL className="list-decimal">
             <ArticleLI isMath>
@@ -96,7 +96,7 @@ export default function Eddsa() {
         </ArticleLI>
         <ArticleLI isMath>
           <p>
-            <span className="font-[500]">Signature verification</span> with signature $(R, s)$
+            <span className="font-medium">Signature verification</span> with signature $(R, s)$
           </p>
           <ArticleUL className="list-decimal">
             <ArticleLI isMath>{'Calculate $k = \\textit{hash}(R_x || Q || m)$.'}</ArticleLI>

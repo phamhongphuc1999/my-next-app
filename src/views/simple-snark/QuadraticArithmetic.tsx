@@ -55,11 +55,11 @@ export default function QuadraticArithmetic() {
         }
       </AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI className="ml-[2rem]" isMath>
+        <ArticleLI className="ml-8" isMath>
           <span className="italic">Common knowledge shared between Alice and Bob</span>:{' '}
           {'$A_z$, $B_z$, $C_z$ and $Z(x)$.'}
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           <span className="italic">Prover</span>
           <ArticleUL className="list-disc">
             <ArticleLI isMath>

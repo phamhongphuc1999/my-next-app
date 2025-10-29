@@ -5,12 +5,12 @@ import { ContrastLink } from 'src/components/utils';
 
 export default function BlindEvaluation() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle>
         {
           'In this post, we recall the notion of a polynomial and explain the concept of "blind evaluation" of a polynomial, and how it is implemented using Homomorphic Hiding (HH). (See '
         }
-        <Link href="/snark/chapter1" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter1" className="text-black-350 font-medium underline">
           part 1
         </Link>
         {
@@ -62,10 +62,10 @@ export default function BlindEvaluation() {
         }
       </AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {'Alice sends $P$ to Bob, and he computes $E(P(s))$ by himself.'}
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {'Bob sends $s$ to Alice; she computes $E(P(s))$ and sends it to Bob.'}
         </ArticleLI>
       </ArticleUL>
@@ -79,10 +79,10 @@ export default function BlindEvaluation() {
       </AppArticle>
       <AppArticle>Using HH, we can perform blind evaluation as follows:</AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {'Bob sends to Alice the hidings $E(1)$, $E(s)$,...,$E(s^d)$.'}
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             'Alice computes $E(P(s))$ from the elements sent in the first step, and sends $E(P(s))$ to Bob. Alice can do this since $E$ supports linear combinations, and $P(s)$  is a linear combination of 1, $s$,...,$s^d$.'
           }
@@ -95,7 +95,7 @@ export default function BlindEvaluation() {
         </ContrastLink>
         {', nor did Bob learn $P$.'}
       </AppArticle>
-      <p className="text-[20px] font-[500]">Why Is This Useful?</p>
+      <p className="text-[20px] font-medium">Why Is This Useful?</p>
       <AppArticle isFirst>
         {
           'Subsequent posts will go into more detail on how blind evaluation is used in SNARKs. The rough intuition is that the verifier has a "correct" polynomial in mind and wishes to check that the prover knows it. Making the prover blindly evaluate their polynomial at a random point not known to them ensures the prover will give the wrong answer with high probability if their polynomial is not the correct one. This, in turn, relies on the Schwartz-Zippel Lemma, which states that "different polynomials are different at most points".'

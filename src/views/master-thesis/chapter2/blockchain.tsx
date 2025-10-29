@@ -58,7 +58,7 @@ export default function Blockchain() {
       </ArticleUL>
       <FigureBox
         id="blockchain-structure"
-        src={BlockchainImg}
+        src={BlockchainImg.src}
         alt="blockchain-structure"
         title="Blockchain structure"
       />
@@ -83,7 +83,7 @@ export default function Blockchain() {
         blockchain, transactions can be divided into two common models: unspent transaction output
         (UTXO) model and account model.
       </AppArticle>
-      <FigureBox id="utxo-model" src={UnspentImg} alt="utxo-model" title="UTXO model" />
+      <FigureBox id="utxo-model" src={UnspentImg.src} alt="utxo-model" title="UTXO model" />
       <AppArticle isFirst>
         In the UTXO model (<RefLink toId="utxo-model" />
         ), each transaction has a list of outputs that will be spent as inputs in future

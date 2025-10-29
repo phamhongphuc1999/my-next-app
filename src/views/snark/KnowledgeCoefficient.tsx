@@ -5,10 +5,10 @@ import { ContrastLink } from 'src/components/utils';
 
 export default function KnowledgeCoefficient() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle isMath>
         {'In '}
-        <Link href="/snark/chapter2" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter2" className="text-black-350 font-medium underline">
           part 2
         </Link>
         {
@@ -24,7 +24,7 @@ export default function KnowledgeCoefficient() {
         {
           'Thus, we need a way to "force" Alice to follow the protocol correctly. We will explain in '
         }
-        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-medium underline">
           Part 4
         </Link>
         {
@@ -48,22 +48,22 @@ export default function KnowledgeCoefficient() {
       </AppArticle>
       <AppArticle>The KC Test proceeds as follows:</AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             'Bob chooses random $\\alpha \\in \\mathbb{F}_p^*$ and $a \\in G$. He computes $b = \\alpha \\cdot a$.'
           }
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             'He sends to Alice the "challenge" pair $(a, b)$. Note that $(a, b)$ is an $\\alpha$-pair.'
           }
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             "Alice must now respond with a different pair $(a^{'}, b^{'})$ that is also an $\\alpha$-pair."
           }
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             "Bob accepts Alice's response only if $(a',b')$ is indeed an $\\alpha$-pair. (As he knows $\\alpha$ he can check if $b' = \\alpha \\cdot a')$."
           }
@@ -105,7 +105,7 @@ export default function KnowledgeCoefficient() {
         {' (KCA) states that this is always the case, namely:'}
       </AppArticle>
       <AppArticle isMath>
-        <span className="font-[500]">KCA:</span>
+        <span className="font-medium">KCA:</span>
         {
           " If Alice returns a valid response $(a^{'}, b^{'})$ to Bob's challenge $(a, b)$ with non-negligible probability over Bob's choices of $a, \\alpha$, then she knows $\\gamma$ such that $a^{'} = \\gamma \\cdot a$."
         }

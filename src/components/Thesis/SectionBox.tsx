@@ -19,9 +19,9 @@ export default function SectionBox({ id, title, children, ...props }: Props) {
     <div
       {...props}
       id={`section_${id}`}
-      className={cn(THESIS_CLASS.section, 'mt-[1rem]', props.className)}
+      className={cn(THESIS_CLASS.section, 'mt-5', props.className)}
     >
-      <p id={`section_${id}_title`} className="text-[20px] font-[500]">
+      <p id={`section_${id}_title`} className="text-[20px] font-medium">
         {section?.index ? `${section.index} ` : ''}
         {title}
       </p>
@@ -37,9 +37,9 @@ export function SubsectionBox({ id, title, children, ...props }: Props) {
     <div
       {...props}
       id={`subsection_${id}`}
-      className={cn(THESIS_CLASS.subsection, 'mt-[1rem]', props.className)}
+      className={cn(THESIS_CLASS.subsection, 'mt-4', props.className)}
     >
-      <p id={`subsection_${id}_title`} className="text-[20px] font-[500]">
+      <p id={`subsection_${id}_title`} className="text-[20px] font-medium">
         {subsection?.index ? `${subsection.index} ` : ''}
         {title}
       </p>

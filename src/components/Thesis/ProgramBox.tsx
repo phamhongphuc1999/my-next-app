@@ -19,7 +19,7 @@ export default function ProgramBox({ id, title, code, ...props }: Props) {
     <div
       {...props}
       id={`program_${id}`}
-      className={cn(THESIS_CLASS.program, 'mt-[1rem] flex flex-col items-center', props.className)}
+      className={cn(THESIS_CLASS.program, 'mt-4 flex flex-col items-center', props.className)}
     >
       <CodeBlock {...code} />
       <p id={`program_${id}_title`} className="text-[14px]">

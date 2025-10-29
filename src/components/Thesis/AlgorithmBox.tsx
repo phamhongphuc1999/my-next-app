@@ -19,11 +19,7 @@ export default function AlgorithmBox({ id, title, algorithm, ...props }: Props) 
     <div
       {...props}
       id={`algorithm_${id}`}
-      className={cn(
-        THESIS_CLASS.algorithm,
-        'mt-[1rem] flex flex-col items-center',
-        props.className
-      )}
+      className={cn(THESIS_CLASS.algorithm, 'mt-4 flex flex-col items-center', props.className)}
     >
       <AppArticle isMath>{`\\(${algorithm}\\)`}</AppArticle>
       <p id={`algorithm_${id}_title`} className="text-[14px]">

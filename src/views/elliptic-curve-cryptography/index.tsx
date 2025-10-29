@@ -11,7 +11,7 @@ import Eddsa from './eddsa';
 export default function EllipticCurveCryptographyPage() {
   return (
     <ThesisConfigProvider id="EllipticCurveCryptographyPage" firstLevel="section">
-      <div className="mt-[1rem]">
+      <div className="mt-4">
         <AppArticle>
           Elliptic Curve Cryptography (ECC) is a widely used cryptographic framework to create
           secure digital signatures and keys. ECC provides smaller key sizes than other

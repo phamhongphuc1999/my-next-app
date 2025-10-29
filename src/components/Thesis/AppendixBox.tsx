@@ -19,9 +19,9 @@ export default function AppendixBox({ id, title, children, ...props }: Props) {
     <div
       {...props}
       id={`appendix_${id}`}
-      className={cn(THESIS_CLASS.appendix, 'mt-[1rem]', props.className)}
+      className={cn(THESIS_CLASS.appendix, 'mt-4', props.className)}
     >
-      <p id={`appendix_${id}_title`} className="text-center text-[20px] font-[600] uppercase">
+      <p id={`appendix_${id}_title`} className="text-center text-[20px] font-semibold uppercase">
         {appendix?.index ? `${appendix.index}. ` : ''}
         {title}
       </p>

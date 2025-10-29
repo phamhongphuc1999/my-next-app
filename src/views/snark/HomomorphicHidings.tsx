@@ -4,7 +4,7 @@ import { ContrastLink } from 'src/components/utils';
 
 export default function HomomorphicHidings() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle>
         {
           'Constructions of zk-SNARKs involve a careful combination of several ingredients; fully understanding how these ingredients all work together can take a while.'
@@ -12,7 +12,7 @@ export default function HomomorphicHidings() {
       </AppArticle>
       <AppArticle>
         {'If I had to choose '}
-        <span className="text-black-350 font-[500]">one ingredient</span>
+        <span className="text-black-350 font-medium">one ingredient</span>
         {' whose role is most prominent, it would be what I will call here Homomorphic Hiding (HH)'}
         <ContrastLink id="snark1_1_item" href="#snark1_1">
           [1]

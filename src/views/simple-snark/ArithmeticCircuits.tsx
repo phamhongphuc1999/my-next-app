@@ -1,5 +1,4 @@
 /* eslint-disable quotes */
-import ArithmeticImg from 'public/images/arithmetic-circuit.png';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import EquationBox from 'src/components/Thesis/EquationBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
@@ -16,7 +15,7 @@ export default function ArithmeticCircuits() {
       </AppArticle>
       <FigureBox
         id="arithmetic-circuit"
-        src={ArithmeticImg}
+        src="images/arithmetic-circuit.png"
         alt="arithmetic-circuit"
         title="The arithmetic circuit of the computation: $f = (c_1c_2)+(c_1 + c_3)$"
       />

@@ -1,18 +1,15 @@
 /* eslint-disable quotes */
 
-import Image from 'next/image';
 import Link from 'next/link';
-import Curve1Img from 'public/images/curve1.png';
-import Curve2Img from 'public/images/curve2.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
 
 export default function EllipticCurve() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle>
         {'In '}
-        <Link href="/snark/chapter6" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter6" className="text-black-350 font-medium underline">
           part 6
         </Link>
         {
@@ -54,7 +51,7 @@ export default function EllipticCurve() {
           "Let's see how the addition rule is derived from this constraint. Look at a vertical line, defined by an equation of the form $X = c$. Suppose this line intersects the curve at a point $P = (x_1, y_1)$. Because the curve equation is of the form $Y^2 = f(X)$, if $(x_1, y_1)$ is on the curve, so is the point $Q := (x_1, -y_1)$. Moreover, since it's a vertical line and the curve equation is of degree two in $Y$, we can be sure these are the only points where the line and curve intersect."
         }
       </AppArticle>
-      <Image src={Curve1Img} alt="curve1" className="h-auto w-[50%] md:w-[200px]" />
+      <img src="images/curve1.png" alt="curve1" className="h-auto w-[50%] md:w-[200px]" />
       <AppArticle isFirst isMath>
         {
           'Thus, we must have $P + Q = \\mathcal{O}$, which means $P = -Q$; that is, $Q$ is the inverse of $P$ in the group.'
@@ -65,7 +62,7 @@ export default function EllipticCurve() {
           'Now let us look at points $P$ and $Q$ that have a different first coordinate — that is, $x_1 \\neq x_2$, and see how to add them. We pass a line through $P$ and $Q$.'
         }
       </AppArticle>
-      <Image src={Curve2Img} alt="curve2" className="h-auto w-[50%] md:w-[200px]" />
+      <img src="images/curve2.png" alt="curve2" className="h-auto w-[50%] md:w-[200px]" />
       <AppArticle isFirst isMath>
         {
           'Since the curve is defined by a degree-three polynomial in $X$ and already intersects this (non-vertical) line at two points, it is guaranteed to intersect the line at a third point, which we denote $R = (x, y)$, and no other points.'
@@ -109,10 +106,10 @@ export default function EllipticCurve() {
         }
       </AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {'$\\mathrm{Tate}(g, h) = \\mathbf{g}$ for a generator $\\mathbf{g}$ of $G_T$ and'}
         </ArticleLI>
-        <ArticleLI isMath className="ml-[2rem]">
+        <ArticleLI isMath className="ml-8">
           {
             'given a pair of elements $a, b \\in \\mathbb{F}_r$, we have $\\mathrm{Tate}(a \\cdot g, b \\cdot h) = \\mathbf{g}^{ab}$.'
           }
@@ -164,11 +161,11 @@ export default function EllipticCurve() {
         {
           'We will explain how in the CRS model we can convert the verifiable blind evaluation protocol of '
         }
-        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-medium underline">
           part 4
         </Link>
         {' into a non-interactive proof system. As the protocol of '}
-        <Link href="/snark/chapter6" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter6" className="text-black-350 font-medium underline">
           part 6
         </Link>
         {
@@ -182,7 +179,7 @@ export default function EllipticCurve() {
         }
       </AppArticle>
       <AppArticle isMath>
-        <span className="font-[500]">Setup:</span>
+        <span className="font-medium">Setup:</span>
         {' Random $\\alpha \\in \\mathbb{F}_r^* \\in \\mathbb{F}_r$, are chosen, and the CRS:'}
       </AppArticle>
       <AppArticle isMath className="text-center">
@@ -191,20 +188,20 @@ export default function EllipticCurve() {
         }
       </AppArticle>
       <AppArticle isMath>
-        <span className="font-[500]">Proof:</span>
+        <span className="font-medium">Proof:</span>
         {
           ' Alice computes $a = E_1(P(s))$ and $b = E_2(\\alpha P(s))$ using the elements of the CRS, and the fact that $E_1$ and $E_2$ support linear combinations.'
         }
       </AppArticle>
       <AppArticle isMath>
-        <span className="font-[500]">Verification:</span>
+        <span className="font-medium">Verification:</span>
         {
           ' Fix the $x,y \\in \\mathbb{F}_r$ such that $a=E_1(x)$ and $b=E_2(y)$. Bob computes $E(\\alpha x)=\\mathrm{Tate}(E_1(x),E_2(\\alpha))$ and $E(y)=\\mathrm{Tate}(E_1(1),E_2(y))$, and checks that they are equal. (If they are equal it implies $\\alpha x =y$).'
         }
       </AppArticle>
       <AppArticle isMath>
         {'As explained in '}
-        <Link href="/snark/chapter4" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter4" className="text-black-350 font-medium underline">
           part 4
         </Link>
         {
@@ -226,7 +223,7 @@ export default function EllipticCurve() {
         </AppArticle>
       </a>
       <a href="#snark7_3_item">
-        <AppArticle id="snark7_3" className="break-words">
+        <AppArticle id="snark7_3" className="wrap-break-word">
           [3]
           <a target="_blank" rel="noreferrer" href="https://eprint.iacr.org/2005/133.pdf">
             https://eprint.iacr.org/2005/133.pdf

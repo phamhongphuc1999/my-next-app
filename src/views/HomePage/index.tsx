@@ -3,7 +3,7 @@
 import { Check, ChevronsUpDown } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import AppPagination from 'src/components/AppPagination';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { Button } from 'src/components/shadcn-ui/button';
@@ -78,7 +78,7 @@ export default function HomePage() {
   }
 
   return (
-    <>
+    <Fragment>
       <div className="relative w-full md:w-[50%]">
         <div className="flex gap-2 max-sm:flex-col sm:items-center">
           <Input
@@ -140,12 +140,12 @@ export default function HomePage() {
           </Button>
         )}
       </div>
-      <div className={cn('mt-[4px]', searchText.length > 0 ? 'visible' : 'invisible')}>
+      <div className={cn('mt-1', searchText.length > 0 ? 'visible' : 'invisible')}>
         <p className="textSecondary text-[12px]">
           {filteredTabTopics.length} {filteredTabTopics.length > 1 ? 'results' : 'result'}
         </p>
       </div>
-      <ArticleUL className="mt-[1rem]">
+      <ArticleUL className="mt-4">
         {paginatedTopics.map((item) => {
           return (
             <ArticleLI key={item.id}>
@@ -163,6 +163,6 @@ export default function HomePage() {
         totalPages={totalPage}
         events={{ onPageChange: (page) => setCurrentPage(page) }}
       />
-    </>
+    </Fragment>
   );
 }

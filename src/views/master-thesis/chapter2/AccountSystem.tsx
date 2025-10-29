@@ -1,6 +1,4 @@
 /* eslint-disable quotes */
-import caImg from 'public/images/master-thesis/chapter2/contract-account.png';
-import eoaImg from 'public/images/master-thesis/chapter2/eoa.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
@@ -28,7 +26,7 @@ export default function AccountSystem() {
       <FigureBox
         id="eoa-structure"
         title="Structure of Externally owned account"
-        src={eoaImg}
+        src="images/master-thesis/chapter2/eoa.png"
         alt="eoa-structure"
       />
       <AppArticle isFirst>
@@ -73,7 +71,7 @@ export default function AccountSystem() {
       <FigureBox
         id="contract-account-structure"
         title="Structure of Contract account"
-        src={caImg}
+        src="images/master-thesis/chapter2/contract-account.png"
         alt="contract-account-structure"
       />
       <AppArticle isFirst>

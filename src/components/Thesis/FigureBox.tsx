@@ -25,12 +25,17 @@ export default function FigureBox({ id, title, divProps, containerProps, mode, .
       id={`figure_${id}`}
       className={cn(
         THESIS_CLASS.figure,
-        'mt-[1rem] flex flex-col',
+        'mt-4 flex flex-col',
         realMode == 'center' && 'items-center',
         divProps?.className
       )}
     >
-      <Image {...props} className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)} />
+      <Image
+        {...props}
+        width={600}
+        height={800}
+        className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)}
+      />
       <div
         {...containerProps}
         id={`figure_${id}_title`}

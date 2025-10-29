@@ -19,7 +19,7 @@ export default function TableBox({ id, title, children, ...props }: Props) {
     <div
       {...props}
       id={`table_${id}`}
-      className={cn(THESIS_CLASS.table, 'mt-[1rem] flex flex-col items-center', props.className)}
+      className={cn(THESIS_CLASS.table, 'mt-4 flex flex-col items-center', props.className)}
     >
       {children}
       <p id={`table_${id}_title`} className="text-[14px]">

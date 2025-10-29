@@ -18,7 +18,7 @@ export default function MasterThesisPage() {
       <p className="text-center text-2xl font-bold">
         Account Abstraction Wallet with Social Recovery based on Zero-Knowledge Proof
       </p>
-      <div className="mt-[1rem]">
+      <div className="mt-4">
         <Acknowledgement />
         <Abstract />
         <Chapter1 />

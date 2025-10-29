@@ -2,7 +2,7 @@
 
 import { MathJaxProps } from 'better-react-mathjax';
 import dynamic from 'next/dynamic';
-import { ComponentProps } from 'react';
+import { ComponentProps, Fragment } from 'react';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 
@@ -23,11 +23,10 @@ export function AppArticle({
   ...props
 }: DivProps & CommonProps) {
   return (
-    <div
-      {...props}
-      className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} text-justify`, props.className)}
-    >
-      <>{isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : <>{props.children}</>}</>
+    <div {...props} className={cn('text-justify', isFirst ? 'my-4' : 'mb-4', props.className)}>
+      <Fragment>
+        {isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : props.children}
+      </Fragment>
     </div>
   );
 }
@@ -37,7 +36,7 @@ export function ArticleUL({
   ...props
 }: Omit<ComponentProps<'ul'> & CommonProps, 'isMath' | 'mathProp'>) {
   return (
-    <ul {...props} className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'}`, props.className)}>
+    <ul {...props} className={cn(`${isFirst ? 'my-4' : 'mb-4'}`, props.className)}>
       {props.children}
     </ul>
   );
@@ -50,11 +49,10 @@ export function ArticleLI({
   ...props
 }: ComponentProps<'li'> & CommonProps) {
   return (
-    <li
-      {...props}
-      className={cn(`${isFirst ? 'my-[1rem]' : 'mb-[1rem]'} ml-[1rem]`, props.className)}
-    >
-      <>{isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : <>{props.children}</>}</>
+    <li {...props} className={cn('ml-4', isFirst ? 'my-4' : 'mb-4', props.className)}>
+      <Fragment>
+        {isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : props.children}
+      </Fragment>
     </li>
   );
 }

@@ -10,7 +10,7 @@ interface Props extends DivProps {
 export default function AbbreviationBox({ data, ...props }: Props) {
   return (
     <div {...props}>
-      <p className="text-center text-[20px] font-[600]">LIST OF ABBREVIATIONS</p>
+      <p className="text-center text-[20px] font-semibold">LIST OF ABBREVIATIONS</p>
       <Table>
         <TableHeader>
           <TableRow>

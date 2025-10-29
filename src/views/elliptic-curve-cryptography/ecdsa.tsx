@@ -1,13 +1,13 @@
-import eccImg from 'public/images/elliptic-curve/elliptic-curve.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import ImageBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import CurveImg from 'public/images/elliptic-curve/elliptic-curve.png';
 
 export default function ECDSA() {
   return (
     <SectionBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
-      <ImageBox src={eccImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />
+      <ImageBox src={CurveImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />
       <AppArticle isFirst>
         ECDSA (<RefLink toId="elliptic-curve-shape" />) is a cryptographic scheme for creating and
         verifying digital signatures based on ECC. It consists of three main operations: key
@@ -15,15 +15,15 @@ export default function ECDSA() {
       </AppArticle>
       <ArticleUL className="list-disc">
         <ArticleLI>
-          <p className="font-[500]">Key generation</p>
+          <p className="font-medium">Key generation</p>
           <ArticleUL className="list-decimal">
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               {'Select a random integer $d \\in [1, n-1]$, $n$ is the order of elliptic curve.'}
             </ArticleLI>
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               {'Compute $Q = dG$'}
             </ArticleLI>
-            <ArticleLI isMath className="ml-[2rem]">
+            <ArticleLI isMath className="ml-8">
               {'Public key is $Q$ and private key is $d$.'}
             </ArticleLI>
           </ArticleUL>
@@ -51,7 +51,7 @@ export default function ECDSA() {
           </ArticleUL>
         </ArticleLI>
         <ArticleLI>
-          <p className="font-[500]">Signature verification</p>
+          <p className="font-medium">Signature verification</p>
           <ArticleUL className="list-decimal">
             <ArticleLI isMath>
               {

@@ -20,8 +20,8 @@ export default function SameChapterBox({ id, mode, children, ...props }: Props) 
   const config = configs[mode];
 
   return (
-    <div {...props} id={id} className={cn(config.class, 'mt-[1rem]', props.className)}>
-      <p id={`${id}_title`} className="text-center text-[20px] font-[600]">
+    <div {...props} id={id} className={cn(config.class, 'mt-4', props.className)}>
+      <p id={`${id}_title`} className="text-center text-[20px] font-semibold">
         {config.title}
       </p>
       {children}

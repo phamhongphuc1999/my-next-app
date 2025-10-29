@@ -26,22 +26,22 @@ export default function Overview() {
         zk-SNARKs generally involves five main steps:
       </AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           The computation is defined as a set of constraints over variables
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           These constraints are rewritten into polynomial equations suitable for cryptographic
           operations
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           A trusted setup phase generates random parameters (commonly referred to as toxic waste)
           that remain secret.
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           The prover computes the proof using these parameters and the witness, applying
           randomization to hide the private data while preserving the structure of the equations.
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]">
+        <ArticleLI className="ml-8">
           A pairing function maps the proof into a new space, preserving the equation structure and
           allowing for efficient verification.
         </ArticleLI>

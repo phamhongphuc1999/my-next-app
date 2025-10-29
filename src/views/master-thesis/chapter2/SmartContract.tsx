@@ -56,7 +56,7 @@ export default function SmartContract() {
         id="smart-contract-structure"
         title="Structure of Smart contract"
         alt="smart-contract-structure"
-        src={smartContractImg}
+        src={smartContractImg.src}
       />
       <AppArticle isFirst>
         The structure and operating mechanism of smart contracts are illustrated in{' '}

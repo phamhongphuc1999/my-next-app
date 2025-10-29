@@ -4,10 +4,10 @@ import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox'
 
 export default function Pinocchio() {
   return (
-    <div className="mt-[1rem]">
+    <div className="mt-4">
       <AppArticle>
         {'In '}
-        <Link href="/snark/chapter5" className="text-black-350 font-[500] underline">
+        <Link href="/snark/chapter5" className="text-black-350 font-medium underline">
           part 5
         </Link>
         {
@@ -21,7 +21,7 @@ export default function Pinocchio() {
         <a
           href="https://eprint.iacr.org/2013/279.pdf"
           target="_blank"
-          className="text-black-350 font-[500] underline"
+          className="text-black-350 font-medium underline"
           rel="noreferrer"
         >
           Pinocchio Protocol
@@ -60,7 +60,7 @@ export default function Pinocchio() {
         <a
           href="https://en.wikipedia.org/wiki/Schwartz%E2%80%93Zippel_lemma"
           target="_blank"
-          className="text-black-350 font-[500] underline"
+          className="text-black-350 font-medium underline"
           rel="noreferrer"
         >
           Schwartz-Zippel Lemma
@@ -75,18 +75,18 @@ export default function Pinocchio() {
         }
       </AppArticle>
       <ArticleUL className="list-decimal">
-        <ArticleLI className="ml-[2rem]" isMath>
+        <ArticleLI className="ml-8" isMath>
           {'Alice chooses polynomials $L,R,O,H$ of degree at most $d$.'}
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]" isMath>
+        <ArticleLI className="ml-8" isMath>
           {'Bob chooses a random point $s \\in \\mathbb{F}_p$ and computes $E(T(s))$.'}
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]" isMath>
+        <ArticleLI className="ml-8" isMath>
           {
             'Alice sends Bob the hidings of all these polynomials evaluated at $E(L(s)),$ $E(R(s)),$ $E(O(s)),$ $E(H(s))$.'
           }
         </ArticleLI>
-        <ArticleLI className="ml-[2rem]" isMath>
+        <ArticleLI className="ml-8" isMath>
           {
             'Bob checks if the desired equation holds at $s$. That is, he checks whether $E(L(s) \\cdot R(s) -$ $O(s)) = E(T(s) \\cdot H(s))$.'
           }
@@ -158,7 +158,7 @@ export default function Pinocchio() {
         {
           'Bob chooses a random $\\beta \\in \\mathbb{F}^*_p$, and sends to Alice the hidings $E(\\beta \\cdot F_1(s))$, $\\ldots$, $E(\\beta \\cdot F_m(s))$. He then asks Alice to send him the element $E(\\beta \\cdot F(s))$. If she succeeds, an extended version of the '
         }
-        <Link href="/snark/chapter3" target="_blank" className="font-[500] underline">
+        <Link href="/snark/chapter3" target="_blank" className="font-medium underline">
           Knowledge of Coefficient Assumption
         </Link>
         {" implies she knows how to write $F$ as a linear combination of the $F_i$'s"}
