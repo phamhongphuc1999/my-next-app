@@ -13,7 +13,8 @@ export type TabType =
   | 'architecture'
   | 'seo'
   | 'elliptic-curve'
-  | 'account-abstraction';
+  | 'account-abstraction'
+  | 'rubik';
 
 export type TabItemType = { id: TabType; title: string };
 export type TabListType = { [id in TabType]: TabItemType };

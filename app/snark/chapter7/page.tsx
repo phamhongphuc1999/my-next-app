@@ -19,7 +19,7 @@ export default function Chapter7() {
         tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter6" className="inline-block">
-        <div className="mt-[1.5rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="mt-6 flex cursor-pointer items-center gap-1 border-b text-[18px]">
           <LeftArrowIcon />
           <p className="whitespace-nowrap">Part 6</p>
         </div>
@@ -30,7 +30,7 @@ export default function Chapter7() {
         <Link
           href="https://electriccoin.co/blog/snark-explain7/"
           target="_blank"
-          className="mt-[1rem] break-words"
+          className="mt-4 wrap-break-word"
         >
           https://electriccoin.co/blog/snark-explain7/
         </Link>

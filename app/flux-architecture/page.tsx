@@ -19,7 +19,7 @@ export default function FluxArchitecture() {
         <Link
           href="https://www.freecodecamp.org/news/an-introduction-to-the-flux-architectural-pattern-674ea74775c9/"
           target="_blank"
-          className="mt-[1rem] break-words"
+          className="mt-4 wrap-break-word"
         >
           https://www.freecodecamp.org/news/an-introduction-to-the-flux-architectural-pattern-674ea74775c9/
         </Link>

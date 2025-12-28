@@ -10,6 +10,7 @@ export const TabConfig: TabListType = {
   seo: { id: 'seo', title: 'SEO' },
   'elliptic-curve': { id: 'elliptic-curve', title: 'Elliptic Curve' },
   'account-abstraction': { id: 'account-abstraction', title: 'Account abstraction' },
+  rubik: { id: 'rubik', title: 'Rubik' },
 };
 
 export const ReferenceConfig: Array<TopicType> = [
@@ -47,4 +48,5 @@ export const ReferenceConfig: Array<TopicType> = [
     tabs: ['zero-knowledge-proof', 'elliptic-curve'],
     link: '/simple-snark',
   },
+  { id: '10', title: 'Rubik 3x3', tabs: ['rubik'], link: '/rubik3x3' },
 ];

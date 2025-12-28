@@ -12,7 +12,7 @@ export default function JsTimeoutAndInterval() {
         }}
         tabProps={{ index: 2 }}
       />
-      <AppArticle isMath className="mt-[1rem]">
+      <AppArticle isMath className="mt-4">
         {
           'In Js, $\\textbf{setTimeout}$ and $\\textbf{setInterval}$ are asynchronous functions provided by brower (or Nodejs) that allow executing code non-blocking.'
         }

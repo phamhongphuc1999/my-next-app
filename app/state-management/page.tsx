@@ -14,7 +14,7 @@ export default function StateManagement() {
       apps. Selecting state management library or architecture directly interfere the performance.
       In this topic, i will introduce some state management i know and have chance to use them in
       real projects.
-      <div className="mt-[1rem] flex flex-col gap-[1rem]">
+      <div className="mt-4 flex flex-col gap-4">
         <Link href="/state-management/mobx" className="hover:underline">
           1. MobX
         </Link>

@@ -33,14 +33,14 @@ export default function LinksPage() {
       <AppNextSeo title="Fascinating links" />
       <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }, { label: 'Fascinating links' }]} />
       <Link href="/links/science">
-        <Button className="mt-[1rem]">Go to Science</Button>
+        <Button className="mt-4">Go to Science</Button>
       </Link>
       {linkConfig.map((item, index) => {
         return (
           <Link
             key={item.link}
             target="_blank"
-            className="mt-[1rem] block break-words hover:underline"
+            className="mt-4 block wrap-break-word hover:underline"
             href={item.link}
           >
             {index + 1} {item.title}

@@ -13,11 +13,11 @@ export default function ProxyObject() {
         tabProps={{ index: 6 }}
       />
       <div>
-        <p className="text-[20px] font-[500]">References</p>
+        <p className="text-[20px] font-medium">References</p>
         <Link
           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"
           target="_blank"
-          className="mt-[1rem] break-words"
+          className="mt-4 wrap-break-word"
         >
           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
         </Link>

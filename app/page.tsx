@@ -9,7 +9,7 @@ export default function Home() {
     <Suspense>
       <CommonContainer>
         <AppNextSeo title="Home" />
-        <CssBreadcrumbs configs={[{ label: 'Home' }]} className="mb-[1rem]" />
+        <CssBreadcrumbs configs={[{ label: 'Home' }]} className="mb-4" />
         <HomePage />
       </CommonContainer>
     </Suspense>

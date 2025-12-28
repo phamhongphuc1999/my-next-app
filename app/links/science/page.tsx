@@ -52,7 +52,7 @@ export default function SciencePage() {
           <Link
             key={item.link}
             target="_blank"
-            className="mt-[1rem] block break-words hover:underline"
+            className="mt-4 block wrap-break-word hover:underline"
             href={item.link}
           >
             {index + 1}. {item.title}

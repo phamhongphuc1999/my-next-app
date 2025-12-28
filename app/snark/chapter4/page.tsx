@@ -19,14 +19,14 @@ export default function Chapter4() {
         tabProps={{ index: 0 }}
       />
       <Link href="/snark/chapter3" className="inline-block">
-        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b text-[18px]">
           <LeftArrowIcon />
           <p className="whitespace-nowrap">Part 3</p>
         </div>
       </Link>
       <MakeBlindEvaluation />
       <Link href="/snark/chapter5" className="inline-block">
-        <div className="mt-[1rem] flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="mt-4 flex cursor-pointer items-center gap-1 border-b text-[18px]">
           <p className="whitespace-nowrap">Part 5</p>
           <RightArrowIcon />
         </div>
@@ -36,7 +36,7 @@ export default function Chapter4() {
         <Link
           href="https://electriccoin.co/blog/snark-explain4/"
           target="_blank"
-          className="mt-[1rem] break-words"
+          className="mt-4 wrap-break-word"
         >
           https://electriccoin.co/blog/snark-explain4/
         </Link>

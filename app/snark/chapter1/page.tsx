@@ -20,7 +20,7 @@ export default function Chapter1() {
       />
       <HomomorphicHidings />
       <Link href="/snark/chapter2" className="inline-block">
-        <div className="flex cursor-pointer items-center gap-1 border-b-[1px] text-[18px]">
+        <div className="flex cursor-pointer items-center gap-1 border-b text-[18px]">
           <p className="whitespace-nowrap">Part 2</p>
           <RightArrowIcon />
         </div>
@@ -30,7 +30,7 @@ export default function Chapter1() {
         <Link
           href="https://electriccoin.co/blog/snark-explain/"
           target="_blank"
-          className="mt-[1rem] break-words"
+          className="mt-4 wrap-break-word"
         >
           https://electriccoin.co/blog/snark-explain/
         </Link>
