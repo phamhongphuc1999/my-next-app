@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ContainerClipboard } from 'src/components/CopyClipboard';
 import { F2LConfig } from 'src/configs/rubik3x3.config';
 
 export default function F2lView() {
@@ -25,9 +26,13 @@ export default function F2lView() {
                     <div>
                       {item.methods.map((method) => {
                         return (
-                          <div key={method} className="mt-2 border border-gray-200 p-2">
+                          <ContainerClipboard
+                            key={method}
+                            className="mt-2 border border-gray-200 p-2"
+                            copyText={method}
+                          >
                             <p className="text-2xl font-semibold">{method}</p>
-                          </div>
+                          </ContainerClipboard>
                         );
                       })}
                     </div>

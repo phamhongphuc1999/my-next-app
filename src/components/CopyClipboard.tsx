@@ -13,7 +13,7 @@ interface Props extends ComponentProps<'button'> {
 export default function CopyClipboard({ copyText, iconprops, ...props }: Props) {
   const [copied, setCopied] = useState(false);
 
-  async function handleCopy(event: MouseEvent<HTMLButtonElement>) {
+  async function handleCopy(event: MouseEvent) {
     event.stopPropagation();
     try {
       await navigator.clipboard.writeText(copyText);
@@ -32,5 +32,34 @@ export default function CopyClipboard({ copyText, iconprops, ...props }: Props) 
         <Copy {...iconprops} className={cn('cursor-pointer', iconprops?.className)} />
       )}
     </button>
+  );
+}
+
+interface ContainerClipboardProps extends ComponentProps<'div'> {
+  copyText: string;
+}
+
+export function ContainerClipboard({ copyText, ...props }: ContainerClipboardProps) {
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy(event: MouseEvent) {
+    event.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(copyText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  }
+
+  return (
+    <div
+      {...props}
+      onClick={handleCopy}
+      className={cn(copied && 'card-copy-fog', 'cursor-pointer', props.className)}
+    >
+      {props.children}
+    </div>
   );
 }
