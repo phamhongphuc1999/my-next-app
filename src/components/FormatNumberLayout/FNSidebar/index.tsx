@@ -15,6 +15,7 @@ const items = [
   { title: 'round', url: '/format-number/round' },
   { title: 'compact', url: '/format-number/compact' },
   { title: 'format', url: '/format-number/format' },
+  { title: 'types', url: '/format-number/types' },
   { title: 'Example', url: '/format-number/example' },
 ];
 

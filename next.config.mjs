@@ -2,7 +2,15 @@ import bundleAnalyzer from '@next/bundle-analyzer';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Automatically Copying Traced Files
+  async redirects() {
+    return [
+      {
+        source: '/format-number',
+        destination: '/format-number/getting-started',
+        permanent: false,
+      },
+    ];
+  },
   output: 'standalone',
   reactStrictMode: true,
   images: {

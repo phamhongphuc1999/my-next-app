@@ -46,6 +46,52 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+
+  --fog-bg: rgba(255, 255, 255, 0.6);
+
+  /* ===== Comment / Quote ===== */
+  --comment: #655f6d;
+  --quote: #655f6d;
+
+  /* ===== Variables / Tags / Links ===== */
+  --variable: #be4678;
+  --template-variable: #be4678;
+  --attribute: #be4678;
+  --tag: #be4678;
+  --name: #be4678;
+  --regexp: #be4678;
+  --link: #be4678;
+  --selector-id: #be4678;
+  --selector-class: #be4678;
+
+  /* ===== Numbers / Literals / Builtins ===== */
+  --number: #aa573c;
+  --meta: #aa573c;
+  --built-in: #aa573c;
+  --builtin-name: #aa573c;
+  --literal: #aa573c;
+  --type: #aa573c;
+  --params: #aa573c;
+
+  /* ===== Strings / Symbols / Bullets ===== */
+  --string: #2a9292;
+  --symbol: #2a9292;
+  --bullet: #2a9292;
+
+  /* ===== Titles / Sections ===== */
+  --title: #576ddb;
+  --section: #576ddb;
+
+  /* ===== Keywords ===== */
+  --keyword: #955ae7;
+  --selector-tag: #955ae7;
+
+  /* ===== Diff / Changes ===== */
+  --deletion-text: #19171c;
+  --deletion-bg: #be4678;
+
+  --addition-text: #19171c;
+  --addition-bg: #2a9292;
 }
 
 [data-theme='dark'] {
@@ -90,6 +136,52 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  --fog-bg: transparent;
+
+  /* ===== Comment / Quote ===== */
+  --comment: #7e7887;
+  --quote: #7e7887;
+
+  /* ===== Variables / Tags ===== */
+  --variable: #be4678;
+  --template-variable: #be4678;
+  --attribute: #be4678;
+  --regexp: #be4678;
+  --link: #be4678;
+  --tag: #be4678;
+  --name: #be4678;
+  --selector-id: #be4678;
+  --selector-class: #be4678;
+
+  /* ===== Numbers / Builtins ===== */
+  --number: #aa573c;
+  --meta: #aa573c;
+  --built-in: #aa573c;
+  --builtin-name: #aa573c;
+  --literal: #aa573c;
+  --type: #aa573c;
+  --params: #aa573c;
+
+  /* ===== Strings ===== */
+  --string: #2a9292;
+  --symbol: #2a9292;
+  --bullet: #2a9292;
+
+  /* ===== Titles ===== */
+  --title: #576ddb;
+  --section: #576ddb;
+
+  /* ===== Keywords ===== */
+  --keyword: #955ae7;
+  --selector-tag: #955ae7;
+
+  /* ===== Diff ===== */
+  --deletion-text: #19171c;
+  --deletion-bg: #be4678;
+
+  --addition-text: #19171c;
+  --addition-bg: #2a9292;
 }
 
 @theme inline {
@@ -140,6 +232,49 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* ===== Comment / Quote ===== */
+  --color-comment: var(--comment);
+  --color-quote: var(--quote);
+
+  /* ===== Variables / Tags ===== */
+  --color-variable: var(--variable);
+  --color-template-variable: var(--template-variable);
+  --color-attribute: var(--attribute);
+  --color-regexp: var(--regexp);
+  --color-link: var(--link);
+  --color-tag: var(--tag);
+  --color-name: var(--name);
+  --color-selector-id: var(--selector-id);
+  --color-selector-class: var(--selector-class);
+
+  /* ===== Numbers / Builtins ===== */
+  --color-number: var(--number);
+  --color-meta: var(--meta);
+  --color-built-in: var(--built-in);
+  --color-builtin-name: var(--builtin-name);
+  --color-literal: var(--literal);
+  --color-type: var(--type);
+  --color-params: var(--params);
+
+  /* ===== Strings ===== */
+  --color-string: var(--string);
+  --color-symbol: var(--symbol);
+  --color-bullet: var(--bullet);
+
+  /* ===== Titles ===== */
+  --color-title: var(--title);
+  --color-section: var(--section);
+
+  /* ===== Keywords ===== */
+  --color-keyword: var(--keyword);
+  --color-selector-tag: var(--selector-tag);
+
+  /* ===== Diff ===== */
+  --color-deletion-text: var(--deletion-text);
+  --color-deletion-bg: var(--deletion-bg);
+  --color-addition-text: var(--addition-text);
+  --color-addition-bg: var(--addition-bg);
 }
 
 @layer base {
@@ -171,6 +306,16 @@
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 .input-group {
@@ -211,4 +356,5 @@
   inset: 0;
   backdrop-filter: blur(3px);
   pointer-events: none;
+  background-color: var(--fog-bg);
 }

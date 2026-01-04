@@ -1,4 +1,4 @@
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import SyntaxHighlighter, { SyntaxHighlighterProps } from 'react-syntax-highlighter';
 import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CopyClipboard from '../CopyClipboard';
 
@@ -49,11 +49,17 @@ export interface CodeBlockProps {
   code: string;
   language?: SyntaxHighlighterLanguage;
   isShowCopy?: boolean;
+  codeProps?: Omit<SyntaxHighlighterProps, 'children'>;
 }
 
-export default function CodeBlock({ code, language, isShowCopy = true }: CodeBlockProps) {
+export default function CodeBlock({
+  code,
+  language,
+  isShowCopy = true,
+  codeProps,
+}: CodeBlockProps) {
   return (
-    <div className="relative bg-[red]">
+    <div className="relative">
       {isShowCopy && (
         <CopyClipboard
           copyText={code}
@@ -61,7 +67,11 @@ export default function CodeBlock({ code, language, isShowCopy = true }: CodeBlo
           iconprops={{ width: 12, height: 12 }}
         />
       )}
-      <SyntaxHighlighter style={atelierCaveDark} language={language}>
+      <SyntaxHighlighter
+        {...codeProps}
+        style={{ ...atelierCaveDark, ...codeProps?.style }}
+        language={language}
+      >
         {code}
       </SyntaxHighlighter>
     </div>

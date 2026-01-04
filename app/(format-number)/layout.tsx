@@ -12,7 +12,7 @@ export default function Layout({ children }: Props) {
     <SidebarProvider>
       <Header />
       <FNSidebar />
-      <main className="pt-[55px]">
+      <main className="w-full pt-[55px]">
         <SidebarTrigger className="fixed" />
         <div className="mt-4 px-5">{children}</div>
       </main>

@@ -11,7 +11,7 @@ export default function Format() {
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'format' }]}
       />
-      <Separator className="mt-2" />
+      <Separator className="my-2" />
       <FormatPage />
     </CommonContainer>
   );

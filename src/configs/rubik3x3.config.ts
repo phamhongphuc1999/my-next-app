@@ -40,7 +40,7 @@ export const F2LConfig: ConfigType = [
     title: 'Group 5',
     data: [
       { id: '5.1', methods: ["(R U' R' U) (R U' R')"] },
-      { id: '5.2', methods: ["(R U R' U') F R' F' R"] },
+      { id: '5.2', methods: ["(R U R' U') F R' F' R", "(R U R') 2U' F' U F"] },
       { id: '5.3', methods: ["(R U R' U')(R U R')"] },
       { id: '5.4', methods: ["y' (R' U' R U)(R' U' R)", "(F' U' F U)(F' U' F)"] },
     ],

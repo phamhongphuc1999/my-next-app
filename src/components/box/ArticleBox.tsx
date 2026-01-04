@@ -49,7 +49,7 @@ export function ArticleLI({
   ...props
 }: ComponentProps<'li'> & CommonProps) {
   return (
-    <li {...props} className={cn('ml-4', isFirst ? 'my-4' : 'mb-4', props.className)}>
+    <li {...props} className={cn('ml-4', isFirst ? 'my-2' : 'mb-2', props.className)}>
       <Fragment>
         {isMath ? <MathJax {...mathProp}>{props.children}</MathJax> : props.children}
       </Fragment>

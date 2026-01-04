@@ -11,7 +11,7 @@ export default function Compact() {
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'compact' }]}
       />
-      <Separator className="mt-2" />
+      <Separator className="my-2" />
       <CompactPage />
     </CommonContainer>
   );

@@ -2,10 +2,9 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import CodeBlock from 'src/components/box/CodeBlock';
-import { Button } from 'src/components/shadcn-ui/button';
-import { ButtonGroup } from 'src/components/shadcn-ui/button-group';
+import CopyClipboard from 'src/components/CopyClipboard';
 import { Separator } from 'src/components/shadcn-ui/separator';
+import { ToggleGroup, ToggleGroupItem } from 'src/components/shadcn-ui/toggle-group';
 
 type CliType = 'npm' | 'yarn' | 'pnpm' | 'bun';
 
@@ -41,7 +40,7 @@ export default function GettingStartedPage() {
 
   return (
     <div>
-      <p className="mt-5 text-2xl font-bold">Getting Started</p>
+      <p className="text-2xl font-bold">Getting Started</p>
       <p className="mt-2">
         {
           'A lightweight, high-precision JavaScript/TypeScript library for rounding and formatting numbers. It handles everything from large financial figures and crypto balances to extremely small fractions with scientific subscripts.'
@@ -49,17 +48,22 @@ export default function GettingStartedPage() {
       </p>
       <p className="mt-5 text-lg font-bold">Installation</p>
       <Separator />
-      <ButtonGroup className="mt-2">
-        {Object.values(configs).map((config) => {
-          return (
-            <Button key={config.title} onClick={() => setCli(config.id)}>
-              <Image src={config.img} alt={config.title} width={12} height={12} />
-              <p>{config.title}</p>
-            </Button>
-          );
-        })}
-      </ButtonGroup>
-      <CodeBlock language="bash" code={configs[cli].cli} />
+      <div className="bg-secondary rounded-2xl">
+        <ToggleGroup className="mt-2" type="single">
+          {Object.values(configs).map((config) => {
+            return (
+              <ToggleGroupItem key={config.id} value={config.id} onClick={() => setCli(config.id)}>
+                <Image src={config.img} alt={config.title} width={12} height={12} />
+                <p>{config.title}</p>
+              </ToggleGroupItem>
+            );
+          })}
+        </ToggleGroup>
+        <div className="border-border mx-3 flex items-center justify-between border-t">
+          <p className="text-xl">{configs[cli].cli}</p>
+          <CopyClipboard copyText={configs[cli].cli} iconprops={{ className: 'size-3.5' }} />
+        </div>
+      </div>
     </div>
   );
 }

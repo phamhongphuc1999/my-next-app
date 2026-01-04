@@ -2,17 +2,17 @@ import AppNextSeo from 'src/components/AppNextSeo';
 import CommonContainer from 'src/components/box/CommonContainer';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { Separator } from 'src/components/shadcn-ui/separator';
-import ExamplePage from 'src/views/format-number-page/example';
+import TypesPage from 'src/views/format-number-page/types';
 
-export default function Example() {
+export default function Types() {
   return (
     <CommonContainer>
-      <AppNextSeo title="Format number | Example" />
+      <AppNextSeo title="Format number | Types" />
       <CssBreadcrumbs
-        configs={[{ label: 'Format number', link: '/format-number' }, { label: 'example' }]}
+        configs={[{ label: 'Format number', link: '/format-number' }, { label: 'types' }]}
       />
       <Separator className="my-2" />
-      <ExamplePage />
+      <TypesPage />
     </CommonContainer>
   );
 }

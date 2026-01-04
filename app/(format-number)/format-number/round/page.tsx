@@ -11,7 +11,7 @@ export default function Round() {
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'round' }]}
       />
-      <Separator className="mt-2" />
+      <Separator className="my-2" />
       <RoundPage />
     </CommonContainer>
   );

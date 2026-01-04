@@ -11,7 +11,7 @@ export default function GettingStarted() {
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'Getting started' }]}
       />
-      <Separator className="mt-2" />
+      <Separator className="my-2" />
       <GettingStartedPage />
     </CommonContainer>
   );

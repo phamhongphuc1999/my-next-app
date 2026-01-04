@@ -28,7 +28,7 @@ export default function F2lView() {
                         return (
                           <ContainerClipboard
                             key={method}
-                            className="mt-2 border border-gray-200 p-2"
+                            className="border-popover-foreground mt-2 border p-2"
                             copyText={method}
                           >
                             <p className="text-2xl font-semibold">{method}</p>
