@@ -43,8 +43,14 @@ export default function GettingStartedPage() {
       <p className="text-2xl font-bold">Getting Started</p>
       <p className="mt-2">
         {
-          'A lightweight, high-precision JavaScript/TypeScript library for rounding and formatting numbers. It handles everything from large financial figures and crypto balances to extremely small fractions with scientific subscripts.'
+          'A lightweight, zero-dependency JavaScript/TypeScript library for precise number formatting. Designed for financial applications, crypto dashboards, and scientific data where precision is paramount.'
         }
+      </p>
+      <p>
+        Unlike standard libraries that rely on floating-point math, the library uses internal
+        string-based arithmetic to handle numbers of any size (including{' '}
+        <span className="font-semibold">string</span>, <span className="font-semibold">number</span>
+        , and <span className="font-semibold">bigint</span>) without losing a single decimal point.
       </p>
       <p className="mt-5 text-lg font-bold">Installation</p>
       <Separator />
@@ -52,9 +58,17 @@ export default function GettingStartedPage() {
         <ToggleGroup className="mt-2" type="single">
           {Object.values(configs).map((config) => {
             return (
-              <ToggleGroupItem key={config.id} value={config.id} onClick={() => setCli(config.id)}>
+              <ToggleGroupItem
+                key={config.id}
+                value={config.id}
+                onClick={() => setCli(config.id)}
+                className="relative"
+              >
                 <Image src={config.img} alt={config.title} width={12} height={12} />
                 <p>{config.title}</p>
+                {cli == config.id && (
+                  <div className="bg-destructive absolute right-1.5 bottom-0 left-1.5 h-0.5" />
+                )}
               </ToggleGroupItem>
             );
           })}

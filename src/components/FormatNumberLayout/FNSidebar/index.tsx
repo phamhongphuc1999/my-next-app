@@ -14,9 +14,10 @@ const items = [
   { title: 'Getting started', url: '/format-number/getting-started' },
   { title: 'round', url: '/format-number/round' },
   { title: 'compact', url: '/format-number/compact' },
+  { title: 'io', url: '/format-number/io' },
+  { title: 'notation', url: '/format-number/notation' },
   { title: 'format', url: '/format-number/format' },
   { title: 'types', url: '/format-number/types' },
-  { title: 'Example', url: '/format-number/example' },
 ];
 
 export default function FNSidebar() {

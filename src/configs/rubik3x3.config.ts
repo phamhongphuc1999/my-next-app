@@ -10,7 +10,7 @@ export const F2LConfig: ConfigType = [
     data: [
       { id: '1.1', methods: ["U (R U' R')"] },
       { id: '1.2', methods: ["y' U' (R' U R)", "U' F' U F"] },
-      { id: '1.3', methods: ["U' R' F R F' R U' R'"] },
+      { id: '1.3', methods: ["U' R' F R F' R U' R'", "R U' R' F' U2 F"] },
     ],
   },
   {

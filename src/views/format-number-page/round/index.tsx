@@ -13,20 +13,20 @@ import { useDebounceValue } from 'usehooks-ts';
 export default function RoundPage() {
   const [value, setValue] = useState('0');
   const [debounceValue] = useDebounceValue(value, 500);
-  const [mode, setMode] = useState<RoundingMode>('half');
+  const [rounding, setRounding] = useState<RoundingMode>('half');
   const [precision, setPrecision] = useState(0);
 
   const result = useMemo(() => {
-    return round(debounceValue, { mode, precision });
-  }, [debounceValue, mode, precision]);
+    return round(debounceValue, { rounding, precision });
+  }, [debounceValue, rounding, precision]);
 
   const fnText = useMemo(() => {
     const result = `round(${debounceValue}`;
     const params: Array<string> = [];
-    if (mode != 'half') params.push(`mode: ${mode}`);
+    if (rounding != 'half') params.push(`rounding: ${rounding}`);
     if (precision > 0) params.push(`precision: ${precision}`);
-    return params.length > 0 ? `${result}, {${params.join(', ')}});` : `${result});`;
-  }, [debounceValue, mode, precision]);
+    return params.length > 0 ? `${result}, { ${params.join(', ')} });` : `${result});`;
+  }, [debounceValue, rounding, precision]);
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default function RoundPage() {
         </Link>
         , <span className="text-params">options?</span>:{' '}
         <Link href="/format-number/types#RoundingConfigType">
-          <span className="font-semibold hover:underline">RoundingConfigType</span>
+          <span className="font-semibold hover:underline">RoundingConfigType</span> = {'{}'}
         </Link>
         ): string
       </div>
@@ -82,7 +82,7 @@ export default function RoundPage() {
           />
         }
       />
-      <TitleBox title="mode" value={<RoundTypeSelect mode={mode} setMode={setMode} />} />
+      <TitleBox title="mode" value={<RoundTypeSelect mode={rounding} setMode={setRounding} />} />
       <TitleBox
         className="mt-2"
         title="precision"
