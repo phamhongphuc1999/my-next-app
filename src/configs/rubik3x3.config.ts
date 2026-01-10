@@ -40,7 +40,7 @@ export const F2LConfig: ConfigType = [
     title: 'Group 5',
     data: [
       { id: '5.1', methods: ["(R U' R' U) (R U' R')"] },
-      { id: '5.2', methods: ["(R U R' U') F R' F' R", "(R U R') 2U' F' U F"] },
+      { id: '5.2', methods: ["(R U R' U') F R' F' R", "(R U R') 2U' F' U F", "F' U F U' F' U F"] },
       { id: '5.3', methods: ["(R U R' U')(R U R')"] },
       { id: '5.4', methods: ["y' (R' U' R U)(R' U' R)", "(F' U' F U)(F' U' F)"] },
     ],
@@ -49,7 +49,7 @@ export const F2LConfig: ConfigType = [
     title: 'Group 6',
     data: [
       { id: '6.1', methods: ["U' (R U R') U2 (R U' R')"] },
-      { id: '6.2', methods: ["d (R' U' R) U2' (R' U R)"] },
+      { id: '6.2', methods: ["d (R' U' R) U2' (R' U R)", "R' U' R U' F' U F"] },
       { id: '6.3', methods: ["U' (R U2' R') U2 (R U' R')"] },
       { id: '6.4', methods: ["d (R' U2 R) U2' (R' U R)"] },
       { id: '6.5', methods: ["(R U' R') d (R' U2 R) U2' (R' U R)"] },

@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 
 export default function StateManagement() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'State management' }}
         breadcrumbProps={{ configs: [{ label: 'Home', link: '/' }, { label: 'State management' }] }}
@@ -25,6 +24,6 @@ export default function StateManagement() {
           3. Pinia (for Vuejs)
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

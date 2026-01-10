@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import BlindEvaluation from 'src/views/snark/BlindEvaluation';
 
 export default function Chapter2() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | Blind Evaluation' }}
         breadcrumbProps={{
@@ -41,6 +40,6 @@ export default function Chapter2() {
           https://electriccoin.co/blog/snark-explain2/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 import FluxArchitecturePage from 'src/views/flux-architecture-page';
 
 export default function FluxArchitecture() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'Flux architecture' }}
         breadcrumbProps={{
@@ -24,6 +23,6 @@ export default function FluxArchitecture() {
           https://www.freecodecamp.org/news/an-introduction-to-the-flux-architectural-pattern-674ea74775c9/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

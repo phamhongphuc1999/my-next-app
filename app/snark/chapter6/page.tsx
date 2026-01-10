@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import Pinocchio from 'src/views/snark/Pinocchio';
 
 export default function Chapter6() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | The Pinocchio Protocol' }}
         breadcrumbProps={{
@@ -41,6 +40,6 @@ export default function Chapter6() {
           https://electriccoin.co/blog/snark-explain6/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

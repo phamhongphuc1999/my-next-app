@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 import MobXPage from 'src/views/state-management-page/MobXPage';
 
 export default function MobX() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'State management | MobX' }}
         breadcrumbProps={{
@@ -42,6 +41,6 @@ export default function MobX() {
           https://medium.com/hackernoon/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

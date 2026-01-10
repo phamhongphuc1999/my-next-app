@@ -1,10 +1,9 @@
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 import SimpleSnarkPage from 'src/views/simple-snark';
 
 export default function SimpleSnark() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'Simple SNARK' }}
         breadcrumbProps={{
@@ -13,6 +12,6 @@ export default function SimpleSnark() {
         tabProps={{ index: 8 }}
       />
       <SimpleSnarkPage />
-    </CommonContainer>
+    </div>
   );
 }

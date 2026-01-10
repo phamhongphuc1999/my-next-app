@@ -12,7 +12,7 @@ interface Props extends DivProps {
 
 export default function TopicHeader({ seoProps = {}, breadcrumbProps, tabProps, ...props }: Props) {
   return (
-    <div {...props} className={cn('my-4', props.className)}>
+    <div {...props} className={cn('container my-4', props.className)}>
       <AppNextSeo {...seoProps} />
       <CssBreadcrumbs {...breadcrumbProps} />
       <TabBox {...tabProps} className={cn('mt-4', tabProps.className)} />

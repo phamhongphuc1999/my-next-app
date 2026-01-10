@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import Computation from 'src/views/snark/Computations';
 
 export default function Chapter5() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | From Computations to Polynomials' }}
         breadcrumbProps={{
@@ -41,6 +40,6 @@ export default function Chapter5() {
           https://electriccoin.co/blog/snark-explain5/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

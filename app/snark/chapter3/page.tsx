@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import KnowledgeCoefficient from 'src/views/snark/KnowledgeCoefficient';
 
 export default function Chapter3() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | The Knowledge of Coefficient Test and Assumption' }}
         breadcrumbProps={{
@@ -41,6 +40,6 @@ export default function Chapter3() {
           https://electriccoin.co/blog/snark-explain3/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

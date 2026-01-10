@@ -1,10 +1,9 @@
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 import EllipticCurveCryptographyPage from 'src/views/elliptic-curve-cryptography';
 
 export default function EllipticCurveCryptography() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'Elliptic Curve Cryptography' }}
         breadcrumbProps={{
@@ -13,6 +12,6 @@ export default function EllipticCurveCryptography() {
         tabProps={{ index: 7 }}
       />
       <EllipticCurveCryptographyPage />
-    </CommonContainer>
+    </div>
   );
 }

@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import MakeBlindEvaluation from 'src/views/snark/MakeBlindEvaluation';
 
 export default function Chapter4() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | How to make Blind Evaluation of Polynomials Verifiable' }}
         breadcrumbProps={{
@@ -41,6 +40,6 @@ export default function Chapter4() {
           https://electriccoin.co/blog/snark-explain4/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

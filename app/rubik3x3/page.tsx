@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 
 export default function Rubik3x3() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'Rubik 3x3' }}
         breadcrumbProps={{
@@ -20,6 +19,6 @@ export default function Rubik3x3() {
           </Link>
         </ArticleLI>
       </ArticleUL>
-    </CommonContainer>
+    </div>
   );
 }

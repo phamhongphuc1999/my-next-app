@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 
 export default function ProxyObject() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'Proxy in Javascript' }}
         breadcrumbProps={{
@@ -22,6 +21,6 @@ export default function ProxyObject() {
           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

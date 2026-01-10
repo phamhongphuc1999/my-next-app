@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { LeftArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import EllipticCurve from 'src/views/snark/EllipticCurve';
 
 export default function Chapter7() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | Pairings of Elliptic Curves' }}
         breadcrumbProps={{
@@ -35,6 +34,6 @@ export default function Chapter7() {
           https://electriccoin.co/blog/snark-explain7/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

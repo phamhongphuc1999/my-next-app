@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import TopicHeader from 'src/components/TopicHeader';
 
 export default function Snark() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK' }}
         breadcrumbProps={{
@@ -35,6 +34,6 @@ export default function Snark() {
           Part 7: Pairings of Elliptic Curves
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }

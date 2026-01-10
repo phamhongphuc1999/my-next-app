@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import CommonContainer from 'src/components/box/CommonContainer';
 import { RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import HomomorphicHidings from 'src/views/snark/HomomorphicHidings';
 
 export default function Chapter1() {
   return (
-    <CommonContainer>
+    <div className="container">
       <TopicHeader
         seoProps={{ title: 'SNARK | Homomorphic Hidings' }}
         breadcrumbProps={{
@@ -35,6 +34,6 @@ export default function Chapter1() {
           https://electriccoin.co/blog/snark-explain/
         </Link>
       </div>
-    </CommonContainer>
+    </div>
   );
 }
