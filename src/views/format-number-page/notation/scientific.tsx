@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
 
@@ -19,14 +20,17 @@ export default function Scientific() {
   }, [debounceValue]);
 
   return (
-    <div>
-      <div id="scientific" className="bg-secondary scroll-mt-20 rounded-sm p-2">
-        <span className="text-keyword">function</span> <span className="text-name">scientific</span>
-        (<span className="text-params">value</span>: string): string
-      </div>
-      <p className="text-muted-foreground mt-2 text-sm">
-        {'Formats a number string using standard scientific notation (e.g., 1.23e+5).'}
-      </p>
+    <ElementItem
+      id="scientific"
+      title={
+        <>
+          <span className="text-keyword">function</span>{' '}
+          <span className="text-name">scientific</span>(<span className="text-params">value</span>:
+          string): string
+        </>
+      }
+      description="Formats a number string using standard scientific notation (e.g., 1.23e+5)."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -59,6 +63,6 @@ export default function Scientific() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }

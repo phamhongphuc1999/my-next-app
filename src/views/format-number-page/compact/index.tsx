@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import RoundTypeSelect from 'src/components/format-number/RoundTypeSelect';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
@@ -32,8 +33,9 @@ export default function CompactPage() {
   }, [debounceValue, rounding, precision]);
 
   return (
-    <div>
-      <div id="compact" className="bg-secondary scroll-mt-20 rounded-sm p-2">
+    <ElementItem
+      id="compact"
+      title={
         <span>
           <span className="text-keyword">function</span> <span className="text-name">compact</span>(
           <span className="text-params">value</span>:{' '}
@@ -46,10 +48,9 @@ export default function CompactPage() {
           </Link>{' '}
           = {'{}'}): string
         </span>
-      </div>
-      <p className="mt-2">
-        {'Formats a number into a short, human-readable string with a suffix (e.g., K, M, B).'}
-      </p>
+      }
+      description="Formats a number into a short, human-readable string with a suffix (e.g., K, M, B)."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -110,6 +111,6 @@ export default function CompactPage() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }

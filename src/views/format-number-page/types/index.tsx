@@ -1,11 +1,10 @@
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
-import { Separator } from 'src/components/shadcn-ui/separator';
-import Item from './item';
+import ElementItem from 'src/components/format-number/ElementItem';
 
 export default function TypesPage() {
   return (
     <div>
-      <Item
+      <ElementItem
         id="NumberType"
         title={
           <span>
@@ -15,8 +14,7 @@ export default function TypesPage() {
         }
         description="Supported input types for number formatting"
       />
-      <Separator className="my-2" />
-      <Item
+      <ElementItem
         id="RoundingMode"
         title={
           <>
@@ -38,9 +36,8 @@ export default function TypesPage() {
             {'banker: Round to the nearest even neighbor (Statistical rounding).'}
           </ArticleLI>
         </ArticleUL>
-      </Item>
-      <Separator className="my-2" />
-      <Item
+      </ElementItem>
+      <ElementItem
         id="NotationMode"
         title={
           <>
@@ -50,8 +47,7 @@ export default function TypesPage() {
         }
         description="Modes for special numerical notation"
       />
-      <Separator className="my-2" />
-      <Item
+      <ElementItem
         id="SignType"
         title={
           <>
@@ -61,8 +57,7 @@ export default function TypesPage() {
         }
         description="Possible sign values for internal number representation"
       />
-      <Separator className="my-2" />
-      <Item
+      <ElementItem
         id="RoundingConfigType"
         description="Configuration for rounding operations"
         title={
@@ -84,9 +79,8 @@ export default function TypesPage() {
             <span className="text-params">precision</span>: Number of decimal places to keep
           </ArticleLI>
         </ArticleUL>
-      </Item>
-      <Separator className="my-2" />
-      <Item
+      </ElementItem>
+      <ElementItem
         id="NumberConfigType"
         description="Configuration for basic number display properties"
         title={
@@ -114,9 +108,8 @@ export default function TypesPage() {
             <span className="text-params">notation</span>: The notation style to apply
           </ArticleLI>
         </ArticleUL>
-      </Item>
-      <Separator className="my-2" />
-      <Item
+      </ElementItem>
+      <ElementItem
         id="ObjectNumberType"
         description="Internal object structure containing full formatting state"
         title={
@@ -135,9 +128,8 @@ export default function TypesPage() {
             notation (e.g., 'K', 'M')
           </ArticleLI>
         </ArticleUL>
-      </Item>
-      <Separator className="my-2" />
-      <Item
+      </ElementItem>
+      <ElementItem
         id="FormattingConfigType"
         description="Full configuration options for the formatNumber function"
         title={
@@ -156,7 +148,85 @@ export default function TypesPage() {
             B, etc.)
           </ArticleLI>
         </ArticleUL>
-      </Item>
+      </ElementItem>
+      <ElementItem
+        id="FNType"
+        title={
+          <p>
+            <span className="text-keyword">type</span> <span className="text-name">FNType</span>{' '}
+            <span>{'= {'}</span>
+            <p className="ml-4">
+              <span className="text-name">round</span>(options?:{' '}
+              <span className="text-name">RoundingConfigType</span>):{' '}
+              <span className="text-name">FNType</span>;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">compact</span>(options?:{' '}
+              <span className="text-name">RoundingConfigType</span>):{' '}
+              <span className="text-name">FNType</span>;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">notation</span>(mode?:{' '}
+              <span className="text-name">NotationMode</span>):{' '}
+              <span className="text-name">FNType</span>;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">prefix</span>(symbol: string):{' '}
+              <span className="text-name">FNType</span>;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">suffix</span>(symbol: string):{' '}
+              <span className="text-name">FNType</span>;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">toNumber</span>(): string;
+            </p>
+            <p className="ml-4">
+              <span className="text-name">toObject</span>():{' '}
+              <span className="text-name">ObjectNumberType</span>;
+            </p>
+            <p>{'};'}</p>
+          </p>
+        }
+        description="Fluent API interface for chainable number formatting operations."
+      >
+        <ArticleUL className="list-disc">
+          <ArticleLI isFirst>
+            <span className="text-name">round</span>
+            {': Rounds the number based on the provided precision and strategy.'}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">compact</span>
+            {': Converts the number to a compact representation (e.g., 1K, 1M, 1B).'}
+            {': '}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">notation</span>
+            {': Sets the notation style for the number (e.g., scientific, subscript).'}
+            {': '}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">prefix</span>
+            {': Adds a prefix to the formatted number string.'}
+            {': '}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">suffix</span>
+            {': Adds a suffix to the formatted number string.'}
+            {': '}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">toNumber</span>
+            {': Finalizes the chain and returns the formatted number as a string.'}
+            {': '}
+          </ArticleLI>
+          <ArticleLI>
+            <span className="text-name">toObject</span>
+            {': Returns the internal state of the number as an ObjectNumberType.'}
+            {': '}
+          </ArticleLI>
+        </ArticleUL>
+      </ElementItem>
     </div>
   );
 }

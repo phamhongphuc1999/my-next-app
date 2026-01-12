@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
 
@@ -19,15 +20,17 @@ export default function TrailingZeroPage() {
   }, [debounceValue]);
 
   return (
-    <div>
-      <div id="clearTrailingZero" className="bg-secondary scroll-mt-20 rounded-sm p-2">
-        <span className="text-keyword">function</span>{' '}
-        <span className="text-name">clearTrailingZero</span>(
-        <span className="text-params">value</span>: string): string
-      </div>
-      <p className="text-muted-foreground mt-2 text-sm">
-        {'Removes redundant leading and trailing zeros from a number string.'}
-      </p>
+    <ElementItem
+      id="clearTrailingZero"
+      title={
+        <>
+          <span className="text-keyword">function</span>{' '}
+          <span className="text-name">clearTrailingZero</span>(
+          <span className="text-params">value</span>: string): string
+        </>
+      }
+      description="Removes redundant leading and trailing zeros from a number string."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -60,6 +63,6 @@ export default function TrailingZeroPage() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }

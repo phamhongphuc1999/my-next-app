@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import RoundTypeSelect from 'src/components/format-number/RoundTypeSelect';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
@@ -29,22 +30,24 @@ export default function RoundPage() {
   }, [debounceValue, rounding, precision]);
 
   return (
-    <div>
-      <div id="round" className="bg-secondary scroll-mt-20 rounded-sm p-2">
-        <span className="text-keyword">function</span> <span className="text-name">round</span>(
-        <span className="text-params">value</span>:{' '}
-        <Link href="/format-number/types#NumberType">
-          <span className="font-semibold hover:underline">NumberType</span>
-        </Link>
-        , <span className="text-params">options?</span>:{' '}
-        <Link href="/format-number/types#RoundingConfigType">
-          <span className="font-semibold hover:underline">RoundingConfigType</span> = {'{}'}
-        </Link>
-        ): string
-      </div>
-      <p className="mt-2">
-        {'Rounds a number based on the specified precision and rounding mode.'}
-      </p>
+    <ElementItem
+      id="round"
+      title={
+        <>
+          <span className="text-keyword">function</span> <span className="text-name">round</span>(
+          <span className="text-params">value</span>:{' '}
+          <Link href="/format-number/types#NumberType">
+            <span className="font-semibold hover:underline">NumberType</span>
+          </Link>
+          , <span className="text-params">options?</span>:{' '}
+          <Link href="/format-number/types#RoundingConfigType">
+            <span className="font-semibold hover:underline">RoundingConfigType</span> = {'{}'}
+          </Link>
+          ): string
+        </>
+      }
+      description="Rounds a number based on the specified precision and rounding mode."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -105,6 +108,6 @@ export default function RoundPage() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }

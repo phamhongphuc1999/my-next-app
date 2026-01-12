@@ -1,4 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from 'src/lib/utils';
 import {
   Sidebar,
   SidebarContent,
@@ -21,19 +25,24 @@ const items = [
 ];
 
 export default function FNSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup className="pt-[55px]">
           <SidebarGroupLabel>
-            <Link href="/format-number" className="text-xl uppercase">
+            <Link href="/format-number" className="mt-4 text-xl uppercase">
               Documentation
             </Link>
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="mt-4">
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem
+                  key={item.title}
+                  className={cn(item.url.includes(pathname) && 'bg-sidebar-accent rounded-md')}
+                >
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <span>{item.title}</span>

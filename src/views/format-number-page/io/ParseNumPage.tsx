@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
 
@@ -20,20 +21,20 @@ export default function ParseNumPage() {
   }, [debounceValue]);
 
   return (
-    <div>
-      <div id="parseNum" className="bg-secondary scroll-mt-20 rounded-sm p-2">
-        <span className="text-keyword">function</span> <span className="text-name">parseNum</span>(
-        <span className="text-params">value</span>:{' '}
-        <Link href="/format-number/types#NumberType">
-          <span className="font-semibold hover:underline">NumberType</span>
-        </Link>
-        ): string
-      </div>
-      <p className="text-muted-foreground mt-2 text-sm">
-        {
-          'Parses various input formats into a standard decimal string. Supports currencies ($€£¥), commas, underscores, scientific notation (e+), and custom subscript notation.'
-        }
-      </p>
+    <ElementItem
+      id="parseNum"
+      title={
+        <>
+          <span className="text-keyword">function</span> <span className="text-name">parseNum</span>
+          (<span className="text-params">value</span>:{' '}
+          <Link href="/format-number/types#NumberType">
+            <span className="font-semibold hover:underline">NumberType</span>
+          </Link>
+          ): string
+        </>
+      }
+      description="Parses various input formats into a standard decimal string. Supports currencies ($€£¥), commas, underscores, scientific notation (e+), and custom subscript notation."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -69,6 +70,6 @@ export default function ParseNumPage() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }

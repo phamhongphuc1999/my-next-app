@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
+import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
 
@@ -19,16 +20,17 @@ export default function Subscript() {
   }, [debounceValue]);
 
   return (
-    <div>
-      <div id="subscript" className="bg-secondary scroll-mt-20 rounded-sm p-2">
-        <span className="text-keyword">function</span> <span className="text-name">subscript</span>(
-        <span className="text-params">value</span>: string): string
-      </div>
-      <p className="text-muted-foreground mt-2 text-sm">
-        {
-          'Formats the decimal part of small numbers using subscript characters to represent leading zeros (e.g., 0.0₄123).'
-        }
-      </p>
+    <ElementItem
+      id="subscript"
+      title={
+        <>
+          <span className="text-keyword">function</span>{' '}
+          <span className="text-name">subscript</span>(<span className="text-params">value</span>:
+          string): string
+        </>
+      }
+      description="Formats the decimal part of small numbers using subscript characters to represent leading zeros (e.g., 0.0₄123)."
+    >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">
         <ArticleLI isFirst>
@@ -61,6 +63,6 @@ export default function Subscript() {
         <p>{fnText}</p>
         <p>{`Result: ${result}`}</p>
       </div>
-    </div>
+    </ElementItem>
   );
 }
