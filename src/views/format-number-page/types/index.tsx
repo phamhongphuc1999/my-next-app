@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import ElementItem from 'src/components/format-number/ElementItem';
 
@@ -224,6 +225,26 @@ export default function TypesPage() {
             <span className="text-name">toObject</span>
             {': Returns the internal state of the number as an ObjectNumberType.'}
             {': '}
+          </ArticleLI>
+        </ArticleUL>
+      </ElementItem>
+      <ElementItem
+        id="ParseNumberParamsType"
+        title={
+          <>
+            <span className="text-keyword">type</span>{' '}
+            <span className="text-name">ParseNumberParamsType</span>
+            {' = Partial<{ '}
+            <span className="text-params">fallback</span>
+            {': string; }>'}
+          </>
+        }
+        description="Configuration for input parsing"
+      >
+        <ArticleUL className="list-disc">
+          <ArticleLI isFirst>
+            <span className="text-params">fallback</span>:{' '}
+            {"Value to return if parsing fails. Default is '--'"}
           </ArticleLI>
         </ArticleUL>
       </ElementItem>

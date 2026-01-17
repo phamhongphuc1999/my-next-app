@@ -39,7 +39,7 @@ export default function RoundPage() {
           <Link href="/format-number/types#NumberType">
             <span className="font-semibold hover:underline">NumberType</span>
           </Link>
-          , <span className="text-params">options?</span>:{' '}
+          , <span className="text-params">options</span>:{' '}
           <Link href="/format-number/types#RoundingConfigType">
             <span className="font-semibold hover:underline">RoundingConfigType</span> = {'{}'}
           </Link>

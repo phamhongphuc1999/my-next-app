@@ -30,6 +30,10 @@ export default function ParseNumPage() {
           <Link href="/format-number/types#NumberType">
             <span className="font-semibold hover:underline">NumberType</span>
           </Link>
+          , <span className="text-params">options</span>:{' '}
+          <Link href="/format-number/types#ParseNumberParamsType">
+            <span className="font-semibold hover:underline">ParseNumberParamsType</span> = {'{}'}
+          </Link>
           ): string
         </>
       }

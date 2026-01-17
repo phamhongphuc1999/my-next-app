@@ -1,4 +1,9 @@
-import { clearTrailingZero } from '@peter-present/format-number';
+/* eslint-disable quotes */
+import {
+  clearLeadingZero,
+  clearTrailingZero,
+  clearUnnecessaryZero,
+} from '@peter-present/format-number';
 import { useMemo, useState } from 'react';
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import TitleBox from 'src/components/box/TitleBox';
@@ -7,29 +12,55 @@ import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
 import { useDebounceValue } from 'usehooks-ts';
 
-export default function TrailingZeroPage() {
+type ModeType = 'leading' | 'trailing' | 'unnecessary';
+
+interface Props {
+  mode: 'leading' | 'trailing' | 'unnecessary';
+}
+
+const configs: {
+  [key in ModeType]: { fn: (value: string) => string; title: string; description: string };
+} = {
+  leading: {
+    fn: clearLeadingZero,
+    title: 'clearLeadingZero',
+    description: "Removes leading zeros from a string (e.g., '005' -> '5').",
+  },
+  trailing: {
+    fn: clearTrailingZero,
+    title: 'clearTrailingZero',
+    description: "Removes trailing zeros from a decimal string (e.g., '1.500' -> '1.5').",
+  },
+  unnecessary: {
+    fn: clearUnnecessaryZero,
+    title: 'clearUnnecessaryZero',
+    description: 'Removes redundant leading and trailing zeros from a number string.',
+  },
+};
+
+export default function ZeroPage({ mode }: Props) {
   const [value, setValue] = useState('0');
   const [debounceValue] = useDebounceValue(value, 500);
 
   const result = useMemo(() => {
-    return clearTrailingZero(debounceValue);
-  }, [debounceValue]);
+    return configs[mode].fn(debounceValue);
+  }, [debounceValue, mode]);
 
   const fnText = useMemo(() => {
-    return `clearTrailingZero(${debounceValue})`;
-  }, [debounceValue]);
+    return `${configs[mode].title}(${debounceValue})`;
+  }, [debounceValue, mode]);
 
   return (
     <ElementItem
-      id="clearTrailingZero"
+      id={`${configs[mode].title}`}
       title={
         <>
           <span className="text-keyword">function</span>{' '}
-          <span className="text-name">clearTrailingZero</span>(
+          <span className="text-name">clearLeadingZero</span>(
           <span className="text-params">value</span>: string): string
         </>
       }
-      description="Removes redundant leading and trailing zeros from a number string."
+      description={configs[mode].description}
     >
       <p className="my-4 text-lg font-bold">Params</p>
       <ArticleUL className="list-disc">

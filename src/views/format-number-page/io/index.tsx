@@ -1,13 +1,15 @@
 'use client';
 
 import ParseNumPage from './ParseNumPage';
-import TrailingZeroPage from './TrailingZeroPage';
+import ZeroPage from './ZeroPage';
 
 export default function IOPage() {
   return (
     <div>
       <ParseNumPage />
-      <TrailingZeroPage />
+      <ZeroPage mode="trailing" />
+      <ZeroPage mode="leading" />
+      <ZeroPage mode="unnecessary" />
     </div>
   );
 }
