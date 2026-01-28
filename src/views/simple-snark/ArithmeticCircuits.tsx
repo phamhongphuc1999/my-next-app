@@ -15,7 +15,7 @@ export default function ArithmeticCircuits() {
       </AppArticle>
       <FigureBox
         id="arithmetic-circuit"
-        src="images/arithmetic-circuit.png"
+        src="/images/arithmetic-circuit.png"
         alt="arithmetic-circuit"
         title="The arithmetic circuit of the computation: $f = (c_1c_2)+(c_1 + c_3)$"
       />
