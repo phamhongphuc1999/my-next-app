@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import { ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import ElementItem from 'src/components/format-number/ElementItem';

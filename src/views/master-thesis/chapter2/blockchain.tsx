@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import BlockchainImg from 'public/images/master-thesis/chapter2/blockchain-structure.png';
 import UnspentImg from 'public/images/master-thesis/chapter2/unspent-transaction-model.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';

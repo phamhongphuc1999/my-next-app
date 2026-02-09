@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import {
   Table,

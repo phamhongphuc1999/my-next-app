@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import { AppArticle } from 'src/components/box/ArticleBox';
 import SectionBox from 'src/components/Thesis/SectionBox';
 
-export default function Section1_1() {
+export default function Section1Sub1() {
   return (
     <SectionBox id="section1_1" title="Motivation">
       <AppArticle isFirst>

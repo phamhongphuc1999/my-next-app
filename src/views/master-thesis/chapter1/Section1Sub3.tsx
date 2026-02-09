@@ -1,7 +1,7 @@
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import SectionBox from 'src/components/Thesis/SectionBox';
 
-export default function Section1_3() {
+export default function Section1Sub3() {
   return (
     <SectionBox id="section1_3" title="Thesis Organization">
       <AppArticle isFirst>The rest of this thesis is organized as follows:</AppArticle>

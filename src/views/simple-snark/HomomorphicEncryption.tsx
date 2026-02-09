@@ -4,7 +4,7 @@ import EquationBox from 'src/components/Thesis/EquationBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
 
-export default function HH() {
+export default function HomomorphicEncryption() {
   return (
     <SectionBox id="hh" title="Homomorphic Encryption and Blind Polynomial Evaluation">
       <AppArticle isMath>

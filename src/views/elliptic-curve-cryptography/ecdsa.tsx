@@ -4,7 +4,7 @@ import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
 import CurveImg from 'public/images/elliptic-curve/elliptic-curve.png';
 
-export default function ECDSA() {
+export default function Ecdsa() {
   return (
     <SectionBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
       <ImageBox src={CurveImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />

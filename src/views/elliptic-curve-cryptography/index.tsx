@@ -4,7 +4,7 @@ import { AppArticle } from 'src/components/box/ArticleBox';
 import CiteBox from 'src/components/Thesis/CiteBox';
 import ThesisConfigProvider from 'src/context/ThesisConfigContext';
 import BabyJubjub from './babyjubjub';
-import ECDSA from './ecdsa';
+import Ecdsa from './ecdsa';
 import Ed25519 from './ed25519';
 import Eddsa from './eddsa';
 
@@ -31,7 +31,7 @@ export default function EllipticCurveCryptographyPage() {
             '$\\lambda = \\frac{y_2 - y_1}{x_2 - x_1}, x_3 = \\lambda^2 - x_1 - x_2, y_3 = \\lambda^2(x_1 - x_3) - y_1$'
           }
         </AppArticle>
-        <ECDSA />
+        <Ecdsa />
         <Eddsa />
         <Ed25519 />
         <BabyJubjub />

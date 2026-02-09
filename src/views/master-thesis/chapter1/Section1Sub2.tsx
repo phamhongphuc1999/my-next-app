@@ -4,7 +4,7 @@ import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox'
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
 
-export default function Section1_2() {
+export default function Section1Sub2() {
   return (
     <SectionBox id="section1_2" title="Our Contributions">
       <AppArticle isFirst>

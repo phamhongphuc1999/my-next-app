@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
 import { FN, RoundingMode } from '@peter-present/format-number';

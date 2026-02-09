@@ -7,7 +7,7 @@ export default function F2lView() {
     <div>
       {F2LConfig.map((group) => {
         return (
-          <div className="mt-20">
+          <div key={group.title} className="mt-20">
             <p className="text-2xl font-bold">{group.title}</p>
             <div className="mt-3 flex flex-wrap gap-5">
               {group.data.map((item, index) => {

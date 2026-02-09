@@ -4,7 +4,7 @@ import EquationBox from 'src/components/Thesis/EquationBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
 
-export default function ECP() {
+export default function EllipticCurvePairing() {
   return (
     <SectionBox id="ecp" title="Pairing-Based Cryptography and Elliptic Curve Pairings">
       <AppArticle isMath>

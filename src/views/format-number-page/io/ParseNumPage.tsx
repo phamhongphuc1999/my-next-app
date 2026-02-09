@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { parseNum } from '@peter-present/format-number';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
