@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import EllipticCurve from 'src/views/snark/EllipticCurve';
 
+export const metadata: Metadata = {
+  title: 'SNARK | Pairings of Elliptic Curves',
+};
+
 export default function Chapter7() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | Pairings of Elliptic Curves' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import MakeBlindEvaluation from 'src/views/snark/MakeBlindEvaluation';
 
+export const metadata: Metadata = {
+  title: 'SNARK | How to make Blind Evaluation of Polynomials Verifiable',
+};
+
 export default function Chapter4() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | How to make Blind Evaluation of Polynomials Verifiable' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

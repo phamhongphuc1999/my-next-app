@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'Proxy in Javascript',
+};
 
 export default function ProxyObject() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'Proxy in Javascript' }}
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Proxy in Javascript' }],
         }}

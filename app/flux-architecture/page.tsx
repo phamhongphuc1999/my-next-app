@@ -1,12 +1,16 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
 import FluxArchitecturePage from 'src/views/flux-architecture-page';
+
+export const metadata: Metadata = {
+  title: 'Flux architecture',
+};
 
 export default function FluxArchitecture() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'Flux architecture' }}
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Flux architecture' }],
         }}

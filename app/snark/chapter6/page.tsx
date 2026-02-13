@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import Pinocchio from 'src/views/snark/Pinocchio';
 
+export const metadata: Metadata = {
+  title: 'SNARK | The Pinocchio Protocol',
+};
+
 export default function Chapter6() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | The Pinocchio Protocol' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

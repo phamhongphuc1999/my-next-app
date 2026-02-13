@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import TopicHeader from 'src/components/TopicHeader';
 import EllipticCurveCryptographyPage from 'src/views/elliptic-curve-cryptography';
+
+export const metadata: Metadata = {
+  title: 'Elliptic Curve Cryptography',
+};
 
 export default function EllipticCurveCryptography() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'Elliptic Curve Cryptography' }}
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Elliptic Curve Cryptography' }],
         }}

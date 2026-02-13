@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'SNARK',
+};
 
 export default function Snark() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK' }}
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'SNARK' }],
         }}

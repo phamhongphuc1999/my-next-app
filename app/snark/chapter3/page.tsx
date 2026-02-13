@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import KnowledgeCoefficient from 'src/views/snark/KnowledgeCoefficient';
 
+export const metadata: Metadata = {
+  title: 'SNARK | The Knowledge of Coefficient Test and Assumption',
+};
+
 export default function Chapter3() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | The Knowledge of Coefficient Test and Assumption' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

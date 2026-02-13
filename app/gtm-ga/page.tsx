@@ -1,9 +1,13 @@
+import { Metadata } from 'next';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'Google tab manager and Google analytic',
+};
 
 export default function GtmGa() {
   return (
     <TopicHeader
-      seoProps={{ title: 'Google tab manager and Google analytic' }}
       breadcrumbProps={{
         configs: [
           { label: 'Home', link: '/' },

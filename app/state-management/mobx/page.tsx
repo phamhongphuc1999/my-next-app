@@ -1,12 +1,16 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
 import MobXPage from 'src/views/state-management-page/MobXPage';
+
+export const metadata: Metadata = {
+  title: 'State management | MobX',
+};
 
 export default function MobX() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'State management | MobX' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

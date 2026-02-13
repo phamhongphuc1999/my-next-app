@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'setTimeout and setInterval',
+};
 
 export default function JsTimeoutAndInterval() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'setTimeout and setInterval' }}
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'setTimeout and setInterval' }],
         }}

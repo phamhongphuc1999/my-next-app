@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import HomomorphicHidings from 'src/views/snark/HomomorphicHidings';
 
+export const metadata: Metadata = {
+  title: 'SNARK | Homomorphic Hidings',
+};
+
 export default function Chapter1() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | Homomorphic Hidings' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

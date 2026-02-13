@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'State management',
+};
 
 export default function StateManagement() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'State management' }}
         breadcrumbProps={{ configs: [{ label: 'Home', link: '/' }, { label: 'State management' }] }}
         tabProps={{ index: 1 }}
       />

@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import BlindEvaluation from 'src/views/snark/BlindEvaluation';
 
+export const metadata: Metadata = {
+  title: 'SNARK | Blind Evaluation',
+};
+
 export default function Chapter2() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | Blind Evaluation' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

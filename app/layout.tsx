@@ -1,43 +1,59 @@
-'use client';
-
-import { MathJaxContext } from 'better-react-mathjax';
+import { Metadata } from 'next';
 import { Fira_Code } from 'next/font/google';
-import { ReactNode, useEffect } from 'react';
-import LayoutWrapper from 'src/components/LayoutWrapper';
-import { MetadataHead } from 'src/components/MetadataHead';
+import { ReactNode } from 'react';
+import { Providers } from 'src/components/Providers';
+import { ThemeScript } from 'src/components/ThemeScript';
 import { GoogleTagManager } from 'src/components/analytics/GoogleTagManager';
-import { LS } from 'src/configs/constance';
-import { mathJaxConfig } from 'src/configs/mathJaxConfig';
-import { LocalStorage } from 'src/services';
+import { siteMetadata } from 'src/configs/siteMetadata';
 import 'src/styles/globals.css';
 
 const firaCode = Fira_Code({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: {
+    template: `%s | ${siteMetadata.siteName}`,
+    default: siteMetadata.title,
+  },
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  metadataBase: new URL(siteMetadata.url),
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    url: siteMetadata.url,
+    siteName: siteMetadata.siteName,
+    images: [
+      {
+        url: siteMetadata.image,
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: `@${siteMetadata.twitterHandle}`,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [siteMetadata.image],
+  },
+  icons: {
+    icon: siteMetadata.icon,
+  },
+};
 
 interface Props {
   children: ReactNode;
 }
 
 export default function RootLayout({ children }: Props) {
-  useEffect(() => {
-    const theme = LocalStorage.get(LS.THEME) || 'dark';
-    LocalStorage.set(LS.THEME, theme);
-    document.body.dataset.theme = theme;
-    if (theme == 'dark') document.documentElement.classList.toggle('dark');
-    else document.documentElement.classList.remove('dark');
-  }, []);
-
   return (
-    <html lang="en">
-      <MetadataHead />
-      <body data-theme="light" className={`${firaCode.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body className={`${firaCode.className} antialiased`}>
         <GoogleTagManager id="GTM-NDT23XFV" />
-        <MathJaxContext
-          version={2}
-          config={mathJaxConfig}
-          onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
-        >
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </MathJaxContext>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

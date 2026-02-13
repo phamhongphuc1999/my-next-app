@@ -1,13 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import Computation from 'src/views/snark/Computations';
 
+export const metadata: Metadata = {
+  title: 'SNARK | From Computations to Polynomials',
+};
+
 export default function Chapter5() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'SNARK | From Computations to Polynomials' }}
         breadcrumbProps={{
           configs: [
             { label: 'Home', link: '/' },

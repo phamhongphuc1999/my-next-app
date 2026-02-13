@@ -1,11 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import TopicHeader from 'src/components/TopicHeader';
+
+export const metadata: Metadata = {
+  title: 'Event loop',
+};
 
 export default function EventLoop() {
   return (
     <div className="container">
       <TopicHeader
-        seoProps={{ title: 'Event loop' }}
         breadcrumbProps={{ configs: [{ label: 'Home', link: '/' }, { label: 'Event loop' }] }}
         tabProps={{ index: 3 }}
       />

@@ -1,12 +1,15 @@
-import AppNextSeo from 'src/components/AppNextSeo';
+import { Metadata } from 'next';
 import CssBreadcrumbs from 'src/components/CssBreadcrumbs';
 import { Separator } from 'src/components/shadcn-ui/separator';
 import IOPage from 'src/views/format-number-page/io';
 
+export const metadata: Metadata = {
+  title: 'Format number | IO',
+};
+
 export default function Format() {
   return (
     <div className="container">
-      <AppNextSeo title="Format number | IO" />
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'io' }]}
       />
