@@ -1,7 +1,8 @@
 'use client';
 
-import { Copy, IconProps } from 'iconsax-reactjs';
+import { Copy } from 'lucide-react';
 import { ComponentProps, MouseEvent, useState } from 'react';
+import { IconProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 import { CheckIcon } from './icons';
 

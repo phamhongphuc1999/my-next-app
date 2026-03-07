@@ -1,6 +1,6 @@
 'use client';
 
-import { SearchNormal1 } from 'iconsax-reactjs';
+import { Search } from 'lucide-react';
 import { useState } from 'react';
 import { useDebounceValue } from 'usehooks-ts';
 import ThemeButton from '../buttons/ThemeButton';
@@ -26,7 +26,7 @@ export default function Header() {
         <DialogTrigger className="w-1/6 cursor-pointer">
           <BaseInput
             name="search"
-            icon={{ start: <SearchNormal1 size={14} /> }}
+            icon={{ start: <Search size={14} /> }}
             rootprops={{ className: 'w-full' }}
             readOnly
           />

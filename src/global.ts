@@ -1,7 +1,9 @@
-import { ComponentProps } from 'react';
+import { LucideProps } from 'lucide-react';
+import { ComponentProps, RefAttributes } from 'react';
 
 export type DivProps = ComponentProps<'div'>;
 export type AppSvgProps = ComponentProps<'svg'>;
+export type IconProps = Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>;
 
 export type ThemeMode = 'dark' | 'light';
 export type TabType =
