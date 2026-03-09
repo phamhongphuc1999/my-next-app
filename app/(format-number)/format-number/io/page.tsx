@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function Format() {
   return (
-    <div className="container">
+    <>
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'io' }]}
       />
       <Separator className="my-2" />
       <IOPage />
-    </div>
+    </>
   );
 }

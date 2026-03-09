@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Snark() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'SNARK' }],
@@ -38,6 +38,6 @@ export default function Snark() {
           Part 7: Pairings of Elliptic Curves
         </Link>
       </div>
-    </div>
+    </>
   );
 }

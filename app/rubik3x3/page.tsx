@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Rubik3x3() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Rubik 3x3' }],
@@ -23,6 +23,6 @@ export default function Rubik3x3() {
           </Link>
         </ArticleLI>
       </ArticleUL>
-    </div>
+    </>
   );
 }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ProxyObject() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Proxy in Javascript' }],
@@ -25,6 +25,6 @@ export default function ProxyObject() {
           https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
         </Link>
       </div>
-    </div>
+    </>
   );
 }

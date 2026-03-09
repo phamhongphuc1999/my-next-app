@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function F2L() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [
@@ -20,6 +20,6 @@ export default function F2L() {
         tabProps={{ index: 9 }}
       />
       <F2lView />
-    </div>
+    </>
   );
 }

@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function Compact() {
   return (
-    <div className="container">
+    <>
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'compact' }]}
       />
       <Separator className="my-2" />
       <CompactPage />
-    </div>
+    </>
   );
 }

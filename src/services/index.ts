@@ -1,5 +1,3 @@
-import { LS } from 'src/configs/constance';
-
 type SBase = {
   toString: () => string;
 };
@@ -21,12 +19,4 @@ export class LocalStorage {
 
 export function capitalizeFirstLetter(val: string) {
   return val.charAt(0).toUpperCase() + val.slice(1);
-}
-
-export function switchTheme() {
-  const newTheme = LocalStorage.get(LS.THEME) == 'dark' ? 'light' : 'dark';
-  LocalStorage.set(LS.THEME, newTheme);
-  document.body.dataset.theme = newTheme;
-  if (newTheme == 'dark') document.documentElement.classList.toggle('dark');
-  else document.documentElement.classList.remove('dark');
 }

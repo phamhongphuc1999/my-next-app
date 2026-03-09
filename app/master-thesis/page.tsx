@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function MasterThesis() {
   return (
-    <div className="container">
+    <>
       <div className="my-4">
         <CssBreadcrumbs configs={[{ label: 'Home', link: '/' }, { label: 'Master Thesis' }]} />
         <SpecialTabBox
@@ -18,6 +18,6 @@ export default function MasterThesis() {
         />
       </div>
       <MasterThesisPage />
-    </div>
+    </>
   );
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Chapter1() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [
@@ -38,6 +38,6 @@ export default function Chapter1() {
           https://electriccoin.co/blog/snark-explain/
         </Link>
       </div>
-    </div>
+    </>
   );
 }

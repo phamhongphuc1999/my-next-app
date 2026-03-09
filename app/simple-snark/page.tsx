@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function SimpleSnark() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Simple SNARK' }],
@@ -16,6 +16,6 @@ export default function SimpleSnark() {
         tabProps={{ index: 8 }}
       />
       <SimpleSnarkPage />
-    </div>
+    </>
   );
 }

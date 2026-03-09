@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function MobX() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [
@@ -45,6 +45,6 @@ export default function MobX() {
           https://medium.com/hackernoon/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254
         </Link>
       </div>
-    </div>
+    </>
   );
 }

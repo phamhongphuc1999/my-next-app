@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function FormatNumber() {
   return (
-    <div className="container">
+    <>
       <CssBreadcrumbs configs={[{ label: 'Format number' }]} />
       <GettingStartedPage />
-    </div>
+    </>
   );
 }

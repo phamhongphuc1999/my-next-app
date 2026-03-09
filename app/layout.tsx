@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
 import { Providers } from 'src/components/Providers';
-import { ThemeScript } from 'src/components/ThemeScript';
+import RootAppLayout from 'src/components/RootAppLayout';
 import { GoogleTagManager } from 'src/components/analytics/GoogleTagManager';
 import { siteMetadata } from 'src/configs/siteMetadata';
 import 'src/styles/globals.css';
@@ -48,12 +48,11 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <ThemeScript />
-      </head>
       <body className={`${firaCode.className} antialiased`}>
         <GoogleTagManager id="GTM-NDT23XFV" />
-        <Providers>{children}</Providers>
+        <Providers>
+          <RootAppLayout>{children}</RootAppLayout>
+        </Providers>
       </body>
     </html>
   );

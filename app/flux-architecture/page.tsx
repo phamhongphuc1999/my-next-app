@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function FluxArchitecture() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Flux architecture' }],
@@ -27,6 +27,6 @@ export default function FluxArchitecture() {
           https://www.freecodecamp.org/news/an-introduction-to-the-flux-architectural-pattern-674ea74775c9/
         </Link>
       </div>
-    </div>
+    </>
   );
 }

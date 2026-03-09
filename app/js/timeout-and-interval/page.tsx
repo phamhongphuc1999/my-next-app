@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function JsTimeoutAndInterval() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'setTimeout and setInterval' }],
@@ -20,6 +20,6 @@ export default function JsTimeoutAndInterval() {
           'In Js, $\\textbf{setTimeout}$ and $\\textbf{setInterval}$ are asynchronous functions provided by brower (or Nodejs) that allow executing code non-blocking.'
         }
       </AppArticle>
-    </div>
+    </>
   );
 }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function StateManagement() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{ configs: [{ label: 'Home', link: '/' }, { label: 'State management' }] }}
         tabProps={{ index: 1 }}
@@ -28,6 +28,6 @@ export default function StateManagement() {
           3. Pinia (for Vuejs)
         </Link>
       </div>
-    </div>
+    </>
   );
 }

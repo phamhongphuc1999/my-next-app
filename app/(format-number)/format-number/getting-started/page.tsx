@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function GettingStarted() {
   return (
-    <div className="container">
+    <>
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'Getting started' }]}
       />
       <Separator className="my-2" />
       <GettingStartedPage />
-    </div>
+    </>
   );
 }

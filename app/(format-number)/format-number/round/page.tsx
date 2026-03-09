@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function Round() {
   return (
-    <div className="container">
+    <>
       <CssBreadcrumbs
         configs={[{ label: 'Format number', link: '/format-number' }, { label: 'round' }]}
       />
       <Separator className="my-2" />
       <RoundPage />
-    </div>
+    </>
   );
 }

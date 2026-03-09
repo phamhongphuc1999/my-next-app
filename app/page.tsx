@@ -10,10 +10,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <Suspense>
-      <div className="container">
-        <CssBreadcrumbs configs={[{ label: 'Home' }]} className="mb-4" />
-        <HomePage />
-      </div>
+      <CssBreadcrumbs configs={[{ label: 'Home' }]} className="mb-4" />
+      <HomePage />
     </Suspense>
   );
 }

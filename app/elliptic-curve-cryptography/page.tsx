@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function EllipticCurveCryptography() {
   return (
-    <div className="container">
+    <>
       <TopicHeader
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Elliptic Curve Cryptography' }],
@@ -16,6 +16,6 @@ export default function EllipticCurveCryptography() {
         tabProps={{ index: 7 }}
       />
       <EllipticCurveCryptographyPage />
-    </div>
+    </>
   );
 }
