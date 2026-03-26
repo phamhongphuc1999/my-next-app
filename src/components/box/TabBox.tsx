@@ -1,5 +1,5 @@
 import { ReferenceConfig } from 'src/configs/layout.config';
-import { DivProps, TabType } from 'src/global';
+import { DivProps, ReferenceType, TabType } from 'src/global';
 import { cn } from 'src/lib/utils';
 import { Badge } from '../shadcn-ui/badge';
 
@@ -22,9 +22,9 @@ export function SpecialTabBox({ tabs, ...props }: SpecialTabBoxProps) {
 }
 
 export interface TabBoxProps extends DivProps {
-  index: number;
+  referenceId: ReferenceType;
 }
 
-export default function TabBox({ index, ...props }: TabBoxProps) {
-  return <SpecialTabBox tabs={ReferenceConfig[index].tabs} {...props} />;
+export default function TabBox({ referenceId, ...props }: TabBoxProps) {
+  return <SpecialTabBox tabs={ReferenceConfig[referenceId].tabs} {...props} />;
 }

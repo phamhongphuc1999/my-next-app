@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
-import { Providers } from 'src/components/Providers';
-import RootAppLayout from 'src/components/RootAppLayout';
+import RootAppLayout from 'src/components/Layouts/RootAppLayout';
 import { GoogleTagManager } from 'src/components/analytics/GoogleTagManager';
 import { siteMetadata } from 'src/configs/siteMetadata';
 import 'src/styles/globals.css';
@@ -50,9 +49,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${firaCode.className} antialiased`}>
         <GoogleTagManager id="GTM-NDT23XFV" />
-        <Providers>
-          <RootAppLayout>{children}</RootAppLayout>
-        </Providers>
+        <RootAppLayout>{children}</RootAppLayout>
       </body>
     </html>
   );

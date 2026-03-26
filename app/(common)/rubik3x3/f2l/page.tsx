@@ -1,0 +1,26 @@
+import { Metadata } from 'next';
+import TopicHeader from 'src/components/TopicHeader';
+import { ReferenceType } from 'src/global';
+import F2lView from 'src/views/rubik3x3/F2lView';
+
+export const metadata: Metadata = {
+  title: 'Rubik 3x3 | F2L',
+};
+
+export default function F2L() {
+  return (
+    <>
+      <TopicHeader
+        breadcrumbProps={{
+          configs: [
+            { label: 'Home', link: '/' },
+            { label: 'Rubik 3x3', link: '/rubik3x3' },
+            { label: 'f2l' },
+          ],
+        }}
+        tabProps={{ referenceId: ReferenceType.rubik3x3 }}
+      />
+      <F2lView />
+    </>
+  );
+}

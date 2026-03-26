@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, AnimatePresence } from 'motion/react';
 import { Check, ChevronsUpDown, Search, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Fragment, useMemo, useState } from 'react';
@@ -30,12 +30,12 @@ export default function HomePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const searchParams = useSearchParams();
   const router = useRouter();
-  const selectedId = searchParams.get('tab') as TabType | undefined;
+  const selectedId = searchParams.get('tab') as TabType | null;
   const [debouncedText] = useDebounceValue(searchText, 500);
 
-  function setQuery(key: string, value?: string) {
+  function setQuery(key: string, value?: TabType) {
     const current = new URLSearchParams(searchParams.toString());
-    if (value && value !== 'all') current.set(key, value);
+    if (value && value != TabType.all) current.set(key, value.toString());
     else current.delete(key);
     router.push(`?${current.toString()}`);
   }
@@ -46,9 +46,10 @@ export default function HomePage() {
   }
 
   const filteredTopics = useMemo(() => {
-    if (debouncedText.length == 0) return ReferenceConfig;
+    const configs = Object.values(ReferenceConfig);
+    if (debouncedText.length == 0) return configs;
     const lowFilterText = debouncedText.toLowerCase();
-    return ReferenceConfig.filter((topic) => {
+    return configs.filter((topic) => {
       if (topic.title.toLowerCase().includes(lowFilterText)) return true;
       else return false;
     });
@@ -74,7 +75,7 @@ export default function HomePage() {
     return Math.ceil(filteredTabTopics.length / ITEMS_PER_PAGE);
   }, [filteredTabTopics]);
 
-  function onSelectTab(id: TabType | 'all') {
+  function onSelectTab(id: TabType) {
     setQuery('tab', id);
     setOpen(false);
     setCurrentPage(1);
@@ -82,12 +83,7 @@ export default function HomePage() {
 
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemAnim = {
@@ -134,7 +130,7 @@ export default function HomePage() {
                 <CommandList>
                   <CommandEmpty>No category found.</CommandEmpty>
                   <CommandGroup>
-                    <CommandItem value="all" onSelect={() => onSelectTab('all')}>
+                    <CommandItem value="all" onSelect={() => onSelectTab(TabType.all)}>
                       All categories
                       <Check className={cn('ml-auto', !selectedId ? 'opacity-100' : 'opacity-0')} />
                     </CommandItem>

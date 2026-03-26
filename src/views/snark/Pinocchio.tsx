@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 import Link from 'next/link';

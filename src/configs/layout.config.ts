@@ -1,52 +1,42 @@
-import { TabListType, TopicType } from 'src/global';
+import { ReferenceType, TabListType, TabType, TopicType } from 'src/global';
 
 export const TabConfig: TabListType = {
-  all: { id: 'all', title: 'All' },
-  frontend: { id: 'frontend', title: 'Frontend' },
-  'zero-knowledge-proof': { id: 'zero-knowledge-proof', title: 'Zero-knowledge proofs' },
-  javascript: { id: 'javascript', title: 'js' },
-  'state-management': { id: 'state-management', title: 'State management' },
-  architecture: { id: 'architecture', title: 'Architecture' },
-  seo: { id: 'seo', title: 'SEO' },
-  'elliptic-curve': { id: 'elliptic-curve', title: 'Elliptic Curve' },
-  'account-abstraction': { id: 'account-abstraction', title: 'Account abstraction' },
-  rubik: { id: 'rubik', title: 'Rubik' },
+  [TabType.all]: { id: TabType.all, title: 'All' },
+  [TabType['zero-knowledge-proof']]: {
+    id: TabType['zero-knowledge-proof'],
+    title: 'Zero-knowledge proofs',
+  },
+  [TabType['elliptic-curve']]: { id: TabType['elliptic-curve'], title: 'Elliptic Curve' },
+  [TabType['account-abstraction']]: {
+    id: TabType['account-abstraction'],
+    title: 'Account abstraction',
+  },
+  [TabType.rubik]: { id: TabType.rubik, title: 'Rubik' },
 };
 
-export const ReferenceConfig: Array<TopicType> = [
-  { id: '1', title: 'SNARK', tabs: ['zero-knowledge-proof', 'elliptic-curve'], link: '/snark' },
-  {
-    id: '2',
-    title: 'State management',
-    tabs: ['frontend', 'state-management'],
-    link: '/state-management',
+export const ReferenceConfig: Record<ReferenceType, TopicType> = {
+  [ReferenceType.snark]: {
+    id: '1',
+    title: 'SNARK',
+    tabs: [TabType['zero-knowledge-proof'], TabType['elliptic-curve']],
+    link: '/snark',
   },
-  {
-    id: '3',
-    title: 'setTimeout and setInterval',
-    tabs: ['javascript'],
-    link: '/js/timeout-and-interval',
-  },
-  { id: '4', title: 'Event loop in JS', tabs: ['javascript'], link: '/js/event-loop' },
-  {
-    id: '5',
-    title: 'Flux architecture',
-    tabs: ['state-management', 'architecture'],
-    link: '/flux-architecture',
-  },
-  { id: '6', title: 'Google tab manager and Google analytic', tabs: ['seo'], link: '/gtm-ga' },
-  { id: '7', title: 'Proxy in javascript', tabs: ['javascript'], link: '/js/proxy-object' },
-  {
+  [ReferenceType['elliptic-curve']]: {
     id: '8',
     title: 'Elliptic Curve Cryptography',
-    tabs: ['elliptic-curve'],
+    tabs: [TabType['elliptic-curve']],
     link: '/elliptic-curve-cryptography',
   },
-  {
+  [ReferenceType['simple-snark']]: {
     id: '9',
     title: 'Simple SNARK',
-    tabs: ['zero-knowledge-proof', 'elliptic-curve'],
+    tabs: [TabType['zero-knowledge-proof'], TabType['elliptic-curve']],
     link: '/simple-snark',
   },
-  { id: '10', title: 'Rubik 3x3', tabs: ['rubik'], link: '/rubik3x3' },
-];
+  [ReferenceType.rubik3x3]: {
+    id: '10',
+    title: 'Rubik 3x3',
+    tabs: [TabType['rubik']],
+    link: '/rubik3x3',
+  },
+};

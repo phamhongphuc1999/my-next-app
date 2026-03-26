@@ -6,17 +6,20 @@ export type AppSvgProps = ComponentProps<'svg'>;
 export type IconProps = Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>;
 
 export type ThemeMode = 'dark' | 'light';
-export type TabType =
-  | 'all'
-  | 'frontend'
-  | 'zero-knowledge-proof'
-  | 'javascript'
-  | 'state-management'
-  | 'architecture'
-  | 'seo'
-  | 'elliptic-curve'
-  | 'account-abstraction'
-  | 'rubik';
+export enum TabType {
+  'all' = 'all',
+  'zero-knowledge-proof' = 'zero-knowledge-proof',
+  'elliptic-curve' = 'elliptic-curve',
+  'account-abstraction' = 'account-abstraction',
+  'rubik' = 'rubik',
+}
+
+export enum ReferenceType {
+  snark,
+  'elliptic-curve',
+  'simple-snark',
+  rubik3x3,
+}
 
 export type TabItemType = { id: TabType; title: string };
 export type TabListType = { [id in TabType]: TabItemType };
