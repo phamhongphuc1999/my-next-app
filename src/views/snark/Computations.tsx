@@ -49,7 +49,7 @@ export default function Computation() {
           'An arithmetic circuit consists of gates computing arithmetic operations like addition and multiplication, with wires connecting the gates. In our case, the circuit looks like this:'
         }
       </AppArticle>
-      <img src="images/CircuitDrawing.png" alt="circuit" className="h-auto w-[80%] md:w-[450px]" />
+      <img src="/images/CircuitDrawing.png" alt="circuit" className="h-auto w-[80%] md:w-[450px]" />
       <AppArticle isFirst>
         {
           'The bottom wires are the input wires, and the top wire is the output wire giving the result of the circuit computation on the inputs.'
@@ -169,22 +169,21 @@ export default function Computation() {
           'To summarize, we have seen how a statement such as "I know $c_1,c_2,c_3$ such that $(c_1 \\cdot c_2) \\cdot (c_1 + c_3) = 7$" can be translated into an equivalent statement about polynomials using QAPs. In the next part, we will see an efficient protocol for proving knowledge of a satisfying assignment to a QAP.'
         }
       </AppArticle>
-      <a href="#snark5_1_item">
-        <AppArticle>
-          {
-            "[1]In this post we tried to give the most concise example of a reduction to QAP; we also recommend Vitalik Buterin's "
-          }
-          <a
-            href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649"
-            target="_blank"
-            className="font-medium underline"
-            rel="noreferrer"
-          >
-            excellent post
-          </a>
-          {' for more details on the transformation from a program to a QAP.'}
-        </AppArticle>
-      </a>
+      <a href="#snark5_1_item">[1]</a>
+      <AppArticle id="snark5_1_item">
+        {
+          "In this post we tried to give the most concise example of a reduction to QAP; we also recommend Vitalik Buterin's "
+        }
+        <a
+          href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649"
+          target="_blank"
+          className="font-medium underline"
+          rel="noreferrer"
+        >
+          excellent post
+        </a>
+        {' for more details on the transformation from a program to a QAP.'}
+      </AppArticle>
     </div>
   );
 }

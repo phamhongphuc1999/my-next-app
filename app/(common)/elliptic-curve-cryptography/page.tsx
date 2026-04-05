@@ -12,7 +12,7 @@ export default function EllipticCurveCryptography() {
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Elliptic Curve Cryptography' }],
         }}
-        tabProps={{ referenceId: ReferenceType['elliptic-curve'] }}
+        tabProps={{ referenceId: ReferenceType.ellipticCurve }}
       />
       <EllipticCurveCryptographyPage />
     </>

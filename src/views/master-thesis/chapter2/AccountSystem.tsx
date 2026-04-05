@@ -27,7 +27,7 @@ export default function AccountSystem() {
       <FigureBox
         id="eoa-structure"
         title="Structure of Externally owned account"
-        src="images/master-thesis/chapter2/eoa.png"
+        src="/images/master-thesis/chapter2/eoa.png"
         alt="eoa-structure"
       />
       <AppArticle isFirst>
@@ -72,7 +72,7 @@ export default function AccountSystem() {
       <FigureBox
         id="contract-account-structure"
         title="Structure of Contract account"
-        src="images/master-thesis/chapter2/contract-account.png"
+        src="/images/master-thesis/chapter2/contract-account.png"
         alt="contract-account-structure"
       />
       <AppArticle isFirst>

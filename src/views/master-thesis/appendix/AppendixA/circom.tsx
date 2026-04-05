@@ -59,7 +59,7 @@ export default function Circom() {
         id="the-process-of-circom-compiling-smart-contract"
         alt="the-process-of-circom-compiling-smart-contract"
         title="The process of compiling a Circom circuit to a smart contract"
-        src="images/master-thesis/appendix/circom-compiler.png"
+        src="/images/master-thesis/appendix/circom-compiler.png"
       />
       <AppArticle isFirst>
         {

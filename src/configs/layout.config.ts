@@ -1,42 +1,30 @@
 import { ReferenceType, TabListType, TabType, TopicType } from 'src/global';
 
+const { all, zeroKnowledgeProof, ellipticCurve, accountAbstraction, rubik } = TabType;
+
 export const TabConfig: TabListType = {
-  [TabType.all]: { id: TabType.all, title: 'All' },
-  [TabType['zero-knowledge-proof']]: {
-    id: TabType['zero-knowledge-proof'],
-    title: 'Zero-knowledge proofs',
-  },
-  [TabType['elliptic-curve']]: { id: TabType['elliptic-curve'], title: 'Elliptic Curve' },
-  [TabType['account-abstraction']]: {
-    id: TabType['account-abstraction'],
-    title: 'Account abstraction',
-  },
+  [all]: { id: all, title: 'All' },
+  [zeroKnowledgeProof]: { id: zeroKnowledgeProof, title: 'Zero-knowledge proofs' },
+  [ellipticCurve]: { id: ellipticCurve, title: 'Elliptic Curve' },
+  [accountAbstraction]: { id: accountAbstraction, title: 'Account abstraction' },
   [TabType.rubik]: { id: TabType.rubik, title: 'Rubik' },
 };
 
+const { snark, ellipticCurve: rEllipticCurve, simpleSnark, rubik3x3 } = ReferenceType;
+
 export const ReferenceConfig: Record<ReferenceType, TopicType> = {
-  [ReferenceType.snark]: {
-    id: '1',
-    title: 'SNARK',
-    tabs: [TabType['zero-knowledge-proof'], TabType['elliptic-curve']],
-    link: '/snark',
-  },
-  [ReferenceType['elliptic-curve']]: {
+  [snark]: { id: '1', title: 'SNARK', tabs: [zeroKnowledgeProof, ellipticCurve], link: '/snark' },
+  [rEllipticCurve]: {
     id: '8',
     title: 'Elliptic Curve Cryptography',
-    tabs: [TabType['elliptic-curve']],
+    tabs: [ellipticCurve],
     link: '/elliptic-curve-cryptography',
   },
-  [ReferenceType['simple-snark']]: {
+  [simpleSnark]: {
     id: '9',
     title: 'Simple SNARK',
-    tabs: [TabType['zero-knowledge-proof'], TabType['elliptic-curve']],
+    tabs: [zeroKnowledgeProof, ellipticCurve],
     link: '/simple-snark',
   },
-  [ReferenceType.rubik3x3]: {
-    id: '10',
-    title: 'Rubik 3x3',
-    tabs: [TabType['rubik']],
-    link: '/rubik3x3',
-  },
+  [rubik3x3]: { id: '10', title: 'Rubik 3x3', tabs: [rubik], link: '/rubik3x3' },
 };

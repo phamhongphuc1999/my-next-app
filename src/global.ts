@@ -7,18 +7,18 @@ export type IconProps = Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>;
 
 export type ThemeMode = 'dark' | 'light';
 export enum TabType {
-  'all' = 'all',
-  'zero-knowledge-proof' = 'zero-knowledge-proof',
-  'elliptic-curve' = 'elliptic-curve',
-  'account-abstraction' = 'account-abstraction',
+  all = 'all',
+  zeroKnowledgeProof = 'zeroKnowledgeProof',
+  ellipticCurve = 'ellipticCurve',
+  accountAbstraction = 'accountAbstraction',
   'rubik' = 'rubik',
 }
 
 export enum ReferenceType {
-  snark,
-  'elliptic-curve',
-  'simple-snark',
-  rubik3x3,
+  snark = 'snark',
+  ellipticCurve = 'ellipticCurve',
+  simpleSnark = 'simpleSnark',
+  rubik3x3 = 'rubik3x3',
 }
 
 export type TabItemType = { id: TabType; title: string };

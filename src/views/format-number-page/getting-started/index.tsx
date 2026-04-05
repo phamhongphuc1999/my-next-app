@@ -5,31 +5,32 @@ import { useState } from 'react';
 import CopyClipboard from 'src/components/CopyClipboard';
 import { Separator } from 'src/components/shadcn-ui/separator';
 import { ToggleGroup, ToggleGroupItem } from 'src/components/shadcn-ui/toggle-group';
+import { IMAGES } from 'src/configs/images';
 
 type CliType = 'npm' | 'yarn' | 'pnpm' | 'bun';
 
 const configs: { [id in CliType]: { id: CliType; img: string; title: string; cli: string } } = {
   npm: {
     id: 'npm',
-    img: '/images/cli/npm.svg',
+    img: IMAGES.cli.npm,
     title: 'npm',
     cli: 'npm install @peter-present/format-number',
   },
   yarn: {
     id: 'yarn',
-    img: '/images/cli/yarn.svg',
+    img: IMAGES.cli.yarn,
     title: 'Yarn',
     cli: 'yarn add @peter-present/format-number',
   },
   pnpm: {
     id: 'pnpm',
-    img: '/images/cli/pnpm.svg',
+    img: IMAGES.cli.pnpm,
     title: 'pnpm',
     cli: 'pnpm create @peter-present/format-number',
   },
   bun: {
     id: 'bun',
-    img: '/images/cli/bun.svg',
+    img: IMAGES.cli.bun,
     title: 'Bun',
     cli: 'bun add @peter-present/format-number',
   },

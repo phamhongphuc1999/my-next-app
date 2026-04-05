@@ -12,7 +12,7 @@ export function SpecialTabBox({ tabs, ...props }: SpecialTabBoxProps) {
     <div {...props} className={cn('flex flex-wrap items-center gap-1', props.className)}>
       {tabs.map((tab) => {
         return (
-          <Badge key={tab} className="cursor-pointer">
+          <Badge key={tab.toString()} className="cursor-pointer">
             {tab}
           </Badge>
         );

@@ -14,7 +14,7 @@ export default function SimpleSnark() {
         breadcrumbProps={{
           configs: [{ label: 'Home', link: '/' }, { label: 'Simple SNARK' }],
         }}
-        tabProps={{ referenceId: ReferenceType['simple-snark'] }}
+        tabProps={{ referenceId: ReferenceType.simpleSnark }}
       />
       <SimpleSnarkPage />
     </>

@@ -3,7 +3,7 @@ import { Fira_Code } from 'next/font/google';
 import { ReactNode } from 'react';
 import RootAppLayout from 'src/components/Layouts/RootAppLayout';
 import { GoogleTagManager } from 'src/components/analytics/GoogleTagManager';
-import { siteMetadata } from 'src/configs/siteMetadata';
+import { siteMetadata } from 'src/configs/constance';
 import 'src/styles/globals.css';
 
 const firaCode = Fira_Code({ subsets: ['latin'] });

@@ -1,6 +1,6 @@
 {
   "name": "my-next-app",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "start": "next start",
     "prepare": "husky",
-    "eslint": "bunx eslint --config ./eslint.config.js --cache --fix"
+    "eslint": "bunx eslint --config ./eslint.config.js --cache"
   },
   "dependencies": {
     "@peter-present/format-number": "0.0.14",
@@ -27,7 +27,7 @@
     "cmdk": "1.0.0",
     "lucide-react": "^0.562.0",
     "motion": "^12.23.26",
-    "next": "^16.1.6",
+    "next": "^16.2.2",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-syntax-highlighter": "^15.6.1",

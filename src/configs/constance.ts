@@ -1,5 +1,18 @@
-export const ITEMS_PER_PAGE = 10;
+import IconImg from 'public/star.svg';
+import ThumbImg from 'public/thumbnail.webp';
 
+export const siteMetadata = {
+  title: 'My blog',
+  description: 'This webpage that i share something i know',
+  url: 'https://blog.peter-present.xyz/',
+  siteName: 'My blog',
+  twitterHandle: 'PhamHon08928762',
+  icon: IconImg.src,
+  image: ThumbImg.src,
+  keywords: '',
+};
+
+export const ITEMS_PER_PAGE = 10;
 export const appendixIndex = ['A', 'B', 'C', 'D'];
 
 export const THESIS_CLASS = {
@@ -18,4 +31,19 @@ export const THESIS_CLASS = {
   appendix: 'thesis-appendix',
   sameChapterAppendix: 'thesis-same-chapter-appendix',
   algorithm: 'thesis-algorithm',
+};
+
+export const mathJaxConfig = {
+  'fast-preview': { disabled: true },
+  tex2jax: {
+    inlineMath: [
+      ['$', '$'],
+      ['\\(', '\\)'],
+    ],
+    displayMath: [
+      ['$$', '$$'],
+      ['\\[', '\\]'],
+    ],
+  },
+  messageStyle: 'none',
 };

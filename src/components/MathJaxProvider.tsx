@@ -2,7 +2,7 @@
 
 import { MathJaxContext } from 'better-react-mathjax';
 import { ReactNode } from 'react';
-import { mathJaxConfig } from 'src/configs/mathJaxConfig';
+import { mathJaxConfig } from 'src/configs/constance';
 
 interface Props {
   children: ReactNode;
