@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
-import verificationImg from 'public/images/master-thesis/chapter4/verification-process.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import AlgorithmBox from 'src/components/Thesis/AlgorithmBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import {
   generateProofCode,
   proposedCircuitCode,
@@ -39,7 +39,7 @@ export default function ProposedProcess() {
         </ArticleLI>
       </ArticleUL>
       <FigureBox
-        src={verificationImg}
+        src={IMAGES.master.chapter4.verificationProcess}
         id="creation-and-verification-proof-process"
         alt="creation-and-verification-proof-process"
         title="Creation and verification proof processes"

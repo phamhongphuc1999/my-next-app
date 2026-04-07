@@ -2,12 +2,17 @@ import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox'
 import ImageBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
-import CurveImg from 'public/images/elliptic-curve/elliptic-curve.png';
+import { IMAGES } from 'src/configs/images';
 
 export default function Ecdsa() {
   return (
     <SectionBox title="Elliptic Curve Digital Signature Algorithm" id="ecdsa">
-      <ImageBox src={CurveImg} alt="ecc" id="elliptic-curve-shape" title="Elliptic curve shape" />
+      <ImageBox
+        src={IMAGES.ellipticCurve.eddsa}
+        alt="ecc"
+        id="elliptic-curve-shape"
+        title="Elliptic curve shape"
+      />
       <AppArticle isFirst>
         ECDSA (<RefLink toId="elliptic-curve-shape" />) is a cryptographic scheme for creating and
         verifying digital signatures based on ECC. It consists of three main operations: key

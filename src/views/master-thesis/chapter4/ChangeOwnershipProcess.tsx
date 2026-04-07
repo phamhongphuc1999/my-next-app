@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
 
-import changeImg from 'public/images/master-thesis/chapter4/change-ownership-process.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import AlgorithmBox from 'src/components/Thesis/AlgorithmBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import { submitNewOwnerCode } from './code';
 
 export default function ChangeOwnershipProcess() {
@@ -16,7 +16,7 @@ export default function ChangeOwnershipProcess() {
         id="the-change-ownership-process"
         alt="the-change-ownership-process"
         title="The change ownership process."
-        src={changeImg}
+        src={IMAGES.master.chapter4.changeOwnershipProcess}
       />
       <AppArticle isFirst>
         The final action supported by the guardian mechanism is the change of ownership, as

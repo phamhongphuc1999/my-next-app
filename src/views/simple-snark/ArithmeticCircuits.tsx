@@ -4,6 +4,7 @@ import EquationBox from 'src/components/Thesis/EquationBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function ArithmeticCircuits() {
   return (
@@ -15,7 +16,7 @@ export default function ArithmeticCircuits() {
       </AppArticle>
       <FigureBox
         id="arithmetic-circuit"
-        src="/images/arithmetic-circuit.png"
+        src={IMAGES.simpleSnark.arithmeticCircuit}
         alt="arithmetic-circuit"
         title="The arithmetic circuit of the computation: $f = (c_1c_2)+(c_1 + c_3)$"
       />

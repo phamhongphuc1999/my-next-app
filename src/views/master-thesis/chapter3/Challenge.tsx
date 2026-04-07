@@ -1,10 +1,9 @@
 /* eslint-disable quotes */
-import losingImg from 'public/images/master-thesis/chapter3/losing-bitcoin.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox, { SubsectionBox } from 'src/components/Thesis/SectionBox';
-import hackingImg from 'public/images/master-thesis/chapter3/hacking.png';
+import { IMAGES } from 'src/configs/images';
 
 export default function Challenge() {
   return (
@@ -60,7 +59,7 @@ export default function Challenge() {
         <FigureBox
           id="bitcoin-supply"
           alt="bitcoin-supply"
-          src={losingImg}
+          src={IMAGES.master.chapter3.losingBitcoin}
           title={
             <div>
               Bitcoin supply (in million Bitcoin <RefLink mode="cite" toId="bitcoin-supply" />)
@@ -159,7 +158,7 @@ export default function Challenge() {
           id="hacking"
           alt="hacking"
           title="Incident count and number of attacks in 2023"
-          src={hackingImg}
+          src={IMAGES.master.chapter3.hacking}
         />
         <AppArticle isFirst>
           As illustrated <RefLink toId="hacking" />,{' '}

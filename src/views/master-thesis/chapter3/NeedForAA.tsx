@@ -1,11 +1,9 @@
 /* eslint-disable quotes */
-import AAImg from 'public/images/master-thesis/chapter3/account-abstraction.png';
-import multipleImg from 'public/images/master-thesis/chapter3/multicall.png';
-import multiple1Img from 'public/images/master-thesis/chapter3/multicall1.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function NeedForAA() {
   return (
@@ -24,7 +22,7 @@ export default function NeedForAA() {
         id="account-abstraction-structure"
         alt="account-abstraction-structure"
         title="Structure of Account abstraction"
-        src={AAImg}
+        src={IMAGES.master.chapter3.accountAbstraction}
       />
       <AppArticle isFirst>
         <RefLink toId="account-abstraction-structure" />{' '}
@@ -48,13 +46,13 @@ export default function NeedForAA() {
         id="multicall"
         alt="multicall"
         title="Execute transaction by EOA"
-        src={multipleImg}
+        src={IMAGES.master.chapter3.multicall}
       />
       <FigureBox
         id="multicall1"
         alt="multicall1"
         title="Multicall by account abstraction"
-        src={multiple1Img}
+        src={IMAGES.master.chapter3.multicall1}
       />
       <AppArticle isFirst>
         {

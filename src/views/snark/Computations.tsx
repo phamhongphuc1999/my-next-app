@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function Computation() {
   return (
@@ -49,7 +50,11 @@ export default function Computation() {
           'An arithmetic circuit consists of gates computing arithmetic operations like addition and multiplication, with wires connecting the gates. In our case, the circuit looks like this:'
         }
       </AppArticle>
-      <img src="/images/CircuitDrawing.png" alt="circuit" className="h-auto w-[80%] md:w-[450px]" />
+      <img
+        src={IMAGES.snark.circuitDrawing}
+        alt="circuit"
+        className="h-auto w-[80%] md:w-[450px]"
+      />
       <AppArticle isFirst>
         {
           'The bottom wires are the input wires, and the top wire is the output wire giving the result of the circuit computation on the inputs.'

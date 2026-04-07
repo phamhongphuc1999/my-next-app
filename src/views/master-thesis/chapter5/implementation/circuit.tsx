@@ -1,9 +1,9 @@
-import compilerImg from 'public/images/master-thesis/chapter5/zksnark-compiler.png';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import { guardianCircuitCode } from '../code';
 
 export default function Circuit() {
@@ -44,7 +44,7 @@ export default function Circuit() {
         id="architecture-circom-and-snarkjs"
         title="Architecture for generating and verifying proof using Circom and snarkjs."
         alt="architecture-circom-and-snarkjs"
-        src={compilerImg}
+        src={IMAGES.master.chapter5.zksnarkCompiler}
       />
     </SubsectionBox>
   );

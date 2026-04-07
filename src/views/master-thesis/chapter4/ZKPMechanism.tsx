@@ -1,9 +1,9 @@
 /* eslint-disable quotes */
-import overallImg from 'public/images/master-thesis/chapter4/overall-confirm-owner.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import Choosing from './Choosing';
 import ProposedProcess from './ProposedProcess';
 
@@ -23,7 +23,7 @@ export default function ZKPMechanism() {
         }
       </AppArticle>
       <FigureBox
-        src={overallImg}
+        src={IMAGES.master.chapter4.overallConfirmOwner}
         id="overall-confirm-change-owner-process"
         alt="overall-confirm-change-owner-process"
         title="Overall confirm change owner process."

@@ -1,11 +1,11 @@
 /* eslint-disable quotes */
-import xorImg from 'public/images/master-thesis/chapter4/xor-circuit.png';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import { Table, TableBody, TableCell, TableRow } from 'src/components/shadcn-ui/table';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
 import TableBox from 'src/components/Thesis/TableBox';
+import { IMAGES } from 'src/configs/images';
 import { curveSignatureTable, hashFunctionTable } from './code';
 
 export default function Choosing() {
@@ -24,7 +24,12 @@ export default function Choosing() {
           'For instance, consider the XOR ($\\oplus$) operation on two bits $a$ and $b$. The result is 0 if the bits are equal and 1 otherwise. This logic can be expressed as: $f = x \\oplus y = x + y - 2xy$'
         }
       </AppArticle>
-      <FigureBox title="XOR circuit." id="xor-circuit" alt="xor-circuit" src={xorImg} />
+      <FigureBox
+        title="XOR circuit."
+        id="xor-circuit"
+        alt="xor-circuit"
+        src={IMAGES.master.chapter4.xorCircuit}
+      />
       <AppArticle isFirst isMath>
         <RefLink toId="xor-circuit" />
         {

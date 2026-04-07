@@ -4,6 +4,7 @@ import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox'
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function AccountSystem() {
   return (
@@ -27,7 +28,7 @@ export default function AccountSystem() {
       <FigureBox
         id="eoa-structure"
         title="Structure of Externally owned account"
-        src="/images/master-thesis/chapter2/eoa.png"
+        src={IMAGES.master.chapter2.eoa}
         alt="eoa-structure"
       />
       <AppArticle isFirst>
@@ -72,7 +73,7 @@ export default function AccountSystem() {
       <FigureBox
         id="contract-account-structure"
         title="Structure of Contract account"
-        src="/images/master-thesis/chapter2/contract-account.png"
+        src={IMAGES.master.chapter2.contract}
         alt="contract-account-structure"
       />
       <AppArticle isFirst>

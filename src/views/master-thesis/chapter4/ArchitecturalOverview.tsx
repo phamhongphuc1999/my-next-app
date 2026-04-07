@@ -1,9 +1,9 @@
 /* eslint-disable quotes */
-import CommonImg from 'public/images/master-thesis/chapter4/common-architecture.png';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function ArchitecturalOverview() {
   return (
@@ -12,7 +12,7 @@ export default function ArchitecturalOverview() {
         id="common-architecture"
         alt="common-architecture"
         title="Overview architecture of the proposed system"
-        src={CommonImg}
+        src={IMAGES.master.chapter4.commonArchitecture}
       />
       <AppArticle isFirst>
         <RefLink toId="common-architecture" />

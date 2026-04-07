@@ -1,5 +1,4 @@
-import IconImg from 'public/star.svg';
-import ThumbImg from 'public/thumbnail.webp';
+import { IMAGES } from 'src/configs/images';
 
 export const siteMetadata = {
   title: 'My blog',
@@ -7,8 +6,8 @@ export const siteMetadata = {
   url: 'https://blog.peter-present.xyz/',
   siteName: 'My blog',
   twitterHandle: 'PhamHon08928762',
-  icon: IconImg.src,
-  image: ThumbImg.src,
+  icon: IMAGES.site.icon,
+  image: IMAGES.site.thumbnail,
   keywords: '',
 };
 

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import { ContrastLink } from 'src/components/utils';
+import { IMAGES } from 'src/configs/images';
 
 export default function EllipticCurve() {
   return (
@@ -51,7 +52,7 @@ export default function EllipticCurve() {
           "Let's see how the addition rule is derived from this constraint. Look at a vertical line, defined by an equation of the form $X = c$. Suppose this line intersects the curve at a point $P = (x_1, y_1)$. Because the curve equation is of the form $Y^2 = f(X)$, if $(x_1, y_1)$ is on the curve, so is the point $Q := (x_1, -y_1)$. Moreover, since it's a vertical line and the curve equation is of degree two in $Y$, we can be sure these are the only points where the line and curve intersect."
         }
       </AppArticle>
-      <img src="/images/curve1.png" alt="curve1" className="h-auto w-[50%] md:w-[200px]" />
+      <img src={IMAGES.snark.curve1} alt="curve1" className="h-auto w-[50%] md:w-[200px]" />
       <AppArticle isFirst isMath>
         {
           'Thus, we must have $P + Q = \\mathcal{O}$, which means $P = -Q$; that is, $Q$ is the inverse of $P$ in the group.'
@@ -62,7 +63,7 @@ export default function EllipticCurve() {
           'Now let us look at points $P$ and $Q$ that have a different first coordinate — that is, $x_1 \\neq x_2$, and see how to add them. We pass a line through $P$ and $Q$.'
         }
       </AppArticle>
-      <img src="/images/curve2.png" alt="curve2" className="h-auto w-[50%] md:w-[200px]" />
+      <img src={IMAGES.snark.curve2} alt="curve2" className="h-auto w-[50%] md:w-[200px]" />
       <AppArticle isFirst isMath>
         {
           'Since the curve is defined by a degree-three polynomial in $X$ and already intersects this (non-vertical) line at two points, it is guaranteed to intersect the line at a third point, which we denote $R = (x, y)$, and no other points.'

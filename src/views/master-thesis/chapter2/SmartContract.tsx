@@ -1,11 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
-
-import smartContractImg from 'public/images/master-thesis/chapter2/smart-contract.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function SmartContract() {
   return (
@@ -58,7 +57,7 @@ export default function SmartContract() {
         id="smart-contract-structure"
         title="Structure of Smart contract"
         alt="smart-contract-structure"
-        src={smartContractImg.src}
+        src={IMAGES.master.chapter2.smartContract}
       />
       <AppArticle isFirst>
         The structure and operating mechanism of smart contracts are illustrated in{' '}

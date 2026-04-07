@@ -3,6 +3,7 @@ import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import { xorCode } from '../code';
 
 export default function Circom() {
@@ -59,7 +60,7 @@ export default function Circom() {
         id="the-process-of-circom-compiling-smart-contract"
         alt="the-process-of-circom-compiling-smart-contract"
         title="The process of compiling a Circom circuit to a smart contract"
-        src="/images/master-thesis/appendix/circom-compiler.png"
+        src={IMAGES.master.appendix.circomCompiler}
       />
       <AppArticle isFirst>
         {

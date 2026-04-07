@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import BlockchainImg from 'public/images/master-thesis/chapter2/blockchain-structure.png';
-import UnspentImg from 'public/images/master-thesis/chapter2/unspent-transaction-model.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function Blockchain() {
   return (
@@ -59,7 +58,7 @@ export default function Blockchain() {
       </ArticleUL>
       <FigureBox
         id="blockchain-structure"
-        src={BlockchainImg.src}
+        src={IMAGES.master.chapter2.structure}
         alt="blockchain-structure"
         title="Blockchain structure"
       />
@@ -84,7 +83,12 @@ export default function Blockchain() {
         blockchain, transactions can be divided into two common models: unspent transaction output
         (UTXO) model and account model.
       </AppArticle>
-      <FigureBox id="utxo-model" src={UnspentImg.src} alt="utxo-model" title="UTXO model" />
+      <FigureBox
+        id="utxo-model"
+        src={IMAGES.master.chapter2.unspentTransaction}
+        alt="utxo-model"
+        title="UTXO model"
+      />
       <AppArticle isFirst>
         In the UTXO model (<RefLink toId="utxo-model" />
         ), each transaction has a list of outputs that will be spent as inputs in future

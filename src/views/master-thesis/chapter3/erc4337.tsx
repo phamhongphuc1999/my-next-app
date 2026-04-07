@@ -1,9 +1,8 @@
-import erc4337ContractImg from 'public/images/master-thesis/chapter3/erc4337-smart-contract.png';
-import erc4337Img from 'public/images/master-thesis/chapter3/erc4337.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import Bundler from './Bundler';
 import EntryPoint from './EntryPoint';
 import UserOperation from './UserOperation';
@@ -44,7 +43,7 @@ export default function Erc4337() {
       <FigureBox
         id="erc-4337"
         alt="erc-4337"
-        src={erc4337Img}
+        src={IMAGES.master.chapter3.erc4337}
         title="The architecture of ERC-4337"
       />
       <AppArticle isFirst>
@@ -61,7 +60,7 @@ export default function Erc4337() {
       <FigureBox
         id="erc4337-smart-contract"
         alt="erc4337-smart-contract"
-        src={erc4337ContractImg}
+        src={IMAGES.master.chapter3.erc4337Contract}
         title="ERC-4337 smart contract system"
       />
       <AppArticle isFirst>

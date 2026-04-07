@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
-import soulImg from 'public/images/master-thesis/chapter5/soul-wallet.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import ProgramBox from 'src/components/Thesis/ProgramBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 import { soulCode } from '../code';
 
 export default function Soul() {
@@ -24,7 +24,7 @@ export default function Soul() {
         id="common-recovery-process"
         alt="common-recovery-process"
         title="Common recovery process used by Soul wallet and the proposed wallet"
-        src={soulImg}
+        src={IMAGES.master.chapter5.soulWallet}
       />
       <AppArticle isFirst>
         <RefLink toId="common-recovery-process" /> shows the common recovery process used by Soul

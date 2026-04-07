@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ContainerClipboard } from 'src/components/CopyClipboard';
+import { IMAGES } from 'src/configs/images';
 import { F2LConfig } from 'src/configs/rubik3x3.config';
 
 export default function F2lView() {
@@ -18,7 +19,7 @@ export default function F2lView() {
                   >
                     <p className="absolute top-3 left-3 font-bold underline">{index + 1}.</p>
                     <Image
-                      src={`/images/rubik3x3/${item.id}.webp`}
+                      src={IMAGES.rubik3x3.byId(item.id)}
                       alt={item.id}
                       width={100}
                       height={100}

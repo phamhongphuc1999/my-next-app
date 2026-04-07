@@ -1,7 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable quotes */
-import relationImg from 'public/images/master-thesis/chapter4/relation-time-delay.png';
-import updatingImg from 'public/images/master-thesis/chapter4/updating-process.png';
 import { AppArticle } from 'src/components/box/ArticleBox';
 import {
   Table,
@@ -15,12 +13,13 @@ import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import { SubsectionBox } from 'src/components/Thesis/SectionBox';
 import TableBox from 'src/components/Thesis/TableBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function UpdatingProcess() {
   return (
     <SubsectionBox id="updating-process" title="Updating process">
       <FigureBox
-        src={updatingImg}
+        src={IMAGES.master.chapter4.updatingProcess}
         id="the-updating-process"
         alt="the-updating-process"
         title="The updating process"
@@ -118,7 +117,7 @@ export default function UpdatingProcess() {
         id="relation-time-delay"
         alt="relation-time-delay"
         title="The relation between delay, expirePeriod and eta."
-        src={relationImg}
+        src={IMAGES.master.chapter4.relationTimeDelay}
       />
       <AppArticle isFirst isMath>
         {

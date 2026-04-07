@@ -1,10 +1,9 @@
 /* eslint-disable quotes */
-import izkImg from 'public/images/master-thesis/chapter2/interactive-zkp.png';
-import nizkImg from 'public/images/master-thesis/chapter2/non-interactive-proof.png';
 import { AppArticle, ArticleLI, ArticleUL } from 'src/components/box/ArticleBox';
 import FigureBox from 'src/components/Thesis/FigureBox';
 import RefLink from 'src/components/Thesis/RefLink';
 import SectionBox from 'src/components/Thesis/SectionBox';
+import { IMAGES } from 'src/configs/images';
 
 export default function ZeroKnowledgeProof() {
   return (
@@ -59,7 +58,7 @@ export default function ZeroKnowledgeProof() {
         id="izk-interaction"
         alt="izk-interaction"
         title="The interaction between prover and verifier in an interactive zero-knowledge proof protocol"
-        src={izkImg}
+        src={IMAGES.master.chapter2.izk}
       />
       <AppArticle isFirst>
         {
@@ -81,7 +80,7 @@ export default function ZeroKnowledgeProof() {
         id="zk-overview"
         alt="zk-overview"
         title="The interaction between prover and verifier in a non-interactive zero-knowledge proof protocol"
-        src={nizkImg}
+        src={IMAGES.master.chapter2.nizk}
       />
       <AppArticle isFirst>
         {
