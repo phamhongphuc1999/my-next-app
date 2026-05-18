@@ -1,10 +1,8 @@
-'use client';
-
 import { ReactNode } from 'react';
 import { THESIS_CLASS } from 'src/configs/constance';
-import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
+import IndexLabel from './IndexLabel';
 
 interface Props extends DivProps {
   id: string;
@@ -13,8 +11,6 @@ interface Props extends DivProps {
 }
 
 export default function TableBox({ id, title, children, ...props }: Props) {
-  const table = useThesisObject(`table_${id}`, 'table');
-
   return (
     <div
       {...props}
@@ -23,7 +19,7 @@ export default function TableBox({ id, title, children, ...props }: Props) {
     >
       {children}
       <p id={`table_${id}_title`} className="text-[14px]">
-        {table?.index ? `Table ${table.index}. ` : ''}
+        <IndexLabel id={`table_${id}`} mode="table" prefix="Table " suffix=". " />
         {title}
       </p>
     </div>

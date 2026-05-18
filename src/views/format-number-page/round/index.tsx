@@ -9,7 +9,7 @@ import CopyClipboard from 'src/components/CopyClipboard';
 import ElementItem from 'src/components/format-number/ElementItem';
 import RoundTypeSelect from 'src/components/format-number/RoundTypeSelect';
 import { Input } from 'src/components/shadcn-ui/input';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
 
 export default function RoundPage() {
   const [value, setValue] = useState('0');

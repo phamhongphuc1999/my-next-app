@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { LeftArrowIcon, RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import { ReferenceType } from 'src/global';
-import Computation from 'src/views/snark/Computations';
 
 export const metadata: Metadata = {
   title: 'SNARK | From Computations to Polynomials',
 };
+
+const Computation = dynamic(() => import('src/views/snark/Computations'), {
+  loading: () => (
+    <div className="flex min-h-[30vh] items-center justify-center">
+      <p className="text-muted-foreground">Loading...</p>
+    </div>
+  ),
+});
 
 export default function Chapter5() {
   return (

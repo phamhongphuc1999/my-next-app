@@ -1,6 +1,5 @@
 'use client';
 
-import { Check, ChevronsUpDown, Search, X } from 'lucide-react';
 import { AnimatePresence, motion, type Variants } from 'motion/react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -22,7 +21,8 @@ import { ITEMS_PER_PAGE } from 'src/configs/constance';
 import { ReferenceConfig, TabConfig } from 'src/configs/layout.config';
 import { TabType } from 'src/global';
 import { cn } from 'src/lib/utils';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
+import { SearchIcon, XIcon, ChevronsUpDownIcon, CheckIcon } from 'src/components/icons';
 
 export default function HomePage() {
   const [searchText, setSearchText] = useState('');
@@ -144,7 +144,7 @@ export default function HomePage() {
         >
           <div className="flex flex-1 flex-wrap gap-3 sm:items-center">
             <div className="relative w-full sm:w-80 lg:w-96">
-              <Search className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+              <SearchIcon className="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
               <Input
                 placeholder="Search topic..."
                 value={searchText}
@@ -156,7 +156,7 @@ export default function HomePage() {
                   onClick={() => onTextChange('')}
                   className="text-muted-foreground hover:text-foreground absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer transition-colors"
                 >
-                  <X className="h-4 w-4" />
+                  <XIcon className="h-4 w-4" />
                 </button>
               )}
             </div>
@@ -169,7 +169,7 @@ export default function HomePage() {
                   className="border-border/70 bg-background/80 w-full justify-between sm:w-[200px]"
                 >
                   {selectedId ? TabConfig[selectedId]?.title : 'All categories'}{' '}
-                  <ChevronsUpDown className="opacity-50" />
+                  <ChevronsUpDownIcon className="opacity-50" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-[200px] p-0" align="start">
@@ -180,8 +180,11 @@ export default function HomePage() {
                     <CommandGroup>
                       <CommandItem value="all" onSelect={() => onSelectTab(TabType.all)}>
                         All categories
-                        <Check
-                          className={cn('ml-auto', !selectedId ? 'opacity-100' : 'opacity-0')}
+                        <CheckIcon
+                          className={cn(
+                            'ml-auto h-4 w-4',
+                            !selectedId ? 'opacity-100' : 'opacity-0'
+                          )}
                         />
                       </CommandItem>
                       {Object.values(TabConfig)
@@ -194,9 +197,9 @@ export default function HomePage() {
                               onSelect={() => onSelectTab(topic.id)}
                             >
                               {topic.title}
-                              <Check
+                              <CheckIcon
                                 className={cn(
-                                  'ml-auto',
+                                  'ml-auto h-4 w-4',
                                   selectedId === topic.id ? 'opacity-100' : 'opacity-0'
                                 )}
                               />
@@ -230,7 +233,6 @@ export default function HomePage() {
           </div>
         </motion.div>
       </div>
-
       <AnimatePresence mode="wait">
         {paginatedTopics.length > 0 ? (
           <motion.div
@@ -286,7 +288,7 @@ export default function HomePage() {
             className="flex min-h-[300px] flex-col items-center justify-center rounded-2xl border-2 border-dashed p-12 text-center"
           >
             <div className="bg-muted mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-              <Search className="text-muted-foreground h-8 w-8" />
+              <SearchIcon className="text-muted-foreground size-8 h-8 w-8" />
             </div>
             <h3 className="text-xl font-bold">No results found</h3>
             <p className="text-muted-foreground mt-2 max-w-sm">

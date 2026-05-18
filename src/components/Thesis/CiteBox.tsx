@@ -1,19 +1,15 @@
-'use client';
-
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { THESIS_CLASS } from 'src/configs/constance';
-import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps, ThesisCiteType } from 'src/global';
 import { cn } from 'src/lib/utils';
+import IndexLabel from './IndexLabel';
 
 interface Props extends DivProps {
   cite: ThesisCiteType;
 }
 
 export default function CiteBox({ cite, ...props }: Props) {
-  const citeData = useThesisObject(`cite_${cite.id}`, 'cite');
-
   return (
     <div
       {...props}
@@ -21,7 +17,7 @@ export default function CiteBox({ cite, ...props }: Props) {
       className={cn(THESIS_CLASS.cite, 'mt-2', props.className)}
     >
       <p>
-        {citeData?.index && `[${citeData.index}] `}
+        <IndexLabel id={`cite_${cite.id}`} mode="cite" prefix="[" suffix="] " />
         {cite.author}, {`"${cite.title},"`}{' '}
         {cite.journal && <Fragment>{<span className="italic">{cite.journal},</span>}</Fragment>}{' '}
         {cite.year}.{' '}

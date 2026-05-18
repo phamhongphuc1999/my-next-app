@@ -10,7 +10,7 @@ import TitleBox from 'src/components/box/TitleBox';
 import CopyClipboard from 'src/components/CopyClipboard';
 import ElementItem from 'src/components/format-number/ElementItem';
 import { Input } from 'src/components/shadcn-ui/input';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
 
 type ModeType = 'leading' | 'trailing' | 'unnecessary';
 

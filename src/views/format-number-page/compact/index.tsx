@@ -9,14 +9,13 @@ import CopyClipboard from 'src/components/CopyClipboard';
 import ElementItem from 'src/components/format-number/ElementItem';
 import RoundTypeSelect from 'src/components/format-number/RoundTypeSelect';
 import { Input } from 'src/components/shadcn-ui/input';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
 
 export default function CompactPage() {
   const [value, setValue] = useState('0');
   const [debounceValue] = useDebounceValue(value, 500);
   const [rounding, setRounding] = useState<RoundingMode>('half');
   const [precision, setPrecision] = useState('0');
-
   const result = useMemo(() => {
     return compact(debounceValue, {
       rounding,
@@ -31,7 +30,6 @@ export default function CompactPage() {
     if (precision) params.push(`precision: ${precision}`);
     return params.length > 0 ? `${result}, { ${params.join(', ')} });` : `${result});`;
   }, [debounceValue, rounding, precision]);
-
   return (
     <ElementItem
       id="compact"

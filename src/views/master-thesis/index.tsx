@@ -1,15 +1,17 @@
+import dynamic from 'next/dynamic';
 import ThesisConfigProvider from 'src/context/ThesisConfigContext';
 import Abbreviation from './Abbreviation';
-import Abstract from './Abstract';
-import Acknowledgement from './Acknowledgement';
-import Appendix from './appendix';
-import Chapter1 from './chapter1';
-import Chapter2 from './chapter2';
-import Chapter3 from './chapter3';
-import Chapter4 from './chapter4';
-import Chapter5 from './chapter5';
-import Chapter6 from './chapter6';
-import References from './References';
+
+const Abstract = dynamic(() => import('./Abstract'));
+const Acknowledgement = dynamic(() => import('./Acknowledgement'));
+const Appendix = dynamic(() => import('./appendix'));
+const Chapter1 = dynamic(() => import('./chapter1'));
+const Chapter2 = dynamic(() => import('./chapter2'));
+const Chapter3 = dynamic(() => import('./chapter3'));
+const Chapter4 = dynamic(() => import('./chapter4'));
+const Chapter5 = dynamic(() => import('./chapter5'));
+const Chapter6 = dynamic(() => import('./chapter6'));
+const References = dynamic(() => import('./References'));
 
 export default function MasterThesisPage() {
   return (

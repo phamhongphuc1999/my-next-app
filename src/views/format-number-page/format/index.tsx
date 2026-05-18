@@ -11,7 +11,7 @@ import ElementItem from 'src/components/format-number/ElementItem';
 import RoundTypeSelect from 'src/components/format-number/RoundTypeSelect';
 import { Input } from 'src/components/shadcn-ui/input';
 import { Toggle } from 'src/components/shadcn-ui/toggle';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
 
 export default function FormatPage() {
   const [value, setValue] = useState('1234.567');

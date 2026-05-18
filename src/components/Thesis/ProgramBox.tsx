@@ -1,10 +1,8 @@
-'use client';
-
 import { THESIS_CLASS } from 'src/configs/constance';
-import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
 import CodeBlock, { CodeBlockProps } from '../box/CodeBlock';
+import IndexLabel from './IndexLabel';
 
 interface Props extends DivProps {
   id: string;
@@ -13,8 +11,6 @@ interface Props extends DivProps {
 }
 
 export default function ProgramBox({ id, title, code, ...props }: Props) {
-  const program = useThesisObject(`program_${id}`, 'program');
-
   return (
     <div
       {...props}
@@ -23,7 +19,7 @@ export default function ProgramBox({ id, title, code, ...props }: Props) {
     >
       <CodeBlock {...code} />
       <p id={`program_${id}_title`} className="text-[14px]">
-        {program?.index ? `Program ${program.index}: ` : ''}
+        <IndexLabel id={`program_${id}`} mode="program" prefix="Program " suffix=": " />
         {title}
       </p>
     </div>

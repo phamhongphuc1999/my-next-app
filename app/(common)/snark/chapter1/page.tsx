@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { RightArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import { ReferenceType } from 'src/global';
-import HomomorphicHidings from 'src/views/snark/HomomorphicHidings';
 
 export const metadata: Metadata = {
   title: 'SNARK | Homomorphic Hidings',
 };
+
+const HomomorphicHidings = dynamic(() => import('src/views/snark/HomomorphicHidings'), {
+  loading: () => (
+    <div className="flex min-h-[30vh] items-center justify-center">
+      <p className="text-muted-foreground">Loading...</p>
+    </div>
+  ),
+});
 
 export default function Chapter1() {
   return (

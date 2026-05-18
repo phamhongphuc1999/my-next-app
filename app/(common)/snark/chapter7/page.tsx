@@ -1,9 +1,17 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { LeftArrowIcon } from 'src/components/icons';
 import TopicHeader from 'src/components/TopicHeader';
 import { ReferenceType } from 'src/global';
-import EllipticCurve from 'src/views/snark/EllipticCurve';
+
+const EllipticCurve = dynamic(() => import('src/views/snark/EllipticCurve'), {
+  loading: () => (
+    <div className="flex min-h-[30vh] items-center justify-center">
+      <p className="text-muted-foreground">Loading...</p>
+    </div>
+  ),
+});
 
 export const metadata: Metadata = {
   title: 'SNARK | Pairings of Elliptic Curves',

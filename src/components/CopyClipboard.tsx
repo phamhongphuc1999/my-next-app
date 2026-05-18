@@ -1,10 +1,9 @@
 'use client';
 
-import { Copy } from 'lucide-react';
 import { ComponentProps, MouseEvent, useState } from 'react';
 import { IconProps } from 'src/global';
 import { cn } from 'src/lib/utils';
-import { CheckIcon } from './icons';
+import { CheckIcon, CopyIcon } from './icons';
 
 interface Props extends ComponentProps<'button'> {
   copyText: string;
@@ -30,7 +29,7 @@ export default function CopyClipboard({ copyText, iconprops, ...props }: Props) 
       {copied ? (
         <CheckIcon {...iconprops} className={cn('size-4 cursor-pointer', iconprops?.className)} />
       ) : (
-        <Copy {...iconprops} className={cn('cursor-pointer', iconprops?.className)} />
+        <CopyIcon {...iconprops} className={cn('cursor-pointer', iconprops?.className)} />
       )}
     </button>
   );

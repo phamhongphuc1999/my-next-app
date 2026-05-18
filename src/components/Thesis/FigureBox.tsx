@@ -1,11 +1,9 @@
-'use client';
-
 import Image, { ImageProps } from 'next/image';
 import { ReactNode } from 'react';
 import { THESIS_CLASS } from 'src/configs/constance';
-import { useThesisObject } from 'src/context/ThesisConfigContext';
 import { DivProps } from 'src/global';
 import { cn } from 'src/lib/utils';
+import IndexLabel from './IndexLabel';
 
 interface Props extends Omit<ImageProps, 'title'> {
   id: string;
@@ -17,7 +15,6 @@ interface Props extends Omit<ImageProps, 'title'> {
 
 export default function FigureBox({ id, title, divProps, containerProps, mode, ...props }: Props) {
   const realMode = mode == 'start' ? 'start' : 'center';
-  const figure = useThesisObject(`figure_${id}`, 'figure');
 
   return (
     <div
@@ -34,6 +31,7 @@ export default function FigureBox({ id, title, divProps, containerProps, mode, .
         {...props}
         width={600}
         height={800}
+        sizes="(max-width: 640px) 80vw, (max-width: 768px) 60vw, 40vw"
         className={cn('h-auto w-[80%] sm:w-[60%] md:w-[40%]', props.className)}
       />
       <div
@@ -41,7 +39,7 @@ export default function FigureBox({ id, title, divProps, containerProps, mode, .
         id={`figure_${id}_title`}
         className={cn('flex gap-1 text-[14px]', containerProps?.className)}
       >
-        {figure?.index ? `Figure ${figure.index}: ` : ''}
+        <IndexLabel id={`figure_${id}`} mode="figure" prefix="Figure " suffix=": " />
         {title}
       </div>
     </div>

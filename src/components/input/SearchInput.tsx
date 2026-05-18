@@ -1,7 +1,7 @@
 'use client';
 
-import { CircleX, Search } from 'lucide-react';
 import { ComponentProps } from 'react';
+import { SearchIcon, XIcon } from 'src/components/icons';
 import BaseInput from './BaseInput';
 
 interface Props extends ComponentProps<'input'> {
@@ -28,8 +28,8 @@ export default function SearchInput({ name, rootprops, events, ...props }: Props
       rootprops={rootprops}
       onChange={(event) => onTextChange(event.target.value)}
       icon={{
-        start: <Search className="size-4" />,
-        end: <CircleX className="size-4 cursor-pointer" onClick={onResetSearch} />,
+        start: <SearchIcon className="size-4" />,
+        end: <XIcon className="size-4 cursor-pointer" onClick={onResetSearch} />,
       }}
     />
   );

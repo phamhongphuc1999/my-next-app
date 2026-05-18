@@ -1,5 +1,6 @@
-import SyntaxHighlighter, { SyntaxHighlighterProps } from 'react-syntax-highlighter';
-import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+'use client';
+
+import { useRef, useState } from 'react';
 import CopyClipboard from '../CopyClipboard';
 
 export type SyntaxHighlighterLanguage =
@@ -49,31 +50,50 @@ export interface CodeBlockProps {
   code: string;
   language?: SyntaxHighlighterLanguage;
   isShowCopy?: boolean;
-  codeProps?: Omit<SyntaxHighlighterProps, 'children'>;
+  showLanguage?: boolean;
 }
 
 export default function CodeBlock({
   code,
   language,
   isShowCopy = true,
-  codeProps,
+  showLanguage = false,
 }: CodeBlockProps) {
+  const preRef = useRef<HTMLPreElement>(null);
+  const [expanded, setExpanded] = useState(false);
+  const longCode = code.length > 5000;
+
+  const displayCode = longCode && !expanded ? code.slice(0, 5000) : code;
+
   return (
-    <div className="relative">
-      {isShowCopy && (
-        <CopyClipboard
-          copyText={code}
-          className="absolute top-1/2 right-3 -translate-y-1/2"
-          iconprops={{ width: 12, height: 12 }}
-        />
-      )}
-      <SyntaxHighlighter
-        {...codeProps}
-        style={{ ...atelierCaveDark, ...codeProps?.style }}
-        language={language}
+    <div className="relative w-full overflow-hidden rounded-lg">
+      {/* Toolbar */}
+      <div className="flex items-center justify-between bg-[#19171c] px-4 py-2">
+        {language && showLanguage && (
+          <span className="text-[12px] text-[#7e7887] uppercase">{language}</span>
+        )}
+        {language && !showLanguage && <span />}
+        {isShowCopy && <CopyClipboard copyText={code} iconprops={{ width: 12, height: 12 }} />}
+      </div>
+
+      {/* Code block */}
+      <pre
+        ref={preRef}
+        className="scrollbar-thin m-0 overflow-x-auto bg-[#19171c] p-4 text-sm leading-relaxed text-[#8b8792]"
+        style={{ tabSize: 2 }}
       >
-        {code}
-      </SyntaxHighlighter>
+        <code>{displayCode}</code>
+      </pre>
+
+      {/* Expand button for long code */}
+      {longCode && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="w-full cursor-pointer bg-[#19171c] py-2 text-center text-sm text-[#576ddb] hover:underline"
+        >
+          {expanded ? 'Show less' : `Show more (${(code.length / 1024).toFixed(1)} KB total)`}
+        </button>
+      )}
     </div>
   );
 }

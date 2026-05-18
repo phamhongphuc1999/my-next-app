@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Fragment } from 'react';
 import { DivProps } from 'src/global';
 import {
   Breadcrumb,
@@ -6,7 +7,6 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from './shadcn-ui/breadcrumb';
-import { Fragment } from 'react';
 
 export interface CssBreadcrumbsProps extends DivProps {
   configs: Array<{ link?: string; label: string; formatter?: (label: string) => string }>;

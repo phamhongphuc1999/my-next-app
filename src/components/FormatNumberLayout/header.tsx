@@ -1,8 +1,8 @@
 'use client';
 
-import { Search } from 'lucide-react';
 import { useState } from 'react';
-import { useDebounceValue } from 'usehooks-ts';
+import { useDebounceValue } from 'src/hooks/use-debounce';
+import { SearchIcon } from 'src/components/icons';
 import ThemeButton from '../buttons/ThemeButton';
 import BaseInput from '../input/BaseInput';
 import SearchInput from '../input/SearchInput';
@@ -26,7 +26,7 @@ export default function Header() {
         <DialogTrigger className="w-1/6 cursor-pointer">
           <BaseInput
             name="search"
-            icon={{ start: <Search size={14} /> }}
+            icon={{ start: <SearchIcon className="size-3.5" /> }}
             rootprops={{ className: 'w-full' }}
             readOnly
           />
